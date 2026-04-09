@@ -28,11 +28,11 @@ export default function TopBar() {
             </div>
             <div>
               <p className="text-xs text-gray-400">İstanbul / Turkey</p>
-              <p className="text-xs font-medium">Bahçelievler</p>
+              <p className="text-xs font-medium">Hali</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
