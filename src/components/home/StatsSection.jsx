@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "12+", label: "Yıllık Deneyim" },
-  { value: "5000+", label: "Mutlu Hasta" },
-  { value: "50+", label: "Uzman Doktor" },
-  { value: "10K+", label: "Başarılı Operasyon" },
+  { value: "12+", label: "Yıllık Diş Deneyimi" },
+  { value: "8.000+", label: "Başarılı İmplant" },
+  { value: "5.000+", label: "Hollywood Gülüşü" },
+  { value: "98%", label: "Hasta Memnuniyeti" },
 ];
 
 export default function StatsSection() {

@@ -1,24 +1,41 @@
 import { motion } from "framer-motion";
-import { Syringe, SmilePlus, Scissors } from "lucide-react";
 
 const services = [
   {
-    icon: Syringe,
-    title: "İstanbul'daki en iyi plastik cerrahi merkezi",
-    link: "#",
-    color: "from-emerald-500/20 to-emerald-600/5",
+    emoji: "🦷",
+    title: "Diş İmplantı",
+    desc: "Eksik dişleriniz için All-on-4 ve All-on-6 sistemleriyle kalıcı çözümler.",
+    color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
-    icon: SmilePlus,
-    title: "Diş implantları ve Hollywood gülümsemesi",
-    link: "#",
-    color: "from-teal-500/20 to-teal-600/5",
+    emoji: "✨",
+    title: "Hollywood Gülüşü",
+    desc: "Porselen laminate ve zirkonyum kaplama ile kusursuz diş tasarımı.",
+    color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
-    icon: Scissors,
-    title: "Saç ekimi için en iyi merkez",
-    link: "#",
-    color: "from-cyan-500/20 to-cyan-600/5",
+    emoji: "🪥",
+    title: "Diş Beyazlatma",
+    desc: "Laser beyazlatma ile profesyonel ve hızlı sonuçlar.",
+    color: "from-[#f7f3ef] to-[#ede8e0]",
+  },
+  {
+    emoji: "💎",
+    title: "Zirkonyum Kaplama",
+    desc: "Estetik ve dayanıklı zirkonyum kaplama ile doğal görünüm.",
+    color: "from-[#f7f3ef] to-[#ede8e0]",
+  },
+  {
+    emoji: "🦴",
+    title: "Kemik Grefti",
+    desc: "Diş implantı için kemik yenileme ve sinus lifting işlemleri.",
+    color: "from-[#f7f3ef] to-[#ede8e0]",
+  },
+  {
+    emoji: "😁",
+    title: "Diş Teli & Ortodonti",
+    desc: "Şeffaf plak ve metal tel ile estetik diş hizalama tedavileri.",
+    color: "from-[#f7f3ef] to-[#ede8e0]",
   },
 ];
 
@@ -27,34 +44,34 @@ export default function ServicesGrid() {
     <section className="py-20 bg-[#f7f3ef] font-inter" id="services">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
-          <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">Hizmetlerimiz</p>
+          <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">Tedavilerimiz</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair">
-            Uzman Tedavi Alanlarımız
+            Diş Tedavi Hizmetlerimiz
           </h2>
+          <p className="text-[#6b5e52] mt-4 max-w-xl mx-auto">
+            Kapsamlı diş sağlığı hizmetlerimizle ağız sağlığınızı ve estetik gülüşünüzü güvence altına alın.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group"
             >
-              <div className={`bg-gradient-to-br ${service.color} border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-primary/30 transition-all duration-300 h-full flex flex-col`}>
-                <div className="w-16 h-16 mx-auto bg-[#8B6840]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-8 h-8 text-[#8B6840]" />
-                </div>
-                <h3 className="text-xl font-bold text-[#2d2419] mb-4 font-playfair leading-snug flex-grow">
-                  {service.title}
-                </h3>
+              <div className={`bg-gradient-to-br ${service.color} border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-[#8B6840]/40 hover:shadow-md transition-all duration-300 h-full flex flex-col`}>
+                <div className="text-4xl mb-5">{service.emoji}</div>
+                <h3 className="text-xl font-bold text-[#2d2419] mb-3 font-playfair">{service.title}</h3>
+                <p className="text-[#6b5e52] text-sm leading-relaxed flex-grow mb-5">{service.desc}</p>
                 <a
-                  href={service.link}
-                  className="inline-block px-6 py-2.5 bg-[#8B6840]/10 text-[#8B6840] rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary hover:text-white transition-all"
+                  href="#contact"
+                  className="inline-block px-5 py-2 bg-[#8B6840]/10 text-[#8B6840] rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-[#8B6840] hover:text-white transition-all"
                 >
-                  Devamını Oku
+                  Bilgi Al
                 </a>
               </div>
             </motion.div>

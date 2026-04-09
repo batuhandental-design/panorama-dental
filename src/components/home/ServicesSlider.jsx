@@ -1,25 +1,25 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Smile, Scissors, Activity } from "lucide-react";
+import { ChevronLeft, ChevronRight, Smile, Sparkles, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   {
     icon: Smile,
-    title: "Yüz Estetiği",
-    subtitle: "Face Lifting",
-    description: "Yüzünüzü gençleştirin ve doğal güzelliğinizi ortaya çıkarın. Uzman cerrahlarımızla en iyi sonuçları elde edin.",
+    title: "Hollywood Gülüşü",
+    subtitle: "Hollywood Smile",
+    description: "Porselen laminate ve zirkonyum kaplamalar kullanarak diş tasarımı yapıyoruz. Estetik ve doğal görünümlü gülüşünüze kavuşun.",
   },
   {
-    icon: Activity,
-    title: "Saç Ekimi",
-    subtitle: "FUE Hair Transplantation",
-    description: "En son teknoloji FUE yöntemiyle doğal görünümlü, kalıcı saç ekimi çözümleri sunuyoruz.",
+    icon: Sparkles,
+    title: "Diş İmplantı",
+    subtitle: "Dental Implant",
+    description: "Eksik dişleriniz için en kalıcı ve doğal görünümlü çözüm. All-on-4 ve All-on-6 implant sistemleriyle tam ağız restorasyonu.",
   },
   {
-    icon: Scissors,
-    title: "Vücut Şekillendirme",
-    subtitle: "Vaser Liposuction",
-    description: "Vaser liposuction ile fazla yağlardan kurtulun ve hayalinizdeki vücut şekline kavuşun.",
+    icon: Star,
+    title: "Diş Beyazlatma",
+    subtitle: "Teeth Whitening",
+    description: "Profesyonel laser diş beyazlatma ile dişlerinizi birkaç ton açın. Hızlı, güvenli ve uzun süreli beyazlık garantisi.",
   },
 ];
 
@@ -40,12 +40,12 @@ export default function ServicesSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4 }}
-              className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] rounded-2xl p-8 md:p-16 text-center border border-white/5"
+              className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] rounded-2xl p-8 md:p-16 text-center border border-[#d4c9bc]"
             >
-              <div className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-20 h-20 mx-auto bg-[#8B6840]/10 rounded-2xl flex items-center justify-center mb-6">
                 {(() => {
                   const Icon = services[current].icon;
-                  return <Icon className="w-10 h-10 text-primary" />;
+                  return <Icon className="w-10 h-10 text-[#8B6840]" />;
                 })()}
               </div>
               <p className="text-[#8B6840] text-sm uppercase tracking-[0.2em] mb-2 font-medium">
@@ -58,11 +58,11 @@ export default function ServicesSlider() {
                 {services[current].description}
               </p>
               <div className="flex items-center justify-center gap-4">
-                <a href="#" className="px-6 py-3 bg-[#8B6840] text-white rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary/90 transition-all">
+                <a href="#services" className="px-6 py-3 bg-[#8B6840] text-white rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-[#7a5c38] transition-all">
                   Devamını Oku
                 </a>
-                <a href="#contact" className="px-6 py-3 border border-[#b0a090] text-[#4a3728] rounded-lg font-semibold text-sm uppercase tracking-wider hover:border-primary hover:text-primary transition-all">
-                  Ücretsiz Danışmanlık
+                <a href="#contact" className="px-6 py-3 border border-[#b0a090] text-[#4a3728] rounded-lg font-semibold text-sm uppercase tracking-wider hover:border-[#8B6840] hover:text-[#8B6840] transition-all">
+                  Ücretsiz Konsültasyon
                 </a>
               </div>
             </motion.div>
@@ -70,19 +70,18 @@ export default function ServicesSlider() {
 
           <button
             onClick={prev}
-            className="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#d4c9bc] backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors"
+            className="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#d4c9bc] rounded-full flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#d4c9bc] backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors"
+            className="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#d4c9bc] rounded-full flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Dots */}
         <div className="flex items-center justify-center gap-2 mt-8">
           {services.map((_, i) => (
             <button

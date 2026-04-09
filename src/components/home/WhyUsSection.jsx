@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
-import { Shield, Heart, Microscope, Globe } from "lucide-react";
+import { Shield, Microscope, Award, Clock } from "lucide-react";
 
 const reasons = [
   {
-    icon: Shield,
-    title: "Uzmanlık",
-    desc: "Sertifikalı plastik cerrahlar ekibimiz, her prosedüre yılların deneyimi ve ileri düzey eğitimini getirir.",
-  },
-  {
-    icon: Heart,
-    title: "Hasta Odaklı Bakım",
-    desc: "Yolculuğunuz boyunca konforunuzu, güvenliğinizi ve memnuniyetinizi ön planda tutuyoruz.",
+    icon: Award,
+    title: "Uzman Diş Hekimleri",
+    desc: "Alanında uzmanlaşmış, uluslararası sertifikalı diş hekimlerimiz her prosedürde yılların deneyimini sunar.",
   },
   {
     icon: Microscope,
-    title: "Son Teknoloji Tesisler",
-    desc: "Modern kliniğimiz, üstün sonuçlar ve rahat bir deneyim sağlamak için en son teknoloji ile donatılmıştır.",
+    title: "Son Teknoloji Ekipman",
+    desc: "3D tomografi, dijital gülüş tasarımı ve laser sistemleriyle en hassas tedavileri gerçekleştiriyoruz.",
   },
   {
-    icon: Globe,
-    title: "Küresel Standartlar",
-    desc: "Uluslararası standartlara uygun hareket ederken, farklı müşteri kitlenizin benzersiz güzellik anlayışlarını da anlar.",
+    icon: Shield,
+    title: "Steril & Güvenli Ortam",
+    desc: "Uluslararası standartlarda sterilizasyon ve hasta güvenliği protokolleriyle en hijyenik ortamı sunuyoruz.",
+  },
+  {
+    icon: Clock,
+    title: "Hızlı & Konforlu Tedavi",
+    desc: "Tek seansta büyük dönüşümler mümkün. Tedavi sürecinizi mümkün olan en konforlu şekilde tamamlıyoruz.",
   },
 ];
 
@@ -34,8 +34,8 @@ export default function WhyUsSection() {
             Neden Panorama Dental'i Tercih Etmelisiniz?
           </h2>
           <p className="text-[#6b5e52] max-w-2xl mx-auto leading-relaxed">
-            Panorama Dental olarak, estetik cerrahiyi seçmenin son derece kişisel bir karar olduğunu anlıyoruz.
-            Kendinizi bilgilendirilmiş, güçlenmiş ve kararlarınızda emin hissettirecek destekleyici bir ortam sağlamaya özen gösteriyoruz.
+            Diş tedavinizde doğru klinik seçimi hayat değiştiren bir karardır.
+            Panorama Dental olarak mükemmel diş sağlığı ve estetik için en iyi deneyimi sunuyoruz.
           </p>
         </div>
 
@@ -47,9 +47,9 @@ export default function WhyUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-[#ede8e0] border border-[#d4c9bc] rounded-2xl p-6 text-center hover:border-primary/20 transition-all group"
+              className="bg-[#ede8e0] border border-[#d4c9bc] rounded-2xl p-6 text-center hover:border-[#8B6840]/20 transition-all group"
             >
-              <div className="w-14 h-14 mx-auto bg-[#8B6840]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+              <div className="w-14 h-14 mx-auto bg-[#8B6840]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#8B6840]/20 transition-colors">
                 <r.icon className="w-7 h-7 text-[#8B6840]" />
               </div>
               <h3 className="text-lg font-bold text-[#2d2419] mb-3">{r.title}</h3>
