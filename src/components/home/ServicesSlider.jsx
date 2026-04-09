@@ -30,7 +30,7 @@ export default function ServicesSlider() {
   const prev = () => setCurrent((prev) => (prev - 1 + services.length) % services.length);
 
   return (
-    <section className="py-20 bg-[#0d1b2a] font-inter" id="operations">
+    <section className="py-20 bg-[#ede8e0] font-inter" id="operations">
       <div className="max-w-6xl mx-auto px-4">
         <div className="relative">
           <AnimatePresence mode="wait">
@@ -40,7 +40,7 @@ export default function ServicesSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4 }}
-              className="bg-gradient-to-br from-[#1a2940] to-[#0f2027] rounded-2xl p-8 md:p-16 text-center border border-white/5"
+              className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] rounded-2xl p-8 md:p-16 text-center border border-white/5"
             >
               <div className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                 {(() => {
@@ -48,20 +48,20 @@ export default function ServicesSlider() {
                   return <Icon className="w-10 h-10 text-primary" />;
                 })()}
               </div>
-              <p className="text-primary text-sm uppercase tracking-[0.2em] mb-2 font-medium">
+              <p className="text-[#8B6840] text-sm uppercase tracking-[0.2em] mb-2 font-medium">
                 {services[current].subtitle}
               </p>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
+              <h3 className="text-3xl md:text-4xl font-bold text-[#2d2419] mb-4 font-playfair">
                 {services[current].title}
               </h3>
-              <p className="text-gray-400 max-w-xl mx-auto mb-8 leading-relaxed">
+              <p className="text-[#6b5e52] max-w-xl mx-auto mb-8 leading-relaxed">
                 {services[current].description}
               </p>
               <div className="flex items-center justify-center gap-4">
-                <a href="#" className="px-6 py-3 bg-primary text-white rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary/90 transition-all">
+                <a href="#" className="px-6 py-3 bg-[#8B6840] text-white rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary/90 transition-all">
                   Devamını Oku
                 </a>
-                <a href="#contact" className="px-6 py-3 border border-white/20 text-white rounded-lg font-semibold text-sm uppercase tracking-wider hover:border-primary hover:text-primary transition-all">
+                <a href="#contact" className="px-6 py-3 border border-[#b0a090] text-[#4a3728] rounded-lg font-semibold text-sm uppercase tracking-wider hover:border-primary hover:text-primary transition-all">
                   Ücretsiz Danışmanlık
                 </a>
               </div>
@@ -70,13 +70,13 @@ export default function ServicesSlider() {
 
           <button
             onClick={prev}
-            className="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors"
+            className="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#d4c9bc] backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors"
+            className="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#d4c9bc] backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -89,7 +89,7 @@ export default function ServicesSlider() {
               key={i}
               onClick={() => setCurrent(i)}
               className={`w-3 h-3 rounded-full transition-all ${
-                i === current ? "bg-primary w-8" : "bg-white/20"
+                i === current ? "bg-[#8B6840] w-8" : "bg-[#b0a090]"
               }`}
             />
           ))}

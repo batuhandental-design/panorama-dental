@@ -26,14 +26,14 @@ const reasons = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-20 bg-[#0d1b2a] font-inter" id="about">
+    <section className="py-20 bg-[#f7f3ef] font-inter" id="about">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
-          <p className="text-primary text-sm uppercase tracking-[0.3em] mb-3 font-medium">Neden Biz?</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4">
+          <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">Neden Biz?</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">
             Neden Panorama Dental'i Tercih Etmelisiniz?
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#6b5e52] max-w-2xl mx-auto leading-relaxed">
             Panorama Dental olarak, estetik cerrahiyi seçmenin son derece kişisel bir karar olduğunu anlıyoruz.
             Kendinizi bilgilendirilmiş, güçlenmiş ve kararlarınızda emin hissettirecek destekleyici bir ortam sağlamaya özen gösteriyoruz.
           </p>
@@ -47,13 +47,13 @@ export default function WhyUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-[#1a2940]/50 border border-white/5 rounded-2xl p-6 text-center hover:border-primary/20 transition-all group"
+              className="bg-[#ede8e0] border border-[#d4c9bc] rounded-2xl p-6 text-center hover:border-primary/20 transition-all group"
             >
-              <div className="w-14 h-14 mx-auto bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <r.icon className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 mx-auto bg-[#8B6840]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <r.icon className="w-7 h-7 text-[#8B6840]" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-3">{r.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{r.desc}</p>
+              <h3 className="text-lg font-bold text-[#2d2419] mb-3">{r.title}</h3>
+              <p className="text-[#6b5e52] text-sm leading-relaxed">{r.desc}</p>
             </motion.div>
           ))}
         </div>

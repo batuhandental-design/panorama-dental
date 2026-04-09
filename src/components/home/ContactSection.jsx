@@ -15,14 +15,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 bg-[#0d1b2a] font-inter" id="contact">
+    <section className="py-20 bg-[#ede8e0] font-inter" id="contact">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
-          <p className="text-primary text-sm uppercase tracking-[0.3em] mb-3 font-medium">İletişim</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4">
+          <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">İletişim</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">
             Ücretsiz Danışmanlık
           </h2>
-          <p className="text-gray-400">Sorularınızı bize sormaktan çekinmeyin. Hemen formu doldurun, sizi arayalım.</p>
+          <p className="text-[#6b5e52]">Sorularınızı bize sormaktan çekinmeyin. Hemen formu doldurun, sizi arayalım.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
@@ -34,31 +34,31 @@ export default function ContactSection() {
           >
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-[#8B6840]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-[#8B6840]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Telefon</h4>
-                  <p className="text-gray-400">+90 505 804 14 16</p>
-                  <p className="text-gray-500 text-sm">7/24 Ücretsiz Danışmanlık</p>
+                  <h4 className="text-[#2d2419] font-semibold mb-1">Telefon</h4>
+                  <p className="text-[#6b5e52]">+90 505 804 14 16</p>
+                  <p className="text-[#9c8e84] text-sm">7/24 Ücretsiz Danışmanlık</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-[#8B6840]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-[#8B6840]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">E-posta</h4>
-                  <p className="text-gray-400">info@panoramadental.com</p>
+                  <h4 className="text-[#2d2419] font-semibold mb-1">E-posta</h4>
+                  <p className="text-[#6b5e52]">info@panoramadental.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-[#8B6840]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-[#8B6840]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Adres</h4>
-                  <p className="text-gray-400">Bahçelievler, İstanbul / Türkiye</p>
+                  <h4 className="text-[#2d2419] font-semibold mb-1">Adres</h4>
+                  <p className="text-[#6b5e52]">Bahçelievler, İstanbul / Türkiye</p>
                 </div>
               </div>
             </div>
@@ -76,30 +76,30 @@ export default function ContactSection() {
               placeholder="Adınız Soyadınız"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="bg-[#1a2940] border-white/10 text-white placeholder:text-gray-500 h-12"
+              className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12"
             />
             <Input
               placeholder="E-posta Adresiniz"
               type="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="bg-[#1a2940] border-white/10 text-white placeholder:text-gray-500 h-12"
+              className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12"
             />
             <Input
               placeholder="Telefon Numaranız"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="bg-[#1a2940] border-white/10 text-white placeholder:text-gray-500 h-12"
+              className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12"
             />
             <Textarea
               placeholder="Mesajınız..."
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="bg-[#1a2940] border-white/10 text-white placeholder:text-gray-500 min-h-[120px]"
+              className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] min-h-[120px]"
             />
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-white h-12 font-semibold text-sm uppercase tracking-wider"
+              className="w-full bg-[#8B6840] hover:bg-[#7a5c38] text-white h-12 font-semibold text-sm uppercase tracking-wider"
             >
               <Send className="w-4 h-4 mr-2" />
               Gönder

@@ -13,7 +13,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-[#111827] text-white sticky top-0 z-50 font-inter">
+    <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <a href="#" className="text-2xl font-bold tracking-tight">
           <span className="text-primary">PANORAMA</span>{" "}
@@ -41,7 +41,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#111827] border-t border-white/10 px-4 pb-4">
+        <div className="md:hidden bg-[#2c2419] border-t border-white/10 px-4 pb-4">
           {navItems.map((item) => (
             <a
               key={item.label}

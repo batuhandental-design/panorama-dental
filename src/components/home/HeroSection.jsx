@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-[#0d1b2a] via-[#1b2838] to-[#0a2e1a] min-h-[80vh] flex items-center justify-center overflow-hidden font-inter">
+    <section className="relative bg-gradient-to-br from-[#2c2419] via-[#4a3728] to-[#3d3028] min-h-[80vh] flex items-center justify-center overflow-hidden font-inter">
       {/* Decorative gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c9a87c]/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#c9a87c]/10 rounded-full blur-3xl" />
 
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <motion.p
