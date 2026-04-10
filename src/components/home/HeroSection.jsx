@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="font-inter opacity-100 relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="bg-[hsl(var(--foreground))] font-inter opacity-100 rounded-sm relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c9a87c]/20 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#c9a87c]/10 rounded-full blur-3xl" />
 
