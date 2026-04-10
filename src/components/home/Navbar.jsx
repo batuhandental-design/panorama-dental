@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Anasayfa", href: "#" },
-  { label: "Hakkımızda", href: "#about" },
-  { label: "Hizmetlerimiz", href: "#services" },
-  { label: "Operasyonlar", href: "#operations" },
-  { label: "Bize Ulaşın", href: "#contact" },
-];
+{ label: "Anasayfa", href: "#" },
+{ label: "Hakkımızda", href: "#about" },
+{ label: "Hizmetlerimiz", href: "#services" },
+{ label: "Operasyonlar", href: "#operations" },
+{ label: "Bize Ulaşın", href: "#contact" }];
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -21,39 +21,39 @@ export default function Navbar() {
         </a>
 
         <div className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="px-4 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
-            >
+          {navItems.map((item) =>
+          <a
+            key={item.label}
+            href={item.href} className="mx-2 my-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
+
+            
               {item.label}
             </a>
-          ))}
+          )}
         </div>
 
         <button
           className="md:hidden p-2"
-          onClick={() => setOpen(!open)}
-        >
+          onClick={() => setOpen(!open)}>
+          
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-[#2c2419] border-t border-white/10 px-4 pb-4">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
-              onClick={() => setOpen(false)}
-            >
+      {open &&
+      <div className="md:hidden bg-[#2c2419] border-t border-white/10 px-4 pb-4">
+          {navItems.map((item) =>
+        <a
+          key={item.label}
+          href={item.href}
+          className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
+          onClick={() => setOpen(false)}>
+          
               {item.label}
             </a>
-          ))}
+        )}
         </div>
-      )}
-    </nav>
-  );
+      }
+    </nav>);
+
 }
