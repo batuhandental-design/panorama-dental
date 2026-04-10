@@ -2,9 +2,19 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-[#2c2419] via-[#4a3728] to-[#3d3028] min-h-[80vh] flex items-center justify-center overflow-hidden font-inter">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c9a87c]/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#c9a87c]/10 rounded-full blur-3xl" />
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden font-inter">
+      {/* YouTube Video Background */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/z-o9JqC7aOY?autoplay=1&mute=1&loop=1&playlist=z-o9JqC7aOY&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          allow="autoplay; encrypted-media"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{ width: '177.78vh', minWidth: '100%', height: '56.25vw', minHeight: '100%', border: 'none', pointerEvents: 'none' }}
+          title="Background Video"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#2c2419]/70" />
+      </div>
 
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <motion.p
