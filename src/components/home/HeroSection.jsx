@@ -47,7 +47,7 @@ export default function HeroSection() {
             Diş Tedavileri
           </a>
           <a
-            href="#contact" className="text-white px-12 text-sm font-semibold uppercase tracking-wider rounded-lg border-2 border-white/30 hover:border-[#c9a87c] hover:text-[#c9a87c] transition-all">ÜCRETSIZ KONSÜLTASYON
+            href="#contact" className="text-white mx-1 my-1 px-12 py-2 text-sm font-semibold uppercase tracking-wider rounded-lg border-2 border-white/30 hover:border-[#c9a87c] hover:text-[#c9a87c] transition-all">ÜCRETSIZ KONSÜLTASYON
 
 
 
