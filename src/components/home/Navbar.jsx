@@ -24,7 +24,7 @@ export default function Navbar() {
           {navItems.map((item) =>
           <a
             key={item.label}
-            href={item.href} className="mx-2 my-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
+            href={item.href} className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
 
             
               {item.label}
