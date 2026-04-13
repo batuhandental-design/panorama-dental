@@ -14,8 +14,7 @@ export default function HeroSection() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover"
           style={{ minWidth: '100%', minHeight: '100%' }}
         >
-          <source src="https://videos.pexels.com/video-files/7578540/7578540-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/7578541/7578541-hd_1920_1080_25fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/6763253/6763253-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
         {/* Cinematic gradient overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(44,36,25,0.82) 0%, rgba(44,36,25,0.6) 50%, rgba(74,55,40,0.75) 100%)' }} />
