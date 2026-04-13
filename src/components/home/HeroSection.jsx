@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import { Phone } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden font-inter">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden font-inter">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
@@ -13,21 +14,35 @@ export default function HeroSection() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover"
           style={{ minWidth: '100%', minHeight: '100%' }}
         >
+          <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4" />
           <source src="https://videos.pexels.com/video-files/6763242/6763242-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#2c2419]/70" />
+        {/* Cinematic gradient overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(44,36,25,0.82) 0%, rgba(44,36,25,0.6) 50%, rgba(74,55,40,0.75) 100%)' }} />
+        {/* Bottom vignette */}
+        <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to top, rgba(44,36,25,0.9), transparent)' }} />
       </div>
 
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+      {/* Trust badges */}
+      <div className="absolute top-6 right-6 z-20 hidden md:flex flex-col gap-2">
+        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-white text-xs font-medium text-right">
+          <span className="text-[#c9a87c] font-bold">★★★★★</span> Hasta Memnuniyeti
+        </div>
+        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-white text-xs font-medium text-right">
+          🏆 12+ Yıl Deneyim
+        </div>
+      </div>
+
+      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-[#c9a87c] text-sm md:text-base uppercase tracking-[0.3em] mb-4 font-medium"
+          className="inline-flex items-center gap-2 bg-[#8B6840]/30 backdrop-blur-sm border border-[#c9a87c]/30 text-[#c9a87c] text-xs font-semibold uppercase tracking-[0.3em] px-5 py-2.5 rounded-full mb-6"
         >
-          İstanbul, Türkiye — Diş Kliniği
-        </motion.p>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#c9a87c] animate-pulse"></span>
+          İstanbul, Türkiye — Premium Diş Kliniği
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,10 +57,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed"
+          className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Hollywood gülüşü, diş implantları ve kozmetik diş tedavileri ile özgüveninizi yeniden keşfedin.
-          Uzman diş hekimlerimiz en son teknoloji ile hizmetinizdedir.
+          Havalimanı transferinden kliniğe, VIP bir deneyim yaşayın.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,16 +70,37 @@ export default function HeroSection() {
         >
           <a
             href="#services"
-            className="px-8 py-3.5 bg-[#8B6840] text-white font-semibold rounded-lg hover:bg-[#7a5c38] transition-all shadow-lg shadow-[#8B6840]/25 text-sm uppercase tracking-wider"
+            className="px-8 py-4 bg-[#8B6840] text-white font-semibold rounded-xl hover:bg-[#7a5c38] transition-all shadow-2xl shadow-[#8B6840]/40 text-sm uppercase tracking-wider"
           >
             Diş Tedavileri
           </a>
           <a
             href="#contact"
-            className="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:border-[#c9a87c] hover:text-[#c9a87c] transition-all text-sm uppercase tracking-wider"
+            className="flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:border-[#c9a87c] hover:text-[#c9a87c] hover:bg-white/5 transition-all text-sm uppercase tracking-wider backdrop-blur-sm"
           >
+            <Phone className="w-4 h-4" />
             Ücretsiz Konsültasyon
           </a>
+        </motion.div>
+
+        {/* Stats row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap items-center justify-center gap-8 mt-14 pt-10 border-t border-white/10"
+        >
+          {[
+            { val: "8.000+", label: "İmplant" },
+            { val: "5.000+", label: "Hollywood Gülüşü" },
+            { val: "98%", label: "Memnuniyet" },
+            { val: "50+", label: "Ülkeden Hasta" },
+          ].map((s, i) => (
+            <div key={i} className="text-center">
+              <p className="text-2xl font-bold font-playfair text-[#c9a87c]">{s.val}</p>
+              <p className="text-xs text-white/60 uppercase tracking-wider mt-1">{s.label}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
 
