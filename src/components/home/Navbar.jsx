@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-{ label: "Anasayfa", href: "#" },
+{ label: "Anasayfa", href: "#hero" },
 { label: "Hakkımızda", href: "#about" },
 { label: "Hizmetlerimiz", href: "#services" },
 { label: "Operasyonlar", href: "#operations" },

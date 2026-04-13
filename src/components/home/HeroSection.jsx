@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden font-inter">
+    <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden font-inter">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
