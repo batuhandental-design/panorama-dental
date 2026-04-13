@@ -109,9 +109,27 @@ function SliderComparison({ before, after }) {
 }
 
 const initialCases = [
-  { id: 1, before: null, after: null, name: "Vaka 1", treatment: "Hollywood Smile" },
-  { id: 2, before: null, after: null, name: "Vaka 2", treatment: "Diş İmplantı" },
-  { id: 3, before: null, after: null, name: "Vaka 3", treatment: "Zirkonyum Kaplama" },
+  {
+    id: 1,
+    before: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80",
+    after: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80",
+    name: "Vaka 1",
+    treatment: "Hollywood Smile"
+  },
+  {
+    id: 2,
+    before: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
+    after: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80",
+    name: "Vaka 2",
+    treatment: "Diş İmplantı"
+  },
+  {
+    id: 3,
+    before: "https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&q=80",
+    after: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80",
+    name: "Vaka 3",
+    treatment: "Zirkonyum Kaplama"
+  },
 ];
 
 export default function BeforeAfterSection() {

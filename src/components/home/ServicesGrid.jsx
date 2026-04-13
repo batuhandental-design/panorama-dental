@@ -1,38 +1,45 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     emoji: "🦷",
+    slug: "dis-implanti",
     title: "Diş İmplantı",
     desc: "Eksik dişleriniz için All-on-4 ve All-on-6 sistemleriyle kalıcı çözümler.",
     color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
     emoji: "✨",
+    slug: "hollywood-gulusu",
     title: "Hollywood Gülüşü",
     desc: "Porselen laminate ve zirkonyum kaplama ile kusursuz diş tasarımı.",
     color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
     emoji: "🪥",
+    slug: "dis-beyazlatma",
     title: "Diş Beyazlatma",
     desc: "Laser beyazlatma ile profesyonel ve hızlı sonuçlar.",
     color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
     emoji: "💎",
+    slug: "zirkonyum-kaplama",
     title: "Zirkonyum Kaplama",
     desc: "Estetik ve dayanıklı zirkonyum kaplama ile doğal görünüm.",
     color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
     emoji: "🦴",
+    slug: "kemik-grefti",
     title: "Kemik Grefti",
     desc: "Diş implantı için kemik yenileme ve sinus lifting işlemleri.",
     color: "from-[#f7f3ef] to-[#ede8e0]",
   },
   {
     emoji: "😁",
+    slug: "dis-teli-ortodonti",
     title: "Diş Teli & Ortodonti",
     desc: "Şeffaf plak ve metal tel ile estetik diş hizalama tedavileri.",
     color: "from-[#f7f3ef] to-[#ede8e0]",
@@ -63,17 +70,17 @@ export default function ServicesGrid() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group"
             >
-              <div className={`bg-gradient-to-br ${service.color} border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-[#8B6840]/40 hover:shadow-md transition-all duration-300 h-full flex flex-col`}>
-                <div className="text-4xl mb-5">{service.emoji}</div>
+              <Link
+                to={`/tedavi/${service.slug}`}
+                className={`bg-gradient-to-br ${service.color} border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-[#8B6840]/40 hover:shadow-md transition-all duration-300 h-full flex flex-col cursor-pointer block`}
+              >
+                <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">{service.emoji}</div>
                 <h3 className="text-xl font-bold text-[#2d2419] mb-3 font-playfair">{service.title}</h3>
                 <p className="text-[#6b5e52] text-sm leading-relaxed flex-grow mb-5">{service.desc}</p>
-                <a
-                  href="#contact"
-                  className="inline-block px-5 py-2 bg-[#8B6840]/10 text-[#8B6840] rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-[#8B6840] hover:text-white transition-all"
-                >
-                  Bilgi Al
-                </a>
-              </div>
+                <span className="inline-block px-5 py-2 bg-[#8B6840]/10 text-[#8B6840] rounded-lg font-semibold text-sm uppercase tracking-wider group-hover:bg-[#8B6840] group-hover:text-white transition-all">
+                  Detaylı İncele →
+                </span>
+              </Link>
             </motion.div>
           ))}
         </div>
