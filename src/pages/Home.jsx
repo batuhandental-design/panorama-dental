@@ -8,6 +8,7 @@ import DoctorSection from "../components/home/DoctorSection";
 import WhyUsSection from "../components/home/WhyUsSection";
 import PackageServices from "../components/home/PackageServices";
 import DepartmentsSection from "../components/home/DepartmentsSection";
+import BeforeAfterSection from "../components/home/BeforeAfterSection";
 import ContactSection from "../components/home/ContactSection";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
@@ -21,6 +22,7 @@ export default function Home() {
       <ServicesSlider />
       <ServicesGrid />
       <StatsSection />
+      <BeforeAfterSection />
       <DoctorSection />
       <WhyUsSection />
       <PackageServices />
