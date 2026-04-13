@@ -59,12 +59,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="#services"
-            className="px-8 py-4 bg-[#8B6840] text-white font-semibold rounded-xl hover:bg-[#7a5c38] transition-all shadow-2xl shadow-[#8B6840]/40 text-sm uppercase tracking-wider"
-          >
-            Diş Tedavileri
-          </a>
+
           <a
             href="#contact"
             className="flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:border-[#c9a87c] hover:text-[#c9a87c] hover:bg-white/5 transition-all text-sm uppercase tracking-wider backdrop-blur-sm"
