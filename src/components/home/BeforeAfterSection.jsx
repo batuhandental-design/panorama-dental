@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const BASE = "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/";
 
 const cases = [
-  { id: 1, file: "ed946f566_1.png",  label: "Hollywood Smile" },
-  { id: 2, file: "0f68dc5f0_2.png",  label: "Hollywood Smile" },
-  { id: 3, file: "3165b21b7_3.png",  label: "Zirkonyum Kaplama" },
-  { id: 4, file: "a2631b18a_4.png",  label: "Diş İmplantı" },
-  { id: 5, file: "81e694748_5.png",  label: "Diş Beyazlatma" },
-  { id: 6, file: "5254cb7ca_6.png",  label: "Zirkonyum Kaplama" },
-  { id: 7, file: "598e6993d_7.png",  label: "Diş İmplantı" },
-  { id: 8, file: "bac2fca14_8.png",  label: "Diş İmplantı" },
-  { id: 9, file: "985a49a67_9.png",  label: "Zirkonyum Kaplama" },
+  { id: 1,  file: "ed946f566_1.png",  label: "Hollywood Smile" },
+  { id: 2,  file: "0f68dc5f0_2.png",  label: "Hollywood Smile" },
+  { id: 3,  file: "3165b21b7_3.png",  label: "Zirkonyum Kaplama" },
+  { id: 4,  file: "a2631b18a_4.png",  label: "Diş İmplantı" },
+  { id: 5,  file: "81e694748_5.png",  label: "Diş Beyazlatma" },
+  { id: 6,  file: "5254cb7ca_6.png",  label: "Zirkonyum Kaplama" },
+  { id: 7,  file: "598e6993d_7.png",  label: "Diş İmplantı" },
+  { id: 8,  file: "bac2fca14_8.png",  label: "Diş İmplantı" },
+  { id: 9,  file: "985a49a67_9.png",  label: "Zirkonyum Kaplama" },
   { id: 10, file: "59a94a24f_10.png", label: "Hollywood Smile" },
   { id: 11, file: "732eb19d1_11.png", label: "Diş İmplantı" },
   { id: 12, file: "cdeedde90_12.png", label: "Zirkonyum Kaplama" },
@@ -27,27 +27,43 @@ const cases = [
   { id: 20, file: "e6c786236_20.png", label: "Hollywood Smile" },
 ];
 
-const LABELS_COLOR = {
-  "Hollywood Smile": "bg-[#8B6840] text-white",
-  "Zirkonyum Kaplama": "bg-[#1a7a8a] text-white",
-  "Diş İmplantı": "bg-[#2d4a6e] text-white",
-  "Diş Beyazlatma": "bg-[#5a8a5a] text-white",
+const LABEL_COLORS = {
+  "Hollywood Smile":    "bg-[#8B6840] text-white",
+  "Zirkonyum Kaplama":  "bg-[#1a7a8a] text-white",
+  "Diş İmplantı":      "bg-[#2d4a6e] text-white",
+  "Diş Beyazlatma":    "bg-[#5a8a5a] text-white",
 };
 
-export default function BeforeAfterSection() {
-  const [lightbox, setLightbox] = useState(null);
-  const [page, setPage] = useState(0);
-  const PER_PAGE = 9;
-  const totalPages = Math.ceil(cases.length / PER_PAGE);
-  const visible = cases.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+// Show 3 cards on desktop, 1 on mobile
+const VISIBLE = 3;
 
-  const openLightbox = (idx) => setLightbox(idx);
-  const closeLightbox = () => setLightbox(null);
-  const prevLight = () => setLightbox((l) => (l - 1 + cases.length) % cases.length);
-  const nextLight = () => setLightbox((l) => (l + 1) % cases.length);
+export default function BeforeAfterSection() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const total = cases.length;
+
+  const go = useCallback((dir) => {
+    setDirection(dir);
+    setCurrent((c) => (c + dir + total) % total);
+  }, [total]);
+
+  // Auto-advance every 4s
+  useEffect(() => {
+    const t = setInterval(() => go(1), 4000);
+    return () => clearInterval(t);
+  }, [go]);
+
+  // Indices of the 3 visible cards
+  const visibleIndices = Array.from({ length: VISIBLE }, (_, i) => (current + i) % total);
+
+  const variants = {
+    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 120 : -120, scale: 0.95 }),
+    center: { opacity: 1, x: 0, scale: 1 },
+    exit:  (dir) => ({ opacity: 0, x: dir > 0 ? -120 : 120, scale: 0.95 }),
+  };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#f0ece5] to-[#e8e0d5] font-inter" id="before-after">
+    <section className="py-24 bg-gradient-to-b from-[#f0ece5] to-[#e8e0d5] font-inter overflow-hidden" id="before-after">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Header */}
@@ -80,9 +96,9 @@ export default function BeforeAfterSection() {
         >
           {[
             { val: "5.000+", label: "Mutlu Hasta" },
-            { val: "98%", label: "Memnuniyet" },
-            { val: "12+", label: "Yıl Deneyim" },
-            { val: "50+", label: "Ülkeden Hasta" },
+            { val: "98%",    label: "Memnuniyet" },
+            { val: "12+",    label: "Yıl Deneyim" },
+            { val: "50+",    label: "Ülkeden Hasta" },
           ].map((s, i) => (
             <div key={i} className="flex items-center gap-2 bg-white rounded-2xl px-5 py-2.5 shadow-sm border border-[#e4dcd2]">
               <span className="text-lg font-bold text-[#8B6840] font-playfair">{s.val}</span>
@@ -91,78 +107,87 @@ export default function BeforeAfterSection() {
           ))}
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-          <AnimatePresence mode="wait">
-            {visible.map((item, index) => (
+        {/* Carousel */}
+        <div className="relative">
+          {/* Prev */}
+          <button
+            onClick={() => go(-1)}
+            className="absolute -left-5 md:-left-7 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Slides */}
+          <div className="overflow-hidden px-1 py-4">
+            <AnimatePresence mode="popLayout" custom={direction}>
               <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30, scale: 0.97 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
-                className="group relative bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-[#e4dcd2] cursor-pointer"
-                onClick={() => openLightbox(page * PER_PAGE + index)}
+                key={current}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeInOut" }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
               >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={BASE + item.file}
-                    alt={item.label}
-                    loading="lazy"
-                    className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-400 flex items-center justify-center">
-                    <ZoomIn className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
-                  </div>
-                </div>
-                {/* Label */}
-                <div className="absolute top-3 left-3">
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${LABELS_COLOR[item.label] || "bg-[#8B6840] text-white"}`}>
-                    {item.label}
-                  </span>
-                </div>
-                {/* Vaka number */}
-                <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm text-[#2d2419] text-[10px] font-bold px-2.5 py-1 rounded-full">
-                  Vaka {item.id}
-                </div>
+                {visibleIndices.map((idx) => {
+                  const item = cases[idx];
+                  return (
+                    <div
+                      key={item.id}
+                      className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-[#e4dcd2]"
+                    >
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={BASE + item.file}
+                          alt={item.label}
+                          loading="lazy"
+                          className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${LABEL_COLORS[item.label] || "bg-[#8B6840] text-white"}`}>
+                            {item.label}
+                          </span>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm text-[#2d2419] text-[10px] font-bold px-2.5 py-1 rounded-full">
+                          Vaka {item.id}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </motion.div>
-            ))}
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
+
+          {/* Next */}
+          <button
+            onClick={() => go(1)}
+            className="absolute -right-5 md:-right-7 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-3 mb-12">
+        {/* Dot indicators */}
+        <div className="flex items-center justify-center gap-2 mt-8 mb-12">
+          {cases.map((_, i) => (
             <button
-              onClick={() => setPage((p) => Math.max(0, p - 1))}
-              disabled={page === 0}
-              className="w-10 h-10 rounded-full border border-[#d4c9bc] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] disabled:opacity-40 transition-all"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setPage(i)}
-                className={`w-10 h-10 rounded-full font-bold text-sm transition-all border ${
-                  i === page
-                    ? "bg-[#8B6840] text-white border-[#8B6840] shadow-md"
-                    : "border-[#d4c9bc] text-[#4a3728] hover:border-[#8B6840]"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-              disabled={page === totalPages - 1}
-              className="w-10 h-10 rounded-full border border-[#d4c9bc] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] disabled:opacity-40 transition-all"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        )}
+              key={i}
+              onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+              className={`rounded-full transition-all duration-300 ${
+                i === current
+                  ? "bg-[#8B6840] w-7 h-2.5"
+                  : "bg-[#c9bfb4] w-2.5 h-2.5 hover:bg-[#8B6840]/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Counter */}
+        <p className="text-center text-[#9c8e84] text-sm mb-12">
+          <span className="font-bold text-[#8B6840]">{current + 1}</span> / {total} vaka
+        </p>
 
         {/* CTA Banner */}
         <motion.div
@@ -204,53 +229,8 @@ export default function BeforeAfterSection() {
             </div>
           </div>
         </motion.div>
-      </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightbox !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
-            onClick={closeLightbox}
-          >
-            <button
-              className="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition"
-              onClick={closeLightbox}
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition"
-              onClick={(e) => { e.stopPropagation(); prevLight(); }}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <motion.img
-              key={lightbox}
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.92 }}
-              transition={{ duration: 0.25 }}
-              src={BASE + cases[lightbox].file}
-              alt={cases[lightbox].label}
-              className="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition"
-              onClick={(e) => { e.stopPropagation(); nextLight(); }}
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full">
-              {cases[lightbox].label} — Vaka {cases[lightbox].id} / {cases.length}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
     </section>
   );
 }
