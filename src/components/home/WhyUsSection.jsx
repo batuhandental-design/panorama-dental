@@ -26,7 +26,7 @@ const reasons = [
 
 export default function WhyUsSection() {
   return (
-    <section id="about" className="py-20 bg-[#f7f3ef] font-inter" id="about">
+    <section id="about" className="py-20 bg-[#f7f3ef] font-inter">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">Neden Biz?</p>
