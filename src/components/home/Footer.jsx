@@ -1,19 +1,19 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const quickLinks = [
-  "Diş Tedavileri",
-  "Estetik Cerrahi",
-  "Saç Ekimi",
-  "Obezite Cerrahisi",
-  "Diyabet Cerrahisi",
-  "Göz Tedavisi",
+  { label: "Diş İmplantı", href: "/tedavi/dis-implanti" },
+  { label: "Hollywood Gülüşü", href: "/tedavi/hollywood-gulusu" },
+  { label: "Diş Beyazlatma", href: "/tedavi/dis-beyazlatma" },
+  { label: "Zirkonyum Kaplama", href: "/tedavi/zirkonyum-kaplama" },
+  { label: "Kemik Grefti", href: "/tedavi/kemik-grefti" },
+  { label: "Diş Teli & Ortodonti", href: "/tedavi/dis-teli-ortodonti" },
 ];
 
 const aboutLinks = [
-  "Bize Ulaşın",
-  "Hizmetlerimiz",
-  "Hakkımızda",
-  "Blog ve Haberler",
+  { label: "Bize Ulaşın", href: "/#contact" },
+  { label: "Hizmetlerimiz", href: "/#services" },
+  { label: "Hakkımızda", href: "/#about" },
+  { label: "Operasyonlar", href: "/#operations" },
 ];
 
 export default function Footer() {
@@ -36,8 +36,8 @@ export default function Footer() {
             <h4 className="text-[#e8dfd5] font-semibold mb-4 uppercase text-sm tracking-wider">Bölümler</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm hover:text-[#c9a87c] transition-colors">{link}</a>
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm hover:text-[#c9a87c] transition-colors">{link.label}</a>
                 </li>
               ))}
             </ul>
@@ -48,8 +48,8 @@ export default function Footer() {
             <h4 className="text-[#e8dfd5] font-semibold mb-4 uppercase text-sm tracking-wider">Hakkımızda</h4>
             <ul className="space-y-2">
               {aboutLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-sm hover:text-[#c9a87c] transition-colors">{link}</a>
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm hover:text-[#c9a87c] transition-colors">{link.label}</a>
                 </li>
               ))}
             </ul>

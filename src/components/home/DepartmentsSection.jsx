@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const departments = [
-  "Diş İmplantı",
-  "Hollywood Gülüşü",
-  "Zirkonyum Kaplama",
-  "Diş Beyazlatma",
-  "Porselen Laminate",
-  "Diş Teli & Ortodonti",
-  "Kanal Tedavisi",
-  "Diş Eti Tedavisi",
-  "Kemik Grefti",
-  "All-on-4 / All-on-6",
-  "Çocuk Diş Hekimliği",
-  "Ağız & Diş Bakımı",
+  { label: "Diş İmplantı", href: "/tedavi/dis-implanti" },
+  { label: "Hollywood Gülüşü", href: "/tedavi/hollywood-gulusu" },
+  { label: "Zirkonyum Kaplama", href: "/tedavi/zirkonyum-kaplama" },
+  { label: "Diş Beyazlatma", href: "/tedavi/dis-beyazlatma" },
+  { label: "Porselen Laminate", href: "/tedavi/hollywood-gulusu" },
+  { label: "Diş Teli & Ortodonti", href: "/tedavi/dis-teli-ortodonti" },
+  { label: "Kanal Tedavisi", href: "/#contact" },
+  { label: "Diş Eti Tedavisi", href: "/#contact" },
+  { label: "Kemik Grefti", href: "/tedavi/kemik-grefti" },
+  { label: "All-on-4 / All-on-6", href: "/tedavi/dis-implanti" },
+  { label: "Çocuk Diş Hekimliği", href: "/#contact" },
+  { label: "Ağız & Diş Bakımı", href: "/#contact" },
 ];
 
 export default function DepartmentsSection() {
@@ -31,18 +32,22 @@ export default function DepartmentsSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {departments.map((dept, i) => (
-            <motion.a
+            <motion.div
               key={i}
-              href="#contact"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="bg-gradient-to-br from-[#ede8e0] to-[#e4dcd2] border border-[#d4c9bc] rounded-xl p-5 text-center hover:border-[#8B6840]/40 hover:shadow-sm transition-all group"
             >
-              <h3 className="text-[#2d2419] font-semibold text-sm group-hover:text-[#8B6840] transition-colors">{dept}</h3>
-            </motion.a>
+              <Link
+                to={dept.href}
+                className="block bg-gradient-to-br from-[#ede8e0] to-[#e4dcd2] border border-[#d4c9bc] rounded-xl p-5 text-center hover:border-[#8B6840]/40 hover:shadow-sm transition-all group"
+              >
+                <h3 className="text-[#2d2419] font-semibold text-sm group-hover:text-[#8B6840] transition-colors">{dept.label}</h3>
+              </Link>
+            </motion.div>
           ))}
+
         </div>
       </div>
     </section>
