@@ -1,6 +1,7 @@
 import { useLanguage } from "@/lib/LanguageContext";
 
 const languages = [
+  { code: "tr", img: "https://flagcdn.com/w80/tr.png", label: "Türkçe" },
   { code: "en", img: "https://flagcdn.com/w80/gb.png", label: "English" },
   { code: "de", img: "https://flagcdn.com/w80/de.png", label: "Deutsch" },
   { code: "ar", img: "https://flagcdn.com/w80/sa.png", label: "العربية" },
