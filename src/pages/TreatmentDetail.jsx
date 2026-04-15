@@ -159,7 +159,7 @@ export default function TreatmentDetail() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/905315898089"
+              href="https://wa.me/905491240103"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#20bb5a] transition-all shadow-lg text-sm uppercase tracking-wider"
@@ -170,7 +170,7 @@ export default function TreatmentDetail() {
               {t.treatmentCtaBtn1}
             </a>
             <a
-              href="tel:+905315898089"
+              href="tel:+905491240103"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-white/20 text-white font-bold rounded-xl hover:border-[#c9a87c] hover:text-[#c9a87c] transition-all text-sm uppercase tracking-wider"
             >
               <Phone className="w-4 h-4" />

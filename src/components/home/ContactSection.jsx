@@ -13,7 +13,7 @@ export default function ContactSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const msg = encodeURIComponent(`${t.whatsappText} ${form.name}. ${form.message}`);
-    window.open(`https://api.whatsapp.com/send?phone=905058041416&text=${msg}`, "_blank");
+    window.open(`https://api.whatsapp.com/send?phone=905491240103&text=${msg}`, "_blank");
   };
 
   return (

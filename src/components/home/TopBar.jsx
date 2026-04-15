@@ -20,7 +20,8 @@ export default function TopBar() {
               <Phone className="w-4 h-4 text-primary" />
             </div>
             <div>
-              <p className="text-xs font-medium">+</p>
+              <p className="text-xs text-gray-400">Bizi Arayın</p>
+              <a href="tel:+905491240103" className="text-xs font-medium hover:text-primary transition-colors">+90 549 124 01 03</a>
             </div>
           </div>
           <div className="flex items-center gap-2">

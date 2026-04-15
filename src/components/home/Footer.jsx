@@ -61,10 +61,10 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#c9a87c] flex-shrink-0" />
-                <span className="text-sm">+90 531 589 80 89</span>
+                <span className="text-sm">+90 549 124 01 03</span>
               </div>
               <a
-                href="https://wa.me/905315898089"
+                href="https://wa.me/905491240103"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 mt-1 group"
