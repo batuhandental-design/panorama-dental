@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import LanguageSwitcher from "../components/home/LanguageSwitcher";
 import TopBar from "../components/home/TopBar";
 import Navbar from "../components/home/Navbar";
 import HeroSection from "../components/home/HeroSection";
@@ -35,6 +36,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ServicesSlider />
+      <LanguageSwitcher />
       <ServicesGrid />
       <StatsSection />
       <BeforeAfterSection />
