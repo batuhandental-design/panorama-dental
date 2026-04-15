@@ -1,22 +1,26 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const navItems = [
-{ label: "Anasayfa", href: "#hero" },
-{ label: "Hakkımızda", href: "#about" },
-{ label: "Hizmetlerimiz", href: "#services" },
-{ label: "Operasyonlar", href: "#operations" },
-{ label: "Bize Ulaşın", href: "#contact" }];
+{ label: "Anasayfa", hash: "#hero" },
+{ label: "Hakkımızda", hash: "#about" },
+{ label: "Hizmetlerimiz", hash: "#services" },
+{ label: "Operasyonlar", hash: "#operations" },
+{ label: "Bize Ulaşın", hash: "#contact" }];
 
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  const getHref = (hash) => isHome ? hash : `/${hash}`;
 
   return (
     <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="#" className="text-2xl font-bold tracking-tight">
+        <a href="/" className="text-2xl font-bold tracking-tight">
           <span className="text-primary">PANORAMA</span>{" "}
           <span className="text-white">DENTAL</span>
         </a>
@@ -25,12 +29,12 @@ export default function Navbar() {
           {navItems.map((item) =>
           <a
             key={item.label}
-            href={item.href} className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
+            href={getHref(item.hash)} className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
               {item.label}
             </a>
           )}
           <a
-            href="#contact"
+            href={getHref("#contact")}
             className="ml-4 relative flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold uppercase tracking-wider transition-all duration-300 overflow-hidden group"
             style={{ border: '1.5px solid rgba(201,168,124,0.7)', color: '#c9a87c', background: 'rgba(139,104,64,0.12)', backdropFilter: 'blur(8px)', boxShadow: '0 0 12px rgba(201,168,124,0.2), inset 0 1px 0 rgba(255,255,255,0.08)' }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(139,104,64,0.28)'; e.currentTarget.style.boxShadow = '0 0 28px rgba(201,168,124,0.45), 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = '#c9a87c'; e.currentTarget.style.color = '#e2c48e'; }}
@@ -59,7 +63,7 @@ export default function Navbar() {
           {navItems.map((item) =>
         <a
           key={item.label}
-          href={item.href}
+          href={getHref(item.hash)}
           className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
           onClick={() => setOpen(false)}>
           
