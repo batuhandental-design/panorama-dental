@@ -15,7 +15,7 @@ const slugs = [
 const emojis = ["🦷", "✨", "🪥", "💎", "🦴", "😁"];
 
 export default function ServicesGrid() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="py-20 bg-[#f7f3ef] font-inter" id="services">
