@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import TopBar from "../components/home/TopBar";
 import Navbar from "../components/home/Navbar";
 import HeroSection from "../components/home/HeroSection";
@@ -14,6 +16,19 @@ import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
       <TopBar />
