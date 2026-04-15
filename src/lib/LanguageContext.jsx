@@ -632,10 +632,21 @@ export const translations = {
 };
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => localStorage.getItem("lang") || "tr");
+  const getInitialLang = () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get("lang");
+      if (urlLang && translations[urlLang]) return urlLang;
+      const stored = localStorage.getItem("panorama_lang");
+      if (stored && translations[stored]) return stored;
+    } catch {}
+    return "tr";
+  };
+
+  const [lang, setLang] = useState(getInitialLang);
 
   const handleSetLang = (newLang) => {
-    localStorage.setItem("lang", newLang);
+    try { localStorage.setItem("panorama_lang", newLang); } catch {}
     setLang(newLang);
   };
 
