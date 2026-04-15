@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
 
-
 const slugs = [
   "dis-implanti",
   "hollywood-gulusu",
@@ -15,7 +14,7 @@ const slugs = [
 const emojis = ["🦷", "✨", "🪥", "💎", "🦴", "😁"];
 
 export default function ServicesGrid() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 bg-[#f7f3ef] font-inter" id="services">
@@ -41,7 +40,7 @@ export default function ServicesGrid() {
               className="group"
             >
               <Link
-                to={`/tedavi/${slugs[i]}?lang=${lang}`}
+                to={`/tedavi/${slugs[i]}`}
                 className="bg-gradient-to-br from-[#f7f3ef] to-[#ede8e0] border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-[#8B6840]/40 hover:shadow-md transition-all duration-300 h-full flex flex-col cursor-pointer block"
               >
                 <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">{emojis[i]}</div>

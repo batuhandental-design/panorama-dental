@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
 
-
 const hrefs = [
   "/tedavi/dis-implanti",
   "/tedavi/hollywood-gulusu",
@@ -19,7 +18,7 @@ const hrefs = [
 ];
 
 export default function DepartmentsSection() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 bg-[#f7f3ef] font-inter">
@@ -40,7 +39,7 @@ export default function DepartmentsSection() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
             >
               <Link
-                to={hrefs[i].startsWith("/tedavi") ? `${hrefs[i]}?lang=${lang}` : hrefs[i]}
+                to={hrefs[i]}
                 className="block bg-gradient-to-br from-[#ede8e0] to-[#e4dcd2] border border-[#d4c9bc] rounded-xl p-5 text-center hover:border-[#8B6840]/40 hover:shadow-sm transition-all group"
               >
                 <h3 className="text-[#2d2419] font-semibold text-sm group-hover:text-[#8B6840] transition-colors">{label}</h3>
