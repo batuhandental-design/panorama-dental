@@ -48,14 +48,14 @@ function App() {
 
   return (
     <AuthProvider>
-      <LanguageProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
-          <AuthenticatedApp />
+          <LanguageProvider>
+            <AuthenticatedApp />
+          </LanguageProvider>
         </Router>
         <Toaster />
       </QueryClientProvider>
-      </LanguageProvider>
     </AuthProvider>
   )
 }
