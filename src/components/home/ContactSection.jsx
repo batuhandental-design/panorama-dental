@@ -49,7 +49,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[#2d2419] font-semibold mb-1">{t.email}</h4>
-                  <p className="text-[#6b5e52]">info@panoramadental.com</p>
+                  <p className="text-[#6b5e52]">halicpanoramadental@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
