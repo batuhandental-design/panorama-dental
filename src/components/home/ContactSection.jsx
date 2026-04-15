@@ -30,8 +30,8 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
+            
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#8B6840]/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -39,7 +39,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[#2d2419] font-semibold mb-1">{t.phone}</h4>
-                  <p className="text-[#6b5e52]">+90 549 124 01 03</p>
+                  <p className="text-[#6b5e52]">+90 505 804 14 16</p>
                   <p className="text-[#9c8e84] text-sm">{t.freeConsultLine}</p>
                 </div>
               </div>
@@ -49,7 +49,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[#2d2419] font-semibold mb-1">{t.email}</h4>
-                  <p className="text-[#6b5e52]">halicpanoramadental@gmail.com</p>
+                  <p className="text-[#6b5e52]">info@panoramadental.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -58,7 +58,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[#2d2419] font-semibold mb-1">{t.address}</h4>
-                  <p className="text-[#6b5e52]">Bahçelievler, İstanbul / Türkiye</p>
+                  <p className="text-[#6b5e52]">Beyoğlu, İstanbul / Türkiye</p>
                 </div>
               </div>
             </div>
@@ -70,8 +70,8 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
-          >
+            className="space-y-4">
+            
             <Input placeholder={t.namePlaceholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
             <Input placeholder={t.emailPlaceholder} type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
             <Input placeholder={t.phonePlaceholder} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
@@ -83,6 +83,6 @@ export default function ContactSection() {
           </motion.form>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
