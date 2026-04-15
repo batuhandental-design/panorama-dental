@@ -65,13 +65,13 @@ export default function HeroSection() {
             
             Diş Tedavileri
           </a>
-          <a
-            href="#contact" className="flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:border-[#c9a87c] hover:text-[#c9a87c] hover:bg-white/5 transition-all text-sm uppercase tracking-wider backdrop-blur-sm hidden">
+          
 
-            
-            <Phone className="w-4 h-4" />
-            Ücretsiz Konsültasyon
-          </a>
+
+
+
+
+          
         </motion.div>
 
       </div>
