@@ -632,9 +632,15 @@ export const translations = {
 };
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("tr");
+  const [lang, setLang] = useState(() => localStorage.getItem("lang") || "tr");
+
+  const handleSetLang = (newLang) => {
+    localStorage.setItem("lang", newLang);
+    setLang(newLang);
+  };
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
+    <LanguageContext.Provider value={{ lang, setLang: handleSetLang, t: translations[lang] }}>
       {children}
     </LanguageContext.Provider>
   );
