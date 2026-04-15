@@ -4,7 +4,6 @@ import LanguageSwitcher from "../components/home/LanguageSwitcher";
 import TopBar from "../components/home/TopBar";
 import Navbar from "../components/home/Navbar.jsx";
 import HeroSection from "../components/home/HeroSection.jsx";
-import ServicesSlider from "../components/home/ServicesSlider";
 import ServicesGrid from "../components/home/ServicesGrid";
 import StatsSection from "../components/home/StatsSection.jsx";
 import DoctorSection from "../components/home/DoctorSection.jsx";
@@ -35,7 +34,6 @@ export default function Home() {
       <TopBar />
       <Navbar />
       <HeroSection />
-      <ServicesSlider />
       <LanguageSwitcher />
       <ServicesGrid />
       <StatsSection />
