@@ -39,7 +39,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[#2d2419] font-semibold mb-1">{t.phone}</h4>
-                  <p className="text-[#6b5e52]">+90 505 804 14 16</p>
+                  <p className="text-[#6b5e52]">+90 549 124 01 03</p>
                   <p className="text-[#9c8e84] text-sm">{t.freeConsultLine}</p>
                 </div>
               </div>
