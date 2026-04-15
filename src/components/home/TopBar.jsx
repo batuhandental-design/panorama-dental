@@ -20,7 +20,7 @@ export default function TopBar() {
               <Phone className="w-4 h-4 text-primary" />
             </div>
             <div>
-              <p className="text-xs font-medium">+90 531 589 80 89</p>
+              <p className="text-xs font-medium">+</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
