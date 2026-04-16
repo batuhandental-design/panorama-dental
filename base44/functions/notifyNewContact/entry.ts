@@ -6,15 +6,19 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const { name, email, phone, message, fileUrls } = body;
 
-    // Veritabanına kaydet
-    await base44.asServiceRole.entities.ContactForm.create({
-      name,
-      email,
-      phone,
-      message,
-      file_urls: fileUrls || [],
-      status: "new",
-    });
+    // Veritabanına kaydet (hata olsa bile devam et)
+    try {
+      await base44.asServiceRole.entities.ContactForm.create({
+        name,
+        email,
+        phone,
+        message,
+        file_urls: fileUrls || [],
+        status: "new",
+      });
+    } catch (dbErr) {
+      console.error("DB kayıt hatası:", dbErr.message);
+    }
 
     // Gmail ile bildirim gönder
     const { accessToken } = await base44.asServiceRole.connectors.getConnection('gmail');
