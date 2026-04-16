@@ -24,10 +24,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold text-[#e8dfd5] mb-4">
-              <span className="text-[#c9a87c]">Panorama</span> Dental
+              <span className="text-[#c9a87c]">Haliç Panorama</span> Dental
             </h3>
             <p className="text-sm leading-relaxed mb-6">
-              Panorama Dental uluslararası sağlık turizmi yetki belgesine sahiptir ve uluslararası yetki belgesine sahip anlaşmalı sağlık kuruluşlarımızda tedavi fırsatları sunuyoruz.
+              Haliç Panorama Dental uluslararası sağlık turizmi yetki belgesine sahiptir ve uluslararası yetki belgesine sahip anlaşmalı sağlık kuruluşlarımızda tedavi fırsatları sunuyoruz.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-6 text-center text-xs text-[#7a6e62]">
-          © {new Date().getFullYear()} Panorama Dental. Tüm hakları saklıdır.
+          © {new Date().getFullYear()} Haliç Panorama Dental. Tüm hakları saklıdır.
         </div>
       </div>
     </footer>

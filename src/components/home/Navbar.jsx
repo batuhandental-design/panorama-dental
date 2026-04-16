@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <a href="/" className="text-2xl font-bold tracking-tight">
-          <span className="text-primary">PANORAMA</span>{" "}
+          <span className="text-primary">HALİÇ PANORAMA</span>{" "}
           <span className="text-white">DENTAL</span>
         </a>
 
