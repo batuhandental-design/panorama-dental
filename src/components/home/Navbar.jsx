@@ -16,24 +16,25 @@ export default function Navbar() {
   return (
     <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" className="flex items-center gap-3 text-2xl font-bold tracking-tight">
-          <div className="flex-shrink-0">
-            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="19" cy="12" rx="10" ry="9" fill="#2c2419" stroke="#c9a87c" strokeWidth="1.5"/>
-              <path d="M9 12c0 0-2 4-2 8 0 3 1.5 5 3.5 5s3-2 4.5-2 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 3.5-2 3.5-5c0-4-2-8-2-8" fill="#2c2419" stroke="#c9a87c" strokeWidth="1.5" strokeLinejoin="round"/>
-              <ellipse cx="13" cy="10" rx="2.5" ry="3.5" fill="#c9a87c" opacity="0.35"/>
-              <ellipse cx="19" cy="8.5" rx="2" ry="3" fill="#c9a87c" opacity="0.35"/>
-              <ellipse cx="25" cy="10" rx="2.5" ry="3.5" fill="#c9a87c" opacity="0.35"/>
-              <path d="M11 12 Q19 6 27 12" stroke="#c9a87c" strokeWidth="1" fill="none" opacity="0.5"/>
-              <circle cx="13" cy="10" r="1" fill="#e8dfd5" opacity="0.6"/>
-              <circle cx="19" cy="8.5" r="0.8" fill="#e8dfd5" opacity="0.6"/>
-              <circle cx="25" cy="10" r="1" fill="#e8dfd5" opacity="0.6"/>
-            </svg>
-          </div>
+        <a href="/" className="flex items-center gap-2 text-2xl font-bold tracking-tight">
           <div>
             <div><span className="text-primary">PANORAMA</span></div>
             <div><span className="text-white text-xl">DENTAL</span></div>
           </div>
+          {/* El çizimi diş ikonu - sağ taraf */}
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 ml-1">
+            {/* El çizimi stili - kalem darbeli diş */}
+            <path d="M14 8 C12 7, 8 8, 7 12 C6 15, 7 18, 8 21 C9 25, 9 30, 11 34 C12 37, 13 38, 15 37 C16 36, 16 33, 17 31 C18 28, 19 27, 22 27 C25 27, 26 28, 27 31 C28 33, 28 36, 29 37 C31 38, 32 37, 33 34 C35 30, 35 25, 36 21 C37 18, 38 15, 37 12 C36 8, 32 7, 30 8 C28 9, 27 11, 25 12 C24 13, 23 13, 22 13 C21 13, 20 13, 19 12 C17 11, 16 9, 14 8 Z"
+              stroke="#c9a87c" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round"
+              style={{filter: 'drop-shadow(0 0 3px rgba(201,168,124,0.4))'}}
+            />
+            {/* Diş yüzeyi çizgileri - el çizimi görünüm */}
+            <path d="M16 11 C16 11, 17 14, 17 17" stroke="#c9a87c" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.7"/>
+            <path d="M22 13 C22 13, 22 16, 22 18" stroke="#c9a87c" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.7"/>
+            <path d="M28 11 C28 11, 27 14, 27 17" stroke="#c9a87c" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.7"/>
+            {/* Hafif parlama noktası */}
+            <path d="M13 10 C14 9, 16 9, 17 10" stroke="#e8dfd5" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.5"/>
+          </svg>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
