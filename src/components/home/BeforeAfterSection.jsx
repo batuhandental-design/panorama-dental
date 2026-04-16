@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -36,6 +36,7 @@ export default function BeforeAfterSection() {
   const [direction, setDirection] = useState(1);
   const { t } = useLanguage();
   const total = cases.length;
+  const dragStartX = useRef(null);
 
   const go = useCallback((dir) => {
     setDirection(dir);
@@ -103,7 +104,23 @@ export default function BeforeAfterSection() {
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          <div className="overflow-hidden px-1 py-4">
+          <div
+          className="overflow-hidden px-1 py-4 cursor-grab active:cursor-grabbing"
+          onMouseDown={(e) => { dragStartX.current = e.clientX; }}
+          onMouseUp={(e) => {
+            if (dragStartX.current === null) return;
+            const diff = dragStartX.current - e.clientX;
+            if (Math.abs(diff) > 50) go(diff > 0 ? 1 : -1);
+            dragStartX.current = null;
+          }}
+          onTouchStart={(e) => { dragStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (dragStartX.current === null) return;
+            const diff = dragStartX.current - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) go(diff > 0 ? 1 : -1);
+            dragStartX.current = null;
+          }}
+        >
             <AnimatePresence mode="popLayout" custom={direction}>
               <motion.div
                 key={current}
