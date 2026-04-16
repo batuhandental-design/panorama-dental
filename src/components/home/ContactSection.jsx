@@ -40,6 +40,15 @@ export default function ContactSection() {
       setUploading(false);
     }
 
+    // Veritabanına kaydet + e-posta bildirimi gönder
+    await base44.functions.invoke("notifyNewContact", {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+      fileUrls,
+    });
+
     // WhatsApp'a yönlendir
     let waMsg = `🦷 Haliç Panorama Dental - Yeni Başvuru\n\n`;
     waMsg += `👤 Ad Soyad: ${form.name}\n`;
