@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const names = ["Dr. Uğur Umur", "Dr. Mehmet Yılmaz", "Dr. Ayşe Kaya"];
+const names = ["Dr. Uğur Umur", "Dr. Elif Şahin", "Dr. Hasan Demir", "Dr. Selin Arslan", "Dr. Murat Çelik", "Dr. Zeynep Yıldız", "Dr. Kemal Öztürk"];
 
 export default function DoctorSection() {
   const { t } = useLanguage();
@@ -16,7 +16,7 @@ export default function DoctorSection() {
           <p className="text-[#6b5e52] max-w-lg mx-auto">{t.doctorsDesc}</p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {t.doctors.map((doc, i) => (
             <motion.div
               key={i}
