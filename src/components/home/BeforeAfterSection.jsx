@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -29,38 +29,66 @@ const cases = [
 ];
 
 const LABEL_COLORS = ["bg-[#8B6840] text-white", "bg-[#1a7a8a] text-white", "bg-[#2d4a6e] text-white", "bg-[#5a8a5a] text-white"];
-const VISIBLE = 3;
 
 export default function BeforeAfterSection() {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [dragX, setDragX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(null);
+  const trackRef = useRef(null);
   const { t } = useLanguage();
   const total = cases.length;
-  const dragStartX = useRef(null);
+  const autoRef = useRef(null);
 
   const go = useCallback((dir) => {
-    setDirection(dir);
     setCurrent((c) => (c + dir + total) % total);
   }, [total]);
 
-  useEffect(() => {
-    const timer = setInterval(() => go(1), 4000);
-    return () => clearInterval(timer);
+  const resetAuto = useCallback(() => {
+    clearInterval(autoRef.current);
+    autoRef.current = setInterval(() => go(1), 4000);
   }, [go]);
 
-  const visibleIndices = Array.from({ length: VISIBLE }, (_, i) => (current + i) % total);
+  useEffect(() => {
+    autoRef.current = setInterval(() => go(1), 4000);
+    return () => clearInterval(autoRef.current);
+  }, [go]);
 
-  const variants = {
-    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 120 : -120, scale: 0.95 }),
-    center: { opacity: 1, x: 0, scale: 1 },
-    exit:  (dir) => ({ opacity: 0, x: dir > 0 ? -120 : 120, scale: 0.95 }),
+  const handleStart = (x) => {
+    startX.current = x;
+    setIsDragging(true);
+    setDragX(0);
+    clearInterval(autoRef.current);
   };
 
-  // labels depend on services translation: [0]=Hollywood, [1]=Zirconia, [2]=Implant, [3]=Whitening
+  const handleMove = (x) => {
+    if (startX.current === null) return;
+    setDragX(x - startX.current);
+  };
+
+  const handleEnd = (x) => {
+    if (startX.current === null) return;
+    const diff = startX.current - x;
+    if (Math.abs(diff) > 50) {
+      go(diff > 0 ? 1 : -1);
+    }
+    startX.current = null;
+    setDragX(0);
+    setIsDragging(false);
+    resetAuto();
+  };
+
   const getLabel = (labelKey) => {
     const map = [t.services[1]?.title, t.services[3]?.title, t.services[0]?.title, t.services[2]?.title];
     return map[labelKey] || "";
   };
+
+  // Visible indices: show 3 cards centered around current
+  const getVisible = () => {
+    return [-1, 0, 1, 2, 3].map(offset => (current + offset + total) % total);
+  };
+
+  const visible = getVisible();
 
   return (
     <section className="py-24 bg-gradient-to-b from-[#f0ece5] to-[#e8e0d5] font-inter overflow-hidden" id="before-after">
@@ -98,39 +126,48 @@ export default function BeforeAfterSection() {
 
         <div className="relative">
           <button
-            onClick={() => go(-1)}
+            onClick={() => { go(-1); resetAuto(); }}
             className="absolute -left-5 md:-left-7 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
+          {/* Carousel track */}
           <div
-            className="overflow-hidden px-1 py-4 select-none cursor-grab active:cursor-grabbing"
-            onPointerDown={(e) => { dragStartX.current = e.clientX; e.currentTarget.setPointerCapture(e.pointerId); }}
-            onPointerUp={(e) => {
-              if (dragStartX.current === null) return;
-              const diff = dragStartX.current - e.clientX;
-              if (Math.abs(diff) > 50) go(diff > 0 ? 1 : -1);
-              dragStartX.current = null;
-            }}
+            ref={trackRef}
+            className="overflow-hidden cursor-grab active:cursor-grabbing select-none py-4"
+            onMouseDown={(e) => handleStart(e.clientX)}
+            onMouseMove={(e) => { if (startX.current !== null) handleMove(e.clientX); }}
+            onMouseUp={(e) => handleEnd(e.clientX)}
+            onMouseLeave={(e) => { if (startX.current !== null) handleEnd(e.clientX); }}
+            onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+            onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+            onTouchEnd={(e) => handleEnd(e.changedTouches[0].clientX)}
           >
-            <AnimatePresence mode="popLayout" custom={direction}>
-              <motion.div
-                key={current}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pointer-events-none"
-              >
-                {visibleIndices.map((idx) => {
-                  const item = cases[idx];
-                  return (
-                    <div key={item.id} className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-[#e4dcd2]">
+            <motion.div
+              className="flex gap-5"
+              animate={{ x: dragX }}
+              transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {visible.map((idx, pos) => {
+                const item = cases[idx];
+                const isCenter = pos === 2;
+                return (
+                  <motion.div
+                    key={`${idx}-${pos}`}
+                    className="flex-shrink-0 w-[calc(33.333%-14px)]"
+                    animate={{ scale: isCenter ? 1 : 0.93, opacity: pos === 0 || pos === 4 ? 0.4 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-[#e4dcd2]">
                       <div className="relative overflow-hidden">
-                        <img src={BASE + item.file} alt={getLabel(item.labelKey)} loading="lazy" className="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img
+                          src={BASE + item.file}
+                          alt={getLabel(item.labelKey)}
+                          loading="lazy"
+                          draggable={false}
+                          className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
                         <div className="absolute top-3 left-3">
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${LABEL_COLORS[item.labelKey]}`}>
                             {getLabel(item.labelKey)}
@@ -141,14 +178,14 @@ export default function BeforeAfterSection() {
                         </div>
                       </div>
                     </div>
-                  );
-                })}
-              </motion.div>
-            </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </div>
 
           <button
-            onClick={() => go(1)}
+            onClick={() => { go(1); resetAuto(); }}
             className="absolute -right-5 md:-right-7 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
           >
             <ChevronRight className="w-5 h-5" />
@@ -159,7 +196,7 @@ export default function BeforeAfterSection() {
           {cases.map((_, i) => (
             <button
               key={i}
-              onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+              onClick={() => { setCurrent(i); resetAuto(); }}
               className={`rounded-full transition-all duration-300 ${i === current ? "bg-[#8B6840] w-7 h-2.5" : "bg-[#c9bfb4] w-2.5 h-2.5 hover:bg-[#8B6840]/50"}`}
             />
           ))}
