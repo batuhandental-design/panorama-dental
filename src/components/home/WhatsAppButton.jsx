@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
       transition={{ delay: 1.5, type: "spring", stiffness: 220, damping: 14 }}
       whileHover={{ scale: 1.1, y: -3 }}
       whileTap={{ scale: 0.93 }}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-xl shadow-green-500/40 hover:bg-[#20bb5a] transition-colors"
+      className="fixed bottom-6 left-6 z-50 flex items-center gap-3 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-xl shadow-green-500/40 hover:bg-[#20bb5a] transition-colors"
       title="WhatsApp ile iletişime geçin">
       
       {/* Pulse ring */}
