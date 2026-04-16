@@ -16,19 +16,9 @@ export default function Navbar() {
   return (
     <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" className="flex items-center gap-1 text-2xl font-bold tracking-tight">
-          <div>
-            <div><span className="text-primary">PANORAMA</span></div>
-            <div className="flex items-center gap-1">
-              <span className="text-white text-xl">DENTAL</span>
-              <img
-                src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
-                alt="dental logo"
-                className="w-10 h-10 object-contain"
-                style={{ mixBlendMode: 'screen' }}
-              />
-            </div>
-          </div>
+        <a href="/" className="text-2xl font-bold tracking-tight">
+          <span className="text-primary">PANORAMA</span>{" "}
+          <span className="text-white my-2">DENTAL</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
