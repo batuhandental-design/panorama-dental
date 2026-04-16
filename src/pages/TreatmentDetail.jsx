@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
+import WhatsAppButton from "../components/home/WhatsAppButton";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const heroImages = {
@@ -181,6 +182,7 @@ export default function TreatmentDetail() {
       </div>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
