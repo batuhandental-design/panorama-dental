@@ -16,9 +16,24 @@ export default function Navbar() {
   return (
     <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" className="text-2xl font-bold tracking-tight">
-          <span className="text-primary">PANORAMA</span>{" "}
-          <span className="text-white my-2">DENTAL</span>
+        <a href="/" className="flex items-center gap-3 text-2xl font-bold tracking-tight">
+          <div className="flex-shrink-0">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="19" cy="12" rx="10" ry="9" fill="#2c2419" stroke="#c9a87c" strokeWidth="1.5"/>
+              <path d="M9 12c0 0-2 4-2 8 0 3 1.5 5 3.5 5s3-2 4.5-2 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 3.5-2 3.5-5c0-4-2-8-2-8" fill="#2c2419" stroke="#c9a87c" strokeWidth="1.5" strokeLinejoin="round"/>
+              <ellipse cx="13" cy="10" rx="2.5" ry="3.5" fill="#c9a87c" opacity="0.35"/>
+              <ellipse cx="19" cy="8.5" rx="2" ry="3" fill="#c9a87c" opacity="0.35"/>
+              <ellipse cx="25" cy="10" rx="2.5" ry="3.5" fill="#c9a87c" opacity="0.35"/>
+              <path d="M11 12 Q19 6 27 12" stroke="#c9a87c" strokeWidth="1" fill="none" opacity="0.5"/>
+              <circle cx="13" cy="10" r="1" fill="#e8dfd5" opacity="0.6"/>
+              <circle cx="19" cy="8.5" r="0.8" fill="#e8dfd5" opacity="0.6"/>
+              <circle cx="25" cy="10" r="1" fill="#e8dfd5" opacity="0.6"/>
+            </svg>
+          </div>
+          <div>
+            <div><span className="text-primary">PANORAMA</span></div>
+            <div><span className="text-white text-xl">DENTAL</span></div>
+          </div>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
