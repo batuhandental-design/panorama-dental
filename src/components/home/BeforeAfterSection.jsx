@@ -104,7 +104,16 @@ export default function BeforeAfterSection() {
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          <div className="overflow-hidden px-1 py-4">
+          <div
+            className="overflow-hidden px-1 py-4 select-none cursor-grab active:cursor-grabbing"
+            onPointerDown={(e) => { dragStartX.current = e.clientX; e.currentTarget.setPointerCapture(e.pointerId); }}
+            onPointerUp={(e) => {
+              if (dragStartX.current === null) return;
+              const diff = dragStartX.current - e.clientX;
+              if (Math.abs(diff) > 50) go(diff > 0 ? 1 : -1);
+              dragStartX.current = null;
+            }}
+          >
             <AnimatePresence mode="popLayout" custom={direction}>
               <motion.div
                 key={current}
@@ -114,14 +123,7 @@ export default function BeforeAfterSection() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
-                onDragEnd={(e, info) => {
-                  if (info.offset.x < -60) go(1);
-                  else if (info.offset.x > 60) go(-1);
-                }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pointer-events-none"
               >
                 {visibleIndices.map((idx) => {
                   const item = cases[idx];
