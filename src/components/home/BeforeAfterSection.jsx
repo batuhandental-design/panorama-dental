@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
@@ -28,20 +28,50 @@ const cases = [
   { id: 20, file: "e6c786236_20.png", labelKey: 0 },
 ];
 
-const LABEL_COLORS = ["bg-[#8B6840] text-white", "bg-[#1a7a8a] text-white", "bg-[#2d4a6e] text-white", "bg-[#5a8a5a] text-white"];
+const LABEL_COLORS = [
+  "bg-[#8B6840] text-white",
+  "bg-[#1a7a8a] text-white",
+  "bg-[#2d4a6e] text-white",
+  "bg-[#5a8a5a] text-white",
+];
 
 export default function BeforeAfterSection() {
-  const [current, setCurrent] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const startX = useRef(null);
-  const trackRef = useRef(null);
   const { t } = useLanguage();
-  const total = cases.length;
+  const scrollRef = useRef(null);
   const autoRef = useRef(null);
+  const [current, setCurrent] = useState(0);
+  const total = cases.length;
+
+  const getLabel = (labelKey) => {
+    const map = [
+      t.services[1]?.title,
+      t.services[3]?.title,
+      t.services[0]?.title,
+      t.services[2]?.title,
+    ];
+    return map[labelKey] || "";
+  };
+
+  // Scroll to a card index smoothly
+  const scrollToIndex = useCallback((idx) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const card = container.children[idx];
+    if (!card) return;
+    const containerWidth = container.offsetWidth;
+    const cardLeft = card.offsetLeft;
+    const cardWidth = card.offsetWidth;
+    const scrollLeft = cardLeft - (containerWidth - cardWidth) / 2;
+    container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+  }, []);
 
   const go = useCallback((dir) => {
-    setCurrent((c) => (c + dir + total) % total);
-  }, [total]);
+    setCurrent((c) => {
+      const next = (c + dir + total) % total;
+      scrollToIndex(next);
+      return next;
+    });
+  }, [total, scrollToIndex]);
 
   const resetAuto = useCallback(() => {
     clearInterval(autoRef.current);
@@ -53,52 +83,33 @@ export default function BeforeAfterSection() {
     return () => clearInterval(autoRef.current);
   }, [go]);
 
-  const handleStart = (x) => {
-    startX.current = x;
-    setIsDragging(true);
-    clearInterval(autoRef.current);
-    if (trackRef.current) {
-      trackRef.current.style.transition = "none";
-      trackRef.current.style.transform = "translateX(0px)";
-    }
-  };
+  // Detect which card is centered after manual scroll
+  const handleScroll = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const center = container.scrollLeft + container.offsetWidth / 2;
+    let closest = 0;
+    let minDist = Infinity;
+    Array.from(container.children).forEach((child, i) => {
+      const dist = Math.abs(child.offsetLeft + child.offsetWidth / 2 - center);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    setCurrent(closest);
+  }, []);
 
-  const handleMove = (x) => {
-    if (startX.current === null || !trackRef.current) return;
-    const diff = x - startX.current;
-    trackRef.current.style.transform = `translateX(${diff}px)`;
-  };
-
-  const handleEnd = (x) => {
-    if (startX.current === null) return;
-    const diff = startX.current - x;
-    if (trackRef.current) {
-      trackRef.current.style.transition = "transform 0.3s ease";
-      trackRef.current.style.transform = "translateX(0px)";
-    }
-    if (Math.abs(diff) > 50) {
-      go(diff > 0 ? 1 : -1);
-    }
-    startX.current = null;
-    setIsDragging(false);
-    resetAuto();
-  };
-
-  const getLabel = (labelKey) => {
-    const map = [t.services[1]?.title, t.services[3]?.title, t.services[0]?.title, t.services[2]?.title];
-    return map[labelKey] || "";
-  };
-
-  // Visible indices: show 3 cards centered around current
-  const getVisible = () => {
-    return [-1, 0, 1, 2, 3].map(offset => (current + offset + total) % total);
-  };
-
-  const visible = getVisible();
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    // Scroll to first on mount
+    setTimeout(() => scrollToIndex(0), 100);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [handleScroll, scrollToIndex]);
 
   return (
     <section className="py-24 bg-gradient-to-b from-[#f0ece5] to-[#e8e0d5] font-inter overflow-hidden" id="before-after">
       <div className="max-w-6xl mx-auto px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,6 +126,7 @@ export default function BeforeAfterSection() {
           <p className="text-[#6b5e52] max-w-xl mx-auto leading-relaxed text-[15px]">{t.beforeAfterDesc}</p>
         </motion.div>
 
+        {/* Trust bar */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,75 +142,102 @@ export default function BeforeAfterSection() {
           ))}
         </motion.div>
 
+        {/* Carousel */}
         <div className="relative">
+          {/* Prev button */}
           <button
             onClick={() => { go(-1); resetAuto(); }}
-            className="absolute -left-5 md:-left-7 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-5 z-20 w-11 h-11 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Carousel track */}
+          {/* Scroll container */}
           <div
-            className="overflow-hidden cursor-grab active:cursor-grabbing select-none py-4"
-            onMouseDown={(e) => handleStart(e.clientX)}
-            onMouseMove={(e) => { if (startX.current !== null) handleMove(e.clientX); }}
-            onMouseUp={(e) => handleEnd(e.clientX)}
-            onMouseLeave={(e) => { if (startX.current !== null) handleEnd(e.clientX); }}
-            onTouchStart={(e) => { e.preventDefault(); handleStart(e.touches[0].clientX); }}
-            onTouchMove={(e) => { e.preventDefault(); handleMove(e.touches[0].clientX); }}
-            onTouchEnd={(e) => handleEnd(e.changedTouches[0].clientX)}
-            style={{ touchAction: "none" }}
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto py-6 px-4 md:px-8 scroll-smooth select-none"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+              scrollSnapType: "x mandatory",
+              cursor: "grab",
+            }}
+            onMouseDown={(e) => {
+              const el = scrollRef.current;
+              if (!el) return;
+              el.style.cursor = "grabbing";
+              el.style.scrollBehavior = "auto";
+              const startX = e.pageX - el.offsetLeft;
+              const startScroll = el.scrollLeft;
+              clearInterval(autoRef.current);
+              const onMove = (ev) => {
+                const x = ev.pageX - el.offsetLeft;
+                el.scrollLeft = startScroll - (x - startX);
+              };
+              const onUp = () => {
+                el.style.cursor = "grab";
+                el.style.scrollBehavior = "smooth";
+                resetAuto();
+                window.removeEventListener("mousemove", onMove);
+                window.removeEventListener("mouseup", onUp);
+              };
+              window.addEventListener("mousemove", onMove);
+              window.addEventListener("mouseup", onUp);
+            }}
           >
-            <div ref={trackRef} className="flex gap-5">
-              {visible.map((idx, pos) => {
-                const item = cases[idx];
-                const isCenter = pos === 2;
-                return (
-                  <motion.div
-                    key={`${idx}-${pos}`}
-                    className="flex-shrink-0 w-[calc(33.333%-14px)]"
-                    animate={{ scale: isCenter ? 1 : 0.93, opacity: pos === 0 || pos === 4 ? 0.4 : 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-[#e4dcd2]">
-                      <div className="relative overflow-hidden">
-                        <img
-                          src={BASE + item.file}
-                          alt={getLabel(item.labelKey)}
-                          loading="lazy"
-                          draggable={false}
-                          className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute top-3 left-3">
-                          <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${LABEL_COLORS[item.labelKey]}`}>
-                            {getLabel(item.labelKey)}
-                          </span>
-                        </div>
-                        <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm text-[#2d2419] text-[10px] font-bold px-2.5 py-1 rounded-full">
-                          {t.caseLabel} {item.id}
-                        </div>
-                      </div>
+            {cases.map((item, i) => (
+              <div
+                key={item.id}
+                onClick={() => { setCurrent(i); scrollToIndex(i); resetAuto(); }}
+                className="flex-shrink-0 w-[75vw] sm:w-[48%] md:w-[31%] lg:w-[30%]"
+                style={{ scrollSnapAlign: "center" }}
+              >
+                <div
+                  className="group bg-white rounded-3xl overflow-hidden border border-[#e4dcd2] shadow-md transition-all duration-500"
+                  style={{
+                    transform: i === current ? "scale(1)" : "scale(0.95)",
+                    opacity: i === current ? 1 : 0.75,
+                    transition: "transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease",
+                  }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={BASE + item.file}
+                      alt={getLabel(item.labelKey)}
+                      loading="lazy"
+                      draggable={false}
+                      className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${LABEL_COLORS[item.labelKey]}`}>
+                        {getLabel(item.labelKey)}
+                      </span>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+                    <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm text-[#2d2419] text-[10px] font-bold px-2.5 py-1 rounded-full">
+                      {t.caseLabel} {item.id}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
+          {/* Next button */}
           <button
             onClick={() => { go(1); resetAuto(); }}
-            className="absolute -right-5 md:-right-7 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-5 z-20 w-11 h-11 rounded-full bg-white shadow-xl border border-[#e4dcd2] flex items-center justify-center text-[#4a3728] hover:bg-[#8B6840] hover:text-white hover:border-[#8B6840] transition-all"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="flex items-center justify-center gap-2 mt-8 mb-12">
+        {/* Dots */}
+        <div className="flex items-center justify-center gap-2 mt-4 mb-10 flex-wrap">
           {cases.map((_, i) => (
             <button
               key={i}
-              onClick={() => { setCurrent(i); resetAuto(); }}
+              onClick={() => { setCurrent(i); scrollToIndex(i); resetAuto(); }}
               className={`rounded-full transition-all duration-300 ${i === current ? "bg-[#8B6840] w-7 h-2.5" : "bg-[#c9bfb4] w-2.5 h-2.5 hover:bg-[#8B6840]/50"}`}
             />
           ))}
@@ -208,6 +247,7 @@ export default function BeforeAfterSection() {
           <span className="font-bold text-[#8B6840]">{current + 1}</span> / {total} {t.caseLabel}
         </p>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
