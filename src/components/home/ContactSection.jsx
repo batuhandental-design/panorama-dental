@@ -40,16 +40,26 @@ export default function ContactSection() {
       setUploading(false);
     }
 
-    await base44.functions.invoke("sendContactForm", {
+    // Veritabanına kaydet
+    await base44.entities.ContactForm.create({
       name: form.name,
       email: form.email,
       phone: form.phone,
       message: form.message,
-      fileUrls,
+      file_urls: fileUrls,
+      status: "new",
     });
 
     setSending(false);
     setSent(true);
+
+    // WhatsApp'a yönlendir
+    let waMsg = `${t.whatsappText} ${form.name}.\n📞 ${form.phone}`;
+    if (form.email) waMsg += `\n📧 ${form.email}`;
+    if (form.message) waMsg += `\n💬 ${form.message}`;
+    if (fileUrls.length > 0) waMsg += `\n📎 ${fileUrls.length} dosya yüklendi`;
+    window.open(`https://api.whatsapp.com/send?phone=905491240103&text=${encodeURIComponent(waMsg)}`, "_blank");
+
     setForm({ name: "", email: "", phone: "", message: "" });
     setFiles([]);
   };

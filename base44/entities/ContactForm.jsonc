@@ -1,0 +1,37 @@
+{
+  "name": "ContactForm",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "file_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "done"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name",
+    "phone"
+  ]
+}
