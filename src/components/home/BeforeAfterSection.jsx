@@ -32,7 +32,6 @@ const LABEL_COLORS = ["bg-[#8B6840] text-white", "bg-[#1a7a8a] text-white", "bg-
 
 export default function BeforeAfterSection() {
   const [current, setCurrent] = useState(0);
-  const [dragX, setDragX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const startX = useRef(null);
   const trackRef = useRef(null);
@@ -57,23 +56,30 @@ export default function BeforeAfterSection() {
   const handleStart = (x) => {
     startX.current = x;
     setIsDragging(true);
-    setDragX(0);
     clearInterval(autoRef.current);
+    if (trackRef.current) {
+      trackRef.current.style.transition = "none";
+      trackRef.current.style.transform = "translateX(0px)";
+    }
   };
 
   const handleMove = (x) => {
-    if (startX.current === null) return;
-    setDragX(x - startX.current);
+    if (startX.current === null || !trackRef.current) return;
+    const diff = x - startX.current;
+    trackRef.current.style.transform = `translateX(${diff}px)`;
   };
 
   const handleEnd = (x) => {
     if (startX.current === null) return;
     const diff = startX.current - x;
+    if (trackRef.current) {
+      trackRef.current.style.transition = "transform 0.3s ease";
+      trackRef.current.style.transform = "translateX(0px)";
+    }
     if (Math.abs(diff) > 50) {
       go(diff > 0 ? 1 : -1);
     }
     startX.current = null;
-    setDragX(0);
     setIsDragging(false);
     resetAuto();
   };
@@ -134,21 +140,17 @@ export default function BeforeAfterSection() {
 
           {/* Carousel track */}
           <div
-            ref={trackRef}
             className="overflow-hidden cursor-grab active:cursor-grabbing select-none py-4"
             onMouseDown={(e) => handleStart(e.clientX)}
             onMouseMove={(e) => { if (startX.current !== null) handleMove(e.clientX); }}
             onMouseUp={(e) => handleEnd(e.clientX)}
             onMouseLeave={(e) => { if (startX.current !== null) handleEnd(e.clientX); }}
-            onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-            onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+            onTouchStart={(e) => { e.preventDefault(); handleStart(e.touches[0].clientX); }}
+            onTouchMove={(e) => { e.preventDefault(); handleMove(e.touches[0].clientX); }}
             onTouchEnd={(e) => handleEnd(e.changedTouches[0].clientX)}
+            style={{ touchAction: "none" }}
           >
-            <motion.div
-              className="flex gap-5"
-              animate={{ x: dragX }}
-              transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
-            >
+            <div ref={trackRef} className="flex gap-5">
               {visible.map((idx, pos) => {
                 const item = cases[idx];
                 const isCenter = pos === 2;
@@ -181,7 +183,7 @@ export default function BeforeAfterSection() {
                   </motion.div>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
 
           <button
