@@ -190,7 +190,7 @@ export default function BeforeAfterSection() {
               <div
                 key={item.id}
                 onClick={() => { setCurrent(i); scrollToIndex(i); resetAuto(); }}
-                className="flex-shrink-0 w-[75vw] sm:w-[48%] md:w-[31%] lg:w-[30%]"
+                className="flex-shrink-0 w-[85vw] sm:w-[60%] md:w-[31%] lg:w-[30%]"
                 style={{ scrollSnapAlign: "center" }}
               >
                 <div
