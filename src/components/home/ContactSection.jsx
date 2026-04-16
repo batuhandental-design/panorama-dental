@@ -40,26 +40,21 @@ export default function ContactSection() {
       setUploading(false);
     }
 
-    // Veritabanına kaydet
-    await base44.entities.ContactForm.create({
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      message: form.message,
-      file_urls: fileUrls,
-      status: "new",
-    });
+    // WhatsApp'a yönlendir
+    let waMsg = `🦷 Haliç Panorama Dental - Yeni Başvuru\n\n`;
+    waMsg += `👤 Ad Soyad: ${form.name}\n`;
+    waMsg += `📞 Telefon: ${form.phone}`;
+    if (form.email) waMsg += `\n📧 E-posta: ${form.email}`;
+    if (form.message) waMsg += `\n💬 Mesaj: ${form.message}`;
+    if (fileUrls.length > 0) {
+      waMsg += `\n\n📎 Yüklenen Dosyalar (${fileUrls.length}):`;
+      fileUrls.forEach((url, i) => { waMsg += `\n${i + 1}. ${url}`; });
+    }
+
+    window.open(`https://api.whatsapp.com/send?phone=905491240103&text=${encodeURIComponent(waMsg)}`, "_blank");
 
     setSending(false);
     setSent(true);
-
-    // WhatsApp'a yönlendir
-    let waMsg = `${t.whatsappText} ${form.name}.\n📞 ${form.phone}`;
-    if (form.email) waMsg += `\n📧 ${form.email}`;
-    if (form.message) waMsg += `\n💬 ${form.message}`;
-    if (fileUrls.length > 0) waMsg += `\n📎 ${fileUrls.length} dosya yüklendi`;
-    window.open(`https://api.whatsapp.com/send?phone=905491240103&text=${encodeURIComponent(waMsg)}`, "_blank");
-
     setForm({ name: "", email: "", phone: "", message: "" });
     setFiles([]);
   };
