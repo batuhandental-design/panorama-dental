@@ -152,8 +152,8 @@ export default function ContactSection() {
                   />
                   <div className="flex flex-col items-center gap-2 text-center">
                     <Upload className="w-6 h-6 text-[#8B6840]" />
-                    <p className="text-sm font-medium text-[#2d2419]">Röntgen veya Fotoğraf Yükle</p>
-                    <p className="text-xs text-[#9c8e84]">JPG, PNG, PDF — Birden fazla dosya seçebilirsiniz</p>
+                    <p className="text-sm font-medium text-[#2d2419]">{t.uploadTitle}</p>
+                    <p className="text-xs text-[#9c8e84]">{t.uploadDesc}</p>
                   </div>
                 </div>
 
