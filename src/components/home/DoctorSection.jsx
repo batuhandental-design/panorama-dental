@@ -17,7 +17,7 @@ export default function DoctorSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {t.doctors.map((doc, i) => (
+          {t.doctors.slice(0, 4).map((doc, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
