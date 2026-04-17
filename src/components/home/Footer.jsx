@@ -27,7 +27,7 @@ export default function Footer() {
               <span className="text-[#c9a87c]">Haliç Panorama</span> Dental
             </h3>
             <p className="text-sm leading-relaxed mb-6">
-              Haliç Panorama Dental uluslararası sağlık turizmi yetki belgesine sahiptir ve uluslararası yetki belgesine sahip anlaşmalı sağlık kuruluşlarımızda tedavi fırsatları sunuyoruz.
+              One Clinic uluslararası sağlık turizmi yetki belgesine sahiptir ve uluslararası yetki belgesine sahip anlaşmalı sağlık kuruluşlarımızda tedavi fırsatları sunuyoruz. Türkiye İstanbul'daki en iyi sağlık hizmetini almak için One Clinic'i ziyaret edin. İştirakçi doktorlarımızın hizmetlerini sunduğu son teknoloji tesisimizin bölümlerini keşfedin.
             </p>
           </div>
 
