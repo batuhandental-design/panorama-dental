@@ -272,21 +272,7 @@ export default function TreatmentVideoSection() {
 
       {/* Overlay UI */}
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6">
-        {/* Top label */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
-            <span className="w-2 h-2 rounded-full bg-[#4da6ff] animate-pulse" />
-            <span className="text-[#4da6ff] text-[10px] font-bold uppercase tracking-[0.25em]">3D Simülasyon — Diş İmplantı</span>
-          </div>
-          <div className="bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 border border-white/10">
-            <span className="text-white/50 text-[10px]">
-              {phase === "explode" && "Parçalara ayrılıyor..."}
-              {phase?.startsWith("info") && `Parça ${(infoIndex ?? 0) + 1} / 3`}
-              {phase === "assemble" && "Birleşiyor..."}
-              {phase === "done" && "✓ Tamamlandı"}
-            </span>
-          </div>
-        </div>
+        <div />
 
         {/* Info card */}
         <div className="flex justify-end">
