@@ -175,7 +175,7 @@ export default function TreatmentDetail() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-gradient-to-r from-[#f7f3ef] to-[#ede8e0] rounded-2xl p-8 mb-16 border border-[#e4dcd2]"
+          className="border-4 border-red-500 rounded-xl p-6 bg-white mb-16"
         >
           <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">Sinüs Lifting Nedir?</h3>
           <p className="text-[#6b5e52] leading-relaxed text-[15px]">
