@@ -51,15 +51,21 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative h-72 md:h-96 overflow-hidden">
-        <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#2c2419]/65" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      <div className="relative overflow-hidden" style={{ minHeight: slug === "dis-implanti" ? 520 : 384 }}>
+        {slug === "dis-implanti" ? (
+          <TreatmentVideoSection />
+        ) : (
+          <>
+            <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
+            <div className="absolute inset-0 bg-[#2c2419]/65" />
+          </>
+        )}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[#c9a87c] text-sm uppercase tracking-[0.3em] mb-3 font-medium"
+            className="text-[#c9a87c] text-sm uppercase tracking-[0.3em] mb-3 font-medium drop-shadow-lg"
           >
             {treatment.subtitle}
           </motion.p>
@@ -67,7 +73,7 @@ export default function TreatmentDetail() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white font-playfair mb-4"
+            className="text-4xl md:text-5xl font-bold text-white font-playfair mb-4 drop-shadow-lg"
           >
             {treatment.emoji} {treatment.title}
           </motion.h1>
@@ -75,6 +81,7 @@ export default function TreatmentDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="pointer-events-auto"
           >
             <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-[#c9a87c] transition-colors text-sm">
               <ArrowLeft className="w-4 h-4" />
@@ -112,8 +119,7 @@ export default function TreatmentDetail() {
           </motion.div>
         </div>
 
-        {/* Video Simulation — only for dental implant */}
-        {slug === "dis-implanti" && <TreatmentVideoSection />}
+
 
         {/* Steps */}
         <motion.div
