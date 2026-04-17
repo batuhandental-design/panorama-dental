@@ -190,43 +190,50 @@ export default function TreatmentDetail() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-2 gap-14 mb-16">
-          {/* Description */}
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair mb-4">{t.treatmentAbout}</h2>
-            <p className="text-[#6b5e52] leading-relaxed mb-8 text-[15px]">{treatment.description}</p>
-            <h3 className="text-lg font-bold text-[#2d2419] mb-4">{t.treatmentBenefits}</h3>
-            <div className="grid grid-cols-2 gap-3">
-              {treatment.benefits.map((b, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
-                  <span className="text-[#4a3728] text-sm">{b}</span>
-                </div>
-              ))}
+        {slug === "zirkonyum-kaplama" ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl overflow-hidden shadow-xl mb-16 flex justify-center"
+          >
+            <div style={{ position: "relative", paddingBottom: "177.78%", height: 0, background: "#000", width: "100%", maxWidth: 420 }}>
+              <iframe
+                src="https://www.youtube.com/embed/URv-CrkiJyY?autoplay=1&mute=1&loop=1&playlist=URv-CrkiJyY&controls=1&rel=0&modestbranding=1"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+              />
             </div>
           </motion.div>
-
-          {/* Image / Video */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-2xl overflow-hidden shadow-xl"
-          >
-            {slug === "zirkonyum-kaplama" ? (
-              <div style={{ position: "relative", paddingBottom: "177.78%", height: 0, background: "#000" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/URv-CrkiJyY?autoplay=1&mute=1&loop=1&playlist=URv-CrkiJyY&controls=1&rel=0&modestbranding=1"
-                  allow="autoplay; fullscreen"
-                  allowFullScreen
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                />
+        ) : (
+          <div className="grid lg:grid-cols-2 gap-14 mb-16">
+            {/* Description */}
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair mb-4">{t.treatmentAbout}</h2>
+              <p className="text-[#6b5e52] leading-relaxed mb-8 text-[15px]">{treatment.description}</p>
+              <h3 className="text-lg font-bold text-[#2d2419] mb-4">{t.treatmentBenefits}</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {treatment.benefits.map((b, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
+                    <span className="text-[#4a3728] text-sm">{b}</span>
+                  </div>
+                ))}
               </div>
-            ) : (
+            </motion.div>
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="rounded-2xl overflow-hidden shadow-xl"
+            >
               <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
-            )}
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
+        )}
 
 
 
