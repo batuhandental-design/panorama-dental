@@ -14,6 +14,7 @@ export const translations = {
     heroTitle2: "Kavuşun",
     heroDesc: "Hollywood gülüşü, diş implantları ve kozmetik diş tedavileri ile özgüveninizi yeniden keşfedin. Havalimanı transferinden kliniğe, VIP bir deneyim yaşayın.",
     heroCta: "Diş Tedavileri",
+
     marquee: ["🦷 Hollywood Gülüşü — Mükemmel Sonuçlar", "✨ Diş İmplantları ile Kalıcı Çözümler", "💎 Zirkonyum Kaplama Uzmanları", "🪥 Diş Beyazlatma Tedavileri", "📞 7/24 Ücretsiz Danışmanlık Hattı"],
     // Services
     sliderCategory: "Diş Tedavileri",
