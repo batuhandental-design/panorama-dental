@@ -96,26 +96,27 @@ export default function TreatmentVideoSection() {
   const { t } = useLanguage();
   const vt = t.videoTexts || {};
 
+  const it = vt.implant || {};
   const PARTS_INFO = [
     {
       key: "screw",
-      label: vt.part ? `${vt.part} 1` : "Part 1",
-      title: t.treatments?.["dis-implanti"]?.steps?.[1]?.title || "Titanyum Vida",
-      detail: "Çene kemiğine yerleştirilen titanyum vida, doğal diş kökü işlevi görür. Biyouyumlu yapısıyla kemikle kaynaşır (osseointegrasyon).",
+      label: `${vt.part || "Part"} 1`,
+      title: it.screwTitle || "Titanyum Vida",
+      detail: it.screwDetail || "",
       color: "#9ab8cc",
     },
     {
       key: "abut",
-      label: vt.part ? `${vt.part} 2` : "Part 2",
-      title: "Abutment (Bağlantı)",
-      detail: "Vida ile üst yapıyı birbirine bağlayan parçadır. Kron için sağlam ve hassas bir zemin oluşturur.",
+      label: `${vt.part || "Part"} 2`,
+      title: it.abutTitle || "Abutment",
+      detail: it.abutDetail || "",
       color: "#d4a85a",
     },
     {
       key: "crown",
-      label: vt.part ? `${vt.part} 3` : "Part 3",
-      title: "Zirkonyum Kron",
-      detail: "Tamamen seramik yapısıyla doğal dişten ayırt edilemez görünüm. Implantı tamamlayan üst yapı.",
+      label: `${vt.part || "Part"} 3`,
+      title: it.crownTitle || "Zirkonyum Kron",
+      detail: it.crownDetail || "",
       color: "#f5f0ea",
     },
   ];
@@ -435,9 +436,9 @@ export default function TreatmentVideoSection() {
               className="bg-black/70 backdrop-blur-md rounded-2xl border border-green-400/30 p-5 max-w-xs shadow-2xl"
               style={{ animation: "fadeSlideIn 0.4s ease" }}
             >
-              <p className="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-2">✓ İmplant Tamamlandı</p>
-              <h4 className="text-white font-bold text-sm mb-1">3 parça, 1 mükemmel implant</h4>
-              <p className="text-white/60 text-xs leading-relaxed">Vida + Abutment + Kron bir araya gelerek doğal dişin tam işlevselliğini kazandırır.</p>
+              <p className="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-2">{it.doneTitle || "✓ İmplant Tamamlandı"}</p>
+              <h4 className="text-white font-bold text-sm mb-1">{it.doneSubtitle || "3 parça, 1 mükemmel implant"}</h4>
+              <p className="text-white/60 text-xs leading-relaxed">{it.doneDetail || ""}</p>
             </div>
           )}
         </div>
