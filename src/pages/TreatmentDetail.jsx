@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
+import TreatmentVideoSection from "../components/home/TreatmentVideoSection";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const heroImages = {
@@ -110,6 +111,12 @@ export default function TreatmentDetail() {
             <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
           </motion.div>
         </div>
+
+        {/* Video Simulation */}
+        <TreatmentVideoSection
+          steps={treatment.steps.map((s) => ({ step: s.step, title: s.title, desc: s.desc }))}
+          title={treatment.title}
+        />
 
         {/* Steps */}
         <motion.div
