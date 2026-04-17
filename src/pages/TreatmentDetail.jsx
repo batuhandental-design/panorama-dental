@@ -167,35 +167,9 @@ export default function TreatmentDetail() {
               <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
             )}
           </motion.div>
-
-          {/* Sinus Lifting Info Box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="border-4 border-red-500 rounded-xl p-6 bg-white"
-          >
-            <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">Sinüs Lifting Nedir?</h3>
-            <p className="text-[#6b5e52] leading-relaxed text-[15px]">
-              Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.
-            </p>
-          </motion.div>
         </div>
 
-        {/* Sinus Lifting Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="border-4 border-red-500 rounded-xl p-6 bg-white mb-16"
-        >
-          <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">Sinüs Lifting Nedir?</h3>
-          <p className="text-[#6b5e52] leading-relaxed text-[15px]">
-            Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.
-          </p>
-        </motion.div>
+
 
         {/* Steps */}
         <motion.div
