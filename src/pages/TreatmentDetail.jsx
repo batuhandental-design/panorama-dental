@@ -5,6 +5,31 @@ import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 import TreatmentVideoSection from "../components/home/TreatmentVideoSection";
+import HollywoodSmileVideo from "../components/treatments/HollywoodSmileVideo";
+import TeethWhiteningVideo from "../components/treatments/TeethWhiteningVideo";
+import ZirconiaCrownVideo from "../components/treatments/ZirconiaCrownVideo";
+import BoneGraftVideo from "../components/treatments/BoneGraftVideo";
+import OrthodonticsVideo from "../components/treatments/OrthodonticsVideo";
+
+const TREATMENT_VIDEOS = {
+  "dis-implanti": TreatmentVideoSection,
+  "hollywood-gulusu": HollywoodSmileVideo,
+  "dis-beyazlatma": TeethWhiteningVideo,
+  "zirkonyum-kaplama": ZirconiaCrownVideo,
+  "kemik-grefti": BoneGraftVideo,
+  "dis-teli-ortodonti": OrthodonticsVideo,
+};
+
+function TreatmentHeroMedia({ slug, treatment }) {
+  const VideoComp = TREATMENT_VIDEOS[slug];
+  if (VideoComp) return <VideoComp />;
+  return (
+    <>
+      <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
+      <div className="absolute inset-0 bg-[#2c2419]/65" />
+    </>
+  );
+}
 import { useLanguage } from "@/lib/LanguageContext";
 
 const heroImages = {
@@ -51,15 +76,9 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: slug === "dis-implanti" ? 520 : 384 }}>
-        {slug === "dis-implanti" ? (
-          <TreatmentVideoSection />
-        ) : (
-          <>
-            <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
-            <div className="absolute inset-0 bg-[#2c2419]/65" />
-          </>
-        )}
+      <div className="relative overflow-hidden" style={{ minHeight: TREATMENT_VIDEOS[slug] ? 520 : 384 }}>
+        <TreatmentHeroMedia slug={slug} treatment={treatment} />
+
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
