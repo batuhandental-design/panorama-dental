@@ -26,14 +26,18 @@ const TREATMENT_VIDEOS = {
 
 function TreatmentHeroMedia({ slug, treatment }) {
   if (YOUTUBE_VIDEOS[slug]) {
+    const videoId = YOUTUBE_VIDEOS[slug];
     return (
-      <iframe
-        src={`https://www.youtube.com/embed/${YOUTUBE_VIDEOS[slug]}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEOS[slug]}&controls=0&showinfo=0&rel=0`}
-        className="absolute inset-0 w-full h-full"
-        style={{ border: "none" }}
-        allow="autoplay; fullscreen"
-        allowFullScreen
-      />
+      <>
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`}
+          className="absolute w-full h-full"
+          style={{ border: "none", top: "50%", left: "50%", transform: "translate(-50%, -50%)", minWidth: "100%", minHeight: "100%" }}
+          allow="autoplay; fullscreen"
+          allowFullScreen
+        />
+        <div className="absolute inset-0 bg-[#2c2419]/40" />
+      </>
     );
   }
   const VideoComp = TREATMENT_VIDEOS[slug];
@@ -91,7 +95,7 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: TREATMENT_VIDEOS[slug] ? 520 : 384 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: YOUTUBE_VIDEOS[slug] ? 600 : TREATMENT_VIDEOS[slug] ? 520 : 384 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
