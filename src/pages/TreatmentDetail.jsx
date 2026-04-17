@@ -206,14 +206,25 @@ export default function TreatmentDetail() {
             </div>
           </motion.div>
 
-          {/* Image */}
+          {/* Image / Video */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="rounded-2xl overflow-hidden shadow-xl"
           >
-            <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
+            {slug === "zirkonyum-kaplama" ? (
+              <div style={{ position: "relative", paddingBottom: "177.78%", height: 0, background: "#000" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/URv-CrkiJyY?autoplay=1&mute=1&loop=1&playlist=URv-CrkiJyY&controls=1&rel=0&modestbranding=1"
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                />
+              </div>
+            ) : (
+              <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
+            )}
           </motion.div>
         </div>
 
