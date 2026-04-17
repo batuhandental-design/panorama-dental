@@ -110,13 +110,14 @@ export const translations = {
       "dis-implanti": {
         title: "Diş İmplantı", subtitle: "Dental Implant", emoji: "🦷",
         description: "Diş implantları, eksik dişlerin yerine uygulanan, estetik ve fonksiyonel açıdan en gelişmiş tedavi yöntemlerinden biridir. Çene kemiğine yerleştirilen titanyum implantlar sayesinde doğal dişlere en yakın görünüm ve kullanım konforu sağlanır. Eksik dişler yalnızca estetik bir sorun oluşturmaz; aynı zamanda çiğneme fonksiyonunu olumsuz etkiler ve zamanla çene kemiğinde hacim kaybına yol açabilir. İmplant tedavisi, bu sorunları kalıcı olarak ortadan kaldırarak sağlıklı ve dengeli bir ağız yapısının yeniden kazanılmasını sağlar.",
+        descriptionExtra: "Tedavi süreci, detaylı bir klinik muayene ve kişiye özel planlama ile başlar. İmplantlar lokal anestezi altında konforlu bir şekilde yerleştirilir. İyileşme sürecinin ardından hastaya özel hazırlanan sabit dişler uygulanarak tedavi tamamlanır.",
         benefits: ["Doğal görünüm ve his", "20+ yıl dayanıklılık", "Çevre dişlere zarar vermez", "Kemik erimesini önler", "Yeme-içme rahatlığı", "Özgüven artışı"],
         steps: [
           { step: "1", title: "Muayene & Planlama", desc: "3D tomografi ile kapsamlı ağız analizi ve kişiselleştirilmiş tedavi planı." },
           { step: "2", title: "İmplant Yerleştirme", desc: "Lokal anestezi altında titanyum implantın çene kemiğine uygulanması." },
           { step: "3", title: "İyileşme Süreci", desc: "2–4 aylık osseointegrasyon (kemikle kaynaşma) süreci." },
           { step: "4", title: "Üst Yapı & Teslim", desc: "Zirkonyum veya porselen kron takılarak tamamlanan kusursuz gülüş." },
-          { step: "5", title: "Tedavi Süreci", desc: "Tedavi süreci, detaylı bir klinik muayene ve kişiye özel planlama ile başlar. İmplantlar lokal anestezi altında konforlu bir şekilde yerleştirilir. İyileşme sürecinin ardından hastaya özel hazırlanan sabit dişler uygulanarak tedavi tamamlanır." },
+
         ],
       },
       "hollywood-gulusu": {
