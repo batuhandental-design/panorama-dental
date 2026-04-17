@@ -2,32 +2,44 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const names = ["Dr. Zeynep Umur", "Dr. Ömer Karayakalı", "Dr. Elif Gizem Boyalı", "Dr. Süleyman Karataş"];
+const names = [
+  "Dr. Zeynep Umur",
+  "Dr. Ömer Karayakalı",
+  "Dr. Elif Gizem Boyalı",
+  "Dr. Süleyman Karataş",
+  "Dr. Arzu Dilan Yıldırım",
+  "Dr. Mehmet Can Demir",
+  "Dr. Selin Aydın",
+];
 
 export default function DoctorSection() {
   const { t } = useLanguage();
 
+  // Merge the extra first doctor (Zeynep Umur) with translation data
+  const extraDoctor = { specialty: "Estetik Diş Hekimi & Genel Diş Hekimliği", exp: "10 yıl deneyim" };
+  const allDoctors = [extraDoctor, ...t.doctors];
+
   return (
     <section className="py-20 bg-[#ede8e0] font-inter">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.doctorsLabel}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.doctorsTitle}</h2>
           <p className="text-[#6b5e52] max-w-lg mx-auto">{t.doctorsDesc}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {t.doctors.slice(0, 4).map((doc, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {allDoctors.map((doc, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: (i % 4) * 0.1 }}
             >
               <div className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] border border-[#d4c9bc] rounded-2xl p-6 text-center hover:border-[#8B6840]/30 transition-all">
                 <div className="w-20 h-20 mx-auto bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-4 text-3xl">🦷</div>
-                <h3 className="text-lg font-bold text-[#2d2419] mb-1">{names[i]}</h3>
+                <h3 className="text-lg font-bold text-[#2d2419] mb-1">{names[i] || `Dr. ${i + 1}`}</h3>
                 <p className="text-[#8B6840] text-xs font-medium mb-1">{doc.specialty}</p>
                 <p className="text-[#9c8e84] text-xs mb-3">{doc.exp}</p>
                 <div className="flex items-center justify-center gap-0.5 mb-4">
