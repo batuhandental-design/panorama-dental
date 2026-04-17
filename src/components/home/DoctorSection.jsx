@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const names = ["Dr. Ömer Karayakalı", "Dr. Elif Gizem Boyalı", "Dr. Süleyman Karataş", "Dr. Arzu Dilan Yıldırım"];
+const names = ["Dr. Zeynep Umur", "Dr. Ömer Karayakalı", "Dr. Elif Gizem Boyalı", "Dr. Süleyman Karataş"];
 
 export default function DoctorSection() {
   const { t } = useLanguage();
