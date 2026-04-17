@@ -11,8 +11,8 @@ import ZirconiaCrownVideo from "../components/treatments/ZirconiaCrownVideo";
 import BoneGraftVideo from "../components/treatments/BoneGraftVideo";
 import OrthodonticsVideo from "../components/treatments/OrthodonticsVideo";
 
-const DRIVE_VIDEOS = {
-  "dis-implanti": "https://drive.google.com/uc?export=download&id=1_X8hpv3zjTb4j1EImAckEX1E0WQ2qt7J",
+const YOUTUBE_VIDEOS = {
+  "dis-implanti": "le2ByOnKauA",
 };
 
 const TREATMENT_VIDEOS = {
@@ -25,13 +25,14 @@ const TREATMENT_VIDEOS = {
 };
 
 function TreatmentHeroMedia({ slug, treatment }) {
-  if (DRIVE_VIDEOS[slug]) {
+  if (YOUTUBE_VIDEOS[slug]) {
     return (
-      <video
-        src={DRIVE_VIDEOS[slug]}
-        autoPlay muted loop playsInline
-        className="w-full h-full object-cover absolute inset-0"
-        style={{ height: "100%" }}
+      <iframe
+        src={`https://www.youtube.com/embed/${YOUTUBE_VIDEOS[slug]}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEOS[slug]}&controls=0&showinfo=0&rel=0`}
+        className="absolute inset-0 w-full h-full"
+        style={{ border: "none" }}
+        allow="autoplay; fullscreen"
+        allowFullScreen
       />
     );
   }
