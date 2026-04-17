@@ -88,10 +88,7 @@ export default function TreatmentDetail() {
           {/* Description */}
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
             <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair mb-4">{t.treatmentAbout}</h2>
-            <p className="text-[#6b5e52] leading-relaxed mb-4 text-[15px]">{treatment.description}</p>
-            {treatment.descriptionExtra && (
-              <p className="text-[#6b5e52] leading-relaxed mb-8 text-[15px]">{treatment.descriptionExtra}</p>
-            )}
+            <p className="text-[#6b5e52] leading-relaxed mb-8 text-[15px]">{treatment.description}</p>
             <h3 className="text-lg font-bold text-[#2d2419] mb-4">{t.treatmentBenefits}</h3>
             <div className="grid grid-cols-2 gap-3">
               {treatment.benefits.map((b, i) => (
@@ -122,9 +119,12 @@ export default function TreatmentDetail() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair text-center mb-4">
             {t.treatmentProcess}
           </h2>
+          {treatment.descriptionExtra && (
+            <p className="text-[#6b5e52] leading-relaxed text-[15px] text-center max-w-2xl mx-auto mb-10">{treatment.descriptionExtra}</p>
+          )}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {treatment.steps.map((s, i) => (
               <motion.div
