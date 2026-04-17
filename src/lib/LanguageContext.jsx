@@ -116,6 +116,7 @@ export const translations = {
           { step: "2", title: "İmplant Yerleştirme", desc: "Lokal anestezi altında titanyum implantın çene kemiğine uygulanması." },
           { step: "3", title: "İyileşme Süreci", desc: "2–4 aylık osseointegrasyon (kemikle kaynaşma) süreci." },
           { step: "4", title: "Üst Yapı & Teslim", desc: "Zirkonyum veya porselen kron takılarak tamamlanan kusursuz gülüş." },
+          { step: "5", title: "Tedavi Süreci", desc: "Tedavi süreci, detaylı bir klinik muayene ve kişiye özel planlama ile başlar. İmplantlar lokal anestezi altında konforlu bir şekilde yerleştirilir. İyileşme sürecinin ardından hastaya özel hazırlanan sabit dişler uygulanarak tedavi tamamlanır." },
         ],
       },
       "hollywood-gulusu": {
