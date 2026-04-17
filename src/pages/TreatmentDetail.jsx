@@ -51,13 +51,7 @@ export default function TreatmentDetail() {
 
       {/* Hero */}
       <div className="relative h-72 md:h-96 overflow-hidden">
-        <video
-          autoPlay muted loop playsInline
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover"
-        >
-          <source src="https://videos.pexels.com/video-files/6723558/6723558-hd_1920_1080_25fps.mp4" type="video/mp4" />
-          <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
-        </video>
+        <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[#2c2419]/65" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <motion.p
