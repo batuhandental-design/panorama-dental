@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import Navbar from "../components/home/Navbar";
@@ -24,21 +25,79 @@ const TREATMENT_VIDEOS = {
   "dis-teli-ortodonti": OrthodonticsVideo,
 };
 
+function YouTubeBackground({ videoId }) {
+  const playerRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let player;
+
+    function onYouTubeReady() {
+      player = new window.YT.Player(playerRef.current, {
+        videoId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: videoId,
+          controls: 0,
+          showinfo: 0,
+          rel: 0,
+          modestbranding: 1,
+          iv_load_policy: 3,
+          disablekb: 1,
+        },
+        events: {
+          onReady: (e) => e.target.playVideo(),
+          onStateChange: (e) => {
+            if (e.data === window.YT.PlayerState.ENDED) {
+              e.target.playVideo();
+            }
+          },
+        },
+      });
+    }
+
+    if (window.YT && window.YT.Player) {
+      onYouTubeReady();
+    } else {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+      window.onYouTubeIframeAPIReady = onYouTubeReady;
+    }
+
+    return () => {
+      if (player) player.destroy();
+    };
+  }, [videoId]);
+
+  return (
+    <>
+      <div ref={containerRef} className="absolute inset-0 overflow-hidden">
+        <div
+          ref={playerRef}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "100%",
+            height: "100%",
+            minWidth: "177.78vh",
+            minHeight: "56.25vw",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-[#2c2419]/50" />
+    </>
+  );
+}
+
 function TreatmentHeroMedia({ slug, treatment }) {
   if (YOUTUBE_VIDEOS[slug]) {
-    const videoId = YOUTUBE_VIDEOS[slug];
-    return (
-      <>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&start=0&enablejsapi=1`}
-          className="absolute w-full h-full"
-          style={{ border: "none", top: "50%", left: "50%", transform: "translate(-50%, -50%)", minWidth: "100%", minHeight: "100%" }}
-          allow="autoplay; fullscreen"
-          allowFullScreen
-        />
-        <div className="absolute inset-0 bg-[#2c2419]/40" />
-      </>
-    );
+    return <YouTubeBackground videoId={YOUTUBE_VIDEOS[slug]} />;
   }
   const VideoComp = TREATMENT_VIDEOS[slug];
   if (VideoComp) return <VideoComp />;
