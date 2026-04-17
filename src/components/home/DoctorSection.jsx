@@ -7,6 +7,7 @@ const names = [
   "Dr. Ömer Karayakalı",
   "Dr. Elif Gizem Boyalı",
   "Dr. Süleyman Karataş",
+  "Dr. Arzu Dilan Yıldırım",
 ];
 
 export default function DoctorSection() {
