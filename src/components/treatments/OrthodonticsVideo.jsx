@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Phases:
 // 0-2s: Crooked teeth appear
@@ -41,6 +42,9 @@ export default function OrthodonticsVideo() {
   const [phase, setPhase] = useState("crooked");
   const [activeInfo, setActiveInfo] = useState(null);
   const [day, setDay] = useState(0);
+  const { t } = useLanguage();
+  const vt = t.videoTexts || {};
+  const ot = vt.orthodontics || {};
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -135,7 +139,10 @@ export default function OrthodonticsVideo() {
 
       const info = INFOS.find(i => i.phase === cur.name);
       setActiveInfo(info || null);
-      if (info) setDay(info.day);
+      if (info) {
+        const dayMap = { aligner1: ot.day1, aligner2: ot.day10, aligner3: ot.day20, straight: ot.dayFinal };
+        setDay(dayMap[cur.name] || info.day);
+      }
 
       alignerMeshes.forEach(m => { m.material.opacity = 0; });
       retainerMat.opacity = 0;
@@ -224,7 +231,7 @@ export default function OrthodonticsVideo() {
           {day !== 0 && (
             <div className="bg-black/50 backdrop-blur-sm rounded-full px-4 py-1.5 border border-white/10">
               <span className="text-white/70 text-[10px] font-bold uppercase tracking-widest">{day}</span>
-              {alignerNumber && <span className="text-[#60d4b8] text-[10px] font-bold ml-2">Plak {alignerNumber}</span>}
+              {alignerNumber && <span className="text-[#60d4b8] text-[10px] font-bold ml-2">{vt.aligner || "Aligner"} {alignerNumber}</span>}
             </div>
           )}
         </div>
@@ -232,14 +239,18 @@ export default function OrthodonticsVideo() {
         <div className="flex justify-end">
           {activeInfo && (
             <div key={activeInfo.phase} className="bg-black/60 backdrop-blur-md rounded-2xl border p-5 max-w-xs shadow-xl" style={{ borderColor: activeInfo.color + "55", animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeInfo.color }}>{activeInfo.title}</p>
-              <p className="text-white/70 text-xs leading-relaxed">{activeInfo.detail}</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeInfo.color }}>
+                {activeInfo.phase === "aligner1" ? ot.aligner1Title : activeInfo.phase === "aligner2" ? ot.aligner2Title : activeInfo.phase === "aligner3" ? ot.aligner3Title : ot.straightTitle}
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                {activeInfo.phase === "aligner1" ? ot.aligner1Detail : activeInfo.phase === "aligner2" ? ot.aligner2Detail : activeInfo.phase === "aligner3" ? ot.aligner3Detail : ot.straightDetail}
+              </p>
             </div>
           )}
           {phase === "done" && !activeInfo && (
             <div className="bg-black/60 backdrop-blur-md rounded-2xl border border-green-400/30 p-5 max-w-xs shadow-xl" style={{ animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-2">✓ Ortodonti Tamamlandı</p>
-              <p className="text-white/60 text-xs leading-relaxed">Şeffaf plak serisiyle dişler istenen konuma getirildi. Retansiyon plağıyla kalıcı sonuç korunuyor.</p>
+              <p className="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-2">{ot.doneTitle}</p>
+              <p className="text-white/60 text-xs leading-relaxed">{ot.doneDetail}</p>
             </div>
           )}
         </div>

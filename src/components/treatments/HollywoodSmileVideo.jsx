@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Phases:
 // 0-2s: Single layer zirconia crown appears
@@ -39,6 +40,8 @@ export default function HollywoodSmileVideo() {
   const canvasRef = useRef(null);
   const [phase, setPhase] = useState("intro");
   const [activeInfo, setActiveInfo] = useState(null);
+  const { t } = useLanguage();
+  const vt = t.videoTexts?.hollywood || {};
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -204,17 +207,17 @@ export default function HollywoodSmileVideo() {
             <div key={activeInfo} className="bg-black/60 backdrop-blur-md rounded-2xl border border-yellow-400/30 p-5 max-w-xs shadow-xl" style={{ animation: "fadeSlideIn 0.4s ease" }}>
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-3 h-3 rounded-full" style={{ background: `#${INFO[activeInfo].color.toString(16).padStart(6, "0")}` }} />
-                <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-widest">Katman {activeInfo + 1}</p>
+                <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-widest">{t.videoTexts?.layer || "Layer"} {activeInfo + 1}</p>
               </div>
-              <h4 className="text-white font-bold text-base mb-2">{INFO[activeInfo].title}</h4>
-              <p className="text-white/70 text-xs leading-relaxed">{INFO[activeInfo].detail}</p>
+              <h4 className="text-white font-bold text-base mb-2">{activeInfo === 0 ? vt.layer1Title : vt.layer2Title}</h4>
+              <p className="text-white/70 text-xs leading-relaxed">{activeInfo === 0 ? vt.layer1Detail : vt.layer2Detail}</p>
             </div>
           )}
           {phase === "done" && (
             <div className="bg-black/60 backdrop-blur-md rounded-2xl border border-yellow-400/30 p-5 max-w-xs shadow-xl" style={{ animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-widest mb-2">✓ Hollywood Gülüşü</p>
-              <h4 className="text-white font-bold text-sm mb-1">Çift katman, tek mükemmel kaplama</h4>
-              <p className="text-white/60 text-xs leading-relaxed">Zirkon altyapı + porselen veneer = doğal, kalıcı ve estetik gülüş.</p>
+              <p className="text-yellow-400 text-[10px] font-bold uppercase tracking-widest mb-2">{vt.doneTitle}</p>
+              <h4 className="text-white font-bold text-sm mb-1">{vt.doneSubtitle}</h4>
+              <p className="text-white/60 text-xs leading-relaxed">{vt.doneDetail}</p>
             </div>
           )}
         </div>
@@ -223,7 +226,7 @@ export default function HollywoodSmileVideo() {
             <div key={i} className="flex items-center gap-2 rounded-full px-3 py-1 border transition-all duration-500"
               style={{ background: activeInfo === i ? "rgba(255,215,0,0.15)" : "rgba(0,0,0,0.3)", borderColor: activeInfo === i ? "#ffd700" : "rgba(255,255,255,0.1)" }}>
               <div className="w-2 h-2 rounded-full" style={{ background: `#${info.color.toString(16).padStart(6, "0")}` }} />
-              <span className="text-white/70 text-[10px] font-medium">{info.title}</span>
+              <span className="text-white/70 text-[10px] font-medium">{i === 0 ? vt.layer1Title : vt.layer2Title}</span>
             </div>
           ))}
         </div>

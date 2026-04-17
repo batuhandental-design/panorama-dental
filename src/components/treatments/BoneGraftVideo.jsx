@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Phases:
 // 0-2s: Jawbone cross-section appears with bone loss visible
@@ -33,6 +34,9 @@ export default function BoneGraftVideo() {
   const [phase, setPhase] = useState("jaw");
   const [activeInfo, setActiveInfo] = useState(null);
   const [boneLevel, setBoneLevel] = useState(0);
+  const { t } = useLanguage();
+  const vt = t.videoTexts || {};
+  const bt = vt.bonegraft || {};
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -223,7 +227,7 @@ export default function BoneGraftVideo() {
         <div className="flex justify-between items-end">
           {/* Bone level meter */}
           <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-3 border border-white/10">
-            <p className="text-white/50 text-[9px] uppercase tracking-widest mb-2">Kemik Seviyesi</p>
+            <p className="text-white/50 text-[9px] uppercase tracking-widest mb-2">{vt.boneLevel || "Bone Level"}</p>
             <div className="w-4 h-24 bg-white/10 rounded-full overflow-hidden flex flex-col-reverse">
               <div className="w-full rounded-full transition-all duration-300"
                 style={{ height: `${boneLevel}%`, background: boneLevel > 80 ? "#4ade80" : boneLevel > 40 ? "#fbbf24" : "#f87171" }} />
@@ -233,14 +237,18 @@ export default function BoneGraftVideo() {
 
           {activeInfo && (
             <div key={activeInfo.phase} className="bg-black/60 backdrop-blur-md rounded-2xl border p-5 max-w-xs shadow-xl" style={{ borderColor: activeInfo.color + "55", animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeInfo.color }}>{activeInfo.title}</p>
-              <p className="text-white/70 text-xs leading-relaxed">{activeInfo.detail}</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeInfo.color }}>
+                {activeInfo.phase === "jaw" ? bt.jawTitle : activeInfo.phase === "measure" ? bt.measureTitle : activeInfo.phase === "graft" ? bt.graftTitle : activeInfo.phase === "grow" ? bt.growTitle : bt.implantTitle}
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                {activeInfo.phase === "jaw" ? bt.jawDetail : activeInfo.phase === "measure" ? bt.measureDetail : activeInfo.phase === "graft" ? bt.graftDetail : activeInfo.phase === "grow" ? bt.growDetail : bt.implantDetail}
+              </p>
             </div>
           )}
           {phase === "done" && !activeInfo && (
             <div className="bg-black/60 backdrop-blur-md rounded-2xl border border-green-400/30 p-5 max-w-xs shadow-xl" style={{ animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-2">✓ Kemik Rejenerasyonu Tamamlandı</p>
-              <p className="text-white/60 text-xs leading-relaxed">Yeni kemik dokusu implantı sağlam tutacak sağlıklı zemin oluşturdu.</p>
+              <p className="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-2">{bt.doneTitle}</p>
+              <p className="text-white/60 text-xs leading-relaxed">{bt.doneDetail}</p>
             </div>
           )}
         </div>

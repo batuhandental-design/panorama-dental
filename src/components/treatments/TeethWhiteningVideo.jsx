@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Phases:
 // 0-2s: Tooth appears (yellowish)
@@ -32,6 +33,9 @@ export default function TeethWhiteningVideo() {
   const [phase, setPhase] = useState("appear");
   const [shade, setShade] = useState(0);
   const [activeCard, setActiveCard] = useState(null);
+  const { t } = useLanguage();
+  const vt = t.videoTexts || {};
+  const wt = vt.whitening || {};
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -213,7 +217,7 @@ export default function TeethWhiteningVideo() {
     };
   }, []);
 
-  const card = INFO_CARDS.find(c => c.phase === activeCard);
+
 
   return (
     <div className="relative w-full rounded-3xl overflow-hidden mb-16 font-inter" style={{ minHeight: 420 }}>
@@ -223,27 +227,31 @@ export default function TeethWhiteningVideo() {
         <div className="flex justify-between items-end">
           {/* Shade meter */}
           <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-3 border border-white/10">
-            <p className="text-white/50 text-[9px] uppercase tracking-widest mb-2">Beyazlama Tonu</p>
+            <p className="text-white/50 text-[9px] uppercase tracking-widest mb-2">{vt.shadeMeter || "Shade"}</p>
             <div className="flex gap-1">
               {SHADES.map((hex, i) => (
                 <div key={i} className="w-4 h-8 rounded transition-all duration-300"
                   style={{ background: `#${hex.toString(16).padStart(6, "0")}`, opacity: shade >= i ? 1 : 0.3, transform: shade === i ? "scaleY(1.2)" : "scaleY(1)" }} />
               ))}
             </div>
-            <p className="text-[#fbbf24] text-[9px] mt-1 font-bold">{shade > 0 ? `+${shade} Ton` : "Başlangıç"}</p>
+            <p className="text-[#fbbf24] text-[9px] mt-1 font-bold">{shade > 0 ? (wt.tonLabel || "+{n} Shades").replace("{n}", shade) : (vt.shadeStart || "Start")}</p>
           </div>
 
-          {card && (
-            <div key={card.phase} className="bg-black/60 backdrop-blur-md rounded-2xl border p-5 max-w-xs shadow-xl" style={{ borderColor: card.color + "66", animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: card.color }}>{card.title}</p>
-              <p className="text-white/70 text-xs leading-relaxed">{card.detail}</p>
+          {activeCard && (
+            <div key={activeCard} className="bg-black/60 backdrop-blur-md rounded-2xl border p-5 max-w-xs shadow-xl" style={{ borderColor: (activeCard === "gel" ? "#60b8d4" : activeCard === "activate" ? "#a78bfa" : "#fbbf24") + "66", animation: "fadeSlideIn 0.4s ease" }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeCard === "gel" ? "#60b8d4" : activeCard === "activate" ? "#a78bfa" : "#fbbf24" }}>
+                {activeCard === "gel" ? wt.gelTitle : activeCard === "activate" ? wt.activateTitle : wt.whitenTitle}
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                {activeCard === "gel" ? wt.gelDetail : activeCard === "activate" ? wt.activateDetail : wt.whitenDetail}
+              </p>
             </div>
           )}
 
           {phase === "done" && (
             <div className="bg-black/60 backdrop-blur-md rounded-2xl border border-yellow-400/30 p-5 max-w-xs shadow-xl" style={{ animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-yellow-300 text-[10px] font-bold uppercase tracking-widest mb-2">✓ 8 Ton Daha Beyaz</p>
-              <p className="text-white/60 text-xs leading-relaxed">Tek seansta, ağrısız ve güvenli profesyonel beyazlatma tamamlandı.</p>
+              <p className="text-yellow-300 text-[10px] font-bold uppercase tracking-widest mb-2">{wt.doneTitle}</p>
+              <p className="text-white/60 text-xs leading-relaxed">{wt.doneDetail}</p>
             </div>
           )}
         </div>

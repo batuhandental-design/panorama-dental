@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Phases:
 // 0-2s: Damaged/prepared tooth stump appears
@@ -31,6 +32,8 @@ export default function ZirconiaCrownVideo() {
   const canvasRef = useRef(null);
   const [phase, setPhase] = useState("stump");
   const [activeInfo, setActiveInfo] = useState(null);
+  const { t } = useLanguage();
+  const vt = t.videoTexts?.zirconia || {};
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -202,14 +205,18 @@ export default function ZirconiaCrownVideo() {
         <div className="flex justify-end">
           {activeInfo && (
             <div key={activeInfo.phase} className="bg-black/60 backdrop-blur-md rounded-2xl border p-5 max-w-xs shadow-xl" style={{ borderColor: activeInfo.color + "55", animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeInfo.color }}>{activeInfo.title}</p>
-              <p className="text-white/70 text-xs leading-relaxed">{activeInfo.detail}</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: activeInfo.color }}>
+                {activeInfo.phase === "block" ? vt.blockTitle : activeInfo.phase === "mill" ? vt.millTitle : activeInfo.phase === "layer" ? vt.layerTitle : vt.placeTitle}
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                {activeInfo.phase === "block" ? vt.blockDetail : activeInfo.phase === "mill" ? vt.millDetail : activeInfo.phase === "layer" ? vt.layerDetail : vt.placeDetail}
+              </p>
             </div>
           )}
           {phase === "done" && !activeInfo && (
             <div className="bg-black/60 backdrop-blur-md rounded-2xl border border-blue-400/30 p-5 max-w-xs shadow-xl" style={{ animation: "fadeSlideIn 0.4s ease" }}>
-              <p className="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-2">✓ Zirkonyum Kaplama Tamamlandı</p>
-              <p className="text-white/60 text-xs leading-relaxed">Monolitik zirkon + porselen yüzey = doğal görünüm, maksimum dayanıklılık.</p>
+              <p className="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-2">{vt.doneTitle}</p>
+              <p className="text-white/60 text-xs leading-relaxed">{vt.doneDetail}</p>
             </div>
           )}
         </div>
