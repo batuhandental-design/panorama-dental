@@ -150,38 +150,34 @@ export default function TreatmentDetail() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-2xl overflow-hidden shadow-xl"
+            className="flex flex-col gap-6"
           >
-            {slug === "dis-implanti" ? (
-              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, background: "#000" }}>
-                <iframe
-                   src="https://www.youtube.com/embed/yPl3bK48_hY?autoplay=1&mute=1&loop=1&playlist=yPl3bK48_hY&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                   sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-                   referrerPolicy="strict-origin-when-cross-origin"
-                   allowFullScreen
-                   style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                />
-              </div>
-            ) : (
-              <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
-            )}
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              {slug === "dis-implanti" ? (
+                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, background: "#000" }}>
+                  <iframe
+                     src="https://www.youtube.com/embed/yPl3bK48_hY?autoplay=1&mute=1&loop=1&playlist=yPl3bK48_hY&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                     sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+                     referrerPolicy="strict-origin-when-cross-origin"
+                     allowFullScreen
+                     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  />
+                </div>
+              ) : (
+                <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
+              )}
+            </div>
+
+            {/* Sinus Lifting Info */}
+            <div>
+              <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">Sinüs Lifting Nedir?</h3>
+              <p className="text-[#6b5e52] leading-relaxed text-[15px]">
+                Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.
+              </p>
+            </div>
           </motion.div>
         </div>
-
-        {/* Sinus Lifting Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">Sinüs Lifting Nedir?</h3>
-          <p className="text-[#6b5e52] leading-relaxed text-[15px]">
-            Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.
-          </p>
-        </motion.div>
 
         {/* Steps */}
         <motion.div
