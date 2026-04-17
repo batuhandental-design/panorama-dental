@@ -159,7 +159,6 @@ export default function TreatmentDetail() {
                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                    sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
                    referrerPolicy="strict-origin-when-cross-origin"
-                   title="Video"
                    allowFullScreen
                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
                 />
