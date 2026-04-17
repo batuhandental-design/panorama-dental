@@ -109,7 +109,7 @@ export const translations = {
     treatments: {
       "dis-implanti": {
         title: "Diş İmplantı", subtitle: "Dental Implant", emoji: "🦷",
-        description: "Diş implantı, kaybedilen dişlerin en kalıcı ve doğal görünümlü çözümüdür. Titanyum vida şeklindeki implant, çene kemiğine yerleştirilerek doğal diş köküne benzer bir temel oluşturur.",
+        description: "Diş implantları, eksik dişlerin yerine uygulanan, estetik ve fonksiyonel açıdan en gelişmiş tedavi yöntemlerinden biridir. Çene kemiğine yerleştirilen titanyum implantlar sayesinde doğal dişlere en yakın görünüm ve kullanım konforu sağlanır. Eksik dişler yalnızca estetik bir sorun oluşturmaz; aynı zamanda çiğneme fonksiyonunu olumsuz etkiler ve zamanla çene kemiğinde hacim kaybına yol açabilir. İmplant tedavisi, bu sorunları kalıcı olarak ortadan kaldırarak sağlıklı ve dengeli bir ağız yapısının yeniden kazanılmasını sağlar.",
         benefits: ["Doğal görünüm ve his", "20+ yıl dayanıklılık", "Çevre dişlere zarar vermez", "Kemik erimesini önler", "Yeme-içme rahatlığı", "Özgüven artışı"],
         steps: [
           { step: "1", title: "Muayene & Planlama", desc: "3D tomografi ile kapsamlı ağız analizi ve kişiselleştirilmiş tedavi planı." },
