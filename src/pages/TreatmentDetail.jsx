@@ -112,11 +112,8 @@ export default function TreatmentDetail() {
           </motion.div>
         </div>
 
-        {/* Video Simulation */}
-        <TreatmentVideoSection
-          steps={treatment.steps.map((s) => ({ step: s.step, title: s.title, desc: s.desc }))}
-          title={treatment.title}
-        />
+        {/* Video Simulation — only for dental implant */}
+        {slug === "dis-implanti" && <TreatmentVideoSection />}
 
         {/* Steps */}
         <motion.div
