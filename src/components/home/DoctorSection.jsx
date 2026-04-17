@@ -7,9 +7,6 @@ const names = [
   "Dr. Ömer Karayakalı",
   "Dr. Elif Gizem Boyalı",
   "Dr. Süleyman Karataş",
-  "Dr. Arzu Dilan Yıldırım",
-  "Dr. Mehmet Can Demir",
-  "Dr. Selin Aydın",
 ];
 
 export default function DoctorSection() {
@@ -17,7 +14,7 @@ export default function DoctorSection() {
 
   // Merge the extra first doctor (Zeynep Umur) with translation data
   const extraDoctor = { specialty: "Estetik Diş Hekimi & Genel Diş Hekimliği", exp: "10 yıl deneyim" };
-  const allDoctors = [extraDoctor, ...t.doctors];
+  const allDoctors = [extraDoctor, ...t.doctors].slice(0, names.length);
 
   return (
     <section className="py-20 bg-[#ede8e0] font-inter">
