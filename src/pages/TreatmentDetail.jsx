@@ -11,6 +11,10 @@ import ZirconiaCrownVideo from "../components/treatments/ZirconiaCrownVideo";
 import BoneGraftVideo from "../components/treatments/BoneGraftVideo";
 import OrthodonticsVideo from "../components/treatments/OrthodonticsVideo";
 
+const DRIVE_VIDEOS = {
+  "dis-implanti": "https://drive.google.com/uc?export=download&id=1_X8hpv3zjTb4j1EImAckEX1E0WQ2qt7J",
+};
+
 const TREATMENT_VIDEOS = {
   "dis-implanti": TreatmentVideoSection,
   "hollywood-gulusu": HollywoodSmileVideo,
@@ -21,6 +25,16 @@ const TREATMENT_VIDEOS = {
 };
 
 function TreatmentHeroMedia({ slug, treatment }) {
+  if (DRIVE_VIDEOS[slug]) {
+    return (
+      <video
+        src={DRIVE_VIDEOS[slug]}
+        autoPlay muted loop playsInline
+        className="w-full h-full object-cover absolute inset-0"
+        style={{ height: "100%" }}
+      />
+    );
+  }
   const VideoComp = TREATMENT_VIDEOS[slug];
   if (VideoComp) return <VideoComp />;
   return (
