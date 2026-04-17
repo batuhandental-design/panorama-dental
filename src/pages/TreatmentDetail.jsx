@@ -155,13 +155,13 @@ export default function TreatmentDetail() {
             {slug === "dis-implanti" ? (
               <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, background: "#000" }}>
                 <iframe
-                   src="https://www.youtube.com/embed/le2ByOnKauA?autoplay=1&mute=1&loop=1&playlist=le2ByOnKauA&controls=1&rel=0&modestbranding=1"
+                   src="https://www.youtube.com/embed/URv-CrkiJyY?autoplay=1&mute=1&loop=1&playlist=URv-CrkiJyY&controls=1&rel=0&modestbranding=1"
                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                    sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
                    referrerPolicy="strict-origin-when-cross-origin"
                    title="Video"
                    allowFullScreen
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                   style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
                 />
               </div>
             ) : (
