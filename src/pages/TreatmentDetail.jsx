@@ -7,12 +7,18 @@ import WhatsAppButton from "../components/home/WhatsAppButton";
 import { useLanguage } from "@/lib/LanguageContext";
 
 function TreatmentHeroMedia({ slug, treatment }) {
-  if (slug === "dis-implanti") {
+  const videoSlugs = {
+    "dis-implanti": "le2ByOnKauA",
+    "zirkonyum-kaplama": "tx1T29Bn50c",
+  };
+
+  if (videoSlugs[slug]) {
+    const videoId = videoSlugs[slug];
     return (
       <>
         <div className="absolute inset-0 overflow-hidden">
           <iframe
-            src="https://www.youtube.com/embed/le2ByOnKauA?autoplay=1&mute=1&loop=1&playlist=le2ByOnKauA&controls=0&rel=0&modestbranding=1&playsinline=1"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1&playsinline=1`}
             allow="autoplay; fullscreen"
             style={{
               position: "absolute",
@@ -32,6 +38,7 @@ function TreatmentHeroMedia({ slug, treatment }) {
       </>
     );
   }
+
   return (
     <>
       <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
@@ -84,7 +91,7 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: slug === "dis-implanti" ? 600 : 384 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: (slug === "dis-implanti" || slug === "zirkonyum-kaplama") ? 600 : 384 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
