@@ -55,21 +55,34 @@ export default function TeethWhiteningVideo() {
     bg.position.z = -3;
     scene.add(bg);
 
-    // Tooth group - 3 teeth side by side
+    // Single large tooth — left half yellow, right half white
     const toothGroup = new THREE.Group();
     scene.add(toothGroup);
 
-    const teeth = [];
-    const toothPositions = [-1.4, 0, 1.4];
-    toothPositions.forEach((x, i) => {
-      const geo = new THREE.SphereGeometry(0.52, 24, 24);
-      geo.scale(0.85, 1.1, 0.65);
-      const mat = new THREE.MeshStandardMaterial({ color: SHADES[0], metalness: 0.05, roughness: 0.6, transparent: true, opacity: 0 });
-      const mesh = new THREE.Mesh(geo, mat);
-      mesh.position.x = x;
-      toothGroup.add(mesh);
-      teeth.push(mesh);
-    });
+    // Build a split tooth using two half-sphere geometries
+    // Left half = yellow (stained)
+    const leftGeo = new THREE.SphereGeometry(1.0, 32, 32, Math.PI, Math.PI); // left hemisphere
+    leftGeo.scale(0.85, 1.2, 0.7);
+    const leftMat = new THREE.MeshStandardMaterial({ color: SHADES[0], metalness: 0.05, roughness: 0.6, transparent: true, opacity: 0 });
+    const leftMesh = new THREE.Mesh(leftGeo, leftMat);
+    toothGroup.add(leftMesh);
+
+    // Right half = starts yellow, whitens
+    const rightGeo = new THREE.SphereGeometry(1.0, 32, 32, 0, Math.PI); // right hemisphere
+    rightGeo.scale(0.85, 1.2, 0.7);
+    const rightMat = new THREE.MeshStandardMaterial({ color: SHADES[0], metalness: 0.05, roughness: 0.45, transparent: true, opacity: 0 });
+    const rightMesh = new THREE.Mesh(rightGeo, rightMat);
+    toothGroup.add(rightMesh);
+
+    // Divider line in the middle
+    const divGeo = new THREE.PlaneGeometry(0.03, 2.5);
+    const divMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 });
+    const divider = new THREE.Mesh(divGeo, divMat);
+    divider.position.z = 0.71;
+    toothGroup.add(divider);
+
+    // Fake teeth array for backward compat (only right half whitens)
+    const teeth = [leftMesh, rightMesh];
 
     // Opalescence device (cylinder above)
     const deviceGeo = new THREE.CylinderGeometry(0.12, 0.15, 1.2, 16);
@@ -87,8 +100,8 @@ export default function TeethWhiteningVideo() {
     scene.add(beam);
 
     // Gel layer on tooth
-    const gelGeo = new THREE.SphereGeometry(0.56, 24, 24);
-    gelGeo.scale(0.85, 1.1, 0.65);
+    const gelGeo = new THREE.SphereGeometry(1.08, 24, 24);
+    gelGeo.scale(0.85, 1.2, 0.7);
     const gelMat = new THREE.MeshStandardMaterial({ color: 0x88ccff, transparent: true, opacity: 0, metalness: 0, roughness: 0.1 });
     const gelMesh = new THREE.Mesh(gelGeo, gelMat);
     scene.add(gelMesh);
@@ -124,14 +137,18 @@ export default function TeethWhiteningVideo() {
 
       if (cur.name === "appear") {
         const p = easeInOut(Math.min(t / 2, 1));
-        teeth.forEach(m => { m.material.opacity = p; m.material.color.setHex(SHADES[0]); });
+        leftMat.opacity = p; leftMat.color.setHex(SHADES[0]);
+        rightMat.opacity = p; rightMat.color.setHex(SHADES[0]);
+        divMat.opacity = p * 0.6;
         deviceMat.opacity = 0; beamMat.opacity = 0; gelMat.opacity = 0; pMat.opacity = 0;
         setActiveCard(null); setShade(0);
       }
 
       if (cur.name === "gel") {
         const p = easeInOut(Math.min((t - 2) / 3, 1));
-        teeth.forEach(m => { m.material.opacity = 1; m.material.color.setHex(SHADES[0]); });
+        leftMat.opacity = 1; leftMat.color.setHex(SHADES[0]);
+        rightMat.opacity = 1; rightMat.color.setHex(SHADES[0]);
+        divMat.opacity = 0.6;
         deviceMat.opacity = p;
         device.position.y = lerp(3.5, 2.0, p);
         gelMat.opacity = lerp(0, 0.35, p);
@@ -142,7 +159,7 @@ export default function TeethWhiteningVideo() {
 
       if (cur.name === "activate") {
         const p = easeInOut(Math.min((t - 5) / 3, 1));
-        teeth.forEach(m => { m.material.opacity = 1; });
+        leftMat.opacity = 1; rightMat.opacity = 1; divMat.opacity = 0.6;
         deviceMat.opacity = 1;
         beamMat.opacity = lerp(0, 0.5, p) * (0.5 + Math.sin(t * 8) * 0.5);
         pMat.opacity = lerp(0, 0.8, p);
@@ -154,7 +171,10 @@ export default function TeethWhiteningVideo() {
         const p = Math.min((t - 8) / 4, 1);
         const shadeIdx = Math.min(Math.floor(p * SHADES.length), SHADES.length - 1);
         setShade(shadeIdx);
-        teeth.forEach(m => { m.material.color.setHex(SHADES[shadeIdx]); m.material.opacity = 1; });
+        // Left stays yellow (stained), right whitens
+        leftMat.color.setHex(SHADES[0]); leftMat.opacity = 1;
+        rightMat.color.setHex(SHADES[shadeIdx]); rightMat.opacity = 1;
+        divMat.opacity = 0.8;
         deviceMat.opacity = 1;
         beamMat.opacity = 0.3 + Math.sin(t * 6) * 0.2;
         pMat.opacity = 0.6;
@@ -163,7 +183,10 @@ export default function TeethWhiteningVideo() {
       }
 
       if (cur.name === "done") {
-        teeth.forEach(m => { m.material.color.setHex(SHADES[SHADES.length - 1]); m.material.opacity = 1; });
+        // Left stays yellow to show contrast, right stays white
+        leftMat.color.setHex(SHADES[0]); leftMat.opacity = 1;
+        rightMat.color.setHex(SHADES[SHADES.length - 1]); rightMat.opacity = 1;
+        divMat.opacity = 0.8;
         deviceMat.opacity = lerp(1, 0, Math.min((t - 12) / 1, 1));
         beamMat.opacity = 0;
         pMat.opacity = 0.3 + Math.sin(t * 2) * 0.2;
