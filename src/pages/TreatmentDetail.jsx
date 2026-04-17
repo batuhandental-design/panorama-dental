@@ -7,6 +7,31 @@ import WhatsAppButton from "../components/home/WhatsAppButton";
 import { useLanguage } from "@/lib/LanguageContext";
 
 function TreatmentHeroMedia({ slug, treatment }) {
+  if (slug === "dis-implanti") {
+    return (
+      <>
+        <div className="absolute inset-0 overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/le2ByOnKauA?autoplay=1&mute=1&loop=1&playlist=le2ByOnKauA&controls=0&rel=0&modestbranding=1&playsinline=1"
+            allow="autoplay; fullscreen"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "177.78vh",
+              height: "100%",
+              minWidth: "100%",
+              minHeight: "56.25vw",
+              border: "none",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-[#2c2419]/55" />
+      </>
+    );
+  }
   return (
     <>
       <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
@@ -59,7 +84,7 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: 384 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: slug === "dis-implanti" ? 600 : 384 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
