@@ -171,10 +171,8 @@ export default function TreatmentDetail() {
 
             {/* Sinus Lifting Info */}
             <div>
-              <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">Sinüs Lifting Nedir?</h3>
-              <p className="text-[#6b5e52] leading-relaxed text-[15px]">
-                Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.
-              </p>
+              <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">{t.sinusLiftTitle}</h3>
+              <p className="text-[#6b5e52] leading-relaxed text-[15px]">{t.sinusLiftDesc}</p>
             </div>
           </motion.div>
         </div>

@@ -106,6 +106,8 @@ export const translations = {
     treatmentCtaBtn2: "Hemen Ara",
     backHome: "Ana Sayfaya Dön",
     notFound: "Tedavi bulunamadı",
+    sinusLiftTitle: "Sinüs Lifting Nedir?",
+    sinusLiftDesc: "Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.",
     videoTexts: {
       shadeMeter: "Beyazlama Tonu",
       shadeStart: "Başlangıç",
@@ -303,6 +305,8 @@ export const translations = {
     treatmentCtaBtn2: "Call Now",
     backHome: "Back to Home",
     notFound: "Treatment not found",
+    sinusLiftTitle: "What is Sinus Lifting?",
+    sinusLiftDesc: "Sinus lifting is a procedure where bone graft material is placed at the base of the sinus cavity behind the upper jaw to increase bone volume. This procedure is critical for patients who lack sufficient bone for implant placement. After the procedure, new bone tissue forms within 6-8 months and becomes ready for implant application.",
     videoTexts: {
       shadeMeter: "Whitening Shade", shadeStart: "Start", boneLevel: "Bone Level", layer: "Layer", part: "Part", day: "Day", aligner: "Aligner",
       implant: { screwTitle: "Titanium Post", screwDetail: "The titanium screw placed in the jawbone acts as a natural tooth root. Its biocompatible structure fuses with the bone (osseointegration).", abutTitle: "Abutment (Connector)", abutDetail: "The piece that connects the post to the superstructure. Creates a stable and precise base for the crown.", crownTitle: "Zirconia Crown", crownDetail: "Indistinguishable from a natural tooth with its fully ceramic structure. The superstructure that completes the implant.", doneTitle: "✓ Implant Complete", doneSubtitle: "3 parts, 1 perfect implant", doneDetail: "Post + Abutment + Crown come together to restore the full function of a natural tooth." },
@@ -472,6 +476,8 @@ export const translations = {
     treatmentCtaBtn2: "Jetzt anrufen",
     backHome: "Zurück zur Startseite",
     notFound: "Behandlung nicht gefunden",
+    sinusLiftTitle: "Was ist Sinuslift?",
+    sinusLiftDesc: "Sinuslift ist ein Verfahren, bei dem Knochentransplantatmaterial an der Basis der Kieferhöhle hinter dem Oberkiefer platziert wird, um das Knochenvolumen zu erhöhen. Dieses Verfahren ist für Patienten, denen ausreichend Knochen für die Implantatversorgung fehlt, von entscheidender Bedeutung. Nach dem Eingriff bildet sich neues Knochengewebe innerhalb von 6-8 Monaten und ist zur Implantatversorgung bereit.",
     videoTexts: {
       shadeMeter: "Aufhellungston", shadeStart: "Start", boneLevel: "Knochenniveau", layer: "Schicht", part: "Teil", day: "Tag", aligner: "Schiene",
       implant: { screwTitle: "Titanium-Schraube", screwDetail: "Die in den Kieferknochen eingesetzte Titanschraube fungiert als natürliche Zahnwurzel. Ihre biokompatible Struktur verwächst mit dem Knochen (Osseointegration).", abutTitle: "Abutment (Verbinder)", abutDetail: "Das Teil, das die Schraube mit dem Aufbau verbindet. Bildet eine stabile und präzise Basis für die Krone.", crownTitle: "Zirkonkrone", crownDetail: "Mit ihrer vollkeramischen Struktur von natürlichen Zähnen nicht zu unterscheiden. Der Aufbau, der das Implantat vervollständigt.", doneTitle: "✓ Implantat Fertig", doneSubtitle: "3 Teile, 1 perfektes Implantat", doneDetail: "Schraube + Abutment + Krone ergeben gemeinsam die volle Funktion eines natürlichen Zahns." },
@@ -641,6 +647,8 @@ export const translations = {
     treatmentCtaBtn2: "اتصل الآن",
     backHome: "العودة إلى الرئيسية",
     notFound: "العلاج غير موجود",
+    sinusLiftTitle: "ما هو رفع الجيب الفكي؟",
+    sinusLiftDesc: "رفع الجيب الفكي هو إجراء يتم فيه وضع مادة كسب العظام في قاعدة التجويف الجيبي خلف الفك العلوي لزيادة حجم العظم. هذا الإجراء حاسم للمرضى الذين يفتقرون إلى عظم كافٍ لوضع الزرعة. بعد الإجراء، يتشكل نسيج عظمي جديد في غضون 6-8 أشهر ويصبح جاهزاً لتطبيق الزرعة.",
     videoTexts: {
       shadeMeter: "درجة التبييض", shadeStart: "البداية", boneLevel: "مستوى العظم", layer: "طبقة", part: "جزء", day: "يوم", aligner: "محاذي",
       implant: { screwTitle: "المسمار التيتانيوم", screwDetail: "المسمار التيتانيوم المزروع في عظم الفك يعمل كجذر سن طبيعي. تلتحم بنيته المتوافقة حيوياً مع العظم (التحام العظمي).", abutTitle: "الدعامة (الرابط)", abutDetail: "القطعة التي تربط المسمار بالبنية العلوية. تشكل قاعدة مستقرة ودقيقة للتاج.", crownTitle: "تاج الزركونيا", crownDetail: "لا يمكن تمييزه عن السن الطبيعي ببنيته الخزفية الكاملة. البنية العلوية التي تكمل الغرسة.", doneTitle: "✓ اكتملت الغرسة", doneSubtitle: "3 أجزاء، غرسة واحدة مثالية", doneDetail: "المسمار + الدعامة + التاج تجتمع لاستعادة الوظيفة الكاملة للسن الطبيعي." },
@@ -810,6 +818,8 @@ export const translations = {
     treatmentCtaBtn2: "Llamar Ahora",
     backHome: "Volver al Inicio",
     notFound: "Tratamiento no encontrado",
+    sinusLiftTitle: "¿Qué es Sinus Lift?",
+    sinusLiftDesc: "El sinus lift es un procedimiento donde se coloca material de injerto óseo en la base del seno maxilar detrás del maxilar superior para aumentar el volumen óseo. Este procedimiento es crítico para pacientes que carecen de hueso suficiente para la colocación del implante. Después del procedimiento, se forma nuevo tejido óseo dentro de 6-8 meses y queda listo para la aplicación del implante.",
     videoTexts: {
       shadeMeter: "Tono de Blanqueamiento", shadeStart: "Inicio", boneLevel: "Nivel Óseo", layer: "Capa", part: "Parte", day: "Día", aligner: "Alineador",
       implant: { screwTitle: "Tornillo de Titanio", screwDetail: "El tornillo de titanio colocado en el hueso maxilar actúa como raíz dental natural. Su estructura biocompatible se fusiona con el hueso (osteointegración).", abutTitle: "Pilar (Conector)", abutDetail: "La pieza que conecta el tornillo con la superestructura. Crea una base estable y precisa para la corona.", crownTitle: "Corona de Zirconio", crownDetail: "Indistinguible de un diente natural con su estructura totalmente cerámica. La superestructura que completa el implante.", doneTitle: "✓ Implante Completo", doneSubtitle: "3 piezas, 1 implante perfecto", doneDetail: "Tornillo + Pilar + Corona se unen para restaurar la función completa de un diente natural." },
@@ -979,6 +989,8 @@ export const translations = {
     treatmentCtaBtn2: "Chiama Ora",
     backHome: "Torna alla Home",
     notFound: "Trattamento non trovato",
+    sinusLiftTitle: "Cos'è il Rialzo del Seno?",
+    sinusLiftDesc: "Il rialzo del seno è una procedura in cui il materiale di innesto osseo viene posizionato alla base del seno mascellare dietro la mascella superiore per aumentare il volume osseo. Questa procedura è critica per i pazienti che mancano di osso sufficiente per il posizionamento dell'impianto. Dopo la procedura, il nuovo tessuto osseo si forma entro 6-8 mesi ed è pronto per l'applicazione dell'impianto.",
     videoTexts: {
       shadeMeter: "Tono Sbiancante", shadeStart: "Inizio", boneLevel: "Livello Osseo", layer: "Strato", part: "Parte", day: "Giorno", aligner: "Allineatore",
       implant: { screwTitle: "Vite in Titanio", screwDetail: "La vite in titanio inserita nell'osso mascellare funge da radice dentale naturale. La sua struttura biocompatibile si fonde con l'osso (osteointegrazione).", abutTitle: "Moncone (Connettore)", abutDetail: "Il pezzo che collega la vite alla sovrastruttura. Crea una base stabile e precisa per la corona.", crownTitle: "Corona in Zirconio", crownDetail: "Indistinguibile da un dente naturale con la sua struttura completamente in ceramica. La sovrastruttura che completa l'impianto.", doneTitle: "✓ Impianto Completato", doneSubtitle: "3 parti, 1 impianto perfetto", doneDetail: "Vite + Moncone + Corona si uniscono per ripristinare la piena funzione di un dente naturale." },
@@ -1148,6 +1160,8 @@ export const translations = {
     treatmentCtaBtn2: "Appeler Maintenant",
     backHome: "Retour à l'Accueil",
     notFound: "Traitement introuvable",
+    sinusLiftTitle: "Qu'est-ce que le Sinus Lift?",
+    sinusLiftDesc: "Le sinus lift est une procédure où du matériau de greffe osseuse est placé à la base du sinus maxillaire derrière le maxillaire supérieur pour augmenter le volume osseux. Cette procédure est critique pour les patients qui manquent d'os suffisant pour la pose d'implant. Après la procédure, un nouveau tissu osseux se forme dans les 6-8 mois et est prêt pour l'application de l'implant.",
     videoTexts: {
       shadeMeter: "Teinte Blanchiment", shadeStart: "Départ", boneLevel: "Niveau Osseux", layer: "Couche", part: "Partie", day: "Jour", aligner: "Aligneur",
       implant: { screwTitle: "Vis en Titane", screwDetail: "La vis en titane placée dans l'os maxillaire agit comme une racine dentaire naturelle. Sa structure biocompatible fusionne avec l'os (ostéo-intégration).", abutTitle: "Pilier (Connecteur)", abutDetail: "La pièce qui relie la vis à la superstructure. Crée une base stable et précise pour la couronne.", crownTitle: "Couronne en Zircone", crownDetail: "Indiscernable d'une dent naturelle grâce à sa structure tout céramique. La superstructure qui complète l'implant.", doneTitle: "✓ Implant Terminé", doneSubtitle: "3 pièces, 1 implant parfait", doneDetail: "Vis + Pilier + Couronne s'assemblent pour restaurer la pleine fonction d'une dent naturelle." },
@@ -1317,6 +1331,8 @@ export const translations = {
     treatmentCtaBtn2: "Позвонить",
     backHome: "Вернуться на Главную",
     notFound: "Лечение не найдено",
+    sinusLiftTitle: "Что такое Синус-лифтинг?",
+    sinusLiftDesc: "Синус-лифтинг — это процедура, при которой костный трансплантат помещается у основания верхнечелюстной пазухи позади верхней челюсти для увеличения объема кости. Эта процедура имеет решающее значение для пациентов, у которых недостаточно кости для установки имплантата. После процедуры в течение 6-8 месяцев образуется новая костная ткань и она становится готова к применению имплантата.",
     videoTexts: {
       shadeMeter: "Тон Отбеливания", shadeStart: "Начало", boneLevel: "Уровень Кости", layer: "Слой", part: "Часть", day: "День", aligner: "Элайнер",
       implant: { screwTitle: "Титановый Винт", screwDetail: "Титановый винт, установленный в челюстную кость, выполняет функцию естественного корня зуба. Его биосовместимая структура срастается с костью (остеоинтеграция).", abutTitle: "Абатмент (Соединитель)", abutDetail: "Деталь, соединяющая винт с надстройкой. Создаёт прочную и точную основу для коронки.", crownTitle: "Циркониевая Коронка", crownDetail: "Неотличима от натурального зуба благодаря полностью керамической структуре. Надстройка, завершающая имплант.", doneTitle: "✓ Имплант Готов", doneSubtitle: "3 части, 1 идеальный имплант", doneDetail: "Винт + Абатмент + Коронка соединяются для полного восстановления функции натурального зуба." },
