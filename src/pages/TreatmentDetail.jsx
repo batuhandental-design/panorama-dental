@@ -14,6 +14,7 @@ import OrthodonticsVideo from "../components/treatments/OrthodonticsVideo";
 
 const YOUTUBE_VIDEOS = {
   "dis-implanti": "le2ByOnKauA",
+  "zirkonyum-kaplama": "tx1T29Bn50c",
 };
 
 const TREATMENT_VIDEOS = {
