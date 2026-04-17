@@ -27,7 +27,7 @@ export const translations = {
       { title: "Diş Beyazlatma", desc: "Laser beyazlatma ile profesyonel ve hızlı sonuçlar." },
       { title: "Zirkonyum Kaplama", desc: "Estetik ve dayanıklı zirkonyum kaplama ile doğal görünüm." },
       { title: "Kemik Grefti", desc: "Diş implantı için kemik yenileme ve sinus lifting işlemleri." },
-      { title: "Diş Teli & Ortodonti", desc: "Şeffaf plak ve metal tel ile estetik diş hizalama tedavileri." },
+      { title: "Diş Plak Tedavisi ve Ortodonti", desc: "Şeffaf plak ve metal tel ile estetik diş hizalama tedavileri." },
     ],
     // Stats
     stats: ["Yıllık Diş Deneyimi", "Başarılı İmplant", "Hollywood Gülüşü", "Hasta Memnuniyeti"],
