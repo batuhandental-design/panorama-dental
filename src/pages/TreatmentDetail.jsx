@@ -1,106 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
-import TreatmentVideoSection from "../components/home/TreatmentVideoSection";
-import HollywoodSmileVideo from "../components/treatments/HollywoodSmileVideo";
-import TeethWhiteningVideo from "../components/treatments/TeethWhiteningVideo";
-import ZirconiaCrownVideo from "../components/treatments/ZirconiaCrownVideo";
-import BoneGraftVideo from "../components/treatments/BoneGraftVideo";
-import OrthodonticsVideo from "../components/treatments/OrthodonticsVideo";
-
-const YOUTUBE_VIDEOS = {
-  "dis-implanti": "le2ByOnKauA",
-};
-
-const TREATMENT_VIDEOS = {
-  "dis-implanti": TreatmentVideoSection,
-  "hollywood-gulusu": HollywoodSmileVideo,
-  "dis-beyazlatma": TeethWhiteningVideo,
-  "zirkonyum-kaplama": ZirconiaCrownVideo,
-  "kemik-grefti": BoneGraftVideo,
-  "dis-teli-ortodonti": OrthodonticsVideo,
-};
-
-function YouTubeBackground({ videoId }) {
-  const playerRef = useRef(null);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    let player;
-
-    function onYouTubeReady() {
-      player = new window.YT.Player(playerRef.current, {
-        videoId,
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          loop: 1,
-          playlist: videoId,
-          controls: 0,
-          showinfo: 0,
-          rel: 0,
-          modestbranding: 1,
-          iv_load_policy: 3,
-          disablekb: 1,
-        },
-        events: {
-          onReady: (e) => e.target.playVideo(),
-          onStateChange: (e) => {
-            if (e.data === window.YT.PlayerState.ENDED) {
-              e.target.playVideo();
-            }
-          },
-        },
-      });
-    }
-
-    if (window.YT && window.YT.Player) {
-      onYouTubeReady();
-    } else {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.head.appendChild(tag);
-      window.onYouTubeIframeAPIReady = onYouTubeReady;
-    }
-
-    return () => {
-      if (player) player.destroy();
-    };
-  }, [videoId]);
-
-  return (
-    <>
-      <div ref={containerRef} className="absolute inset-0 overflow-hidden">
-        <div
-          ref={playerRef}
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "100%",
-            height: "100%",
-            minWidth: "177.78vh",
-            minHeight: "56.25vw",
-            pointerEvents: "none",
-          }}
-        />
-      </div>
-      <div className="absolute inset-0 bg-[#2c2419]/50" />
-    </>
-  );
-}
+import { useLanguage } from "@/lib/LanguageContext";
 
 function TreatmentHeroMedia({ slug, treatment }) {
-  if (YOUTUBE_VIDEOS[slug]) {
-    return <YouTubeBackground videoId={YOUTUBE_VIDEOS[slug]} />;
-  }
-  const VideoComp = TREATMENT_VIDEOS[slug];
-  if (VideoComp) return <VideoComp />;
   return (
     <>
       <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
@@ -108,7 +14,6 @@ function TreatmentHeroMedia({ slug, treatment }) {
     </>
   );
 }
-import { useLanguage } from "@/lib/LanguageContext";
 
 const heroImages = {
   "dis-implanti": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&q=80",
@@ -154,7 +59,7 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: YOUTUBE_VIDEOS[slug] ? 600 : TREATMENT_VIDEOS[slug] ? 520 : 384 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: 384 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
