@@ -27,7 +27,7 @@ export default function TreatmentVideoSection({ steps, title }) {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&q=80)`,
+          backgroundImage: `url(https://media.base44.com/images/public/69d79ff6631966558dbdfca2/36900db8f_image.png)`,
           filter: "grayscale(100%) brightness(0.35) contrast(1.2)",
         }}
       />
