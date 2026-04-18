@@ -34,17 +34,15 @@ export default function HeroSection() {
 
       {/* Text Section */}
       <section className="bg-[#2c2419] py-16 px-4 text-center text-white">
-        <div className="flex justify-center mb-10">
-          <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: 340, maxWidth: "90vw" }}>
-            <iframe
-              src="https://www.youtube.com/embed/eU477VXDyas?autoplay=1&mute=1&loop=1&playlist=eU477VXDyas&controls=1&rel=0&modestbranding=1&playsinline=1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-              sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-              referrerPolicy="strict-origin-when-cross-origin"
-              title="Shorts Video"
-              style={{ width: "100%", aspectRatio: "9/16", border: "none", display: "block" }}
-            />
-          </div>
+        <div className="w-full mb-10" style={{ aspectRatio: "16/9", maxHeight: "70vh" }}>
+          <iframe
+            src="https://www.youtube.com/embed/eU477VXDyas?autoplay=1&mute=1&loop=1&playlist=eU477VXDyas&controls=1&rel=0&modestbranding=1&playsinline=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Shorts Video"
+            style={{ width: "100%", height: "100%", border: "none", display: "block", borderRadius: 16 }}
+          />
         </div>
         <div className="max-w-5xl mx-auto">
           <motion.div
