@@ -6,7 +6,7 @@ export default function HeroSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden font-inter">
+    <section id="hero" className="relative min-h-[90vh] flex items-end justify-center overflow-hidden font-inter">
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <iframe
           src="https://www.youtube.com/embed/HoGvauXdLpY?autoplay=1&mute=1&loop=1&playlist=HoGvauXdLpY&controls=0&rel=0&modestbranding=1&playsinline=1"
@@ -31,7 +31,7 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to top, rgba(44,36,25,0.9), transparent)' }} />
       </div>
 
-      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto mt-auto mb-16">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
