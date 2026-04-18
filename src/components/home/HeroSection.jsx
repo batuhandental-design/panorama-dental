@@ -8,13 +8,25 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden font-inter">
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <video
-          autoPlay muted loop playsInline
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover"
-          style={{ minWidth: '100%', minHeight: '100%' }}
-        >
-          <source src="https://videos.pexels.com/video-files/6763253/6763253-hd_1920_1080_25fps.mp4" type="video/mp4" />
-        </video>
+        <iframe
+          src="https://www.youtube.com/embed/HoGvauXdLpY?autoplay=1&mute=1&loop=1&playlist=HoGvauXdLpY&controls=0&rel=0&modestbranding=1&playsinline=1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Hero Video"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "177.78vh",
+            height: "100%",
+            minWidth: "100%",
+            minHeight: "56.25vw",
+            border: "none",
+            pointerEvents: "none",
+          }}
+        />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(44,36,25,0.82) 0%, rgba(44,36,25,0.6) 50%, rgba(74,55,40,0.75) 100%)' }} />
         <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to top, rgba(44,36,25,0.9), transparent)' }} />
       </div>
