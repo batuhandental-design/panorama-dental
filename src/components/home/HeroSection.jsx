@@ -8,7 +8,7 @@ export default function HeroSection() {
   return (
     <div id="hero" className="font-inter">
       {/* Video Section */}
-      <section className="relative min-h-[90vh] overflow-hidden">
+      <section className="relative overflow-hidden" style={{ minHeight: "56.25vw", maxHeight: "90vh" }}>
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <iframe
             src="https://www.youtube.com/embed/HoGvauXdLpY?autoplay=1&mute=1&loop=1&playlist=HoGvauXdLpY&controls=0&rel=0&modestbranding=1&playsinline=1"
@@ -33,7 +33,7 @@ export default function HeroSection() {
       </section>
 
       {/* Text Section with video background */}
-      <section className="relative py-24 px-4 text-center text-white overflow-hidden" style={{ minHeight: "60vh" }}>
+      <section className="relative py-24 px-4 text-center text-white overflow-hidden" style={{ minHeight: "60vw" }}>
         {/* Video background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <iframe
@@ -47,10 +47,8 @@ export default function HeroSection() {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "177.78vh",
-              height: "100%",
-              minWidth: "100%",
-              minHeight: "56.25vw",
+              width: "max(100%, 177.78vh)",
+              height: "max(100%, 56.25vw)",
               border: "none",
               pointerEvents: "none",
             }}
