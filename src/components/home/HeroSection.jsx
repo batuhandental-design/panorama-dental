@@ -32,9 +32,34 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Text Section */}
-      <section className="bg-[#2c2419] py-16 px-4 text-center text-white">
-        <div className="max-w-5xl mx-auto">
+      {/* Text Section with video background */}
+      <section className="relative py-24 px-4 text-center text-white overflow-hidden" style={{ minHeight: "60vh" }}>
+        {/* Video background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/eU477VXDyas?autoplay=1&mute=1&loop=1&playlist=eU477VXDyas&controls=0&rel=0&modestbranding=1&playsinline=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Background Video"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "177.78vh",
+              height: "100%",
+              minWidth: "100%",
+              minHeight: "56.25vw",
+              border: "none",
+              pointerEvents: "none",
+            }}
+          />
+          <div className="absolute inset-0" style={{ background: "rgba(44,36,25,0.65)" }} />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,7 +91,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
               href="#services"
@@ -75,18 +100,6 @@ export default function HeroSection() {
               {t.heroCta}
             </a>
           </motion.div>
-
-          {/* Video */}
-          <div className="w-full rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/9" }}>
-            <iframe
-              src="https://www.youtube.com/embed/eU477VXDyas?autoplay=1&mute=1&loop=1&playlist=eU477VXDyas&controls=1&rel=0&modestbranding=1&playsinline=1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-              sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-              referrerPolicy="strict-origin-when-cross-origin"
-              title="Shorts Video"
-              style={{ width: "100%", height: "100%", border: "none", display: "block" }}
-            />
-          </div>
         </div>
       </section>
 
