@@ -207,7 +207,8 @@ export default function BeforeAfterSection() {
                     alt={getLabel(item.labelKey)}
                     loading="lazy"
                     draggable={false}
-                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    style={{ mixBlendMode: "multiply" }} />
                   
                     <div className="absolute top-3 left-3">
                       <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${LABEL_COLORS[item.labelKey]}`}>
