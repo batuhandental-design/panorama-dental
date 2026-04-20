@@ -71,6 +71,7 @@ export default function ServicesGrid() {
                     style={{ animationDelay: `${i * 0.5}s` }}
                     transition={{ delay: i * 0.5 }}
                     className="w-20 h-20 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    style={{ mixBlendMode: "multiply" }}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-[#2d2419] mb-3 font-playfair">{service.title}</h3>
