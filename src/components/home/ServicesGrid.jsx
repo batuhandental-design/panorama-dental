@@ -73,7 +73,6 @@ export default function ServicesGrid() {
                     src={serviceImages[i]}
                     alt={service.title}
                     className="w-24 h-24 object-contain drop-shadow-xl"
-                    style={{ mixBlendMode: "multiply" }}
                     />
                   </motion.div>
                 </div>
