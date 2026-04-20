@@ -12,12 +12,12 @@ const slugs = [
 ];
 
 const serviceImages = [
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/350ad5593_generated_image.png",
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/90518bbfc_generated_image.png",
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/de92665b6_generated_image.png",
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/2ae0c1959_generated_image.png",
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/d9c896b96_generated_image.png",
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/2bc6660fb_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/508c6726a_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/74f7115f1_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/d72abb561_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/1e2784b4a_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/f97aec7d2_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/fcd806a79_generated_image.png",
 ];
 
 const floatAnimation = {
