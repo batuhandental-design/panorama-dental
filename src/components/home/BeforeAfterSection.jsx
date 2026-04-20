@@ -194,7 +194,7 @@ export default function BeforeAfterSection() {
                 style={{ scrollSnapAlign: "center" }}
               >
                 <div
-                  className="group bg-white rounded-3xl overflow-hidden border border-[#e4dcd2] shadow-md transition-all duration-500"
+                  className="group bg-[#f0ece5] rounded-3xl overflow-hidden border border-[#e4dcd2] shadow-md transition-all duration-500"
                   style={{
                     transform: i === current ? "scale(1)" : "scale(0.95)",
                     opacity: i === current ? 1 : 0.75,
