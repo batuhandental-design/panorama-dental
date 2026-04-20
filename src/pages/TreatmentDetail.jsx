@@ -169,11 +169,13 @@ export default function TreatmentDetail() {
               )}
             </div>
 
-            {/* Sinus Lifting Info */}
-            <div>
-              <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">{t.sinusLiftTitle}</h3>
-              <p className="text-[#6b5e52] leading-relaxed text-[15px]">{t.sinusLiftDesc}</p>
-            </div>
+            {/* Sinus Lifting Info - only for bone graft */}
+            {slug === "kemik-grefti" && (
+              <div>
+                <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">{t.sinusLiftTitle}</h3>
+                <p className="text-[#6b5e52] leading-relaxed text-[15px]">{t.sinusLiftDesc}</p>
+              </div>
+            )}
           </motion.div>
         </div>
 
