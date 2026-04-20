@@ -7,31 +7,57 @@ export default function HeroSection() {
 
   return (
     <div id="hero" className="font-inter">
-      {/* Main Hero Section with static background */}
-      <section
-        className="relative py-32 px-4 text-center text-white overflow-hidden"
-        style={{ minHeight: "92vh" }}
-      >
-        {/* Background image */}
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=90"
-            alt="Dental clinic"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0" style={{ background: "rgba(28,20,10,0.62)" }} />
-          {/* Subtle gold gradient overlay */}
-          <div
-            className="absolute inset-0"
+      {/* Video Section */}
+      <section className="relative overflow-hidden" style={{ minHeight: "56.25vw", maxHeight: "90vh" }}>
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/HoGvauXdLpY?autoplay=1&mute=1&loop=1&playlist=HoGvauXdLpY&controls=0&rel=0&modestbranding=1&playsinline=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Hero Video"
             style={{
-              background:
-                "radial-gradient(ellipse at 60% 40%, rgba(139,104,64,0.18) 0%, transparent 70%)",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "177.78vh",
+              height: "100%",
+              minWidth: "100%",
+              minHeight: "56.25vw",
+              border: "none",
+              pointerEvents: "none",
             }}
           />
         </div>
+      </section>
+
+      {/* Text Section with video background */}
+      <section className="relative py-24 px-4 text-center text-white overflow-hidden" style={{ minHeight: "60vw" }}>
+        {/* Video background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/eU477VXDyas?autoplay=1&mute=1&loop=1&playlist=eU477VXDyas&controls=0&rel=0&modestbranding=1&playsinline=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Background Video"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "max(100%, 177.78vh)",
+              height: "max(100%, 56.25vw)",
+              border: "none",
+              pointerEvents: "none",
+            }}
+          />
+          <div className="absolute inset-0" style={{ background: "rgba(44,36,25,0.35)" }} />
+        </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center" style={{ minHeight: "70vh" }}>
+        <div className="relative z-10 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,34 +97,6 @@ export default function HeroSection() {
             >
               {t.heroCta}
             </a>
-            <a
-              href="https://wa.me/905491240103"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border border-white/30 text-white font-semibold rounded-xl hover:border-[#c9a87c] hover:text-[#c9a87c] transition-all text-sm uppercase tracking-wider"
-            >
-              WhatsApp
-            </a>
-          </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap items-center justify-center gap-6 mt-16"
-          >
-            {[
-              { val: "5.000+", label: t.trustBar?.[0] || "Hasta" },
-              { val: "98%", label: t.trustBar?.[1] || "Memnuniyet" },
-              { val: "12+", label: t.trustBar?.[2] || "Yıl" },
-              { val: "50+", label: t.trustBar?.[3] || "Ülke" },
-            ].map((s, i) => (
-              <div key={i} className="text-center px-4">
-                <p className="text-2xl font-bold text-[#c9a87c] font-playfair">{s.val}</p>
-                <p className="text-xs text-white/60 uppercase tracking-wider mt-1">{s.label}</p>
-              </div>
-            ))}
           </motion.div>
         </div>
       </section>

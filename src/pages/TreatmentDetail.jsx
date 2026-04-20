@@ -7,6 +7,41 @@ import WhatsAppButton from "../components/home/WhatsAppButton";
 import { useLanguage } from "@/lib/LanguageContext";
 
 function TreatmentHeroMedia({ slug, treatment }) {
+  const videoSlugs = {
+    "dis-implanti": "le2ByOnKauA",
+    "zirkonyum-kaplama": "tx1T29Bn50c",
+  };
+
+  if (videoSlugs[slug]) {
+    const videoId = videoSlugs[slug];
+    return (
+      <>
+        <div className="absolute inset-0 overflow-hidden">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1&playsinline=1`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Video"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "177.78vh",
+              height: "100%",
+              minWidth: "100%",
+              minHeight: "56.25vw",
+              border: "none",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-[#2c2419]/55" />
+      </>
+    );
+  }
+
   return (
     <>
       <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
@@ -59,7 +94,7 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: 420 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: (slug === "dis-implanti" || slug === "zirkonyum-kaplama") ? 600 : 384 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
@@ -118,7 +153,20 @@ export default function TreatmentDetail() {
             className="flex flex-col gap-6"
           >
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
+              {slug === "dis-implanti" ? (
+                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, background: "#000" }}>
+                  <iframe
+                     src="https://www.youtube.com/embed/yPl3bK48_hY?autoplay=1&mute=1&loop=1&playlist=yPl3bK48_hY&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                     sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+                     referrerPolicy="strict-origin-when-cross-origin"
+                     allowFullScreen
+                     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  />
+                </div>
+              ) : (
+                <img src={detailImages[slug]} alt={treatment.title} className="w-full h-full object-cover" />
+              )}
             </div>
 
             {/* Sinus Lifting Info - only for bone graft */}
