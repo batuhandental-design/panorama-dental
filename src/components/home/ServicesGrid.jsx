@@ -70,9 +70,10 @@ export default function ServicesGrid() {
                     className="group-hover:scale-110 transition-transform duration-300"
                   >
                     <img
-                      src={serviceImages[i]}
-                      alt={service.title}
-                      className="w-24 h-24 object-contain drop-shadow-xl"
+                    src={serviceImages[i]}
+                    alt={service.title}
+                    className="w-24 h-24 object-contain drop-shadow-xl"
+                    style={{ mixBlendMode: "multiply" }}
                     />
                   </motion.div>
                 </div>
