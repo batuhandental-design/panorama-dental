@@ -53,7 +53,7 @@ export default function HeroSection() {
               pointerEvents: "none",
             }}
           />
-          <div className="absolute inset-0" style={{ background: "rgba(44,36,25,0.65)" }} />
+          <div className="absolute inset-0" style={{ background: "rgba(44,36,25,0.35)" }} />
         </div>
 
         {/* Content */}
