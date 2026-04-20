@@ -11,7 +11,25 @@ const slugs = [
   "dis-teli-ortodonti",
 ];
 
-const emojis = ["🦷", "✨", "🪥", "💎", "🦴", "😁"];
+const serviceImages = [
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/350ad5593_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/90518bbfc_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/de92665b6_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/2ae0c1959_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/d9c896b96_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/2bc6660fb_generated_image.png",
+];
+
+const floatAnimation = {
+  animate: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+};
 
 export default function ServicesGrid() {
   const { t } = useLanguage();
@@ -41,9 +59,24 @@ export default function ServicesGrid() {
             >
               <Link
                 to={`/tedavi/${slugs[i]}`}
-                className="bg-gradient-to-br from-[#f7f3ef] to-[#ede8e0] border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-[#8B6840]/40 hover:shadow-md transition-all duration-300 h-full flex flex-col cursor-pointer block"
+                className="bg-gradient-to-br from-[#f7f3ef] to-[#ede8e0] border border-[#d4c9bc] rounded-2xl p-8 text-center hover:border-[#8B6840]/40 hover:shadow-xl transition-all duration-300 h-full flex flex-col cursor-pointer block"
               >
-                <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300">{emojis[i]}</div>
+                {/* 3D Image with floating animation */}
+                <div className="flex items-center justify-center mb-5 h-28">
+                  <motion.div
+                    variants={floatAnimation}
+                    animate="animate"
+                    style={{ animationDelay: `${i * 0.5}s` }}
+                    className="group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <img
+                      src={serviceImages[i]}
+                      alt={service.title}
+                      className="w-24 h-24 object-contain drop-shadow-xl"
+                    />
+                  </motion.div>
+                </div>
+
                 <h3 className="text-xl font-bold text-[#2d2419] mb-3 font-playfair">{service.title}</h3>
                 <p className="text-[#6b5e52] text-sm leading-relaxed flex-grow mb-5">{service.desc}</p>
                 <span className="inline-block px-5 py-2 bg-[#8B6840]/10 text-[#8B6840] rounded-lg font-semibold text-sm uppercase tracking-wider group-hover:bg-[#8B6840] group-hover:text-white transition-all">
