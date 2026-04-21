@@ -2,36 +2,44 @@ import { motion } from "framer-motion";
 
 const logos = [
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Nobel_Biocare_logo.svg/2560px-Nobel_Biocare_logo.svg.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/nobel_biocare.png",
     alt: "Nobel Biocare",
+    fallback: "Nobel Biocare",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/MegaGen_logo.svg/2560px-MegaGen_logo.svg.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/megagen.png",
     alt: "MegaGen",
+    fallback: "MegaGen",
   },
   {
-    src: "https://www.implantswiss.com/wp-content/themes/implantswiss/assets/images/logo.svg",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/implantswiss.png",
     alt: "Implantswiss",
+    fallback: "Implantswiss",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dentsply_Sirona_logo.svg/2560px-Dentsply_Sirona_logo.svg.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/dentsply_sirona.png",
     alt: "Dentsply Sirona",
+    fallback: "Dentsply Sirona",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/ISO_3166-1_alpha-3_logo.svg/1200px-ISO_3166-1_alpha-3_logo.svg.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/iso.png",
     alt: "ISO",
+    fallback: "ISO",
   },
   {
-    src: "https://www.kulturturizm.gov.tr/Eklenti/91834,logo.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/kultur_turizm.png",
     alt: "Kültür ve Turizm Bakanlığı",
+    fallback: "Kültür Turizm",
   },
   {
-    src: "https://www.turkpatent.gov.tr/TURKPATENT/resources/temp/5BA38B7C-9D0C-42D1-A40B-3AEB28E3E52B.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/turk_patent.png",
     alt: "Türk Patent",
+    fallback: "Türk Patent",
   },
   {
-    src: "https://www.saglik.gov.tr/TR/belge/2-7/logo.png",
+    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/saglik_bakanligi.png",
     alt: "Sağlık Bakanlığı",
+    fallback: "Sağlık Bakanlığı",
   },
 ];
 
@@ -39,7 +47,7 @@ export default function StatsSection() {
   return (
     <section className="py-14 bg-[#8B6840] font-inter overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 items-center justify-items-center">
           {logos.map((logo, i) => (
             <motion.div
               key={i}
@@ -52,9 +60,19 @@ export default function StatsSection() {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-14 max-w-[130px] object-contain"
-                style={{ filter: "brightness(0) invert(1)", opacity: 0.9 }}
+                className="max-h-14 max-w-[140px] object-contain"
+                style={{ filter: "brightness(0) invert(1)", opacity: 0.92 }}
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.nextSibling.style.display = "block";
+                }}
               />
+              <span
+                className="text-white/80 text-sm font-semibold text-center"
+                style={{ display: "none" }}
+              >
+                {logo.fallback}
+              </span>
             </motion.div>
           ))}
         </div>
