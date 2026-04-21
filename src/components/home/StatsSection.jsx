@@ -2,44 +2,36 @@ import { motion } from "framer-motion";
 
 const logos = [
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/nobel_biocare.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Nobel_Biocare_logo.svg/320px-Nobel_Biocare_logo.svg.png",
     alt: "Nobel Biocare",
-    fallback: "Nobel Biocare",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/megagen.png",
+    src: "https://imegagen.com/wp-content/themes/megagen/images/logo.png",
     alt: "MegaGen",
-    fallback: "MegaGen",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/implantswiss.png",
+    src: "https://www.implantswiss.com/wp-content/themes/implantswiss/images/logo-implantswiss.svg",
     alt: "Implantswiss",
-    fallback: "Implantswiss",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/dentsply_sirona.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Dentsply_sirona_logo.svg/320px-Dentsply_sirona_logo.svg.png",
     alt: "Dentsply Sirona",
-    fallback: "Dentsply Sirona",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/iso.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/ISO_logo_%28Red_square%29.svg/240px-ISO_logo_%28Red_square%29.svg.png",
     alt: "ISO",
-    fallback: "ISO",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/kultur_turizm.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/T.C._K%C3%BClt%C3%BCr_ve_Turizm_Bakanl%C4%B1%C4%9F%C4%B1_logo.svg/240px-T.C._K%C3%BClt%C3%BCr_ve_Turizm_Bakanl%C4%B1%C4%9F%C4%B1_logo.svg.png",
     alt: "Kültür ve Turizm Bakanlığı",
-    fallback: "Kültür Turizm",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/turk_patent.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/T%C3%BCrk_Patent_ve_Marka_Kurumu_logo.svg/320px-T%C3%BCrk_Patent_ve_Marka_Kurumu_logo.svg.png",
     alt: "Türk Patent",
-    fallback: "Türk Patent",
   },
   {
-    src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/saglik_bakanligi.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T.C._Sa%C4%9Fl%C4%B1k_Bakanl%C4%B1%C4%9F%C4%B1_logo.svg/240px-T.C._Sa%C4%9Fl%C4%B1k_Bakanl%C4%B1%C4%9F%C4%B1_logo.svg.png",
     alt: "Sağlık Bakanlığı",
-    fallback: "Sağlık Bakanlığı",
   },
 ];
 
@@ -60,19 +52,9 @@ export default function StatsSection() {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-14 max-w-[140px] object-contain"
+                className="max-h-14 max-w-[140px] w-full object-contain"
                 style={{ filter: "brightness(0) invert(1)", opacity: 0.92 }}
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
               />
-              <span
-                className="text-white/80 text-sm font-semibold text-center"
-                style={{ display: "none" }}
-              >
-                {logo.fallback}
-              </span>
             </motion.div>
           ))}
         </div>
