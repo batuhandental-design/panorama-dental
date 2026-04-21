@@ -171,8 +171,11 @@ export default function TreatmentDetail() {
 
             {/* Sinus Lifting Info - only for bone graft */}
             {slug === "kemik-grefti" && (
-              <div>
-                <h3 className="text-lg font-bold text-[#2d2419] mb-3 font-playfair">{t.sinusLiftTitle}</h3>
+              <div className="bg-white border border-[#e0d8d0] rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-2xl">🦴</span>
+                  <h3 className="text-lg font-bold text-[#2d2419] font-playfair">{t.sinusLiftTitle}</h3>
+                </div>
                 <p className="text-[#6b5e52] leading-relaxed text-[15px]">{t.sinusLiftDesc}</p>
               </div>
             )}
