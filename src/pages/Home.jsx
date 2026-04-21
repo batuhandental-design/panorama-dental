@@ -12,6 +12,7 @@ import PackageServices from "../components/home/PackageServices.jsx";
 import DepartmentsSection from "../components/home/DepartmentsSection.jsx";
 import BeforeAfterSection from "../components/home/BeforeAfterSection.jsx";
 import ContactSection from "../components/home/ContactSection.jsx";
+import TrustLogos from "../components/home/TrustLogos.jsx";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 
@@ -42,6 +43,7 @@ export default function Home() {
       <WhyUsSection />
       <PackageServices />
       <DepartmentsSection />
+      <TrustLogos />
       <ContactSection />
       <Footer />
       <WhatsAppButton />
