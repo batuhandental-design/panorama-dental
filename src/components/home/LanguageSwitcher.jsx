@@ -71,12 +71,13 @@ export default function LanguageSwitcher() {
 
       <style>{`
         @keyframes wave-flag {
-          0%   { transform: skewY(0deg) scaleX(1); }
-          20%  { transform: skewY(2deg) scaleX(0.97); }
-          40%  { transform: skewY(-1.5deg) scaleX(1.02); }
-          60%  { transform: skewY(2.5deg) scaleX(0.96); }
-          80%  { transform: skewY(-1deg) scaleX(1.01); }
-          100% { transform: skewY(0deg) scaleX(1); }
+          0%   { transform: perspective(200px) rotateY(0deg)   skewY(0deg); }
+          15%  { transform: perspective(200px) rotateY(8deg)   skewY(1.5deg); }
+          30%  { transform: perspective(200px) rotateY(-6deg)  skewY(-1deg); }
+          45%  { transform: perspective(200px) rotateY(10deg)  skewY(2deg); }
+          60%  { transform: perspective(200px) rotateY(-4deg)  skewY(-0.5deg); }
+          75%  { transform: perspective(200px) rotateY(7deg)   skewY(1deg); }
+          100% { transform: perspective(200px) rotateY(0deg)   skewY(0deg); }
         }
       `}</style>
     </div>
