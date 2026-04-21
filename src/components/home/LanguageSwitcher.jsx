@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="w-full bg-[#1e1a14] py-6">
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-row items-center justify-center gap-4 flex-wrap">
         {languages.map((l, i) => (
           <button
             key={l.code}
