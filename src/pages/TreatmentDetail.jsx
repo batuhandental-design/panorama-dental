@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
@@ -72,6 +73,10 @@ export default function TreatmentDetail() {
   const { slug } = useParams();
   const { t } = useLanguage();
   const treatment = t.treatments?.[slug];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!treatment) {
     return (
