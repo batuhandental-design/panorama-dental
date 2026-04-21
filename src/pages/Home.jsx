@@ -47,6 +47,7 @@ export default function Home() {
           src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/f4942647e_image.png"
           alt="Sertifikalar ve Partnerler"
           className="max-w-5xl mx-auto w-full object-contain"
+          style={{ mixBlendMode: "multiply" }}
         />
       </div>
       <ContactSection />
