@@ -42,14 +42,6 @@ export default function Home() {
       <WhyUsSection />
       <PackageServices />
       <DepartmentsSection />
-      <div className="bg-[#f7f3ef] w-full overflow-hidden">
-        <img
-          src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/f4942647e_image.png"
-          alt="Sertifikalar ve Partnerler"
-          className="w-full object-cover"
-          style={{ mixBlendMode: "multiply", display: "block" }}
-        />
-      </div>
       <ContactSection />
       <Footer />
       <WhatsAppButton />
