@@ -15,9 +15,9 @@ export default function LanguageSwitcher() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="w-full bg-[#1e1a14] py-5">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-center gap-5 flex-wrap">
-        {languages.map((l) => (
+    <div className="w-full bg-[#1e1a14] py-6">
+      <div className="flex flex-col items-center gap-4">
+        {languages.map((l, i) => (
           <button
             key={l.code}
             onClick={() => setLang(l.code)}
@@ -27,6 +27,10 @@ export default function LanguageSwitcher() {
                 ? "border-[#c9a87c] scale-110 shadow-lg shadow-[#c9a87c]/40"
                 : "border-white/25 hover:border-white/60"
             }`}
+            style={{
+              animation: `flag-wave 2.5s ease-in-out infinite`,
+              animationDelay: `${i * 0.18}s`,
+            }}
           >
             <img
               src={l.img}
@@ -36,6 +40,14 @@ export default function LanguageSwitcher() {
           </button>
         ))}
       </div>
+
+      <style>{`
+        @keyframes flag-wave {
+          0%, 100% { transform: translateX(0px); }
+          25%       { transform: translateX(6px); }
+          75%       { transform: translateX(-6px); }
+        }
+      `}</style>
     </div>
   );
 }
