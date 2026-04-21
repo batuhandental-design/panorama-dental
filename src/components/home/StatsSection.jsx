@@ -21,7 +21,7 @@ const logos = [
 
 export default function StatsSection() {
   return (
-    <section className="py-16 font-inter overflow-hidden" style={{ backgroundColor: "#2c2419" }}>
+    <section className="py-16 font-inter overflow-hidden" style={{ backgroundColor: "#f0ece6" }}>
       <div className="max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
           {logos.map((logo, i) => (
@@ -36,7 +36,7 @@ export default function StatsSection() {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-28 max-w-[180px] w-full object-contain"
+                className="max-h-40 max-w-[220px] w-full object-contain"
               />
             </motion.div>
           ))}
