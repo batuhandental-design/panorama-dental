@@ -58,10 +58,9 @@ function TreatmentHeroMedia({ slug, treatment }) {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "177.78vh",
+            width: "56.25vh",
             height: "100%",
-            minWidth: "100%",
-            minHeight: "56.25vw",
+            minHeight: "100%",
             border: "none",
             pointerEvents: "none",
           }}
@@ -120,7 +119,7 @@ export default function TreatmentDetail() {
       <Navbar />
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: (slug === "dis-implanti" || slug === "zirkonyum-kaplama") ? 600 : 384 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: (slug === "dis-implanti" || slug === "zirkonyum-kaplama") ? 600 : 600 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
