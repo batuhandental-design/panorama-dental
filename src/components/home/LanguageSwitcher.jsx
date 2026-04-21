@@ -16,6 +16,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="w-full bg-[#1e1a14] py-8">
+      <p className="text-center text-[#c9a87c] text-sm uppercase tracking-[0.25em] font-semibold mb-6">Dilinizi Seçin</p>
       <div className="max-w-6xl mx-auto px-4 flex items-end justify-center gap-8 flex-wrap">
         {languages.map((l, i) => (
           <button
