@@ -46,8 +46,28 @@ function TreatmentHeroMedia({ slug, treatment }) {
 
   return (
     <>
-      <img src={heroImages[slug]} alt={treatment.title} className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }} />
-      <div className="absolute inset-0 bg-[#2c2419]/65" />
+      <div className="absolute inset-0 overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/aAF7fwQYHX0?autoplay=1&mute=1&loop=1&playlist=aAF7fwQYHX0&controls=0&rel=0&modestbranding=1&playsinline=1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="Background Video"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "177.78vh",
+            height: "100%",
+            minWidth: "100%",
+            minHeight: "56.25vw",
+            border: "none",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-[#2c2419]/55" />
     </>
   );
 }
