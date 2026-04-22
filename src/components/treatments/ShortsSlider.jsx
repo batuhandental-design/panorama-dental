@@ -1,15 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const videosBySlug = {
-  "dis-implanti": ["uabPpcIU_Ms", "c5W93IteeZs"],
-  "kemik-grefti": ["le2ByOnKauA", "c5W93IteeZs"],
-};
+const videos = [
+  "uWIfjj9nm3A",
+  "uabPpcIU_Ms",
+];
 
-const defaultVideos = ["uabPpcIU_Ms", "c5W93IteeZs"];
-
-export default function ShortsSlider({ slug }) {
-  const videos = videosBySlug[slug] || defaultVideos;
+export default function ShortsSlider() {
   const [current, setCurrent] = useState(0);
   const startX = useRef(null);
 
