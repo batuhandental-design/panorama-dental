@@ -177,7 +177,7 @@ export default function TreatmentDetail() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col gap-6"
           >
-            <ShortsSlider />
+            <ShortsSlider slug={slug} />
 
             {/* Sinus Lifting Info - only for bone graft */}
             {slug === "kemik-grefti" && (
