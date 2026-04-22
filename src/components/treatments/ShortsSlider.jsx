@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const videos = [
   "uWIfjj9nm3A",  // ALAN I
-  "c5W93IteeZs",  // ALAN J
   "uabPpcIU_Ms",  // ALAN K
 ];
 
