@@ -42,7 +42,7 @@ export default function ShortsSlider() {
   return (
     <div className="relative select-none" style={{ touchAction: "pan-y" }}>
       {/* Video container */}
-      <div className="rounded-2xl overflow-hidden shadow-xl bg-black cursor-grab active:cursor-grabbing hidden"
+      <div className="rounded-2xl overflow-hidden shadow-xl bg-black cursor-grab active:cursor-grabbing"
 
       style={{ position: "relative", height: 480 }}
       onTouchStart={handleTouchStart}
@@ -62,20 +62,20 @@ export default function ShortsSlider() {
 
       {/* Prev / Next buttons */}
       <button
-        onClick={() => go(-1)} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 shadow-md flex items-center justify-center hover:bg-white transition hidden">
+        onClick={() => go(-1)} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 shadow-md flex items-center justify-center hover:bg-white transition">
         
         
         <ChevronLeft className="w-5 h-5 text-[#4a3728]" />
       </button>
       <button
-        onClick={() => go(1)} className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 shadow-md flex items-center justify-center hover:bg-white transition hidden">
+        onClick={() => go(1)} className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 shadow-md flex items-center justify-center hover:bg-white transition">
         
         
-        <ChevronRight className="lucide lucide-chevron-right w-5 h-5 text-[#4a3728] hidden" />
+        <ChevronRight className="w-5 h-5 text-[#4a3728]" />
       </button>
 
       {/* Dots */}
-      <div className="flex justify-center gap-2 mt-3 hidden">
+      <div className="flex justify-center gap-2 mt-3">
         {videos.map((_, i) =>
         <button
           key={i}

@@ -171,7 +171,7 @@ export default function TreatmentDetail() {
                   style={{ width: "270px", height: "100%", border: "none" }}
                 />
               </div>
-            ) : slug !== "dis-beyazlatma" ? (
+            ) : slug === "hollywood-gulusu" ? (
               <ShortsSlider />
             ) : null}
 
