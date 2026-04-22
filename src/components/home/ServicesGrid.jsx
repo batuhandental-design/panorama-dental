@@ -4,8 +4,8 @@ import { useLanguage } from "@/lib/LanguageContext";
 
 const slugs = [
   "dis-implanti",
-  "dis-beyazlatma",
   "hollywood-gulusu",
+  "dis-beyazlatma",
   "zirkonyum-kaplama",
   "kemik-grefti",
   "dis-teli-ortodonti",
@@ -13,8 +13,8 @@ const slugs = [
 
 const serviceImages = [
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/b04473af0_generated_image.png",
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/3be0433ed_generated_image.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/ec0f435c4_generated_image.png",
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/3be0433ed_generated_image.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/810aaf5da_generated_image.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/09ce4742f_generated_image.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/699e33211_generated_image.png",
