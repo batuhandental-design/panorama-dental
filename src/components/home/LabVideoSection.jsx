@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const labVideos = [
-  "eU477VXDyas",
-  "EH5_LHpZWbw",
-  "ylGQoZ7QmUo",
+  "eU477VXDyas",  // ALAN A
+  "EH5_LHpZWbw",  // ALAN B
+  "ylGQoZ7QmUo",  // ALAN C
 ];
 
 const labLabels = {

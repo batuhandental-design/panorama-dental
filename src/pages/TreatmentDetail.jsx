@@ -10,9 +10,9 @@ import ShortsSlider from "../components/treatments/ShortsSlider";
 
 function TreatmentHeroMedia({ slug, treatment }) {
   const videoSlugs = {
-    "dis-implanti": "le2ByOnKauA",
-    "zirkonyum-kaplama": "tx1T29Bn50c",
-    "hollywood-gulusu": "aAF7fwQYHX0",
+    "dis-implanti": "le2ByOnKauA",      // ALAN D (hero arka plan)
+    "zirkonyum-kaplama": "tx1T29Bn50c", // ALAN E (hero arka plan)
+    "hollywood-gulusu": "aAF7fwQYHX0",  // ALAN F (hero arka plan)
   };
 
   if (videoSlugs[slug]) {
@@ -157,6 +157,7 @@ export default function TreatmentDetail() {
             className="flex flex-col gap-6"
           >
             {slug === "dis-implanti" ? (
+              // ALAN G (diş implantı detay video - yatay)
               <div className="rounded-2xl overflow-hidden shadow-xl" style={{ position: "relative", paddingBottom: "56.25%", height: 0, background: "#000" }}>
                 <iframe
                   src="https://www.youtube.com/embed/yPl3bK48_hY?autoplay=1&mute=1&loop=1&playlist=yPl3bK48_hY&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
@@ -168,6 +169,7 @@ export default function TreatmentDetail() {
                 />
               </div>
             ) : slug === "zirkonyum-kaplama" ? (
+              // ALAN H (zirkonyum detay video - dikey)
               <div className="rounded-2xl overflow-hidden shadow-xl bg-black flex items-center justify-center" style={{ height: 480 }}>
                 <iframe
                   src="https://www.youtube.com/embed/d2zBWP36aec?autoplay=1&mute=1&loop=1&playlist=d2zBWP36aec&controls=0&rel=0&modestbranding=1&playsinline=1"

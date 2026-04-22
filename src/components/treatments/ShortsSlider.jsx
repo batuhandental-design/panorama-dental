@@ -2,9 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const videos = [
-  "uWIfjj9nm3A",
-  "c5W93IteeZs",
-  "uabPpcIU_Ms",
+  "uWIfjj9nm3A",  // ALAN I
+  "c5W93IteeZs",  // ALAN J
+  "uabPpcIU_Ms",  // ALAN K
 ];
 
 export default function ShortsSlider() {
