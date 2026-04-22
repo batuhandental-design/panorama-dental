@@ -45,29 +45,7 @@ function TreatmentHeroMedia({ slug, treatment }) {
   }
 
   return (
-    <>
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          src="https://www.youtube.com/embed/aAF7fwQYHX0?autoplay=1&mute=1&loop=1&playlist=aAF7fwQYHX0&controls=0&rel=0&modestbranding=1&playsinline=1"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-          sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-          referrerPolicy="strict-origin-when-cross-origin"
-          title="Background Video"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "56.25vh",
-            height: "100%",
-            minHeight: "100%",
-            border: "none",
-            pointerEvents: "none",
-          }}
-        />
-      </div>
-      <div className="absolute inset-0 bg-[#2c2419]/55" />
-    </>
+    <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #2c2419 0%, #4a3728 60%, #3d3028 100%)" }} />
   );
 }
 
@@ -188,9 +166,9 @@ export default function TreatmentDetail() {
                   style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
                 />
               </div>
-            ) : (
+            ) : slug !== "dis-beyazlatma" ? (
               <ShortsSlider />
-            )}
+            ) : null}
 
             {/* Sinus Lifting Info - only for bone graft */}
             {slug === "kemik-grefti" && (
