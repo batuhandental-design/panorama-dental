@@ -7,6 +7,7 @@ import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 import { useLanguage } from "@/lib/LanguageContext";
 import ShortsSlider from "../components/treatments/ShortsSlider";
+import ImplantVideoSlider from "../components/treatments/ImplantVideoSlider";
 
 function TreatmentHeroMedia({ slug, treatment }) {
   const videoSlugs = {
@@ -157,28 +158,8 @@ export default function TreatmentDetail() {
             className="flex flex-col gap-6"
           >
             {slug === "dis-implanti" ? (
-              // ALAN G (diş implantı detay videoları)
-              <div className="flex flex-col gap-4">
-                <div className="rounded-2xl overflow-hidden shadow-xl" style={{ position: "relative", paddingBottom: "56.25%", height: 0, background: "#000" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/yPl3bK48_hY?autoplay=1&mute=1&loop=1&playlist=yPl3bK48_hY&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                  />
-                </div>
-                <div className="rounded-2xl overflow-hidden shadow-xl bg-black flex items-center justify-center" style={{ height: 480 }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/c5W93IteeZs?autoplay=1&mute=1&loop=1&playlist=c5W93IteeZs&controls=0&rel=0&modestbranding=1&playsinline=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    style={{ width: "270px", height: "100%", border: "none" }}
-                  />
-                </div>
-              </div>
+              // ALAN G (diş implantı - kaydırmalı video slider)
+              <ImplantVideoSlider />
             ) : slug === "zirkonyum-kaplama" ? (
               // ALAN H (zirkonyum detay video - dikey)
               <div className="rounded-2xl overflow-hidden shadow-xl bg-black flex items-center justify-center" style={{ height: 480 }}>
