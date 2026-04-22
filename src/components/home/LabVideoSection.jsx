@@ -45,7 +45,7 @@ export default function LabVideoSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="text-[#c9a87c] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{txt.badge}</p>
+          <p className="text-[#c9a87c] text-lg uppercase tracking-[0.3em] mb-3 font-semibold">{txt.badge}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4">{txt.title}</h2>
           <p className="text-[#b0a090] max-w-xl mx-auto text-sm leading-relaxed">{txt.desc}</p>
         </motion.div>
