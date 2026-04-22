@@ -14,7 +14,7 @@ export default function DoctorSection() {
   const { t } = useLanguage();
 
   // Merge the extra first doctor (Zeynep Umur) with translation data
-  const extraDoctor = { specialty: "Estetik Diş Hekimi & Genel Diş Hekimliği", exp: "10 yıl deneyim" };
+  const extraDoctor = { specialty: t.extraDoctorSpecialty, exp: t.extraDoctorExp };
   const allDoctors = [extraDoctor, ...t.doctors].slice(0, names.length);
 
   return (

@@ -126,9 +126,9 @@ export default function ContactSection() {
 
             {sent ? (
               <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-                <p className="text-green-700 font-semibold text-lg">✅ Mesajınız iletildi!</p>
-                <p className="text-green-600 text-sm mt-1">En kısa sürede sizinle iletişime geçeceğiz.</p>
-                <button type="button" onClick={() => setSent(false)} className="mt-4 text-[#8B6840] text-sm underline">Yeni mesaj gönder</button>
+                <p className="text-green-700 font-semibold text-lg">{t.contactSuccess}</p>
+                <p className="text-green-600 text-sm mt-1">{t.contactSuccessDesc}</p>
+                <button type="button" onClick={() => setSent(false)} className="mt-4 text-[#8B6840] text-sm underline">{t.contactNewMsg}</button>
               </div>
             ) : (
               <>
@@ -175,7 +175,7 @@ export default function ContactSection() {
 
                 <Button type="submit" disabled={sending} className="w-full bg-[#8B6840] hover:bg-[#7a5c38] text-white h-12 font-semibold text-sm uppercase tracking-wider disabled:opacity-70">
                   <Send className="w-4 h-4 mr-2" />
-                  {uploading ? "Dosyalar yükleniyor..." : sending ? "Gönderiliyor..." : t.sendBtn}
+                  {uploading ? t.uploadingFiles : sending ? t.sending : t.sendBtn}
                 </Button>
               </>
             )}
