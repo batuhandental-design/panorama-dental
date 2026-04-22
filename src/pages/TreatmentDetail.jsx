@@ -12,6 +12,7 @@ function TreatmentHeroMedia({ slug, treatment }) {
   const videoSlugs = {
     "dis-implanti": "le2ByOnKauA",
     "zirkonyum-kaplama": "tx1T29Bn50c",
+    "hollywood-gulusu": "aAF7fwQYHX0",
   };
 
   if (videoSlugs[slug]) {
