@@ -167,6 +167,16 @@ export default function TreatmentDetail() {
                   style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
                 />
               </div>
+            ) : slug === "zirkonyum-kaplama" ? (
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-black flex items-center justify-center" style={{ height: 480 }}>
+                <iframe
+                  src="https://www.youtube.com/embed/d2zBWP36aec?autoplay=1&mute=1&loop=1&playlist=d2zBWP36aec&controls=0&rel=0&modestbranding=1&playsinline=1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  style={{ width: "270px", height: "100%", border: "none" }}
+                />
+              </div>
             ) : slug !== "dis-beyazlatma" ? (
               <ShortsSlider />
             ) : null}
