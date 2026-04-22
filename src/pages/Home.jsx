@@ -6,6 +6,7 @@ import Navbar from "../components/home/Navbar.jsx";
 import HeroSection from "../components/home/HeroSection.jsx";
 import ServicesGrid from "../components/home/ServicesGrid";
 import StatsSection from "../components/home/StatsSection.jsx";
+import LabVideoSection from "../components/home/LabVideoSection";
 import DoctorSection from "../components/home/DoctorSection.jsx";
 import WhyUsSection from "../components/home/WhyUsSection.jsx";
 import PackageServices from "../components/home/PackageServices.jsx";
@@ -36,6 +37,7 @@ export default function Home() {
       <HeroSection />
       <LanguageSwitcher />
       <ServicesGrid />
+      <LabVideoSection />
       <StatsSection />
       <BeforeAfterSection />
       <DoctorSection />
