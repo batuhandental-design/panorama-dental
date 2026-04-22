@@ -179,20 +179,6 @@ export default function TreatmentDetail() {
                   style={{ width: "270px", height: "100%", border: "none" }}
                 />
               </div>
-            ) : slug === "hollywood-gulusu" ? (
-              // ALAN G - Hollywood Gülüşü detay videoları
-              <div className="flex flex-col gap-4">
-                <ShortsSlider />
-                <div className="rounded-2xl overflow-hidden shadow-xl bg-black flex items-center justify-center" style={{ height: 480 }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/c5W93IteeZs?autoplay=1&mute=1&loop=1&playlist=c5W93IteeZs&controls=0&rel=0&modestbranding=1&playsinline=1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    sandbox="allow-scripts allow-same-origin allow-presentation allow-autoplay"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    style={{ width: "270px", height: "100%", border: "none" }}
-                  />
-                </div>
-              </div>
             ) : slug !== "dis-beyazlatma" ? (
               <ShortsSlider />
             ) : null}
