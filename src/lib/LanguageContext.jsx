@@ -163,7 +163,7 @@ export const translations = {
     treatments: {
       "dis-implanti": {
         title: "Diş İmplantı", subtitle: "Dental Implant", emoji: "🦷",
-        description: "Diş implantları, eksik dişlerin yerine uygulanan, estetik ve fonksiyonel açıdan en gelişmiş tedavi yöntemlerinden biridir. Çene kemiğine yerleştirilen titanyum implantlar sayesinde doğal dişlere en yakın görünüm ve kullanım konforu sağlanır. Eksik dişler yalnızca estetik bir sorun oluşturmaz; aynı zamanda çiğneme fonksiyonunu olumsuz etkiler ve zamanla çene kemiğinde hacim kaybına yol açabilir. İmplant tedavisi, bu sorunları kalıcı olarak ortadan kaldırarak sağlıklı ve dengeli bir ağız yapısının yeniden kazanılmasını sağlar.",
+        description: "Diş implantı, titanyum veya zirkonyum bazlı biyouyumlu materyallerden üretilen yapay bir diş köküdür. Çene kemiğine yerleştirilen bu vida, osseointegrasyon süreci ile kemikle kaynaşarak kalıcı bir temel oluşturur. Üzerine yerleştirilen zirkonyum veya porselen kron sayesinde doğal dişten ayırt edilemez bir görünüm elde edilir.\n\nAll-on-4 sistemi, dört stratejik implant üzerine tam bir diş köprüsü yerleştirerek dişsiz hastalara tek seansta sabit diş sunar. All-on-6 sistemi ise altı implant kullanarak daha geniş çene kemiklerine ve daha yüksek yük kapasitesine ihtiyaç duyan hastalara ekstra stabilite sağlar. Her iki sistem de yıllar içinde ispatlanmış, en ileri implantoloji teknolojilerinden biridir. Kliniğimizde 3D tomografi ile kişisel kemik analizi yapılarak en uygun sistem belirlenir; tüm tedavi sürecinde hasta konforunu ön planda tutarız.",
         descriptionExtra: "Tedavi süreci, detaylı bir klinik muayene ve kişiye özel planlama ile başlar. İmplantlar lokal anestezi altında konforlu bir şekilde yerleştirilir. İyileşme sürecinin ardından hastaya özel hazırlanan sabit dişler uygulanarak tedavi tamamlanır.",
         benefits: ["Doğal görünüm ve his", "20+ yıl dayanıklılık", "Çevre dişlere zarar vermez", "Kemik erimesini önler", "Yeme-içme rahatlığı", "Özgüven artışı"],
         steps: [
@@ -176,7 +176,7 @@ export const translations = {
       },
       "hollywood-gulusu": {
         title: "Hollywood Gülüşü", subtitle: "Hollywood Smile", emoji: "✨",
-        description: "Hollywood Gülüşü, porselen laminate ve zirkonyum kaplamalar kullanılarak dişlerin şeklini, rengini ve konumunu mükemmelleştiren kapsamlı bir estetik diş tedavisidir.",
+        description: "Hollywood Gülüşü, yalnızca bir estetik tercihin çok ötesinde; yaşam kalitenizi ve özgüveninizi kökten dönüştüren, bilim ile sanatın buluştuğu bir tedavidir. Kliniğimizde her Hollywood Gülüşü tasarımı, 3D dijital ağız tarayıcısı (intraoral scanner) ile başlar; milimetrik hassasiyette alınan ölçüler bilgisayar ortamında işlenerek tamamen size özel bir gülüş simülasyonu hazırlanır.\n\nTasarımı onaylamanızın ardından, minimal invaziv teknikle dişlerin yüzeyi nazikçe hazırlanır; hiçbir aşamada gereksiz doğal diş dokusu kaldırılmaz. Özel fırın porseleninizde pişirilen laminat ya da zirkonyum kaplamalar, birebir ağzınıza uyum sağlayacak şekilde üretilir ve estetik yapıştırıcı siman ile kalıcı olarak monte edilir. Sonuç; beyazlığı, simetrisi ve ışık geçirgenliğiyle doğal dişlerden ayırt edilemeyen, yıllarca parlaklığını koruyan muhteşem bir gülüştür. Dünyanın dört bir yanından gelen hastalarımız bu dönüşümü yaşadıktan sonra aynı yorumu yapıyor: 'Keşke daha önce yapsaydım.'",
         benefits: ["Anında dönüşüm", "Doğal porselen görünümü", "Leke tutmaz yapı", "Minimum diş törpüleme", "10–15 yıl ömür", "Özgüven patlaması"],
         steps: [
           { step: "1", title: "Dijital Gülüş Tasarımı", desc: "Bilgisayar ortamında kişiselleştirilmiş gülüş simülasyonu." },
@@ -187,7 +187,7 @@ export const translations = {
       },
       "dis-beyazlatma": {
         title: "Diş Beyazlatma", subtitle: "Teeth Whitening", emoji: "🪥",
-        description: "Profesyonel laser diş beyazlatma ile dişlerinizi 8 tona kadar açın. Klinik ortamında uygulanan güvenli beyazlatma jeli ve LED/laser aktivasyonu ile hızlı ve kalıcı sonuçlar.",
+        description: "Haliç Panorama Dental'de diş beyazlatma tedavisi, uluslararası sertifikalı ve bu alanda özel eğitim almış diş hekimimiz tarafından uygulanmaktadır. Kullandığımız ürünler FDA ve CE belgeli, klinik olarak test edilmiş profesyonel beyazlatma sistemleridir; markete gidip aldığınız beyazlatma ürünleriyle kıyaslanamayacak düzeyde etkili ve güvenlidir.\n\nTedavi sürecinde diş etleriniz özel bariyer jel ile korunurken, aktif karbojen peroksit jeli dişlerin yüzeyine uygulanır ve ardından mavi dalga boyunda LED ışık aktivasyonu gerçekleştirilir. Bu süreç, minenin derinliklerindeki renkli pigmentleri parçalayarak tek seansta 8 tona kadar beyazlama sağlar. Ağrısız, minesiz, hızlı; üstelik sonuçlar uzun solukludur. Kahve, çay veya sigara nedeniyle sararan dişlerinizi yeniden pırıl pırıl yapmak için doğru adrestesiniz. Güzel bir gülüş yalnızca estetik değil, aynı zamanda iletişim gücünüzdür.",
         benefits: ["1 seansta 8 ton açılma", "Diş minesine zarar vermez", "Anında görünür sonuç", "Uzun ömürlü etki", "Ağrısız prosedür", "FDA onaylı ürünler"],
         steps: [
           { step: "1", title: "Diş Yüzeyi Temizliği", desc: "Tartar ve plak temizliği ile beyazlatma öncesi hazırlık." },
@@ -198,7 +198,7 @@ export const translations = {
       },
       "zirkonyum-kaplama": {
         title: "Zirkonyum Kaplama", subtitle: "Zirconia Crown", emoji: "💎",
-        description: "Zirkonyum kaplamalar, metal altyapısız tam seramik yapısıyla en doğal görünümü sunan diş kaplamasıdır. Işık geçirgenliği sayesinde doğal dişten ayırt edilemez.",
+        description: "Zirkonyum kaplamalar, dental teknolojisinin son 20 yılda geçirdiği inanılmaz dönüşümün en çarpıcı örneğidir. İlk nesil zirkonyum kronlar opak ve metalik alt yapılı iken, bugün üç farklı ana kategoride üretilmektedir:\n\n• Monolitik Zirkonyum: Tek parça, yüksek dayanımlı ve tamamen metal içermeyen yapı. Özellikle arka diş bölgelerinde mükemmel mekanik dayanım sunar.\n• Monolitik Çift Katmanlı Zirkonyum: Alt yapı yüksek dayanımlı zirkon, üst yüzey ise ince porselen tabakasıyla kaplı estetik versiyon. Işık geçirgenliği ve renk geçişleriyle doğal dişe en yakın görünümü sağlar.\n• Metal-Seramik: Geleneksel yöntem; metal alt yapı üzerine porselen işlenmesiyle elde edilir. Ancak metalin zamanla diş etiyle temas ettiği bölgede kararma ve metal gölgesi yaratabilir.\n\nKliniğimizde biz, hastamızın beklentisini ve ağız yapısını değerlendirerek en uygun zirkonyum seçeneğini belirliyoruz. Çünkü her gülüş kendine özeldir ve hak ettiği malzemeyi hak eder.",
         benefits: ["Metal içermez", "Işık geçirgen doğal görünüm", "Alerjik reaksiyon riski sıfır", "Yüksek kırılma direnci", "15+ yıl ömür", "Tam renk uyumu"],
         steps: [
           { step: "1", title: "Diş Hazırlığı", desc: "Minimum diş kesimi ile mükemmel altyapı hazırlanır." },
@@ -209,7 +209,7 @@ export const translations = {
       },
       "kemik-grefti": {
         title: "Kemik Grefti", subtitle: "Bone Graft", emoji: "🦴",
-        description: "Kemik grefti, diş kaybına bağlı kemik erimesi olan hastalarda implant uygulaması öncesi kemik hacmini yeniden kazandıran cerrahi bir prosedürdür.",
+        description: "Kemik grefti, diş kaybının ardından oluşan kemik erimesini durdurmak ve implant uygulaması için gerekli kemik hacmini yeniden oluşturmak amacıyla kullanılan ileri bir cerrahi prosedürdür. Kullanılan greft materyalleri farklı kaynaklardan elde edilebilir:\n\n• Otolog Greft (Otogreft): Hastanın kendi vücudundan alınan kemik dokusu; en yüksek biyouyumluluk ve iyileşme hızını sağlar.\n• Allogreft: Özel sterilizasyon süreçlerinden geçirilmiş insan kaynaklı kemik bankası materyali. Doku bankasından elde edilen bu greft, hastanın kendi kemiği olmaksızın yüksek başarı oranı sunar.\n• Ksenograft (Hayvansal Kökenli): Çoğunlukla sığır veya domuz kaynaklı, ileri işlem görmüş kemik mineral matrisi. Osteokonduktif yapısıyla yeni kemik hücrelerinin büyümesine zemin hazırlar.\n• Sentetik Greft: Kalsiyum fosfat veya hidroksiapatit bazlı yapay materyaller; enfeksiyon riski sıfır, kontrollü emilim hızıyla güvenli kullanım.\n\nKliniğimizde hangi greft tipinin kullanılacağına, 3D CBCT tomografi ile elde edilen kemik analizi sonucunda doktorumuz karar verir. Tüm materyaller uluslararası güvenlik standartlarını karşılamaktadır.",
         benefits: ["İmplant öncesi zemin hazırlar", "Kemik erimesini durdurur", "Yüz konturlarını korur", "Başarı oranı %95+", "Minimal invazif teknikler", "Sinus lifting seçeneği"],
         steps: [
           { step: "1", title: "Kemik Analizi", desc: "3D CBCT tomografi ile kemik yoğunluğu ve hacmi ölçülür." },
@@ -219,8 +219,8 @@ export const translations = {
         ],
       },
       "dis-teli-ortodonti": {
-        title: "Diş Teli & Ortodonti", subtitle: "Orthodontics", emoji: "😁",
-        description: "Modern ortodonti tedavileriyle çarpık, sıkışık veya aralıklı dişlerinizi düzeltin. Şeffaf plaktan metal tele geniş seçenek yelpazesiyle her yaşa uygun çözümler.",
+        title: "Diş Plak Tedavisi & Ortodonti", subtitle: "Orthodontics", emoji: "😁",
+        description: "Şeffaf plak (clear aligner) tedavisi, geleneksel diş telinin yerini alan ve dünya genelinde milyonlarca hasta tarafından tercih edilen çağdaş bir ortodonti sistemidir. Metal telin aksine tamamen şeffaf, çıkarılabilir ve konforlu olan bu plaklar; gün içinde sosyal hayatınızı, beslenmenizi ve ağız bakımınızı kısıtlamaz.\n\nHaliç Panorama Dental'de yurt dışından gelen hastalarımız için özel bir süreç işletiyoruz: Kliniğimize gelmeden önce online görüntülü muayene ile diş yapınızı değerlendiriyor, dijital ağız taraması için gerekli yönlendirmeyi yapıyoruz. Doktorumuz her hastasına özel ilgi göstererek tedavi planını, plak sayısını ve sürecin hangi aşamalardan geçeceğini şeffaf bir şekilde paylaşıyor.\n\nPlak tedavisi yalnızca teknik bir uygulama değil; doktor ile hasta arasında güvene dayalı, özenle yürütülen bir süreçtir. Her plak değişimi doktorumuz tarafından takip edilir; ister yerinde ister uzaktan kontrol seçeneğiyle tedaviniz kesintisiz devam eder. Çünkü mükemmel bir gülüş, mükemmel bir ilgiyi hak eder.",
         benefits: ["Şeffaf plak seçeneği", "Görünmez tel teknolojisi", "Her yaşa uygun", "Ağız sağlığını iyileştirir", "Kalıcı sonuçlar", "Dijital simülasyon"],
         steps: [
           { step: "1", title: "Ortodontik Muayene", desc: "Diş modeli, röntgen ve fotoğraf analizi ile kapsamlı değerlendirme." },
@@ -350,7 +350,7 @@ export const translations = {
     treatments: {
       "dis-implanti": {
         title: "Dental Implant", subtitle: "Dental Implant", emoji: "🦷",
-        description: "A dental implant is the most permanent and natural-looking solution for missing teeth. The titanium screw-shaped implant is placed in the jawbone to create a base similar to a natural tooth root.",
+        description: "A dental implant is a biocompatible artificial tooth root made from titanium or zirconia. Placed into the jawbone, it fuses with the bone through osseointegration to create a permanent foundation. A zirconia or porcelain crown is then attached on top, providing an appearance indistinguishable from a natural tooth.\n\nThe All-on-4 system places a full arch of teeth on just four strategically positioned implants, giving edentulous patients fixed teeth in a single session. The All-on-6 system uses six implants for broader jaws and greater load capacity, delivering extra stability. Both systems are proven technologies at the forefront of implantology. At our clinic, a 3D tomography analysis determines the most suitable system for each patient — your comfort is our priority throughout every stage.",
         benefits: ["Natural look and feel", "20+ years durability", "No damage to adjacent teeth", "Prevents bone loss", "Comfortable eating and drinking", "Confidence boost"],
         steps: [
           { step: "1", title: "Examination & Planning", desc: "Comprehensive oral analysis with 3D tomography and personalized treatment plan." },
@@ -361,7 +361,7 @@ export const translations = {
       },
       "hollywood-gulusu": {
         title: "Hollywood Smile", subtitle: "Hollywood Smile", emoji: "✨",
-        description: "Hollywood Smile is a comprehensive aesthetic dental treatment that perfects the shape, color and position of teeth using porcelain laminates and zirconia crowns.",
+        description: "A Hollywood Smile is far more than an aesthetic choice — it is a life-changing transformation where science meets artistry. At our clinic, every Hollywood Smile begins with a 3D intraoral digital scanner, capturing millimetre-precise measurements that are processed on computer to create a completely personalised smile simulation.\n\nOnce you approve the design, your teeth are gently prepared using a minimally invasive technique — no unnecessary natural tooth structure is ever removed. Your custom laminates or zirconia veneers are crafted in a specialised ceramic oven and permanently bonded with aesthetic cement for a perfect fit. The result: a stunning smile — white, symmetrical and light-transmitting — indistinguishable from natural teeth and radiant for years to come. Patients who have experienced this transformation from around the world all say the same thing: 'I wish I had done this sooner.'",
         benefits: ["Instant transformation", "Natural porcelain look", "Stain-resistant", "Minimal tooth filing", "10–15 year lifespan", "Confidence explosion"],
         steps: [
           { step: "1", title: "Digital Smile Design", desc: "Personalized smile simulation on computer." },
@@ -372,7 +372,7 @@ export const translations = {
       },
       "dis-beyazlatma": {
         title: "Teeth Whitening", subtitle: "Teeth Whitening", emoji: "🪥",
-        description: "Lighten your teeth up to 8 shades with professional laser teeth whitening. Fast and lasting results with safe whitening gel and LED/laser activation applied in a clinical setting.",
+        description: "At Haliç Panorama Dental, teeth whitening is performed exclusively by our internationally certified dentist who has received specialised training in this field. The products we use are FDA and CE-approved, clinically tested professional whitening systems — incomparably more effective and safe than anything available over the counter.\n\nDuring treatment, your gums are protected with a barrier gel while active carbamide peroxide gel is applied to the tooth surface, followed by blue-wavelength LED light activation. This process breaks down coloured pigments deep within the enamel, achieving up to 8 shades of whitening in a single session. Painless, enamel-safe, fast — and long-lasting results. If your teeth have yellowed due to coffee, tea or smoking, you have come to the right place. A beautiful smile is not just aesthetics — it is your power to communicate.",
         benefits: ["8 shades in 1 session", "No enamel damage", "Instantly visible result", "Long-lasting effect", "Painless procedure", "FDA-approved products"],
         steps: [
           { step: "1", title: "Tooth Surface Cleaning", desc: "Preparation before whitening with tartar and plaque removal." },
@@ -383,7 +383,7 @@ export const translations = {
       },
       "zirkonyum-kaplama": {
         title: "Zirconia Crown", subtitle: "Zirconia Crown", emoji: "💎",
-        description: "Zirconia crowns are the most natural-looking dental crown with full ceramic structure without metal substructure. Thanks to light transmittance, they are indistinguishable from natural teeth.",
+        description: "Zirconia crowns are one of the most striking examples of the incredible transformation dental technology has undergone over the last 20 years. While first-generation zirconia crowns were opaque and metal-framed, today they are produced in three main categories:\n\n• Monolithic Zirconia: Single-piece, high-strength, fully metal-free. Delivers exceptional mechanical resistance, especially in posterior teeth.\n• Dual-Layer Monolithic Zirconia: High-strength zirconia core with a thin porcelain overlay — the aesthetic version. Light transmittance and colour gradients create the appearance closest to a natural tooth.\n• Metal-Ceramic: The traditional method; porcelain fused to a metal substructure. However, over time the metal can cause darkening and a grey shadow at the gum line.\n\nAt our clinic, we select the most suitable zirconia option by evaluating each patient's expectations and oral structure. Because every smile is unique — and deserves the material it deserves.",
         benefits: ["Metal-free", "Light-transmitting natural look", "Zero allergic reaction risk", "High fracture resistance", "15+ year lifespan", "Perfect color match"],
         steps: [
           { step: "1", title: "Tooth Preparation", desc: "Perfect infrastructure prepared with minimal tooth cutting." },
@@ -394,7 +394,7 @@ export const translations = {
       },
       "kemik-grefti": {
         title: "Bone Graft", subtitle: "Bone Graft", emoji: "🦴",
-        description: "Bone graft is a surgical procedure that restores bone volume before implant application in patients with bone loss due to tooth loss.",
+        description: "Bone grafting is an advanced surgical procedure used to halt bone resorption following tooth loss and to rebuild the bone volume required for implant placement. Graft materials are sourced from different origins:\n\n• Autograft: Bone tissue taken from the patient's own body — highest biocompatibility and healing rate.\n• Allograft: Human-derived bone bank material subjected to special sterilisation processes. Offers high success rates without requiring the patient's own bone.\n• Xenograft (Animal-Derived): Typically bovine or porcine bone mineral matrix, extensively processed. Its osteoconductive structure provides a scaffold for new bone cell growth.\n• Synthetic Graft: Calcium phosphate or hydroxyapatite-based artificial materials — zero infection risk, safe use with controlled resorption rate.\n\nAt our clinic, the type of graft to be used is determined by our doctor based on a bone analysis obtained via 3D CBCT tomography. All materials meet international safety standards.",
         benefits: ["Prepares ground for implant", "Stops bone loss", "Preserves facial contours", "95%+ success rate", "Minimally invasive techniques", "Sinus lifting option"],
         steps: [
           { step: "1", title: "Bone Analysis", desc: "Bone density and volume measured with 3D CBCT tomography." },
@@ -404,8 +404,8 @@ export const translations = {
         ],
       },
       "dis-teli-ortodonti": {
-        title: "Braces & Orthodontics", subtitle: "Orthodontics", emoji: "😁",
-        description: "Correct crooked, crowded or spaced teeth with modern orthodontic treatments. Solutions suitable for all ages with a wide range of options from clear aligners to metal braces.",
+        title: "Clear Aligner & Orthodontics", subtitle: "Orthodontics", emoji: "😁",
+        description: "Clear aligner treatment is a modern orthodontic system that has replaced traditional braces and is preferred by millions of patients worldwide. Completely transparent, removable and comfortable, these aligners place no restrictions on your social life, diet or oral hygiene during the day.\n\nAt Haliç Panorama Dental, we operate a dedicated process for patients travelling from abroad: before visiting the clinic, we assess your dental structure via an online video consultation and guide you through the digital scan process. Our doctor personally shares the treatment plan, the number of aligners and the stages of the process with complete transparency.\n\nClear aligner treatment is not merely a technical application — it is a carefully managed journey built on trust between doctor and patient. Every aligner change is monitored by our doctor, either in person or via remote check-up, so your treatment continues uninterrupted. Because a perfect smile deserves perfect care.",
         benefits: ["Clear aligner option", "Invisible wire technology", "Suitable for all ages", "Improves oral health", "Permanent results", "Digital simulation"],
         steps: [
           { step: "1", title: "Orthodontic Examination", desc: "Comprehensive evaluation with tooth model, X-ray and photo analysis." },
@@ -535,7 +535,7 @@ export const translations = {
     treatments: {
       "dis-implanti": {
         title: "Zahnimplantat", subtitle: "Dental Implant", emoji: "🦷",
-        description: "Ein Zahnimplantat ist die dauerhafteste und natürlichste Lösung für fehlende Zähne. Das schraubenförmige Titaniumimplantat wird in den Kieferknochen eingesetzt und bildet eine Basis ähnlich einer natürlichen Zahnwurzel.",
+        description: "Ein Zahnimplantat ist eine biokompatible künstliche Zahnwurzel aus Titan oder Zirkon. Sie wird in den Kieferknochen eingesetzt und verwächst durch Osseointegration dauerhaft mit dem Knochen. Eine aufgesetzte Zirkon- oder Porzellankrone sorgt für ein von natürlichen Zähnen nicht unterscheidbares Erscheinungsbild.\n\nDas All-on-4-System setzt eine vollständige Zahnbrücke auf nur vier strategisch platzierten Implantaten und ermöglicht zahnlosen Patienten in einer einzigen Sitzung feste Zähne. Das All-on-6-System nutzt sechs Implantate für breitere Kiefer und höhere Belastungskapazität. In unserer Klinik wird per 3D-Tomographie die geeignetste Lösung für jeden Patienten individuell bestimmt.",
         benefits: ["Natürliches Aussehen und Gefühl", "20+ Jahre Haltbarkeit", "Keine Schäden an benachbarten Zähnen", "Verhindert Knochenschwund", "Komfortables Essen und Trinken", "Selbstvertrauen stärken"],
         steps: [
           { step: "1", title: "Untersuchung & Planung", desc: "Umfassende Mundanalyse mit 3D-Tomographie und personalisiertem Behandlungsplan." },
@@ -546,7 +546,7 @@ export const translations = {
       },
       "hollywood-gulusu": {
         title: "Hollywood-Lächeln", subtitle: "Hollywood Smile", emoji: "✨",
-        description: "Das Hollywood-Lächeln ist eine umfassende ästhetische Zahnbehandlung, die Form, Farbe und Position der Zähne mit Porzellanschalen und Zirkonkronen perfektioniert.",
+        description: "Ein Hollywood-Lächeln ist weit mehr als eine ästhetische Entscheidung — es ist eine lebensverändernde Transformation, bei der Wissenschaft auf Kunst trifft. In unserer Klinik beginnt jedes Hollywood-Lächeln mit einem 3D-Intraoralscanner, der millimetergenaue Messungen aufnimmt und eine vollständig personalisierte Lächelnsimulation erstellt.\n\nNach Ihrer Genehmigung des Designs werden die Zähne minimal-invasiv vorbereitet — es wird nie unnötige natürliche Zahnsubstanz entfernt. Ihre maßgeschneiderten Laminate oder Zirkonveneers werden im Spezialkeramikofen gefertigt und mit ästhetischem Zement dauerhaft befestigt. Das Ergebnis: ein atemberaubendes Lächeln, natürlich, strahlend und jahrelang leuchtend. Patienten aus aller Welt sagen danach dasselbe: 'Ich wünschte, ich hätte es früher gemacht.'",
         benefits: ["Sofortige Transformation", "Natürliches Porzellanlook", "Fleckenresistent", "Minimales Abschleifen", "10–15 Jahre Lebensdauer", "Selbstvertrauensschub"],
         steps: [
           { step: "1", title: "Digitales Lächeln-Design", desc: "Personalisierte Lächelnsimulation am Computer." },
@@ -557,7 +557,7 @@ export const translations = {
       },
       "dis-beyazlatma": {
         title: "Zahnaufhellung", subtitle: "Teeth Whitening", emoji: "🪥",
-        description: "Hellen Sie Ihre Zähne mit professioneller Laserzahnaufhellung um bis zu 8 Töne auf. Schnelle und dauerhafte Ergebnisse mit sicherem Aufhellungsgel und LED/Laser-Aktivierung.",
+        description: "In Haliç Panorama Dental wird die Zahnaufhellung ausschließlich von unserem international zertifizierten Zahnarzt durchgeführt, der eine spezielle Ausbildung in diesem Bereich absolviert hat. Die von uns verwendeten Produkte sind FDA- und CE-zugelassene, klinisch getestete professionelle Aufhellungssysteme — unvergleichlich wirksamer und sicherer als handelsübliche Produkte.\n\nWährend der Behandlung werden Ihre Zahnfleisch mit Schutzgel geschützt, aktives Carbamidperoxidgel aufgetragen und anschließend mit blauem LED-Licht aktiviert. So werden tief in der Zahnsubstanz sitzende Farbpigmente aufgebrochen — bis zu 8 Töne heller in einer einzigen Sitzung. Schmerzlos, schmelzsicher, schnell und langanhaltend. Wenn Ihre Zähne durch Kaffee, Tee oder Rauchen vergilbt sind, sind Sie hier richtig.",
         benefits: ["8 Töne in 1 Sitzung", "Keine Emailschäden", "Sofort sichtbares Ergebnis", "Langanhaltende Wirkung", "Schmerzloser Eingriff", "FDA-zugelassene Produkte"],
         steps: [
           { step: "1", title: "Zahnreinigung", desc: "Vorbereitung mit Zahnstein- und Plaqueentfernung." },
@@ -568,7 +568,7 @@ export const translations = {
       },
       "zirkonyum-kaplama": {
         title: "Zirkonkrone", subtitle: "Zirconia Crown", emoji: "💎",
-        description: "Zirkonkronen sind die natürlichste Zahnkrone mit Vollkeramikstruktur ohne Metallunterbau. Dank Lichtdurchlässigkeit sind sie von natürlichen Zähnen nicht zu unterscheiden.",
+        description: "Zirkonkronen sind eines der eindrucksvollsten Beispiele für die technologische Entwicklung der Zahnmedizin in den letzten 20 Jahren. Während erste Generationen opak und metallbasiert waren, gibt es heute drei Hauptkategorien:\n\n• Monolithisches Zirkon: Einstückig, hochfest, komplett metallfrei. Ideal für Seitenzähne mit hoher Kaubelastung.\n• Doppelschichtiges Monolithisches Zirkon: Hochfester Zirkonkern mit dünner Porzellanschicht — die ästhetische Variante mit natürlichem Lichtdurchgang.\n• Metall-Keramik: Traditionelle Methode; mit der Zeit kann Verfärbung am Zahnfleischrand entstehen.\n\nIn unserer Klinik wählen wir gemeinsam mit Ihnen die optimale Zirkonvariante — denn jedes Lächeln ist einzigartig.",
         benefits: ["Metallfrei", "Lichtdurchlässiges natürliches Aussehen", "Kein Allergierisiko", "Hohe Bruchfestigkeit", "15+ Jahre Lebensdauer", "Perfekte Farbabstimmung"],
         steps: [
           { step: "1", title: "Zahnvorbereitung", desc: "Perfekte Infrastruktur mit minimalem Zahnschnitt." },
@@ -579,7 +579,7 @@ export const translations = {
       },
       "kemik-grefti": {
         title: "Knochentransplantat", subtitle: "Bone Graft", emoji: "🦴",
-        description: "Ein Knochentransplantat ist ein chirurgisches Verfahren, das das Knochenvolumen vor der Implantatanwendung bei Patienten mit Knochenschwund wiederherstellt.",
+        description: "Ein Knochentransplantat ist ein fortschrittliches chirurgisches Verfahren zur Wiederherstellung des Knochenvolumens vor der Implantatversorgung. Folgende Transplantatmaterialien stehen zur Verfügung:\n\n• Autotransplantat: Knochen vom eigenen Körper — höchste Biokompatibilität.\n• Allotransplantat: Sterilisiertes Knochenbankenmaterial menschlicher Herkunft.\n• Xenotransplantat (Tierisch): Meist rindliches Knochenmineralmatrix — osteokonduktiv, fördert neues Knochenwachstum.\n• Synthetisches Transplantat: Calciumphosphat-basiert — null Infektionsrisiko.\n\nDie Auswahl des Transplantats erfolgt durch unseren Arzt nach 3D-CBCT-Analyse.",
         benefits: ["Bereitet Boden für Implantat", "Stoppt Knochenschwund", "Erhält Gesichtskonturen", "95%+ Erfolgsrate", "Minimalinvasive Techniken", "Sinuslift-Option"],
         steps: [
           { step: "1", title: "Knochenanalyse", desc: "Knochendichte und -volumen mit 3D-CBCT-Tomographie gemessen." },
@@ -589,8 +589,8 @@ export const translations = {
         ],
       },
       "dis-teli-ortodonti": {
-        title: "Zahnspange & Kieferorthopädie", subtitle: "Orthodontics", emoji: "😁",
-        description: "Korrigieren Sie schiefe, gedrängte oder lückenhafte Zähne mit modernen kieferorthopädischen Behandlungen. Lösungen für alle Altersgruppen.",
+        title: "Schienen-Therapie & Kieferorthopädie", subtitle: "Orthodontics", emoji: "😁",
+        description: "Die Behandlung mit transparenten Schienen (Clear Aligners) hat die traditionelle Zahnspange abgelöst und wird weltweit von Millionen Patienten bevorzugt. Vollständig transparent, herausnehmbar und komfortabel — ohne Einschränkungen im Alltag.\n\nFür unsere Patienten aus dem Ausland bieten wir ein besonderes Verfahren: Vor dem Klinikbesuch bewerten wir Ihre Zahnstruktur per Online-Videokonsultation. Unser Arzt teilt den Behandlungsplan transparent mit — jede Schienenstufe, jeden Fortschritt. Ob persönlich oder per Fernkontrolle: Ihre Behandlung läuft ununterbrochen weiter. Denn ein perfektes Lächeln verdient perfekte Betreuung.",
         benefits: ["Transparente Schiene", "Unsichtbare Technik", "Für alle Altersgruppen", "Verbessert Mundgesundheit", "Dauerhafte Ergebnisse", "Digitale Simulation"],
         steps: [
           { step: "1", title: "Kieferorthopädische Untersuchung", desc: "Umfassende Bewertung mit Zahnmodell, Röntgen und Fotoanalyse." },
@@ -720,7 +720,7 @@ export const translations = {
     treatments: {
       "dis-implanti": {
         title: "زراعة الأسنان", subtitle: "Dental Implant", emoji: "🦷",
-        description: "زراعة الأسنان هي الحل الأكثر ديمومة وطبيعية للأسنان المفقودة. يُزرع الغرسة التيتانيومية في عظم الفك لتشكّل قاعدة تشبه جذر السن الطبيعي.",
+        description: "زرعة الأسنان هي جذر اصطناعي للسن مصنوع من التيتانيوم أو الزركونيا عالي التوافق البيولوجي. يُزرع في عظم الفك ويندمج معه عبر عملية الالتحام العظمي. تُركَّب عليه كراون من الزركونيا أو البورسلين لا يمكن تمييزه عن السن الطبيعي.\n\nنظام All-on-4 يستخدم أربعة غرسات مُوضَّعة بشكل استراتيجي لتثبيت قنطرة أسنان كاملة، مما يمنح المرضى فاقدي الأسنان أسناناً ثابتة في جلسة واحدة. أما نظام All-on-6 فيوفر ستة غرسات لفكوك أوسع وقدرة تحمّل أعلى. في عيادتنا، يُحدَّد النظام الأنسب لكل مريض بعد تحليل 3D للعظام.",
         benefits: ["مظهر وإحساس طبيعي", "متانة أكثر من 20 عاماً", "لا يضر الأسنان المجاورة", "يمنع فقدان العظام", "راحة في الأكل والشرب", "تعزيز الثقة بالنفس"],
         steps: [
           { step: "1", title: "الفحص والتخطيط", desc: "تحليل شامل للفم بالتصوير ثلاثي الأبعاد وخطة علاج مخصصة." },
@@ -731,7 +731,7 @@ export const translations = {
       },
       "hollywood-gulusu": {
         title: "ابتسامة هوليوود", subtitle: "Hollywood Smile", emoji: "✨",
-        description: "ابتسامة هوليوود علاج تجميلي شامل يُحسّن شكل ولون وموضع الأسنان باستخدام القشور الخزفية وتيجان الزركونيا.",
+        description: "ابتسامة هوليوود ليست مجرد خيار جمالي — بل هي تحوّل يغير الحياة حيث يلتقي العلم بالفن. في عيادتنا، تبدأ كل ابتسامة هوليوود بماسح داخل الفم ثلاثي الأبعاد (Intraoral Scanner) يلتقط قياسات بدقة المليمتر لإنشاء محاكاة ابتسامة مخصصة تماماً لك.\n\nبعد موافقتك على التصميم، تُحضَّر الأسنان بتقنية طفيفة التوغل دون إزالة أي نسيج سني طبيعي غير ضروري. تُصنَّع قشورك أو طبقات الزركونيا في فرن سيراميكي متخصص وتُثبَّت بشكل دائم. النتيجة: ابتسامة رائعة لا تختلف عن الأسنان الطبيعية، تبقى مشرقة لسنوات. يقول مرضانا من جميع أنحاء العالم نفس الشيء: 'كم أتمنى لو فعلتها قبل ذلك.'",
         benefits: ["تحول فوري", "مظهر خزفي طبيعي", "مقاوم للبقع", "حد أدنى من البرد", "عمر 10-15 سنة", "انفجار الثقة بالنفس"],
         steps: [
           { step: "1", title: "تصميم الابتسامة الرقمي", desc: "محاكاة مخصصة للابتسامة بالحاسوب." },
@@ -742,7 +742,7 @@ export const translations = {
       },
       "dis-beyazlatma": {
         title: "تبييض الأسنان", subtitle: "Teeth Whitening", emoji: "🪥",
-        description: "افتح أسنانك حتى 8 درجات بتبييض الليزر الاحترافي. نتائج سريعة ودائمة بجل التبييض الآمن وتفعيل LED/الليزر في بيئة سريرية.",
+        description: "في هاليتش باناروما دنتال، يُجرى تبييض الأسنان حصرياً من قِبَل طبيبنا المعتمد دولياً والحاصل على تدريب متخصص في هذا المجال. المنتجات التي نستخدمها معتمدة من FDA وCE ومختبرة سريرياً — لا يمكن مقارنتها بمنتجات التبييض التجارية.\n\nخلال العلاج، تُحمى اللثة بجل حاجز خاص، ثم يُطبَّق جل بيروكسيد الكربامايد على سطح الأسنان ويُفعَّل بضوء LED أزرق الطول الموجي. تكسر هذه العملية الأصباغ العضوية الملونة في أعماق المينا — حتى 8 درجات أفتح في جلسة واحدة. غير مؤلم، آمن للمينا، سريع ودائم. إذا اصفرّت أسنانك بسبب القهوة أو الشاي أو التدخين، فأنت في المكان الصحيح.",
         benefits: ["8 درجات في جلسة واحدة", "لا يتلف المينا", "نتيجة فورية مرئية", "تأثير طويل الأمد", "إجراء غير مؤلم", "منتجات معتمدة من FDA"],
         steps: [
           { step: "1", title: "تنظيف سطح الأسنان", desc: "إزالة الجير واللويحات كتحضير للتبييض." },
@@ -753,7 +753,7 @@ export const translations = {
       },
       "zirkonyum-kaplama": {
         title: "تاج الزركونيا", subtitle: "Zirconia Crown", emoji: "💎",
-        description: "تيجان الزركونيا هي أكثر تيجان الأسنان طبيعية بهيكل خزفي كامل بدون قاعدة معدنية. بفضل شفافية الضوء لا يمكن تمييزها عن الأسنان الطبيعية.",
+        description: "تُعدّ تيجان الزركونيا من أبرز أمثلة التطور التكنولوجي الهائل في طب الأسنان خلال العشرين سنة الماضية. فبينما كانت الأجيال الأولى معتمة ومعدنية الهيكل، اليوم تُنتَج في ثلاث فئات رئيسية:\n\n• الزركونيا المونوليثيك: قطعة واحدة، عالية المقاومة، خالية تماماً من المعدن. مثالية للأسنان الخلفية.\n• الزركونيا المونوليثيك ثنائية الطبقة: قلب زركونيا مع طبقة بورسلين رفيعة — أقرب مظهر للسن الطبيعي.\n• المعدن-سيراميك: الطريقة التقليدية؛ قد تسبب اسودام بجانب اللثة مع مرور الوقت.\n\nفي عيادتنا، يختار طبيبنا الخيار الأنسب بعد تقييم توقعات المريض وتركيبه الفموي.",
         benefits: ["خالية من المعدن", "مظهر طبيعي شفاف", "لا خطر الحساسية", "مقاومة عالية للكسر", "عمر 15+ سنة", "تطابق لوني مثالي"],
         steps: [
           { step: "1", title: "تحضير السن", desc: "بنية تحتية مثالية بأدنى قطع للسن." },
@@ -764,7 +764,7 @@ export const translations = {
       },
       "kemik-grefti": {
         title: "زراعة العظام", subtitle: "Bone Graft", emoji: "🦴",
-        description: "زراعة العظام إجراء جراحي يستعيد حجم العظم قبل تطبيق الغرسة لدى المرضى الذين يعانون من فقدان العظام بسبب فقدان الأسنان.",
+        description: "زراعة العظام إجراء جراحي متقدم لوقف ارتشاف العظم وإعادة بناء حجمه قبل تركيب الغرسة. تُستخدَم مواد طعم من مصادر مختلفة:\n\n• طعم ذاتي: من جسم المريض نفسه — أعلى توافق بيولوجي.\n• طعم خيفي: مادة بنك عظام بشري مُعقَّمة بعمليات خاصة.\n• طعم حيواني (زينوغرافت): مصفوفة معدنية عظمية من البقر أو الخنزير مُعالَجة بشكل موسّع — توصيلية عظمية لدعم نمو خلايا العظم الجديدة.\n• طعم صناعي: فوسفات الكالسيوم أو هيدروكسي أباتيت — صفر خطر عدوى.\n\nيحدد طبيبنا نوع الطعم بعد تحليل عظام 3D CBCT. جميع المواد تستوفي المعايير الدولية.",
         benefits: ["تحضير الأرض للغرسة", "إيقاف فقدان العظام", "الحفاظ على ملامح الوجه", "معدل نجاح 95%+", "تقنيات طفيفة التوغل", "خيار رفع الجيب الأنفي"],
         steps: [
           { step: "1", title: "تحليل العظام", desc: "قياس كثافة وحجم العظام بتصوير CBCT ثلاثي الأبعاد." },
@@ -774,8 +774,8 @@ export const translations = {
         ],
       },
       "dis-teli-ortodonti": {
-        title: "تقويم الأسنان", subtitle: "Orthodontics", emoji: "😁",
-        description: "صحح أسنانك المعوجة أو المتراكبة أو المتباعدة بعلاجات تقويمية حديثة. حلول مناسبة لجميع الأعمار.",
+        title: "علاج المحاذي الشفاف والتقويم", subtitle: "Orthodontics", emoji: "😁",
+        description: "علاج المحاذي الشفاف (Clear Aligner) هو نظام تقويم حديث حلّ محل التقويم التقليدي ويُفضّله الملايين حول العالم. شفاف تماماً، قابل للنزع، مريح — لا يعيق حياتك الاجتماعية ولا نظامك الغذائي.\n\nفي هاليتش باناروما دنتال، نُدير عملية خاصة للمرضى القادمين من الخارج: قبل زيارة العيادة، نُقيِّم بنية أسنانك عبر استشارة فيديو أونلاين. يشارك طبيبنا خطة العلاج بشفافية كاملة — كل مرحلة، كل محاذي.\n\nسواء شخصياً أو عن بُعد، علاجك لن ينقطع. لأن الابتسامة المثالية تستحق رعاية مثالية.",
         benefits: ["خيار المحاذي الشفاف", "تقنية سلك غير مرئي", "مناسب لجميع الأعمار", "يحسن صحة الفم", "نتائج دائمة", "محاكاة رقمية"],
         steps: [
           { step: "1", title: "الفحص التقويمي", desc: "تقييم شامل بنموذج الأسنان والأشعة وتحليل الصور." },
@@ -905,7 +905,7 @@ export const translations = {
     treatments: {
       "dis-implanti": {
         title: "Implante Dental", subtitle: "Dental Implant", emoji: "🦷",
-        description: "Un implante dental es la solución más permanente y de aspecto natural para los dientes perdidos. El implante de titanio se coloca en el hueso mandibular para crear una base similar a la raíz dental natural.",
+        description: "Un implante dental es una raíz dental artificial biocompatible de titanio o zirconio. Se integra en el hueso maxilar a través de la osteointegración. Una corona de zirconio o porcelana lo completa con apariencia idéntica a un diente natural.\n\nEl sistema All-on-4 coloca un arco dental completo sobre cuatro implantes estratégicos. El All-on-6 utiliza seis implantes para maxilares más anchos y mayor capacidad de carga. En nuestra clínica, la tomografía 3D determina el sistema más adecuado para cada paciente.",
         benefits: ["Apariencia y sensación natural", "Durabilidad de 20+ años", "Sin daño a dientes adyacentes", "Previene pérdida ósea", "Comodidad al comer y beber", "Aumento de confianza"],
         steps: [
           { step: "1", title: "Examen y Planificación", desc: "Análisis oral completo con tomografía 3D y plan de tratamiento personalizado." },
@@ -916,7 +916,7 @@ export const translations = {
       },
       "hollywood-gulusu": {
         title: "Sonrisa Hollywood", subtitle: "Hollywood Smile", emoji: "✨",
-        description: "La Sonrisa Hollywood es un tratamiento dental estético integral que perfecciona la forma, el color y la posición de los dientes usando carillas de porcelana y coronas de zirconio.",
+        description: "Una Sonrisa Hollywood es mucho más que una elección estética — es una transformación que cambia la vida donde la ciencia se encuentra con el arte. En nuestra clínica, todo comienza con un escáner intraoral 3D que crea una simulación completamente personalizada.\n\nTras su aprobación, los dientes se preparan mínimamente sin eliminar estructura dental innecesaria. Sus carillas o veneers se fabrican en horno cerámico especializado y se adhieren permanentemente. El resultado: una sonrisa radiante, indistinguible de los dientes naturales. Pacientes de todo el mundo dicen lo mismo: 'Ojalá lo hubiera hecho antes.'",
         benefits: ["Transformación instantánea", "Aspecto natural de porcelana", "Resistente a manchas", "Mínimo limado", "Vida útil 10-15 años", "Explosión de confianza"],
         steps: [
           { step: "1", title: "Diseño Digital de Sonrisa", desc: "Simulación personalizada de sonrisa en computadora." },
@@ -927,7 +927,7 @@ export const translations = {
       },
       "dis-beyazlatma": {
         title: "Blanqueamiento Dental", subtitle: "Teeth Whitening", emoji: "🪥",
-        description: "Aclare sus dientes hasta 8 tonos con blanqueamiento dental profesional láser. Resultados rápidos y duraderos con gel blanqueador seguro y activación LED/láser en entorno clínico.",
+        description: "En Haliç Panorama Dental, el blanqueamiento lo realiza exclusivamente nuestro dentista certificado internacionalmente con formación especializada. Los productos son aprobados por FDA y CE — incomparablemente más eficaces que los productos de venta libre.\n\nLa encía se protege con gel barrera mientras se aplica gel de peróxido de carbamida activado con luz LED azul. Esto rompe los pigmentos coloreados en el esmalte — hasta 8 tonos más blanco en una sesión. Sin dolor, seguro para el esmalte, rápido y duradero. Si sus dientes amarillaron por café, té o tabaco, está en el lugar correcto.",
         benefits: ["8 tonos en 1 sesión", "Sin daño al esmalte", "Resultado visible al instante", "Efecto duradero", "Procedimiento indoloro", "Productos aprobados FDA"],
         steps: [
           { step: "1", title: "Limpieza de Superficie", desc: "Preparación con eliminación de sarro y placa." },
@@ -938,7 +938,7 @@ export const translations = {
       },
       "zirkonyum-kaplama": {
         title: "Corona de Zirconio", subtitle: "Zirconia Crown", emoji: "💎",
-        description: "Las coronas de zirconio son la corona dental más natural con estructura totalmente cerámica sin subestructura metálica. Gracias a la transmisión de luz son indistinguibles de los dientes naturales.",
+        description: "Las coronas de zirconio son un ejemplo brillante de la evolución tecnológica dental en los últimos 20 años. Hoy existen tres categorías principales:\n\n• Zirconia Monolítica: Pieza única, alta resistencia, libre de metal. Ideal para dientes posteriores.\n• Zirconia Monolítica Doble Capa: Núcleo de zirconia con capa de porcelana — el aspecto más natural posible.\n• Metal-Cerámica: Método tradicional; con el tiempo puede causar oscurecimiento en la línea de la encía.\n\nEn nuestra clínica seleccionamos la variante óptima según sus expectativas y estructura oral.",
         benefits: ["Sin metal", "Aspecto natural translúcido", "Cero riesgo alérgico", "Alta resistencia a la fractura", "Vida útil 15+ años", "Coincidencia de color perfecta"],
         steps: [
           { step: "1", title: "Preparación Dental", desc: "Infraestructura perfecta con mínimo corte dental." },
@@ -949,7 +949,7 @@ export const translations = {
       },
       "kemik-grefti": {
         title: "Injerto Óseo", subtitle: "Bone Graft", emoji: "🦴",
-        description: "El injerto óseo es un procedimiento quirúrgico que restaura el volumen óseo antes de la aplicación de implantes en pacientes con pérdida ósea.",
+        description: "El injerto óseo es un procedimiento quirúrgico avanzado para restaurar el volumen óseo antes de la implantación. Los materiales utilizados incluyen:\n\n• Autoinjerto: Del propio cuerpo — máxima biocompatibilidad.\n• Aloinjerto: Material de banco óseo humano esterilizado.\n• Xenoinjerto (Animal): Matriz mineral ósea bovina/porcina procesada — osteoconductiva.\n• Injerto Sintético: Base de fosfato cálcico — riesgo de infección cero.\n\nNuestro médico selecciona el tipo tras análisis 3D CBCT. Todos los materiales cumplen estándares internacionales.",
         benefits: ["Prepara terreno para implante", "Detiene pérdida ósea", "Preserva contornos faciales", "Tasa de éxito 95%+", "Técnicas mínimamente invasivas", "Opción de elevación de seno"],
         steps: [
           { step: "1", title: "Análisis Óseo", desc: "Densidad y volumen óseo medidos con tomografía 3D CBCT." },
