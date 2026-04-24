@@ -1,5 +1,4 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
-import { InvokeLLM, SendEmail } from 'npm:@base44/sdk@0.8.25/integrations';
 
 Deno.serve(async (req) => {
   try {
@@ -22,37 +21,31 @@ Deno.serve(async (req) => {
       }).then(() => console.log("DB kaydı başarılı")).catch(err => console.error("DB hatası:", err.message))
     );
 
-    // 2. E-posta bildirimi (Resend API)
-    let filesHtml = "";
+    // 2. E-posta bildirimi (Base44 SendEmail)
+    let filesText = "";
     if (fileUrls && fileUrls.length > 0) {
-      filesHtml = fileUrls.map((url, i) => `<br><a href="${url}">Dosya ${i + 1}</a>`).join("");
+      filesText = fileUrls.map((url, i) => `Dosya ${i + 1}: ${url}`).join("\n");
     }
 
     const emailBody = `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e0d8d0;border-radius:8px;overflow:hidden;">
-        <div style="background:#2c2419;padding:20px;text-align:center;">
-          <h2 style="color:#c9a87c;margin:0;">🦷 Haliç Panorama Dental</h2>
-          <p style="color:#fff;margin:6px 0 0;">Yeni Konsültasyon Başvurusu</p>
-        </div>
-        <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="padding:10px 12px;font-weight:bold;color:#8B6840;width:140px;">Ad Soyad</td><td style="padding:10px 12px;">${name || "-"}</td></tr>
-          <tr style="background:#f7f3ef;"><td style="padding:10px 12px;font-weight:bold;color:#8B6840;">Telefon</td><td style="padding:10px 12px;">${phone || "-"}</td></tr>
-          <tr><td style="padding:10px 12px;font-weight:bold;color:#8B6840;">E-posta</td><td style="padding:10px 12px;">${email || "-"}</td></tr>
-          <tr style="background:#f7f3ef;"><td style="padding:10px 12px;font-weight:bold;color:#8B6840;">Mesaj</td><td style="padding:10px 12px;">${message || "-"}</td></tr>
-          ${filesHtml ? `<tr><td style="padding:10px 12px;font-weight:bold;color:#8B6840;">Dosyalar</td><td style="padding:10px 12px;">${filesHtml}</td></tr>` : ""}
-        </table>
-        <div style="background:#f7f3ef;padding:12px;text-align:center;font-size:12px;color:#9c8e84;">
-          Web sitesi iletişim formundan otomatik gönderilmiştir.
-        </div>
-      </div>
-    `;
+🦷 Haliç Panorama Dental - Yeni Konsültasyon Başvurusu
+
+Ad Soyad: ${name || "-"}
+Telefon: ${phone || "-"}
+E-posta: ${email || "-"}
+Mesaj: ${message || "-"}
+${filesText ? `\nDosyalar:\n${filesText}` : ""}
+
+Web sitesi iletişim formundan otomatik gönderilmiştir.
+    `.trim();
 
     tasks.push(
       base44.asServiceRole.integrations.Core.SendEmail({
         to: "halicpanoramadental@gmail.com",
-        subject: `Yeni Başvuru — ${name || "İsimsiz"}`,
+        subject: `🦷 Yeni Başvuru — ${name || "İsimsiz"} | ${phone || ""}`,
         body: emailBody,
-      }).catch(err => console.error("Email hatası:", err.message))
+        from_name: "Haliç Panorama Dental",
+      }).catch(err => console.error("E-posta hatası:", err.message))
     );
 
     // 3. CallMeBot WhatsApp bildirimi
