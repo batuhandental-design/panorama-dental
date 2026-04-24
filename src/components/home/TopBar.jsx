@@ -22,7 +22,7 @@ export default function TopBar() {
             </div>
             <div>
               <p className="text-xs text-gray-400">{t.topBarCall}</p>
-              <a href="tel:+905491240103" className="text-xs font-medium hover:text-primary transition-colors">+90 549 124 01 03</a>
+              <a href="tel:+905551896062" className="text-xs font-medium hover:text-primary transition-colors">+90 555 189 60 62</a>
             </div>
           </div>
           <div className="flex items-center gap-2">
