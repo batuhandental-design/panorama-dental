@@ -21,7 +21,7 @@ Deno.serve(async (req) => {
       }).catch(err => console.error("DB hatası:", err.message))
     );
 
-    // 2. E-posta bildirimi (Base44 SendEmail)
+    // 2. E-posta bildirimi (Resend API)
     let filesHtml = "";
     if (fileUrls && fileUrls.length > 0) {
       filesHtml = fileUrls.map((url, i) => `<br><a href="${url}">Dosya ${i + 1}</a>`).join("");
@@ -46,13 +46,24 @@ Deno.serve(async (req) => {
       </div>
     `;
 
+    const resendKey = Deno.env.get("RESEND_API_KEY");
     tasks.push(
-      base44.asServiceRole.integrations.Core.SendEmail({
-        to: "halicpanoramadental@gmail.com",
-        from_name: "Haliç Panorama Dental",
-        subject: `Yeni Başvuru — ${name || "İsimsiz"}`,
-        body: emailBody,
-      }).catch(err => console.error("Mail hatası:", err.message))
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${resendKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Haliç Panorama Dental <onboarding@resend.dev>",
+          to: ["halicpanoramadental@gmail.com"],
+          subject: `Yeni Başvuru — ${name || "İsimsiz"}`,
+          html: emailBody,
+        }),
+      })
+        .then(r => r.json())
+        .then(r => { if (r.error) console.error("Resend hatası:", r.error); })
+        .catch(err => console.error("Resend hatası:", err.message))
     );
 
     // 3. CallMeBot WhatsApp bildirimi
