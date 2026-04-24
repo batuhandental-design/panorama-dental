@@ -92,6 +92,20 @@ Deno.serve(async (req) => {
       body: JSON.stringify({ raw: encodedEmail }),
     });
 
+    // CallMeBot WhatsApp bildirimi
+    try {
+      const apiKey = Deno.env.get("CALLMEBOT_API_KEY");
+      const phone = "905491240103";
+      let waMsg = `🦷 Yeni Başvuru - Haliç Panorama Dental\n\n👤 Ad: ${name || "-"}\n📞 Tel: ${body.phone || "-"}`;
+      if (email) waMsg += `\n📧 Email: ${email}`;
+      if (message) waMsg += `\n💬 Mesaj: ${message}`;
+      if (fileUrls && fileUrls.length > 0) waMsg += `\n📎 Dosya sayısı: ${fileUrls.length}`;
+
+      await fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${encodeURIComponent(waMsg)}&apikey=${apiKey}`);
+    } catch (waErr) {
+      console.error("WhatsApp bildirim hatası:", waErr.message);
+    }
+
     return Response.json({ success: true });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
