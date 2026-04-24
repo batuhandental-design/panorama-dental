@@ -1,4 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
+import { InvokeLLM, SendEmail } from 'npm:@base44/sdk@0.8.25/integrations';
 
 Deno.serve(async (req) => {
   try {
@@ -46,24 +47,12 @@ Deno.serve(async (req) => {
       </div>
     `;
 
-    const resendKey = Deno.env.get("RESEND_API_KEY");
     tasks.push(
-      fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${resendKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "Haliç Panorama Dental <onboarding@resend.dev>",
-          to: ["halicpanoramadental@gmail.com"],
-          subject: `Yeni Başvuru — ${name || "İsimsiz"}`,
-          html: emailBody,
-        }),
-      })
-        .then(r => r.json())
-        .then(r => { if (r.error) console.error("Resend hatası:", r.error); })
-        .catch(err => console.error("Resend hatası:", err.message))
+      base44.asServiceRole.integrations.Core.SendEmail({
+        to: "halicpanoramadental@gmail.com",
+        subject: `Yeni Başvuru — ${name || "İsimsiz"}`,
+        body: emailBody,
+      }).catch(err => console.error("Email hatası:", err.message))
     );
 
     // 3. CallMeBot WhatsApp bildirimi
