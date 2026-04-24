@@ -60,7 +60,7 @@ export default function ContactSection() {
       fileUrls.forEach((url, i) => { waMsg += `\n${i + 1}. ${url}`; });
     }
 
-    window.open(`https://api.whatsapp.com/send?phone=905491240103&text=${encodeURIComponent(waMsg)}`, "_blank");
+    window.open(`https://api.whatsapp.com/send?phone=905551896062&text=${encodeURIComponent(waMsg)}`, "_blank");
 
     setSending(false);
     setSent(true);
@@ -91,7 +91,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[#2d2419] font-semibold mb-1">{t.phone}</h4>
-                  <p className="text-[#6b5e52]">+90 549 124 01 03</p>
+                  <p className="text-[#6b5e52]">+90 555 189 60 62</p>
                   <p className="text-[#9c8e84] text-sm">{t.freeConsultLine}</p>
                 </div>
               </div>

@@ -63,7 +63,7 @@ Deno.serve(async (req) => {
     if (fileUrls && fileUrls.length > 0) waMsg += `\n📎 Dosya: ${fileUrls.length} adet`;
 
     tasks.push(
-      fetch(`https://api.callmebot.com/whatsapp.php?phone=905491240103&text=${encodeURIComponent(waMsg)}&apikey=${apiKey}`)
+      fetch(`https://api.callmebot.com/whatsapp.php?phone=905551896062&text=${encodeURIComponent(waMsg)}&apikey=${apiKey}`)
         .catch(err => console.error("WhatsApp hatası:", err.message))
     );
 
