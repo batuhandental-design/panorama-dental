@@ -9,7 +9,7 @@ Deno.serve(async (req) => {
     // Tüm işlemleri paralel çalıştır
     const tasks = [];
 
-    // 1. Veritabanına kaydet
+    // 1. Veritabanına kaydet (service role ile - public form için auth gerekmez)
     tasks.push(
       base44.asServiceRole.entities.ContactForm.create({
         name,
@@ -18,7 +18,7 @@ Deno.serve(async (req) => {
         message,
         file_urls: fileUrls || [],
         status: "new",
-      }).catch(err => console.error("DB hatası:", err.message))
+      }).then(() => console.log("DB kaydı başarılı")).catch(err => console.error("DB hatası:", err.message))
     );
 
     // 2. E-posta bildirimi (Resend API)
