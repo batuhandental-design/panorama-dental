@@ -28,7 +28,7 @@ Deno.serve(async (req) => {
     }
 
     const emailBody = `
-🦷 Haliç Panorama Dental - Yeni Konsültasyon Başvurusu
+🦷 Pendik ve Haliç Panorama Dental - Yeni Konsültasyon Başvurusu
 
 Ad Soyad: ${name || "-"}
 Telefon: ${phone || "-"}
@@ -44,13 +44,13 @@ Web sitesi iletişim formundan otomatik gönderilmiştir.
         to: "halicpanoramadental@gmail.com",
         subject: `🦷 Yeni Başvuru — ${name || "İsimsiz"} | ${phone || ""}`,
         body: emailBody,
-        from_name: "Haliç Panorama Dental",
+        from_name: "Pendik ve Haliç Panorama Dental",
       }).catch(err => console.error("E-posta hatası:", err.message))
     );
 
     // 3. CallMeBot WhatsApp bildirimi
     const apiKey = Deno.env.get("CALLMEBOT_API_KEY");
-    let waMsg = `🦷 Yeni Başvuru - Haliç Panorama Dental\n\n👤 Ad: ${name || "-"}\n📞 Tel: ${phone || "-"}`;
+    let waMsg = `🦷 Yeni Başvuru - Pendik ve Haliç Panorama Dental\n\n👤 Ad: ${name || "-"}\n📞 Tel: ${phone || "-"}`;
     if (email) waMsg += `\n📧 Email: ${email}`;
     if (message) waMsg += `\n💬 Mesaj: ${message}`;
     if (fileUrls && fileUrls.length > 0) waMsg += `\n📎 Dosya: ${fileUrls.length} adet`;

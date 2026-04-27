@@ -50,7 +50,7 @@ export default function ContactSection() {
     });
 
     // WhatsApp'a yönlendir
-    let waMsg = `🦷 Haliç Panorama Dental - Yeni Başvuru\n\n`;
+    let waMsg = `🦷 Pendik ve Haliç Panorama Dental - Yeni Başvuru\n\n`;
     waMsg += `👤 Ad Soyad: ${form.name}\n`;
     waMsg += `📞 Telefon: ${form.phone}`;
     if (form.email) waMsg += `\n📧 E-posta: ${form.email}`;

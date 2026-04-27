@@ -94,7 +94,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-6 text-center text-xs text-[#7a6e62]">
-          © {new Date().getFullYear()} Haliç Panorama Dental. {t.footerRights}
+          © {new Date().getFullYear()} Pendik ve Haliç Panorama Dental. {t.footerRights}
         </div>
       </div>
     </footer>
