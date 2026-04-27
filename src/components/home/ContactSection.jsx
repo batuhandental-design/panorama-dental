@@ -71,6 +71,58 @@ export default function ContactSection() {
   return (
     <section className="py-20 bg-[#ede8e0] font-inter" id="contact">
       <div className="max-w-6xl mx-auto px-4">
+
+        {/* Harita + Klinik Bilgileri */}
+        <div className="grid md:grid-cols-2 gap-10 mb-16">
+          {/* Harita */}
+          <div className="rounded-2xl overflow-hidden shadow-md">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96300.58589932854!2d28.870584033156348!3d41.038527320528665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabbc13869e62b%3A0xe630571393ce881!2sOne%20Clinic!5e0!3m2!1sen!2str!4v1729606590757!5m2!1sen!2str"
+              width="100%"
+              height="320"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
+          {/* Klinik Bilgileri */}
+          <div className="flex flex-col justify-center space-y-6">
+            <div>
+              <h3 className="text-xl font-bold text-[#2d2419] font-playfair mb-4 uppercase tracking-wide">Kliniğimiz</h3>
+              <h4 className="text-sm font-bold text-[#8B6840] uppercase tracking-widest mb-3">Çalışma Saatleri</h4>
+              <div className="space-y-2 mb-5">
+                <div className="flex justify-between text-sm border-b border-[#d4cec8] pb-2">
+                  <span className="text-[#4a3728] font-medium">Pazartesi – Çarşamba</span>
+                  <span className="text-[#6b5e52]">10:00 – 19:00</span>
+                </div>
+                <div className="flex justify-between text-sm border-b border-[#d4cec8] pb-2">
+                  <span className="text-[#4a3728] font-medium">Cumartesi – Pazar</span>
+                  <span className="text-[#6b5e52]">Kapalı</span>
+                </div>
+              </div>
+              <h4 className="text-sm font-bold text-[#8B6840] uppercase tracking-widest mb-3">İletişim Bilgileri</h4>
+              <div className="space-y-2 text-sm text-[#6b5e52]">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-[#8B6840] flex-shrink-0 mt-0.5" />
+                  <a href="https://maps.app.goo.gl/bG5KxobqhVjrnkq66" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B6840] transition-colors">
+                    Kocatepe Mah. 33 Sokak No:5 Dükkan:1, 34045 Bayrampaşa/İstanbul
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
+                  <a href="mailto:info@oneclinic.co" className="hover:text-[#8B6840] transition-colors">info@oneclinic.co</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
+                  <a href="tel:+905058041416" className="hover:text-[#8B6840] transition-colors">+90 505 804 14 16</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.contactLabel}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.contactTitle}</h2>
