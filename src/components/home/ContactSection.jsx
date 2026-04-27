@@ -112,7 +112,7 @@ export default function ContactSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
-                  <a href="mailto:info@oneclinic.co" className="hover:text-[#8B6840] transition-colors">info@oneclinic.co</a>
+                  <a href="mailto:halicpanoramadental@gmail.com" className="hover:text-[#8B6840] transition-colors">halicpanoramadental@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
