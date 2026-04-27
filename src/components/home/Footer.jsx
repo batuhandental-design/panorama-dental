@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold text-[#e8dfd5] mb-4">
-              <span className="text-[#c9a87c]">Haliç Panorama</span> Dental
+              <span className="text-[#c9a87c]">Pendik ve Haliç Panorama</span> Dental
             </h3>
             <p className="text-sm leading-relaxed mb-6">
               {t.footerBrandDesc}
