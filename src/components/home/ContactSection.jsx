@@ -77,7 +77,7 @@ export default function ContactSection() {
           {/* Haliç Kliniği */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e0d8d0]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.123456789!2d28.9490!3d41.0422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac3dbb68443dd%3A0x9657886711629900!2zw5Z6ZWwgSGFsacOnIFBhbm9yYW1hIEHEn8SxeiBWZSBEacWfIFNhxJ9sxLHEn8SxIFBvbGlrbGluacSfaQ!5e0!3m2!1str!2str!4v1700000000001!5m2!1str!2str"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.5!2d28.9477876!3d41.041137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab11007ac72bb%3A0x7450f8976f7ab21f!2zw5Z6ZWwgSGFsacOnIFBhbm9yYW1hIEHEn8SxeiBWZSBEacWfIFNhxJ9sxLHEn8SxIFBvbGlrbGluacSfaQ!5e0!3m2!1str!2str!4v1700000000001!5m2!1str!2str"
               width="100%"
               height="280"
               style={{ border: 0 }}
@@ -121,7 +121,7 @@ export default function ContactSection() {
           {/* Pendik Kliniği */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e0d8d0]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3014.5!2d29.2297!3d40.8835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac3dbb68443dd%3A0x9657886711629901!2sPendik%20Panorama%20A%C4%9F%C4%B1z%20ve%20Di%C5%9F%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Poliklini%C4%9Fi!5e0!3m2!1str!2str!4v1700000000002!5m2!1str!2str"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3014.5!2d29.2271614!3d40.8835419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac3dbb68443dd%3A0x9657886711629900!2sPendik%20Panorama%20A%C4%9F%C4%B1z%20ve%20Di%C5%9F%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Poliklini%C4%9Fi!5e0!3m2!1str!2str!4v1700000000002!5m2!1str!2str"
               width="100%"
               height="280"
               style={{ border: 0 }}
