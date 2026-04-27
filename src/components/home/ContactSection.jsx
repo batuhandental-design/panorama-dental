@@ -72,51 +72,91 @@ export default function ContactSection() {
     <section className="py-20 bg-[#ede8e0] font-inter" id="contact">
       <div className="max-w-6xl mx-auto px-4">
 
-        {/* Harita + Klinik Bilgileri */}
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
-          {/* Harita */}
-          <div className="rounded-2xl overflow-hidden shadow-md">
+        {/* İki Klinik Harita + Bilgileri */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {/* Haliç Kliniği */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e0d8d0]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96300.58589932854!2d28.870584033156348!3d41.038527320528665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabbc13869e62b%3A0xe630571393ce881!2sOne%20Clinic!5e0!3m2!1sen!2str!4v1729606590757!5m2!1sen!2str"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.123456789!2d28.9490!3d41.0422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac3dbb68443dd%3A0x9657886711629900!2zw5Z6ZWwgSGFsacOnIFBhbm9yYW1hIEHEn8SxeiBWZSBEacWfIFNhxJ9sxLHEn8SxIFBvbGlrbGluacSfaQ!5e0!3m2!1str!2str!4v1700000000001!5m2!1str!2str"
               width="100%"
-              height="320"
+              height="280"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
-
-          {/* Klinik Bilgileri */}
-          <div className="flex flex-col justify-center space-y-6">
-            <div>
-              <h3 className="text-xl font-bold text-[#2d2419] font-playfair mb-4 uppercase tracking-wide">Kliniğimiz</h3>
-              <h4 className="text-sm font-bold text-[#8B6840] uppercase tracking-widest mb-3">Çalışma Saatleri</h4>
-              <div className="space-y-2 mb-5">
-                <div className="flex justify-between text-sm border-b border-[#d4cec8] pb-2">
-                  <span className="text-[#4a3728] font-medium">Pazartesi – Çarşamba</span>
-                  <span className="text-[#6b5e52]">10:00 – 19:00</span>
+            <div className="p-5">
+              <h3 className="text-lg font-bold text-[#2d2419] font-playfair mb-3 uppercase tracking-wide">🏥 Haliç Kliniği</h3>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">Çalışma Saatleri</h4>
+              <div className="space-y-1.5 mb-4">
+                <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
+                  <span className="text-[#4a3728] font-medium">Pazartesi – Cuma</span>
+                  <span className="text-[#6b5e52]">09:00 – 22:00</span>
                 </div>
-                <div className="flex justify-between text-sm border-b border-[#d4cec8] pb-2">
+                <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
                   <span className="text-[#4a3728] font-medium">Cumartesi – Pazar</span>
                   <span className="text-[#6b5e52]">Kapalı</span>
                 </div>
               </div>
-              <h4 className="text-sm font-bold text-[#8B6840] uppercase tracking-widest mb-3">İletişim Bilgileri</h4>
-              <div className="space-y-2 text-sm text-[#6b5e52]">
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">İletişim Bilgileri</h4>
+              <div className="space-y-1.5 text-xs text-[#6b5e52]">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-[#8B6840] flex-shrink-0 mt-0.5" />
-                  <a href="https://maps.app.goo.gl/bG5KxobqhVjrnkq66" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B6840] transition-colors">
+                  <MapPin className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0 mt-0.5" />
+                  <a href="https://maps.app.goo.gl/CpjKCqrVtajcEBGE7" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B6840] transition-colors">
                     Piri Paşa Mah. Hasköy Cad. No: 64-66A Beyoğlu / İstanbul
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
+                  <Mail className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0" />
                   <a href="mailto:halicpanoramadental@gmail.com" className="hover:text-[#8B6840] transition-colors">halicpanoramadental@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#8B6840] flex-shrink-0" />
-                  <a href="tel:+905551896062" className="hover:text-[#8B6840] transition-colors">+90 555 189 60 62</a>
+                  <Phone className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0" />
+                  <a href="tel:+902123696062" className="hover:text-[#8B6840] transition-colors">+90 212 369 60 62</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Pendik Kliniği */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#e0d8d0]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3014.5!2d29.2297!3d40.8835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac3dbb68443dd%3A0x9657886711629901!2sPendik%20Panorama%20A%C4%9F%C4%B1z%20ve%20Di%C5%9F%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Poliklini%C4%9Fi!5e0!3m2!1str!2str!4v1700000000002!5m2!1str!2str"
+              width="100%"
+              height="280"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="p-5">
+              <h3 className="text-lg font-bold text-[#2d2419] font-playfair mb-3 uppercase tracking-wide">🏥 Pendik Kliniği</h3>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">Çalışma Saatleri</h4>
+              <div className="space-y-1.5 mb-4">
+                <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
+                  <span className="text-[#4a3728] font-medium">Pazartesi – Cuma</span>
+                  <span className="text-[#6b5e52]">09:00 – 23:00</span>
+                </div>
+                <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
+                  <span className="text-[#4a3728] font-medium">Cumartesi – Pazar</span>
+                  <span className="text-[#6b5e52]">Kapalı</span>
+                </div>
+              </div>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">İletişim Bilgileri</h4>
+              <div className="space-y-1.5 text-xs text-[#6b5e52]">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0 mt-0.5" />
+                  <a href="https://maps.app.goo.gl/PyGcaQZtayCvyYNt8" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B6840] transition-colors">
+                    Yeni Mah. Süreyyapaşa Cd. No: 38 Pendik / İstanbul
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0" />
+                  <a href="mailto:halicpanoramadental@gmail.com" className="hover:text-[#8B6840] transition-colors">halicpanoramadental@gmail.com</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0" />
+                  <a href="tel:+902164900206" className="hover:text-[#8B6840] transition-colors">+90 216 490 02 06</a>
                 </div>
               </div>
             </div>
