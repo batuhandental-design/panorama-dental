@@ -77,7 +77,7 @@ export default function ContactSection() {
           {/* Harita */}
           <div className="rounded-2xl overflow-hidden shadow-md">
             <iframe
-              src="https://maps.google.com/maps?q=https://maps.app.goo.gl/CpjKCqrVtajcEBGE7&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96300.58589932854!2d28.870584033156348!3d41.038527320528665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabbc13869e62b%3A0xe630571393ce881!2sOne%20Clinic!5e0!3m2!1sen!2str!4v1729606590757!5m2!1sen!2str"
               width="100%"
               height="320"
               style={{ border: 0 }}
