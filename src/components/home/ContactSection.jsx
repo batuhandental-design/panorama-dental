@@ -107,7 +107,7 @@ export default function ContactSection() {
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-[#8B6840] flex-shrink-0 mt-0.5" />
                   <a href="https://maps.app.goo.gl/bG5KxobqhVjrnkq66" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B6840] transition-colors">
-                    Kocatepe Mah. 33 Sokak No:5 Dükkan:1, 34045 Bayrampaşa/İstanbul
+                    Piri Paşa Mah. Hasköy Cad. No: 64-66A Beyoğlu / İstanbul
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
