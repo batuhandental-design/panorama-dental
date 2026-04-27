@@ -31,7 +31,7 @@ export default function TopBar() {
             </div>
             <div>
               <p className="text-xs text-gray-400">İstanbul / Turkey</p>
-              <p className="text-xs font-medium">Haliç</p>
+              <p className="text-xs font-medium">Haliç ve Pendik</p>
             </div>
           </div>
         </div>
