@@ -25,7 +25,7 @@ export default function TopBar() {
               <a href="tel:+905551896062" className="text-xs font-medium hover:text-primary transition-colors">+90 555 189 60 62</a>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <a href="#contact" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <div className="w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center">
               <MapPin className="w-4 h-4 text-primary" />
             </div>
@@ -33,7 +33,7 @@ export default function TopBar() {
               <p className="text-xs text-gray-400">İstanbul / Turkey</p>
               <p className="text-xs font-medium">Haliç ve Pendik</p>
             </div>
-          </div>
+          </a>
         </div>
 
 

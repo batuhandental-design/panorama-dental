@@ -90,11 +90,11 @@ export default function ContactSection() {
               <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">Çalışma Saatleri</h4>
               <div className="space-y-1.5 mb-4">
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Pazartesi – Cuma</span>
+                  <span className="text-[#4a3728] font-medium">Pazartesi – Cumartesi</span>
                   <span className="text-[#6b5e52]">09:00 – 22:00</span>
                 </div>
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Cumartesi – Pazar</span>
+                  <span className="text-[#4a3728] font-medium">Pazar</span>
                   <span className="text-[#6b5e52]">Kapalı</span>
                 </div>
               </div>
@@ -134,11 +134,11 @@ export default function ContactSection() {
               <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">Çalışma Saatleri</h4>
               <div className="space-y-1.5 mb-4">
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Pazartesi – Cuma</span>
+                  <span className="text-[#4a3728] font-medium">Pazartesi – Cumartesi</span>
                   <span className="text-[#6b5e52]">09:00 – 23:00</span>
                 </div>
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Cumartesi – Pazar</span>
+                  <span className="text-[#4a3728] font-medium">Pazar</span>
                   <span className="text-[#6b5e52]">Kapalı</span>
                 </div>
               </div>
