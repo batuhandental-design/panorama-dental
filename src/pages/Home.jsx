@@ -34,8 +34,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#f7f3ef]">
       <TopBar />
       <Navbar />
-      <div className="pt-16">
-        <HeroSection />
+      <HeroSection />
       <LanguageSwitcher />
       <ServicesGrid />
       <LabVideoSection />
@@ -48,7 +47,6 @@ export default function Home() {
       <ContactSection />
       <Footer />
       <WhatsAppButton />
-      </div>
     </div>
   );
 }

@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="text-white z-50 font-inter fixed top-0 left-0 right-0 transition-transform duration-300"
+      className="text-white z-50 font-inter transition-transform duration-300"
       style={{
         background: "#2c2419",
         boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
