@@ -42,11 +42,11 @@ export default function TopBar() {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-2 px-3 py-1 rounded-lg hover:bg-white/10 transition-colors text-xs font-medium"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors text-xs font-medium"
           >
             <img src={currentLang.img} alt={currentLang.label} className="w-5 h-3.5 object-cover rounded-sm" />
-            <span>{currentLang.label}</span>
-            <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
+            <span className="hidden sm:inline">{currentLang.label}</span>
+            <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
           </button>
 
           {open && (
