@@ -9,6 +9,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 // Add page imports here
 import Home from './pages/Home';
 import TreatmentDetail from './pages/TreatmentDetail';
+import OperationDetail from './pages/OperationDetail';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -38,6 +39,7 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/tedavi/:slug" element={<TreatmentDetail />} />
+      <Route path="/operasyon/:slug" element={<OperationDetail />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
