@@ -34,7 +34,6 @@ export default function Home() {
     <div className="min-h-screen bg-[#f7f3ef]">
       <TopBar />
       <Navbar />
-      <div className="h-16" />
       <HeroSection />
       <LanguageSwitcher />
       <ServicesGrid />
