@@ -309,7 +309,7 @@ export default function DepartmentsSection() {
           </p>
         </div>
 
-        {/* Mobile: horizontal auto-scroll carousel, Desktop: grid */}
+        {/* Desktop grid */}
         <div className="hidden sm:grid sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2">
           {categories.flatMap((cat) =>
             cat.items.map((item, ii) => (
@@ -318,21 +318,15 @@ export default function DepartmentsSection() {
           )}
         </div>
 
-        {/* Mobile carousel */}
-        <div className="sm:hidden overflow-x-auto" style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
-          <div
-            className="grid gap-2"
-            style={{
-              display: "grid",
-              gridTemplateColumns: `repeat(${Math.ceil(categories.flatMap(c => c.items).length / 4)}, calc(25vw - 8px))`,
-              gridTemplateRows: "repeat(4, auto)",
-              gridAutoFlow: "column",
-              minWidth: "max-content",
-            }}
-          >
+        {/* Mobile: 4-row horizontal scroll */}
+        <div className="sm:hidden w-full overflow-x-scroll" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          <style>{`.mobile-ops-scroll::-webkit-scrollbar { display: none; }`}</style>
+          <div className="mobile-ops-scroll" style={{ display: "grid", gridAutoFlow: "column", gridTemplateRows: "repeat(4, auto)", gap: "4px" }}>
             {categories.flatMap((cat) =>
               cat.items.map((item, ii) => (
-                <OperationCard key={item.slug} item={item} catLabel={cat.label} index={ii} />
+                <div key={item.slug} style={{ width: "22vw" }}>
+                  <OperationCard item={item} catLabel={cat.label} index={ii} />
+                </div>
               ))
             )}
           </div>
