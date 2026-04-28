@@ -6,6 +6,7 @@ import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 import TopBar from "../components/home/TopBar";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const operations = {
   // Diş Tedavileri
@@ -221,7 +222,9 @@ const operations = {
 
 export default function OperationDetail() {
   const { slug } = useParams();
-  const operation = operations[slug];
+  const { t } = useLanguage();
+  // Use translated operation data if available, fallback to static Turkish
+  const operation = (t.operations && t.operations[slug]) || operations[slug];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -235,8 +238,8 @@ export default function OperationDetail() {
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <p className="text-6xl mb-4">🏥</p>
-            <h2 className="text-2xl font-bold text-[#2d2419] mb-4">Operasyon bulunamadı</h2>
-            <Link to="/" className="text-[#8B6840] underline">Ana Sayfaya Dön</Link>
+            <h2 className="text-2xl font-bold text-[#2d2419] mb-4">{t.opNotFound || "Operasyon bulunamadı"}</h2>
+            <Link to="/" className="text-[#8B6840] underline">{t.backHome}</Link>
           </div>
         </div>
         <Footer />
@@ -271,7 +274,7 @@ export default function OperationDetail() {
         </motion.h1>
         <Link to="/" className="inline-flex items-center gap-2 text-white/60 hover:text-[#c9a87c] transition-colors text-sm">
           <ArrowLeft className="w-4 h-4" />
-          Ana Sayfaya Dön
+          {t.backHome}
         </Link>
       </div>
 
@@ -283,7 +286,7 @@ export default function OperationDetail() {
           transition={{ duration: 0.6 }}
           className="bg-white border border-[#e0d8d0] rounded-2xl p-8 shadow-sm mb-8"
         >
-          <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-4">Tedavi Hakkında</h2>
+          <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-4">{t.treatmentAbout}</h2>
           <p className="text-[#6b5e52] leading-relaxed text-[15px]">{operation.description}</p>
         </motion.div>
 
@@ -294,7 +297,7 @@ export default function OperationDetail() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="bg-white border border-[#e0d8d0] rounded-2xl p-8 shadow-sm mb-8"
         >
-          <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-6">Avantajlar</h2>
+          <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-6">{t.treatmentBenefits}</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {operation.benefits.map((b, i) => (
               <div key={i} className="flex items-center gap-3 p-3 bg-[#f7f3ef] rounded-xl">
@@ -313,10 +316,10 @@ export default function OperationDetail() {
           className="rounded-3xl text-center px-8 py-14"
           style={{ background: "linear-gradient(135deg, #2c2419 0%, #4a3728 50%, #3d3028 100%)" }}
         >
-          <p className="text-[#c9a87c] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">Ücretsiz Değerlendirme</p>
+          <p className="text-[#c9a87c] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">{t.treatmentCtaBadge}</p>
           <h3 className="text-white text-2xl font-bold font-playfair mb-3">{operation.title}</h3>
           <p className="text-[#b0a090] text-sm mb-8 max-w-lg mx-auto">
-            Uzman ekibimiz sizi ücretsiz olarak değerlendirsin ve kişisel tedavi planınızı oluştursun.
+            {t.treatmentCtaDesc}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -328,14 +331,14 @@ export default function OperationDetail() {
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.882l6.204-1.448A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.876 9.876 0 01-5.034-1.376l-.361-.214-3.741.873.937-3.63-.235-.374A9.851 9.851 0 012.106 12C2.106 6.525 6.525 2.106 12 2.106c5.476 0 9.894 4.419 9.894 9.894 0 5.476-4.418 9.894-9.894 9.894z"/>
               </svg>
-              WhatsApp ile Yaz
+              {t.treatmentCtaBtn1}
             </a>
             <a
               href="tel:+905551896062"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-white/20 text-white font-bold rounded-xl hover:border-[#c9a87c] hover:text-[#c9a87c] transition-all text-sm uppercase tracking-wider"
             >
               <Phone className="w-4 h-4" />
-              Hemen Ara
+              {t.treatmentCtaBtn2}
             </a>
           </div>
         </motion.div>

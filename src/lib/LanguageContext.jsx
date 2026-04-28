@@ -123,6 +123,7 @@ export const translations = {
     treatmentCtaBtn2: "Hemen Ara",
     backHome: "Ana Sayfaya Dön",
     notFound: "Tedavi bulunamadı",
+    opNotFound: "Operasyon bulunamadı",
     sinusLiftTitle: "Sinüs Lifting Nedir?",
     sinusLiftDesc: "Sinüs lifting, üst çene arkasındaki sinüs boşluğunun tabanına kemik grefti yerleştirilerek kemik hacminin arttırıldığı bir prosedürdür. Bu işlem, implant yerleştirmek için yeterli kemiğe sahip olmayan hastalar için kritik öneme sahiptir. İşlem sonrası 6-8 ay içinde yeni kemik dokusu oluşur ve implant uygulanabilir duruma gelir.",
     videoTexts: {
@@ -336,6 +337,7 @@ export const translations = {
     treatmentCtaBtn2: "Call Now",
     backHome: "Back to Home",
     notFound: "Treatment not found",
+    opNotFound: "Operation not found",
     sinusLiftTitle: "What is Sinus Lifting?",
     sinusLiftDesc: "Sinus lifting is a procedure where bone graft material is placed at the base of the sinus cavity behind the upper jaw to increase bone volume. This procedure is critical for patients who lack sufficient bone for implant placement. After the procedure, new bone tissue forms within 6-8 months and becomes ready for implant application.",
     videoTexts: {
@@ -521,6 +523,7 @@ export const translations = {
     treatmentCtaBtn2: "Jetzt anrufen",
     backHome: "Zurück zur Startseite",
     notFound: "Behandlung nicht gefunden",
+    opNotFound: "Operation nicht gefunden",
     sinusLiftTitle: "Was ist Sinuslift?",
     sinusLiftDesc: "Sinuslift ist ein Verfahren, bei dem Knochentransplantatmaterial an der Basis der Kieferhöhle hinter dem Oberkiefer platziert wird, um das Knochenvolumen zu erhöhen. Dieses Verfahren ist für Patienten, denen ausreichend Knochen für die Implantatversorgung fehlt, von entscheidender Bedeutung. Nach dem Eingriff bildet sich neues Knochengewebe innerhalb von 6-8 Monaten und ist zur Implantatversorgung bereit.",
     videoTexts: {
@@ -706,6 +709,7 @@ export const translations = {
     treatmentCtaBtn2: "اتصل الآن",
     backHome: "العودة إلى الرئيسية",
     notFound: "العلاج غير موجود",
+    opNotFound: "العملية غير موجودة",
     sinusLiftTitle: "ما هو رفع الجيب الفكي؟",
     sinusLiftDesc: "رفع الجيب الفكي هو إجراء يتم فيه وضع مادة كسب العظام في قاعدة التجويف الجيبي خلف الفك العلوي لزيادة حجم العظم. هذا الإجراء حاسم للمرضى الذين يفتقرون إلى عظم كافٍ لوضع الزرعة. بعد الإجراء، يتشكل نسيج عظمي جديد في غضون 6-8 أشهر ويصبح جاهزاً لتطبيق الزرعة.",
     videoTexts: {
@@ -891,6 +895,7 @@ export const translations = {
     treatmentCtaBtn2: "Llamar Ahora",
     backHome: "Volver al Inicio",
     notFound: "Tratamiento no encontrado",
+    opNotFound: "Operación no encontrada",
     sinusLiftTitle: "¿Qué es Sinus Lift?",
     sinusLiftDesc: "El sinus lift es un procedimiento donde se coloca material de injerto óseo en la base del seno maxilar detrás del maxilar superior para aumentar el volumen óseo. Este procedimiento es crítico para pacientes que carecen de hueso suficiente para la colocación del implante. Después del procedimiento, se forma nuevo tejido óseo dentro de 6-8 meses y queda listo para la aplicación del implante.",
     videoTexts: {
@@ -1076,6 +1081,7 @@ export const translations = {
     treatmentCtaBtn2: "Chiama Ora",
     backHome: "Torna alla Home",
     notFound: "Trattamento non trovato",
+    opNotFound: "Operazione non trovata",
     sinusLiftTitle: "Cos'è il Rialzo del Seno?",
     sinusLiftDesc: "Il rialzo del seno è una procedura in cui il materiale di innesto osseo viene posizionato alla base del seno mascellare dietro la mascella superiore per aumentare il volume osseo. Questa procedura è critica per i pazienti che mancano di osso sufficiente per il posizionamento dell'impianto. Dopo la procedura, il nuovo tessuto osseo si forma entro 6-8 mesi ed è pronto per l'applicazione dell'impianto.",
     videoTexts: {
@@ -1261,6 +1267,7 @@ export const translations = {
     treatmentCtaBtn2: "Appeler Maintenant",
     backHome: "Retour à l'Accueil",
     notFound: "Traitement introuvable",
+    opNotFound: "Opération introuvable",
     sinusLiftTitle: "Qu'est-ce que le Sinus Lift?",
     sinusLiftDesc: "Le sinus lift est une procédure où du matériau de greffe osseuse est placé à la base du sinus maxillaire derrière le maxillaire supérieur pour augmenter le volume osseux. Cette procédure est critique pour les patients qui manquent d'os suffisant pour la pose d'implant. Après la procédure, un nouveau tissu osseux se forme dans les 6-8 mois et est prêt pour l'application de l'implant.",
     videoTexts: {
@@ -1446,6 +1453,7 @@ export const translations = {
     treatmentCtaBtn2: "Позвонить",
     backHome: "Вернуться на Главную",
     notFound: "Лечение не найдено",
+    opNotFound: "Операция не найдена",
     sinusLiftTitle: "Что такое Синус-лифтинг?",
     sinusLiftDesc: "Синус-лифтинг — это процедура, при которой костный трансплантат помещается у основания верхнечелюстной пазухи позади верхней челюсти для увеличения объема кости. Эта процедура имеет решающее значение для пациентов, у которых недостаточно кости для установки имплантата. После процедуры в течение 6-8 месяцев образуется новая костная ткань и она становится готова к применению имплантата.",
     videoTexts: {
