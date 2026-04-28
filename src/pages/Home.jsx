@@ -30,19 +30,6 @@ export default function Home() {
     }
   }, [location]);
 
-  // Mobile/tablet: auto-scroll to operations section on first load
-  useEffect(() => {
-    const isMobileOrTablet = window.innerWidth < 1024;
-    if (isMobileOrTablet && !location.hash) {
-      setTimeout(() => {
-        const departmentsSection = document.querySelector('section#departments');
-        if (departmentsSection) {
-          departmentsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 300);
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
       <TopBar />
