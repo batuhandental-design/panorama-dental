@@ -32,8 +32,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
-      <TopBar />
-      <Navbar />
+      <div className="sticky top-0 z-50">
+        <TopBar />
+        <Navbar />
+      </div>
       <HeroSection />
       <LanguageSwitcher />
       <ServicesGrid />
