@@ -32,7 +32,7 @@ export default function TopBar() {
 
   return (
     <div
-      className="text-white font-inter hidden md:block"
+      className="text-white font-inter hidden md:block relative z-40"
       style={{ background: "#3d3028" }}
     >
       {/* Dil seçici şeridi */}
