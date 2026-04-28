@@ -15,6 +15,8 @@ export default function Navbar() {
   const { t } = useLanguage();
 
   useEffect(() => {
+    if (open) return;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100);
@@ -23,7 +25,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, open]);
 
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
