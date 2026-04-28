@@ -21,7 +21,9 @@ export default function Home() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+  }, []);
+
+  useEffect(() => {
     if (location.hash) {
       const el = document.querySelector(location.hash);
       if (el) {
