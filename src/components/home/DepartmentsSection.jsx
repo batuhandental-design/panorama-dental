@@ -175,15 +175,15 @@ const categories = [
   {
     label: "Diş Tedavileri",
     items: [
-      { title: "Diş\nİmplantı", icon: svgIcons.tooth, slug: "dis-implanti" },
-      { title: "Hollywood\nGülümsemesi", icon: svgIcons.smile, slug: "hollywood-gulumsemesi" },
+      { title: "Diş\nİmplantı", icon: svgIcons.tooth, slug: "dis-implanti", treatmentSlug: "dis-implanti" },
+      { title: "Hollywood\nGülümsemesi", icon: svgIcons.smile, slug: "hollywood-gulumsemesi", treatmentSlug: "hollywood-gulusu" },
       { title: "All on 4\nİmplantasyon", icon: svgIcons.grid, slug: "all-on-4" },
       { title: "Emax\nTaç", icon: svgIcons.crown, slug: "emax-tac" },
-      { title: "Zirkonyum\nKaplama", icon: svgIcons.diamond, slug: "zirkonyum-kaplama" },
+      { title: "Zirkonyum\nKaplama", icon: svgIcons.diamond, slug: "zirkonyum-kaplama", treatmentSlug: "zirkonyum-kaplama" },
       { title: "Veneer", icon: svgIcons.star, slug: "veneer" },
       { title: "Hareketli ve\nSabit Protez", icon: svgIcons.dentures, slug: "hareketli-protez" },
       { title: "Kanal\nTedavisi", icon: svgIcons.syringe, slug: "kanal-tedavisi" },
-      { title: "Diş\nBeyazlatma", icon: svgIcons.sparkle, slug: "dis-beyazlatma" },
+      { title: "Diş\nBeyazlatma", icon: svgIcons.sparkle, slug: "dis-beyazlatma", treatmentSlug: "dis-beyazlatma" },
     ],
   },
   {
@@ -242,7 +242,7 @@ function OperationCard({ item, index }) {
       transition={{ duration: 0.3, delay: index * 0.04 }}
     >
       <Link
-        to={`/operasyon/${item.slug}`}
+        to={item.treatmentSlug ? `/tedavi/${item.treatmentSlug}` : `/operasyon/${item.slug}`}
         className="group flex flex-col items-center text-center gap-2 py-4 px-2 rounded-xl transition-all duration-300 operation-card"
       >
         {/* Gold circle icon */}
