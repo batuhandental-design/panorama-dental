@@ -41,9 +41,10 @@ export default function TopBar() {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="flex items-center justify-center p-2 hover:bg-white/10 transition-colors text-white active:bg-white/20"
+            className="flex items-center justify-center gap-2 px-3 py-2 hover:bg-white/10 transition-colors text-white active:bg-white/20"
           >
             <span className="text-2xl">{currentLang.flag}</span>
+            <span className="text-sm">{currentLang.label}</span>
           </button>
 
           {open && (
@@ -52,9 +53,10 @@ export default function TopBar() {
                 <button
                   key={l.code}
                   onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`flex items-center justify-center p-3 transition-colors ${lang === l.code ? "bg-white/10" : "hover:bg-white/10"}`}
+                  className={`flex items-center justify-center gap-2 px-3 py-3 transition-colors w-full ${lang === l.code ? "bg-white/10" : "hover:bg-white/10"}`}
                 >
                   <span className="text-2xl">{l.flag}</span>
+                  <span className="text-sm text-white">{l.label}</span>
                 </button>
               ))}
             </div>
