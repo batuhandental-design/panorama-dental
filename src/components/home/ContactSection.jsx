@@ -86,19 +86,19 @@ export default function ContactSection() {
               referrerPolicy="no-referrer-when-downgrade"
             />
             <div className="p-5">
-              <h3 className="text-lg font-bold text-[#2d2419] font-playfair mb-3 uppercase tracking-wide">🏥 Haliç Kliniği</h3>
-              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">Çalışma Saatleri</h4>
+              <h3 className="text-lg font-bold text-[#2d2419] font-playfair mb-3 uppercase tracking-wide">🏥 {t.halicClinic || "Haliç Kliniği"}</h3>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">{t.workingHours || "Çalışma Saatleri"}</h4>
               <div className="space-y-1.5 mb-4">
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Pazartesi – Cumartesi</span>
+                  <span className="text-[#4a3728] font-medium">{t.monSat || "Pazartesi – Cumartesi"}</span>
                   <span className="text-[#6b5e52]">09:00 – 22:00</span>
                 </div>
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Pazar</span>
-                  <span className="text-[#6b5e52]">Kapalı</span>
+                  <span className="text-[#4a3728] font-medium">{t.sunday || "Pazar"}</span>
+                  <span className="text-[#6b5e52]">{t.closed || "Kapalı"}</span>
                 </div>
               </div>
-              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">İletişim Bilgileri</h4>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">{t.contactInfo || "İletişim Bilgileri"}</h4>
               <div className="space-y-1.5 text-xs text-[#6b5e52]">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0 mt-0.5" />
@@ -130,19 +130,19 @@ export default function ContactSection() {
               referrerPolicy="no-referrer-when-downgrade"
             />
             <div className="p-5">
-              <h3 className="text-lg font-bold text-[#2d2419] font-playfair mb-3 uppercase tracking-wide">🏥 Pendik Kliniği</h3>
-              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">Çalışma Saatleri</h4>
+              <h3 className="text-lg font-bold text-[#2d2419] font-playfair mb-3 uppercase tracking-wide">🏥 {t.pendikClinic || "Pendik Kliniği"}</h3>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">{t.workingHours || "Çalışma Saatleri"}</h4>
               <div className="space-y-1.5 mb-4">
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Pazartesi – Cumartesi</span>
+                  <span className="text-[#4a3728] font-medium">{t.monSat || "Pazartesi – Cumartesi"}</span>
                   <span className="text-[#6b5e52]">09:00 – 23:00</span>
                 </div>
                 <div className="flex justify-between text-xs border-b border-[#d4cec8] pb-1.5">
-                  <span className="text-[#4a3728] font-medium">Pazar</span>
-                  <span className="text-[#6b5e52]">Kapalı</span>
+                  <span className="text-[#4a3728] font-medium">{t.sunday || "Pazar"}</span>
+                  <span className="text-[#6b5e52]">{t.closed || "Kapalı"}</span>
                 </div>
               </div>
-              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">İletişim Bilgileri</h4>
+              <h4 className="text-xs font-bold text-[#8B6840] uppercase tracking-widest mb-2">{t.contactInfo || "İletişim Bilgileri"}</h4>
               <div className="space-y-1.5 text-xs text-[#6b5e52]">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-[#8B6840] flex-shrink-0 mt-0.5" />

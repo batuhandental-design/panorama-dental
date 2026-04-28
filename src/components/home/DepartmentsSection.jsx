@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // SVG icon paths for each operation (Font Awesome style, white fill)
 const svgIcons = {
@@ -171,67 +172,113 @@ const svgIcons = {
   ),
 };
 
-const categories = [
-  {
-    label: "Diş Tedavileri",
-    items: [
-      { title: "Diş\nİmplantı", icon: svgIcons.tooth, slug: "dis-implanti", treatmentSlug: "dis-implanti" },
-      { title: "Hollywood\nGülümsemesi", icon: svgIcons.smile, slug: "hollywood-gulumsemesi", treatmentSlug: "hollywood-gulusu" },
-      { title: "All on 4\nİmplantasyon", icon: svgIcons.grid, slug: "all-on-4" },
-      { title: "Emax\nTaç", icon: svgIcons.crown, slug: "emax-tac" },
-      { title: "Zirkonyum\nKaplama", icon: svgIcons.diamond, slug: "zirkonyum-kaplama", treatmentSlug: "zirkonyum-kaplama" },
-      { title: "Veneer", icon: svgIcons.star, slug: "veneer" },
-      { title: "Hareketli ve\nSabit Protez", icon: svgIcons.dentures, slug: "hareketli-protez" },
-      { title: "Kanal\nTedavisi", icon: svgIcons.syringe, slug: "kanal-tedavisi" },
-      { title: "Diş\nBeyazlatma", icon: svgIcons.sparkle, slug: "dis-beyazlatma", treatmentSlug: "dis-beyazlatma" },
-    ],
-  },
-  {
-    label: "Estetik Cerrahi",
-    items: [
-      { title: "Göz Kapağı\nEstetiği", icon: svgIcons.eye, slug: "goz-kapagi-estetigi" },
-      { title: "Yüze Yağ\nEnjeksiyonu", icon: svgIcons.drop, slug: "yuze-yag-enjeksiyonu" },
-      { title: "Yüz\nGerme", icon: svgIcons.face, slug: "yuz-germe" },
-      { title: "Rinoplasti", icon: svgIcons.nose, slug: "rinoplasti" },
-      { title: "Bişektomi", icon: svgIcons.scissors, slug: "bisektomi" },
-      { title: "Liposuction", icon: svgIcons.scale, slug: "liposuction" },
-      { title: "Karın\nGerme", icon: svgIcons.run, slug: "karin-germe" },
-      { title: "Meme\nEstetiği", icon: svgIcons.flower, slug: "meme-estetigi" },
-      { title: "BBL", icon: svgIcons.muscle, slug: "bbl" },
-      { title: "Penis\nBüyütme", icon: svgIcons.gender, slug: "penis-buyutme" },
-      { title: "Vajina\nEstetiği", icon: svgIcons.femaleSymbol, slug: "vajina-estetigi" },
-    ],
-  },
-  {
-    label: "Saç Ekimi",
-    items: [
-      { title: "DHI Saç\nEkimi", icon: svgIcons.sprout, slug: "dhi-sac-ekimi" },
-      { title: "DHI Kaş\nEkimi", icon: svgIcons.eyebrow, slug: "dhi-kas-ekimi" },
-      { title: "DHI Sakal\nEkimi", icon: svgIcons.beard, slug: "dhi-sakal-ekimi" },
-      { title: "PRP", icon: svgIcons.microscope, slug: "prp" },
-      { title: "Kök Hücre\nTedavisi", icon: svgIcons.laser, slug: "kok-hucre-tedavisi" },
-      { title: "Saç\nLazeri", icon: svgIcons.laser, slug: "sac-lazeri" },
-    ],
-  },
-  {
-    label: "Obezite Cerrahisi",
-    items: [
-      { title: "Mide\nBypass", icon: svgIcons.stomach, slug: "mide-baypas" },
-      { title: "Tüp Mide\nAmeliyatı", icon: svgIcons.stethoscope, slug: "tup-mide" },
-      { title: "Mide Balonu\n(6-12 Aylık)", icon: svgIcons.balloon, slug: "mide-balonu" },
-      { title: "Mide\nBotoksu", icon: svgIcons.pill, slug: "mide-botoksu" },
-      { title: "Tip 2 Diyabet\nOperasyonu", icon: svgIcons.clipboard, slug: "tip2-diyabet" },
-    ],
-  },
-  {
-    label: "Göz Operasyonları",
-    items: [
-      { title: "Excimer\nLaser", icon: svgIcons.eyeCheck, slug: "lazer-goz" },
-      { title: "Katarakt\nAmeliyatı", icon: svgIcons.eye, slug: "katarakt-ameliyati" },
-      { title: "Smart\nLens", icon: svgIcons.glasses, slug: "akilli-lens" },
-    ],
-  },
-];
+function useCategories(t) {
+  const cats = t.operationCategories || {
+    dental: "Diş Tedavileri",
+    aesthetic: "Estetik Cerrahi",
+    hair: "Saç Ekimi",
+    obesity: "Obezite Cerrahisi",
+    eye: "Göz Operasyonları",
+    items: {
+      "dis-implanti": "Diş\nİmplantı",
+      "hollywood-gulumsemesi": "Hollywood\nGülümsemesi",
+      "all-on-4": "All on 4\nİmplantasyon",
+      "emax-tac": "Emax\nTaç",
+      "zirkonyum-kaplama": "Zirkonyum\nKaplama",
+      "veneer": "Veneer",
+      "hareketli-protez": "Hareketli ve\nSabit Protez",
+      "kanal-tedavisi": "Kanal\nTedavisi",
+      "dis-beyazlatma": "Diş\nBeyazlatma",
+      "goz-kapagi-estetigi": "Göz Kapağı\nEstetiği",
+      "yuze-yag-enjeksiyonu": "Yüze Yağ\nEnjeksiyonu",
+      "yuz-germe": "Yüz\nGerme",
+      "rinoplasti": "Rinoplasti",
+      "bisektomi": "Bişektomi",
+      "liposuction": "Liposuction",
+      "karin-germe": "Karın\nGerme",
+      "meme-estetigi": "Meme\nEstetiği",
+      "bbl": "BBL",
+      "penis-buyutme": "Penis\nBüyütme",
+      "vajina-estetigi": "Vajina\nEstetiği",
+      "dhi-sac-ekimi": "DHI Saç\nEkimi",
+      "dhi-kas-ekimi": "DHI Kaş\nEkimi",
+      "dhi-sakal-ekimi": "DHI Sakal\nEkimi",
+      "prp": "PRP",
+      "kok-hucre-tedavisi": "Kök Hücre\nTedavisi",
+      "sac-lazeri": "Saç\nLazeri",
+      "mide-baypas": "Mide\nBypass",
+      "tup-mide": "Tüp Mide\nAmeliyatı",
+      "mide-balonu": "Mide Balonu\n(6-12 Aylık)",
+      "mide-botoksu": "Mide\nBotoksu",
+      "tip2-diyabet": "Tip 2 Diyabet\nOperasyonu",
+      "lazer-goz": "Excimer\nLaser",
+      "katarakt-ameliyati": "Katarakt\nAmeliyatı",
+      "akilli-lens": "Smart\nLens",
+    }
+  };
+  const i = cats.items;
+  return [
+    {
+      label: cats.dental,
+      items: [
+        { title: i["dis-implanti"], icon: svgIcons.tooth, slug: "dis-implanti", treatmentSlug: "dis-implanti" },
+        { title: i["hollywood-gulumsemesi"], icon: svgIcons.smile, slug: "hollywood-gulumsemesi", treatmentSlug: "hollywood-gulusu" },
+        { title: i["all-on-4"], icon: svgIcons.grid, slug: "all-on-4" },
+        { title: i["emax-tac"], icon: svgIcons.crown, slug: "emax-tac" },
+        { title: i["zirkonyum-kaplama"], icon: svgIcons.diamond, slug: "zirkonyum-kaplama", treatmentSlug: "zirkonyum-kaplama" },
+        { title: i["veneer"], icon: svgIcons.star, slug: "veneer" },
+        { title: i["hareketli-protez"], icon: svgIcons.dentures, slug: "hareketli-protez" },
+        { title: i["kanal-tedavisi"], icon: svgIcons.syringe, slug: "kanal-tedavisi" },
+        { title: i["dis-beyazlatma"], icon: svgIcons.sparkle, slug: "dis-beyazlatma", treatmentSlug: "dis-beyazlatma" },
+      ],
+    },
+    {
+      label: cats.aesthetic,
+      items: [
+        { title: i["goz-kapagi-estetigi"], icon: svgIcons.eye, slug: "goz-kapagi-estetigi" },
+        { title: i["yuze-yag-enjeksiyonu"], icon: svgIcons.drop, slug: "yuze-yag-enjeksiyonu" },
+        { title: i["yuz-germe"], icon: svgIcons.face, slug: "yuz-germe" },
+        { title: i["rinoplasti"], icon: svgIcons.nose, slug: "rinoplasti" },
+        { title: i["bisektomi"], icon: svgIcons.scissors, slug: "bisektomi" },
+        { title: i["liposuction"], icon: svgIcons.scale, slug: "liposuction" },
+        { title: i["karin-germe"], icon: svgIcons.run, slug: "karin-germe" },
+        { title: i["meme-estetigi"], icon: svgIcons.flower, slug: "meme-estetigi" },
+        { title: i["bbl"], icon: svgIcons.muscle, slug: "bbl" },
+        { title: i["penis-buyutme"], icon: svgIcons.gender, slug: "penis-buyutme" },
+        { title: i["vajina-estetigi"], icon: svgIcons.femaleSymbol, slug: "vajina-estetigi" },
+      ],
+    },
+    {
+      label: cats.hair,
+      items: [
+        { title: i["dhi-sac-ekimi"], icon: svgIcons.sprout, slug: "dhi-sac-ekimi" },
+        { title: i["dhi-kas-ekimi"], icon: svgIcons.eyebrow, slug: "dhi-kas-ekimi" },
+        { title: i["dhi-sakal-ekimi"], icon: svgIcons.beard, slug: "dhi-sakal-ekimi" },
+        { title: i["prp"], icon: svgIcons.microscope, slug: "prp" },
+        { title: i["kok-hucre-tedavisi"], icon: svgIcons.laser, slug: "kok-hucre-tedavisi" },
+        { title: i["sac-lazeri"], icon: svgIcons.laser, slug: "sac-lazeri" },
+      ],
+    },
+    {
+      label: cats.obesity,
+      items: [
+        { title: i["mide-baypas"], icon: svgIcons.stomach, slug: "mide-baypas" },
+        { title: i["tup-mide"], icon: svgIcons.stethoscope, slug: "tup-mide" },
+        { title: i["mide-balonu"], icon: svgIcons.balloon, slug: "mide-balonu" },
+        { title: i["mide-botoksu"], icon: svgIcons.pill, slug: "mide-botoksu" },
+        { title: i["tip2-diyabet"], icon: svgIcons.clipboard, slug: "tip2-diyabet" },
+      ],
+    },
+    {
+      label: cats.eye,
+      items: [
+        { title: i["lazer-goz"], icon: svgIcons.eyeCheck, slug: "lazer-goz" },
+        { title: i["katarakt-ameliyati"], icon: svgIcons.eye, slug: "katarakt-ameliyati" },
+        { title: i["akilli-lens"], icon: svgIcons.glasses, slug: "akilli-lens" },
+      ],
+    },
+  ];
+}
 
 function OperationCard({ item, index }) {
   return (
@@ -335,6 +382,9 @@ function CategoryCarousel({ category }) {
 }
 
 export default function DepartmentsSection() {
+  const { t } = useLanguage();
+  const categories = useCategories(t);
+
   return (
     <section
       className="py-20 font-inter"
@@ -354,10 +404,10 @@ export default function DepartmentsSection() {
         <div className="text-center mb-14">
           <div className="w-10 h-0.5 bg-[#c9a87c] mx-auto mb-5" />
           <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4 tracking-[0.25em]">
-            OPERASYONLAR
+            {t.operationsTitle || "OPERASYONLAR"}
           </h2>
           <p className="text-[#6b5e52] text-sm max-w-xl mx-auto">
-            Kliniğimizin uzmanlaştığı bir hizmet grubudur.
+            {t.operationsDesc || "Kliniğimizin uzmanlaştığı bir hizmet grubudur."}
           </p>
         </div>
 

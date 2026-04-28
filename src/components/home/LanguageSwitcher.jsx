@@ -12,12 +12,12 @@ const languages = [
 ];
 
 export default function LanguageSwitcher() {
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
 
   return (
     <div className="w-full bg-[#1e1a14] py-8">
       <p className="text-center text-[#c9a87c] text-sm uppercase tracking-[0.25em] font-semibold mb-6">
-        {{ tr: "Dilinizi Seçin", en: "Select Your Language", de: "Sprache Wählen", ar: "اختر لغتك", es: "Elige tu Idioma", it: "Scegli la Lingua", fr: "Choisissez votre Langue", ru: "Выберите Язык" }[lang] || "Select Language"}
+        {t.selectLanguage || "Select Language"}
       </p>
       <div className="max-w-6xl mx-auto px-4 flex items-end justify-center gap-8 flex-wrap">
         {languages.map((l, i) => (
