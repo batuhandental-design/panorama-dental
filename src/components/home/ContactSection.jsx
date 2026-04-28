@@ -28,6 +28,12 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!form.name.trim() || !form.phone.trim() || !form.email.trim() || !form.message.trim()) {
+      alert(t.requiredFields || "Lütfen tüm alanları doldurunuz");
+      return;
+    }
+
     setSending(true);
     let fileUrls = [];
 
