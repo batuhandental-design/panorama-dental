@@ -16,14 +16,7 @@ const languages = [
 export default function TopBar() {
   const { t, lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(false);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const currentLang = languages.find((l) => l.code === lang) || languages[0];
 
@@ -39,13 +32,12 @@ export default function TopBar() {
 
   return (
     <div
-      className="text-white font-inter hidden md:block transition-all duration-500"
-      style={{ background: scrolled ? "rgba(61,48,40,0.0)" : "#3d3028" }}
+      className="text-white font-inter hidden md:block"
+      style={{ background: "#3d3028" }}
     >
       {/* Dil seçici şeridi */}
       <div
-        className="max-w-7xl mx-auto px-4 flex items-center justify-end py-1.5 border-b border-white/10 transition-all duration-500"
-        style={{ opacity: scrolled ? 0 : 1 }}
+        className="max-w-7xl mx-auto px-4 flex items-center justify-end py-1.5 border-b border-white/10"
       >
         <div className="relative" ref={dropdownRef}>
           <button
@@ -76,8 +68,7 @@ export default function TopBar() {
 
       {/* Alt bilgi şeridi */}
       <div
-        className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm transition-all duration-500"
-        style={{ opacity: scrolled ? 0 : 1 }}
+        className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm"
       >
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">

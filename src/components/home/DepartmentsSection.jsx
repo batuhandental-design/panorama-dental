@@ -233,7 +233,7 @@ const categories = [
   },
 ];
 
-function OperationCard({ item, catLabel, index }) {
+function OperationCard({ item, index }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -243,11 +243,11 @@ function OperationCard({ item, catLabel, index }) {
     >
       <Link
         to={`/operasyon/${item.slug}`}
-        className="group flex flex-col items-center text-center gap-2 py-5 px-3 rounded-xl transition-all duration-300 operation-card"
+        className="group flex flex-col items-center text-center gap-2 py-4 px-2 rounded-xl transition-all duration-300 operation-card"
       >
         {/* Gold circle icon */}
         <div
-          className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
+          className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
           style={{
             background: "linear-gradient(135deg, #c9a87c 0%, #a07840 100%)",
             boxShadow: "0 4px 15px rgba(201,168,124,0.25)",
@@ -256,17 +256,9 @@ function OperationCard({ item, catLabel, index }) {
           <span className="text-white">{item.icon}</span>
         </div>
 
-        {/* Category label */}
-        <span
-          className="text-[9px] font-bold uppercase tracking-[0.18em] mt-1 transition-colors duration-300"
-          style={{ color: "rgba(201,168,124,0.6)" }}
-        >
-          {catLabel}
-        </span>
-
         {/* Title */}
         <h4
-          className="text-white text-xs font-semibold leading-snug transition-colors duration-300 whitespace-pre-line"
+          className="text-[#2d2419] text-xs font-semibold leading-snug transition-colors duration-300 whitespace-pre-line"
         >
           {item.title}
         </h4>
@@ -275,15 +267,11 @@ function OperationCard({ item, catLabel, index }) {
   );
 }
 
-function MobileOperationsCarousel({ categories }) {
-  const allItems = categories.flatMap((cat) =>
-    cat.items.map((item) => ({ ...item, catLabel: cat.label }))
-  );
-
-  // Split into pages of 4 items each
+function CategoryCarousel({ category }) {
+  const items = category.items;
   const pages = [];
-  for (let i = 0; i < allItems.length; i += 4) {
-    pages.push(allItems.slice(i, i + 4));
+  for (let i = 0; i < items.length; i += 4) {
+    pages.push(items.slice(i, i + 4));
   }
 
   const [current, setCurrent] = useState(0);
@@ -293,11 +281,11 @@ function MobileOperationsCarousel({ categories }) {
   const prev = () => setCurrent((c) => (c - 1 + pages.length) % pages.length);
 
   useEffect(() => {
+    if (pages.length <= 1) return;
     intervalRef.current = setInterval(next, 3000);
     return () => clearInterval(intervalRef.current);
   }, [pages.length]);
 
-  // Touch/drag support
   const touchStartX = useRef(null);
   const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
   const handleTouchEnd = (e) => {
@@ -312,38 +300,36 @@ function MobileOperationsCarousel({ categories }) {
   };
 
   return (
-    <div className="sm:hidden w-full" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-      {/* Slides */}
+    <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <div className="relative overflow-hidden">
         <motion.div
           key={current}
-          initial={{ x: 80, opacity: 0 }}
+          initial={{ x: 60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -80, opacity: 0 }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
           className="grid grid-cols-4 gap-1"
         >
           {pages[current].map((item, i) => (
-            <OperationCard key={item.slug} item={item} catLabel={item.catLabel} index={i} />
+            <OperationCard key={item.slug} item={item} index={i} />
           ))}
         </motion.div>
       </div>
-
-      {/* Dots */}
-      <div className="flex justify-center gap-1.5 mt-4">
-        {pages.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { clearInterval(intervalRef.current); setCurrent(i); intervalRef.current = setInterval(next, 3000); }}
-            className="rounded-full transition-all duration-300"
-            style={{
-              width: i === current ? 20 : 8,
-              height: 8,
-              background: i === current ? "#c9a87c" : "rgba(201,168,124,0.3)",
-            }}
-          />
-        ))}
-      </div>
+      {pages.length > 1 && (
+        <div className="flex justify-center gap-1.5 mt-3">
+          {pages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { clearInterval(intervalRef.current); setCurrent(i); intervalRef.current = setInterval(next, 3000); }}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === current ? 16 : 6,
+                height: 6,
+                background: i === current ? "#c9a87c" : "rgba(139,104,64,0.3)",
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -353,47 +339,59 @@ export default function DepartmentsSection() {
     <section
       className="py-20 font-inter"
       id="departments"
-      style={{ background: "#10172a" }}
+      style={{ background: "#f7f3ef" }}
     >
       <style>{`
-        .operation-card:hover .operation-icon-circle {
-          box-shadow: 0 0 30px rgba(201,168,124,0.7), 0 0 60px rgba(201,168,124,0.35);
-        }
-        .operation-card:hover span[style] {
-          color: #c9a87c !important;
-        }
-        .operation-card:hover h4 {
-          color: #c9a87c;
-        }
+        .operation-card:hover h4 { color: #8B6840; }
         .operation-card:hover > div:first-child {
-          box-shadow: 0 0 25px rgba(201,168,124,0.8), 0 0 50px rgba(201,168,124,0.4), 0 0 80px rgba(201,168,124,0.2) !important;
+          box-shadow: 0 0 20px rgba(201,168,124,0.7), 0 0 40px rgba(201,168,124,0.35) !important;
           transform: scale(1.08);
         }
       `}</style>
 
       <div className="max-w-6xl mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <div className="w-10 h-0.5 bg-[#c9a87c] mx-auto mb-5" />
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4 tracking-[0.25em]">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4 tracking-[0.25em]">
             OPERASYONLAR
           </h2>
-          <p className="text-white/40 text-sm max-w-xl mx-auto">
+          <p className="text-[#6b5e52] text-sm max-w-xl mx-auto">
             Kliniğimizin uzmanlaştığı bir hizmet grubudur.
           </p>
         </div>
 
-        {/* Desktop grid */}
-        <div className="hidden sm:grid sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2">
-          {categories.flatMap((cat) =>
-            cat.items.map((item, ii) => (
-              <OperationCard key={item.slug} item={item} catLabel={cat.label} index={ii} />
-            ))
-          )}
+        {/* Desktop: category sections */}
+        <div className="hidden sm:block space-y-10">
+          {categories.map((cat) => (
+            <div key={cat.label}>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-1 h-6 rounded-full bg-[#c9a87c]" />
+                <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#8B6840]">{cat.label}</h3>
+                <div className="flex-1 h-px bg-[#c9a87c]/20" />
+              </div>
+              <div className="grid grid-cols-5 md:grid-cols-6 lg:grid-cols-9 gap-2">
+                {cat.items.map((item, ii) => (
+                  <OperationCard key={item.slug} item={item} index={ii} />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Mobile: 4-column carousel */}
-        <MobileOperationsCarousel categories={categories} />
+        {/* Mobile: per-category carousels */}
+        <div className="sm:hidden space-y-8">
+          {categories.map((cat) => (
+            <div key={cat.label}>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-1 h-5 rounded-full bg-[#c9a87c]" />
+                <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-[#8B6840]">{cat.label}</h3>
+                <div className="flex-1 h-px bg-[#c9a87c]/20" />
+              </div>
+              <CategoryCarousel category={cat} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

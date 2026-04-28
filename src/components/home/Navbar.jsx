@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -7,25 +7,18 @@ const hashes = ["#hero", "#about", "#services", "#departments", "#contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
   const { t } = useLanguage();
 
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(false);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav
-      className="text-white z-50 font-inter transition-all duration-500"
+      className="text-white z-50 font-inter"
       style={{
-        background: scrolled ? "rgba(44,36,25,0.0)" : "#2c2419",
-        boxShadow: scrolled ? "none" : "0 2px 12px rgba(0,0,0,0.3)",
+        background: "#2c2419",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
@@ -36,15 +29,14 @@ export default function Navbar() {
             className="w-14 h-14 object-contain flex-shrink-0"
             style={{ mixBlendMode: 'screen' }}
           />
-          <div className="flex flex-col leading-tight" style={{ opacity: scrolled ? 0 : 1, transition: "opacity 0.5s" }}>
+          <div className="flex flex-col leading-tight">
             <span className="text-primary">PANORAMA</span>
             <span className="text-white text-xl">DENTAL</span>
           </div>
         </a>
 
         <div
-          className="hidden md:flex items-center gap-1 transition-all duration-500"
-          style={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? "none" : "auto" }}
+          className="hidden md:flex items-center gap-1"
         >
           {t.nav.map((label, i) =>
             <a
@@ -68,15 +60,14 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden p-2 transition-all duration-500"
-          style={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? "none" : "auto" }}
+          className="md:hidden p-2"
           onClick={() => setOpen(!open)}
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {open && !scrolled &&
+      {open &&
         <div className="md:hidden bg-[#2c2419] border-t border-white/10 px-4 pb-4">
           {t.nav.map((label, i) =>
             <a
