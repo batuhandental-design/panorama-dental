@@ -50,7 +50,7 @@ export default function TopBar() {
           </button>
 
           {open && (
-            <div className="absolute right-0 bottom-full mb-1 bg-[#2c2419] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden min-w-[170px]">
+            <div className="absolute right-0 bottom-full mb-1 bg-[#2c2419] border border-white/10 rounded-xl shadow-2xl z-[60] overflow-hidden min-w-[170px]">
               {languages.map((l) => (
                 <button
                   key={l.code}
