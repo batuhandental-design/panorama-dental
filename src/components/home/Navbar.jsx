@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Globe } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const hashes = ["#hero", "#about", "#services", "#departments", "#contact"];
 
@@ -68,16 +69,21 @@ export default function Navbar() {
       </div>
 
       {open &&
-        <div className="md:hidden bg-[#2c2419] border-t border-white/10 px-4 pb-4">
-          {t.nav.map((label, i) =>
-            <a
-              key={i}
-              href={getHref(hashes[i])}
-              className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
-              onClick={() => setOpen(false)}>
-              {label}
-            </a>
-          )}
+        <div className="md:hidden bg-[#2c2419] border-t border-white/10">
+          <div className="px-4 pb-4">
+            {t.nav.map((label, i) =>
+              <a
+                key={i}
+                href={getHref(hashes[i])}
+                className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
+                onClick={() => setOpen(false)}>
+                {label}
+              </a>
+            )}
+          </div>
+          <div className="border-t border-white/10 py-4">
+            <LanguageSwitcher />
+          </div>
         </div>
       }
     </nav>
