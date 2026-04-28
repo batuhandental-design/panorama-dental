@@ -49,16 +49,18 @@ export default function TopBar() {
 
           {open && (
             <div className="absolute right-0 top-full mt-0 bg-[#2c2419] border border-white/10 rounded-b-lg shadow-2xl z-[9999] overflow-hidden">
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`flex items-center justify-center gap-2 px-3 py-3 transition-colors w-full ${lang === l.code ? "bg-white/10" : "hover:bg-white/10"}`}
-                >
-                  <span className="text-2xl">{l.flag}</span>
-                  <span className="text-sm text-white">{l.label}</span>
-                </button>
-              ))}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 p-3">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setOpen(false); }}
+                    className={`flex items-center justify-center gap-2 px-3 py-2 rounded transition-colors ${lang === l.code ? "bg-white/20" : "bg-white/5 hover:bg-white/10"}`}
+                  >
+                    <span className="text-xl">{l.flag}</span>
+                    <span className="text-xs text-white">{l.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
