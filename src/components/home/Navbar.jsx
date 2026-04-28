@@ -14,7 +14,7 @@ export default function Navbar() {
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
   return (
-    <nav className="bg-[#2c2419] text-white sticky top-[var(--topbar-h,0px)] z-40 font-inter">
+    <nav className="bg-[#2c2419] text-white sticky top-0 z-50 font-inter">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <a href="/" className="flex items-center gap-1 text-2xl font-bold tracking-tight">
           <img

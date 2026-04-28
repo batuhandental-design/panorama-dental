@@ -31,7 +31,7 @@ export default function TopBar() {
   }, []);
 
   return (
-    <div className="bg-[#3d3028] text-white font-inter hidden md:block sticky top-0 z-50">
+    <div className="bg-[#3d3028] text-white font-inter hidden md:block">
       {/* Dil seçici şeridi */}
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-end py-1.5 border-b border-white/10">
         <div className="relative" ref={dropdownRef}>
