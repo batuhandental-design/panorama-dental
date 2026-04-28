@@ -41,22 +41,20 @@ export default function TopBar() {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 hover:bg-white/10 transition-colors text-xs sm:text-sm font-medium text-white active:bg-white/20"
+            className="flex items-center justify-center p-2 hover:bg-white/10 transition-colors text-white active:bg-white/20"
           >
-            <span className="text-lg sm:text-base">{currentLang.flag}</span>
-            <span className="hidden sm:inline">{currentLang.label} ▾</span>
+            <span className="text-2xl">{currentLang.flag}</span>
           </button>
 
           {open && (
-            <div className="absolute right-0 top-full mt-0 bg-[#2c2419] border border-white/10 rounded-b-lg shadow-2xl z-[9999] overflow-hidden min-w-[120px] sm:min-w-[180px]">
+            <div className="absolute right-0 top-full mt-0 bg-[#2c2419] border border-white/10 rounded-b-lg shadow-2xl z-[9999] overflow-hidden">
               {languages.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`w-full flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white hover:bg-white/10"}`}
+                  className={`flex items-center justify-center p-3 transition-colors ${lang === l.code ? "bg-white/10" : "hover:bg-white/10"}`}
                 >
-                  <span className="text-lg">{l.flag}</span>
-                  <span className="hidden sm:inline">{l.label}</span>
+                  <span className="text-2xl">{l.flag}</span>
                 </button>
               ))}
             </div>
