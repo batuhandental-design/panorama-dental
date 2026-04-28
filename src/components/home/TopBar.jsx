@@ -41,9 +41,9 @@ export default function TopBar() {
         <div className="desktop-lang-wrapper relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="desktop-lang-btn flex items-center gap-2 px-4 py-2 hover:bg-white/10 transition-colors text-sm font-medium text-white"
+            className="desktop-lang-btn flex items-center gap-2 px-3 py-2 hover:bg-white/10 transition-colors text-sm font-medium text-white"
           >
-            <span>{currentLang.label} ▾</span>
+            <span className="text-lg">{currentLang.flag || "🌐"}</span>
           </button>
 
           {open && (
@@ -52,9 +52,9 @@ export default function TopBar() {
                 <button
                   key={l.code}
                   onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`w-full flex items-center gap-2 px-4 py-3 text-xs transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white hover:bg-white/10"}`}
+                  className={`w-full flex items-center gap-3 px-4 py-3 text-sm transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white hover:bg-white/10"}`}
                 >
-                  <span>{l.flag || "🌐"}</span>
+                  <span className="text-lg">{l.flag || "🌐"}</span>
                   <span>{l.label}</span>
                 </button>
               ))}
