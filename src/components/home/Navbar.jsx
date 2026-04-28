@@ -3,7 +3,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const hashes = ["#hero", "#about", "#services", "#operations", "#contact"];
+const hashes = ["#hero", "#about", "#services", "#departments", "#contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

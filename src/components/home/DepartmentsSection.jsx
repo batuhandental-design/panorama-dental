@@ -21,7 +21,7 @@ export default function DepartmentsSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-[#f7f3ef] font-inter">
+    <section className="py-20 bg-[#f7f3ef] font-inter" id="departments">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.deptLabel}</p>
