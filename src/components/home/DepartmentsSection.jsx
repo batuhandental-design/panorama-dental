@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
 
 // SVG icon paths for each operation (Font Awesome style, white fill)
 const svgIcons = {
@@ -274,6 +275,79 @@ function OperationCard({ item, catLabel, index }) {
   );
 }
 
+function MobileOperationsCarousel({ categories }) {
+  const allItems = categories.flatMap((cat) =>
+    cat.items.map((item) => ({ ...item, catLabel: cat.label }))
+  );
+
+  // Split into pages of 4 items each
+  const pages = [];
+  for (let i = 0; i < allItems.length; i += 4) {
+    pages.push(allItems.slice(i, i + 4));
+  }
+
+  const [current, setCurrent] = useState(0);
+  const intervalRef = useRef(null);
+
+  const next = () => setCurrent((c) => (c + 1) % pages.length);
+  const prev = () => setCurrent((c) => (c - 1 + pages.length) % pages.length);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(next, 3000);
+    return () => clearInterval(intervalRef.current);
+  }, [pages.length]);
+
+  // Touch/drag support
+  const touchStartX = useRef(null);
+  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      clearInterval(intervalRef.current);
+      diff > 0 ? next() : prev();
+      intervalRef.current = setInterval(next, 3000);
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <div className="sm:hidden w-full" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      {/* Slides */}
+      <div className="relative overflow-hidden">
+        <motion.div
+          key={current}
+          initial={{ x: 80, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -80, opacity: 0 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="grid grid-cols-4 gap-1"
+        >
+          {pages[current].map((item, i) => (
+            <OperationCard key={item.slug} item={item} catLabel={item.catLabel} index={i} />
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-1.5 mt-4">
+        {pages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { clearInterval(intervalRef.current); setCurrent(i); intervalRef.current = setInterval(next, 3000); }}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === current ? 20 : 8,
+              height: 8,
+              background: i === current ? "#c9a87c" : "rgba(201,168,124,0.3)",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DepartmentsSection() {
   return (
     <section
@@ -318,19 +392,8 @@ export default function DepartmentsSection() {
           )}
         </div>
 
-        {/* Mobile: 4-row horizontal scroll */}
-        <div className="sm:hidden w-full overflow-x-scroll" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          <style>{`.mobile-ops-scroll::-webkit-scrollbar { display: none; }`}</style>
-          <div className="mobile-ops-scroll" style={{ display: "grid", gridAutoFlow: "column", gridTemplateRows: "repeat(4, auto)", gap: "4px" }}>
-            {categories.flatMap((cat) =>
-              cat.items.map((item, ii) => (
-                <div key={item.slug} style={{ width: "22vw" }}>
-                  <OperationCard item={item} catLabel={cat.label} index={ii} />
-                </div>
-              ))
-            )}
-          </div>
-        </div>
+        {/* Mobile: 4-column carousel */}
+        <MobileOperationsCarousel categories={categories} />
       </div>
     </section>
   );
