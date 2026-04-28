@@ -15,7 +15,7 @@ export default function Navbar() {
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
+    const handleScroll = () => setScrolled(false);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
