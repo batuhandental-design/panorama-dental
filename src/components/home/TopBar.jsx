@@ -43,25 +43,27 @@ export default function TopBar() {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-2 px-3 py-1 rounded-lg hover:bg-white/10 transition-colors text-xs font-medium"
+            className="flex items-center gap-2 px-3 py-1.5 md:py-1 rounded-lg hover:bg-white/10 transition-colors text-xs md:text-xs font-medium touch-none active:bg-white/20"
           >
             <img src={currentLang.img} alt={currentLang.label} className="w-5 h-3.5 object-cover rounded-sm" />
-            <span>{currentLang.label}</span>
+            <span className="hidden sm:inline">{currentLang.label}</span>
             <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
 
           {open && (
-            <div className="absolute right-0 top-full mt-1 bg-[#2c2419] border border-white/10 rounded-xl shadow-2xl z-[9999] overflow-hidden min-w-[140px]">
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-xs hover:bg-white/10 transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white"}`}
-                >
-                  <img src={l.img} alt={l.label} className="w-6 h-4 object-cover rounded-sm flex-shrink-0" />
-                  <span>{l.label}</span>
-                </button>
-              ))}
+            <div className="fixed md:absolute md:right-0 md:top-full md:mt-1 left-0 right-0 md:left-auto bottom-0 md:bottom-auto bg-[#2c2419] border md:border-white/10 rounded-t-xl md:rounded-xl shadow-2xl z-[9999] overflow-y-auto md:overflow-hidden md:min-w-[140px]">
+              <div className="grid grid-cols-4 md:flex md:flex-col gap-0 md:gap-0 p-2 md:p-0">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setOpen(false); }}
+                    className={`flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-3 px-2 md:px-4 py-3 md:py-2.5 text-xs hover:bg-white/10 transition-colors text-center md:text-left rounded-lg md:rounded-none ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white"}`}
+                  >
+                    <img src={l.img} alt={l.label} className="w-6 h-4 object-cover rounded-sm flex-shrink-0" />
+                    <span className="text-xs">{l.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
