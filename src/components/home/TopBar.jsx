@@ -31,11 +31,8 @@ export default function TopBar() {
   }, []);
 
   return (
-    <div
-      className="text-white font-inter hidden md:block"
-      style={{ background: "#3d3028" }}
-    >
-      {/* Dil seçici şeridi */}
+    <div className="text-white font-inter" style={{ background: "#3d3028" }}>
+      {/* Dil seçici şeridi - her zaman göster */}
       <div
         className="max-w-7xl mx-auto px-4 flex items-center justify-end py-1.5 border-b border-white/10"
       >
@@ -66,9 +63,9 @@ export default function TopBar() {
         </div>
       </div>
 
-      {/* Alt bilgi şeridi */}
+      {/* Alt bilgi şeridi - sadece desktop */}
       <div
-        className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm"
+        className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm hidden md:flex"
       >
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
