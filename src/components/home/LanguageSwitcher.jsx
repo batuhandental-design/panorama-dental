@@ -15,7 +15,7 @@ export default function LanguageSwitcher() {
   const { lang, setLang, t } = useLanguage();
 
   return (
-    <div className="w-full bg-[#1e1a14] py-8">
+    <div className="w-full bg-[#1e1a14] py-8 relative z-50">
       <p className="text-center text-[#c9a87c] text-sm uppercase tracking-[0.25em] font-semibold mb-6">
         {t.selectLanguage || "Select Language"}
       </p>
