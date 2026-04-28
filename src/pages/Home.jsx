@@ -20,7 +20,14 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   useEffect(() => {
@@ -30,7 +37,7 @@ export default function Home() {
         setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
       }
     }
-  }, [location]);
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
