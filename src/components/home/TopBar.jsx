@@ -37,25 +37,26 @@ export default function TopBar() {
   return (
     <div className="text-white font-inter" style={{ background: "#3d3028" }}>
       {/* Dil seçici şeridi */}
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-end border-b border-white/10">
-        <div className="desktop-lang-wrapper relative" ref={dropdownRef}>
+      <div className="max-w-7xl mx-auto px-4 w-full flex items-center justify-end border-b border-white/10">
+        <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="desktop-lang-btn flex items-center gap-2 px-4 py-2 hover:bg-white/10 transition-colors text-sm font-medium text-white"
+            className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 hover:bg-white/10 transition-colors text-xs sm:text-sm font-medium text-white active:bg-white/20"
           >
-            <span>{currentLang.label} ▾</span>
+            <span className="text-lg sm:text-base">{currentLang.flag}</span>
+            <span className="hidden sm:inline">{currentLang.label} ▾</span>
           </button>
 
           {open && (
-            <div className="desktop-lang-menu absolute right-0 top-full mt-0 bg-[#2c2419] border border-white/10 rounded-b-lg shadow-2xl z-[9999] overflow-hidden min-w-[180px]">
+            <div className="absolute right-0 top-full mt-0 bg-[#2c2419] border border-white/10 rounded-b-lg shadow-2xl z-[9999] overflow-hidden min-w-[120px] sm:min-w-[180px]">
               {languages.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`w-full flex items-center gap-2 px-4 py-3 text-xs transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white hover:bg-white/10"}`}
+                  className={`w-full flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white hover:bg-white/10"}`}
                 >
-                  <span>{l.flag || "🌐"}</span>
-                  <span>{l.label}</span>
+                  <span className="text-lg">{l.flag}</span>
+                  <span className="hidden sm:inline">{l.label}</span>
                 </button>
               ))}
             </div>
