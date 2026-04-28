@@ -309,13 +309,33 @@ export default function DepartmentsSection() {
           </p>
         </div>
 
-        {/* All cards in a single flowing grid — like reference image */}
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2">
+        {/* Mobile: horizontal auto-scroll carousel, Desktop: grid */}
+        <div className="hidden sm:grid sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2">
           {categories.flatMap((cat) =>
             cat.items.map((item, ii) => (
               <OperationCard key={item.slug} item={item} catLabel={cat.label} index={ii} />
             ))
           )}
+        </div>
+
+        {/* Mobile carousel */}
+        <div className="sm:hidden overflow-x-auto" style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+          <div
+            className="grid gap-2"
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(${Math.ceil(categories.flatMap(c => c.items).length / 4)}, calc(25vw - 8px))`,
+              gridTemplateRows: "repeat(4, auto)",
+              gridAutoFlow: "column",
+              minWidth: "max-content",
+            }}
+          >
+            {categories.flatMap((cat) =>
+              cat.items.map((item, ii) => (
+                <OperationCard key={item.slug} item={item} catLabel={cat.label} index={ii} />
+              ))
+            )}
+          </div>
         </div>
       </div>
     </section>
