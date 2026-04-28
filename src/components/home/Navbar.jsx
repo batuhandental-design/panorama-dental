@@ -8,34 +8,18 @@ const hashes = ["#hero", "#about", "#services", "#departments", "#contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
   const isHome = location.pathname === "/";
   const { t } = useLanguage();
-
-  useEffect(() => {
-    if (open) return;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100);
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, open]);
 
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
   return (
     <nav
-      className="text-white z-50 font-inter transition-transform duration-300"
+      className="text-white z-50 font-inter sticky top-0"
       style={{
         background: "#2c2419",
         boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
-        transform: isVisible ? "translateY(0)" : "translateY(-100%)",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
