@@ -20,13 +20,13 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    
     if (location.hash) {
       const el = document.querySelector(location.hash);
       if (el) {
         setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
 
