@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const categories = [
   {
     label: "Diş Tedavileri",
-    emoji: "🦷",
     items: [
       { title: "Diş İmplantı", icon: "🦷", slug: "dis-implanti" },
       { title: "Hollywood Gülümsemesi", icon: "😁", slug: "hollywood-gulumsemesi" },
@@ -19,7 +18,6 @@ const categories = [
   },
   {
     label: "Estetik Cerrahi",
-    emoji: "💆",
     items: [
       { title: "Göz Kapağı Estetiği", icon: "👁️", slug: "goz-kapagi-estetigi" },
       { title: "Yüze Yağ Enjeksiyonu", icon: "🧴", slug: "yuze-yag-enjeksiyonu" },
@@ -36,7 +34,6 @@ const categories = [
   },
   {
     label: "Saç Ekimi",
-    emoji: "🌱",
     items: [
       { title: "DHI Saç Ekimi", icon: "🌱", slug: "dhi-sac-ekimi" },
       { title: "DHI Kaş Ekimi", icon: "👁️", slug: "dhi-kas-ekimi" },
@@ -48,7 +45,6 @@ const categories = [
   },
   {
     label: "Obezite Cerrahisi",
-    emoji: "🏥",
     items: [
       { title: "Mide Bypass", icon: "🏥", slug: "mide-baypas" },
       { title: "Tüp Mide Ameliyatı", icon: "🩺", slug: "tup-mide" },
@@ -59,7 +55,6 @@ const categories = [
   },
   {
     label: "Göz Operasyonları",
-    emoji: "👁️",
     items: [
       { title: "Excimer Laser", icon: "🔆", slug: "lazer-goz" },
       { title: "Katarakt Ameliyatı", icon: "💧", slug: "katarakt-ameliyati" },
@@ -68,17 +63,78 @@ const categories = [
   },
 ];
 
+function OperationCard({ item, catLabel, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.35, delay: index * 0.05 }}
+    >
+      <Link
+        to={`/operasyon/${item.slug}`}
+        className="group flex flex-col items-center text-center gap-3 p-6 rounded-2xl transition-all duration-300"
+        style={{
+          background: "rgba(255,255,255,0.04)",
+          border: "1px solid rgba(201,168,124,0.18)",
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = "rgba(201,168,124,0.13)";
+          e.currentTarget.style.border = "1px solid rgba(201,168,124,0.55)";
+          e.currentTarget.style.transform = "translateY(-6px)";
+          e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.35)";
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+          e.currentTarget.style.border = "1px solid rgba(201,168,124,0.18)";
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        {/* Icon wrapper — big circle like reference */}
+        <div
+          className="w-16 h-16 rounded-full flex items-center justify-center text-3xl flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+          style={{
+            background: "linear-gradient(135deg, rgba(201,168,124,0.18) 0%, rgba(201,168,124,0.06) 100%)",
+            border: "1.5px solid rgba(201,168,124,0.35)",
+          }}
+        >
+          {item.icon}
+        </div>
+
+        {/* Category label */}
+        <span
+          className="text-[10px] font-bold uppercase tracking-[0.22em]"
+          style={{ color: "rgba(201,168,124,0.65)" }}
+        >
+          {catLabel}
+        </span>
+
+        {/* Title */}
+        <h4 className="text-white text-sm font-semibold leading-snug group-hover:text-[#c9a87c] transition-colors duration-300">
+          {item.title}
+        </h4>
+      </Link>
+    </motion.div>
+  );
+}
+
 export default function DepartmentsSection() {
   return (
-    <section className="py-20 font-inter" id="departments" style={{ background: "linear-gradient(180deg, #1e1a14 0%, #2c2419 100%)" }}>
+    <section
+      className="py-20 font-inter"
+      id="departments"
+      style={{ background: "linear-gradient(180deg, #1e1a14 0%, #2c2419 100%)" }}
+    >
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
+
+        {/* Section header */}
         <div className="text-center mb-16">
-          <div className="w-12 h-0.5 bg-[#c9a87c] mx-auto mb-4" />
+          <div className="w-12 h-0.5 bg-[#c9a87c] mx-auto mb-5" />
           <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4 uppercase tracking-widest">
             OPERASYONLAR
           </h2>
-          <p className="text-white/60 text-base max-w-xl mx-auto">
+          <p className="text-white/50 text-base max-w-xl mx-auto">
             Kliniğimizin uzmanlaştığı bir hizmet grubudur.
           </p>
         </div>
@@ -87,60 +143,19 @@ export default function DepartmentsSection() {
         <div className="space-y-14">
           {categories.map((cat, ci) => (
             <div key={ci}>
-              {/* Category label */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-6 rounded-full bg-[#c9a87c]" />
-                <h3 className="text-[#c9a87c] text-xs font-bold uppercase tracking-[0.3em]">{cat.label}</h3>
-                <div className="flex-1 h-px" style={{ background: "rgba(201,168,124,0.2)" }} />
+              {/* Category divider */}
+              <div className="flex items-center gap-3 mb-7">
+                <div className="w-1 h-7 rounded-full bg-[#c9a87c]" />
+                <h3 className="text-[#c9a87c] text-xs font-bold uppercase tracking-[0.3em]">
+                  {cat.label}
+                </h3>
+                <div className="flex-1 h-px" style={{ background: "rgba(201,168,124,0.18)" }} />
               </div>
 
-              {/* Items grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {/* Cards */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {cat.items.map((item, ii) => (
-                  <motion.div
-                    key={ii}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: ii * 0.05 }}
-                  >
-                    <Link
-                      to={`/operasyon/${item.slug}`}
-                      className="group flex flex-col items-center justify-center gap-3 p-5 rounded-2xl text-center transition-all duration-300"
-                      style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid rgba(201,168,124,0.15)",
-                      }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.background = "rgba(201,168,124,0.12)";
-                        e.currentTarget.style.border = "1px solid rgba(201,168,124,0.5)";
-                        e.currentTarget.style.transform = "translateY(-4px)";
-                        e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.3)";
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-                        e.currentTarget.style.border = "1px solid rgba(201,168,124,0.15)";
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow = "none";
-                      }}
-                    >
-                      {/* Icon wrapper */}
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-all duration-300"
-                        style={{ background: "rgba(201,168,124,0.12)" }}
-                      >
-                        {item.icon}
-                      </div>
-                      {/* Category label */}
-                      <span className="text-[#c9a87c] text-[9px] font-bold uppercase tracking-widest opacity-70">
-                        {cat.label}
-                      </span>
-                      {/* Title */}
-                      <h4 className="text-white text-xs font-semibold leading-snug">
-                        {item.title}
-                      </h4>
-                    </Link>
-                  </motion.div>
+                  <OperationCard key={ii} item={item} catLabel={cat.label} index={ii} />
                 ))}
               </div>
             </div>
