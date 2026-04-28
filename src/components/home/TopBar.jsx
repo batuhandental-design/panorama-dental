@@ -32,12 +32,12 @@ export default function TopBar() {
 
   return (
     <div
-      className="text-white font-inter"
+      className="text-white font-inter hidden md:block"
       style={{ background: "#3d3028" }}
     >
       {/* Dil seçici şeridi */}
       <div
-        className="max-w-7xl mx-auto px-4 flex items-center justify-end py-1.5 border-b border-white/10 md:block hidden"
+        className="max-w-7xl mx-auto px-4 flex items-center justify-end py-1.5 border-b border-white/10"
       >
         <div className="relative" ref={dropdownRef}>
           <button
@@ -68,7 +68,7 @@ export default function TopBar() {
 
       {/* Alt bilgi şeridi */}
       <div
-        className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm md:flex hidden"
+        className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm"
       >
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
@@ -98,43 +98,6 @@ export default function TopBar() {
               <p className="text-xs font-medium">Haliç ve Pendik</p>
             </div>
           </a>
-        </div>
-      </div>
-
-      {/* Mobile/Tablet Versiyon */}
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2.5 md:hidden">
-        <div className="flex items-center gap-3 text-xs">
-          <div className="flex items-center gap-2">
-            <Clock className="w-3.5 h-3.5 text-primary" />
-            <span className="text-gray-400">{t.topBarClosed}</span>
-          </div>
-          <a href="tel:+905551896062" className="text-primary hover:text-[#c9a87c] transition-colors font-medium">
-            +90 555 189 60 62
-          </a>
-        </div>
-        <div className="relative" ref={dropdownRef}>
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
-          >
-            <img src={currentLang.img} alt={currentLang.label} className="w-4 h-3 object-cover rounded-sm" />
-            <span className="text-[10px] font-semibold">{currentLang.code.toUpperCase()}</span>
-          </button>
-
-          {open && (
-            <div className="absolute right-0 top-full mt-1 bg-[#2c2419] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden min-w-[120px]">
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => { setLang(l.code); setOpen(false); }}
-                  className={`w-full flex items-center gap-2 px-3 py-2 text-[10px] hover:bg-white/10 transition-colors text-left ${lang === l.code ? "bg-white/10 text-[#c9a87c]" : "text-white"}`}
-                >
-                  <img src={l.img} alt={l.label} className="w-5 h-3.5 object-cover rounded-sm flex-shrink-0" />
-                  <span className="font-semibold">{l.code.toUpperCase()}</span>
-                </button>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </div>
