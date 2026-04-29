@@ -41,10 +41,22 @@ export default function Navbar() {
   const handleLangToggle = () => {
     if (!langOpen && buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
-      setMenuPos({ top: rect.bottom + 4, right: window.innerWidth - rect.right });
+      setMenuPos({ top: rect.bottom + window.scrollY + 4, right: window.innerWidth - rect.right });
     }
     setLangOpen((v) => !v);
   };
+
+  useEffect(() => {
+    if (!langOpen) return;
+    const handleScroll = () => {
+      if (buttonRef.current) {
+        const rect = buttonRef.current.getBoundingClientRect();
+        setMenuPos({ top: rect.bottom + window.scrollY + 4, right: window.innerWidth - rect.right });
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [langOpen]);
 
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
