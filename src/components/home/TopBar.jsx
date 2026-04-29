@@ -16,7 +16,9 @@ const languages = [
 export default function TopBar() {
   const { t, lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [menuPos, setMenuPos] = useState({ top: 0, right: 0 });
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const currentLang = languages.find((l) => l.code === lang) || languages[0];
 
@@ -30,6 +32,14 @@ export default function TopBar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  const handleToggle = () => {
+    if (!open && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setMenuPos({ top: rect.bottom + 4, right: window.innerWidth - rect.right });
+    }
+    setOpen((v) => !v);
+  };
+
   return (
     <div
       className="text-white font-inter hidden md:block relative z-40"
@@ -41,7 +51,8 @@ export default function TopBar() {
       >
         <div className="relative" ref={dropdownRef}>
           <button
-            onClick={() => setOpen((v) => !v)}
+            ref={buttonRef}
+            onClick={handleToggle}
             className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors text-xs font-medium"
           >
             <img src={currentLang.img} alt={currentLang.label} className="w-5 h-3.5 object-cover rounded-sm" />
@@ -50,7 +61,10 @@ export default function TopBar() {
           </button>
 
           {open && (
-            <div className="fixed bottom-auto top-16 right-4 bg-[#2c2419] border border-white/10 rounded-xl shadow-2xl z-[9999] overflow-hidden min-w-[170px]">
+            <div
+              className="fixed bg-[#2c2419] border border-white/10 rounded-xl shadow-2xl z-[9999] overflow-hidden min-w-[170px]"
+              style={{ top: menuPos.top, right: menuPos.right }}
+            >
               {languages.map((l) => (
                 <button
                   key={l.code}
