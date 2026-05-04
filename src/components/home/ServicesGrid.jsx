@@ -21,75 +21,131 @@ const serviceImages = [
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/699e33211_generated_image.png",
 ];
 
-// Her kart için dalga renk tonu varyasyonları (kumsal teması)
-const waveColors = [
-  { base: "rgba(201,168,124,0.18)", foam: "rgba(255,248,235,0.55)" },
-  { base: "rgba(180,140,90,0.15)",  foam: "rgba(255,245,225,0.50)" },
-  { base: "rgba(210,175,130,0.20)", foam: "rgba(255,250,240,0.60)" },
-  { base: "rgba(165,128,80,0.17)",  foam: "rgba(255,246,228,0.52)" },
-  { base: "rgba(195,160,110,0.19)", foam: "rgba(255,249,235,0.55)" },
-  { base: "rgba(185,150,100,0.16)", foam: "rgba(255,247,230,0.50)" },
+// Her kart için farklı dalga animasyon gecikmesi
+const waveDelays = [0, 0.5, 1.0, 1.5, 0.8, 0.3];
+
+// Her kart için hafif farklı deniz renk tonu
+const seaColors = [
+  { sky1: "#a8d8ea", sky2: "#7ec8e3", sea1: "#2e86ab", sea2: "#1b6b8a", sea3: "#0d4f6b" },
+  { sky1: "#b8e0f0", sky2: "#8ecfe8", sea1: "#3494b8", sea2: "#1f7a99", sea3: "#0f5a7a" },
+  { sky1: "#9ecfe0", sky2: "#6abfd8", sea1: "#267a9e", sea2: "#155f80", sea3: "#094665" },
+  { sky1: "#acdcea", sky2: "#7dcde4", sea1: "#2d84a8", sea2: "#1a698a", sea3: "#0c4f6a" },
+  { sky1: "#b4dff0", sky2: "#85ccdf", sea1: "#318db5", sea2: "#1c7295", sea3: "#0e5576" },
+  { sky1: "#a2d5e8", sky2: "#74c5dc", sea1: "#2b80a5", sea2: "#186685", sea3: "#0b4c68" },
 ];
 
 function WaveBackground({ index }) {
-  const delay = index * 0.5; // her kart farklı offset
-  const { base, foam } = waveColors[index] || waveColors[0];
+  const d = waveDelays[index] || 0;
+  const c = seaColors[index] || seaColors[0];
+  const waveId = `wave-grad-${index}`;
+
   return (
     <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-      {/* Kum zemini */}
-      <div className="absolute inset-0 rounded-2xl" style={{ background: "linear-gradient(180deg, transparent 55%, rgba(201,168,124,0.08) 100%)" }} />
-      {/* Dalga 1 - ana */}
       <svg
-        className="absolute bottom-0 left-0 w-full"
-        style={{ animationDelay: `${delay}s` }}
-        viewBox="0 0 400 60"
-        preserveAspectRatio="none"
-        height="60"
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 400 300"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          <linearGradient id={`sky-${index}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={c.sky1} />
+            <stop offset="100%" stopColor={c.sky2} />
+          </linearGradient>
+          <linearGradient id={`sea-${index}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={c.sea1} />
+            <stop offset="60%" stopColor={c.sea2} />
+            <stop offset="100%" stopColor={c.sea3} />
+          </linearGradient>
+          <linearGradient id={`sand-${index}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e8c98a" />
+            <stop offset="40%" stopColor="#d4a85a" />
+            <stop offset="100%" stopColor="#b8903a" />
+          </linearGradient>
+        </defs>
+
+        {/* Gökyüzü */}
+        <rect width="400" height="300" fill={`url(#sky-${index})`} />
+
+        {/* Ufuk çizgisi - hafif parlak */}
+        <rect x="0" y="112" width="400" height="3" fill="rgba(255,255,255,0.25)" />
+
+        {/* Deniz katmanı */}
+        <rect x="0" y="115" width="400" height="115" fill={`url(#sea-${index})`} />
+
+        {/* Güneş yansıması */}
+        <ellipse cx="200" cy="115" rx="60" ry="6" fill="rgba(255,255,200,0.18)" />
+
+        {/* Dalga 1 - derin arka plan */}
         <path
-          fill={base}
-          style={{
-            animation: `waveSurf 3s ease-in-out infinite`,
-            animationDelay: `${delay}s`,
-            transformOrigin: "center bottom",
-          }}
-          d="M0,30 C50,10 100,50 150,30 C200,10 250,50 300,30 C350,10 380,45 400,30 L400,60 L0,60 Z"
+          fill="rgba(255,255,255,0.08)"
+          style={{ animation: `waveSurf 3s ease-in-out infinite`, animationDelay: `${d}s` }}
+          d="M0,135 C50,120 100,148 150,133 C200,118 260,150 320,132 C360,120 385,140 400,132 L400,115 L0,115 Z"
+        />
+
+        {/* Dalga 2 */}
+        <path
+          fill="rgba(255,255,255,0.12)"
+          style={{ animation: `waveSurf 3s ease-in-out infinite`, animationDelay: `${d + 0.3}s` }}
+          d="M0,150 C40,136 90,162 140,148 C190,134 240,158 300,144 C345,133 375,152 400,145 L400,228 L0,228 Z"
+        />
+
+        {/* Dalga 3 - kumla buluşan ana dalga */}
+        <path
+          fill="rgba(120,200,230,0.55)"
+          style={{ animation: `waveSurf 3s ease-in-out infinite`, animationDelay: `${d + 0.6}s` }}
+          d="M0,200 C55,184 110,214 165,200 C220,186 275,212 330,198 C363,190 385,205 400,200 L400,230 L0,230 Z"
+        />
+
+        {/* Köpük şeridi - deniz-kum sınırı */}
+        <path
+          fill="rgba(255,255,255,0.75)"
+          style={{ animation: `waveSurf 3s ease-in-out infinite`, animationDelay: `${d + 0.9}s` }}
+          d="M0,222 C45,214 95,230 145,222 C195,214 250,228 305,220 C345,214 375,224 400,220 L400,232 L0,232 Z"
+        />
+
+        {/* İnce köpük damlacıkları */}
+        <path
+          fill="rgba(255,255,255,0.45)"
+          style={{ animation: `waveSurf 3s ease-in-out infinite`, animationDelay: `${d + 1.2}s` }}
+          d="M0,228 C30,222 70,234 110,228 C150,222 195,233 235,227 C275,221 325,232 370,226 C385,224 395,229 400,227 L400,235 L0,235 Z"
+        />
+
+        {/* Kum */}
+        <rect x="0" y="232" width="400" height="68" fill={`url(#sand-${index})`} />
+
+        {/* Kum dokusu - ışık gölge */}
+        <ellipse cx="80" cy="255" rx="55" ry="8" fill="rgba(255,220,150,0.25)" />
+        <ellipse cx="280" cy="262" rx="70" ry="7" fill="rgba(255,220,150,0.20)" />
+        <ellipse cx="160" cy="278" rx="45" ry="6" fill="rgba(180,130,60,0.20)" />
+
+        {/* Kum üzerinde su izi */}
+        <path
+          fill="rgba(120,200,230,0.22)"
+          style={{ animation: `waveSurf 3s ease-in-out infinite`, animationDelay: `${d + 1.5}s` }}
+          d="M0,236 C60,230 130,242 200,236 C270,230 340,240 400,235 L400,248 L0,248 Z"
+        />
+
+        {/* Hafif ışık yansıması denizde */}
+        <path
+          fill="rgba(255,255,255,0.06)"
+          style={{ animation: `shimmer 3s ease-in-out infinite`, animationDelay: `${d + 0.2}s` }}
+          d="M50,130 L80,125 L85,132 L55,137 Z"
+        />
+        <path
+          fill="rgba(255,255,255,0.06)"
+          style={{ animation: `shimmer 3s ease-in-out infinite`, animationDelay: `${d + 1.1}s` }}
+          d="M200,155 L240,148 L244,157 L204,164 Z"
+        />
+        <path
+          fill="rgba(255,255,255,0.06)"
+          style={{ animation: `shimmer 3s ease-in-out infinite`, animationDelay: `${d + 0.7}s` }}
+          d="M310,140 L345,134 L349,142 L314,148 Z"
         />
       </svg>
-      {/* Dalga 2 - köpük */}
-      <svg
-        className="absolute bottom-0 left-0 w-full"
-        viewBox="0 0 400 40"
-        preserveAspectRatio="none"
-        height="40"
-      >
-        <path
-          fill={foam}
-          style={{
-            animation: `waveSurf 3s ease-in-out infinite`,
-            animationDelay: `${delay + 0.4}s`,
-            transformOrigin: "center bottom",
-          }}
-          d="M0,20 C60,5 120,35 180,18 C240,2 300,38 360,20 C375,15 390,25 400,20 L400,40 L0,40 Z"
-        />
-      </svg>
-      {/* Küçük köpük kabarcıkları */}
-      <svg
-        className="absolute bottom-0 left-0 w-full"
-        viewBox="0 0 400 20"
-        preserveAspectRatio="none"
-        height="20"
-      >
-        <path
-          fill="rgba(255,255,255,0.35)"
-          style={{
-            animation: `waveSurf 3s ease-in-out infinite`,
-            animationDelay: `${delay + 0.8}s`,
-            transformOrigin: "center bottom",
-          }}
-          d="M0,10 C40,2 80,18 120,10 C160,2 200,18 240,10 C280,2 320,18 360,10 C375,6 390,14 400,10 L400,20 L0,20 Z"
-        />
-      </svg>
+
+      {/* Üst kısım için hafif beyaz overlay - metin okunabilirliği */}
+      <div className="absolute inset-0 rounded-2xl" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.0) 100%)" }} />
     </div>
   );
 }
@@ -156,10 +212,14 @@ export default function ServicesGrid() {
       <style>{`
         @keyframes waveSurf {
           0%   { transform: translateX(0) scaleY(1); }
-          25%  { transform: translateX(-8%) scaleY(1.15); }
-          50%  { transform: translateX(6%) scaleY(0.9); }
-          75%  { transform: translateX(-4%) scaleY(1.1); }
+          25%  { transform: translateX(-6%) scaleY(1.12); }
+          50%  { transform: translateX(5%) scaleY(0.92); }
+          75%  { transform: translateX(-3%) scaleY(1.08); }
           100% { transform: translateX(0) scaleY(1); }
+        }
+        @keyframes shimmer {
+          0%, 100% { opacity: 0.3; }
+          50%       { opacity: 1; }
         }
       `}</style>
       <div className="max-w-6xl mx-auto px-4">
