@@ -72,7 +72,7 @@ export default function Navbar() {
           </div>
         </a>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {t.nav.map((label, i) => (
             <a
               key={i}
@@ -130,13 +130,13 @@ export default function Navbar() {
           </div>
         </div>
 
-        <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden p-2" onClick={() => setOpen(!open)}>
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#2c2419] border-t border-white/10">
+        <div className="lg:hidden bg-[#2c2419] border-t border-white/10">
           <div className="px-4 pb-4">
             {t.nav.map((label, i) => (
               <a
