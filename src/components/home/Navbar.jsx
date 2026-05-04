@@ -49,7 +49,7 @@ export default function Navbar() {
   const handleContactClick = (e) => {
     if (isHome) {
       e.preventDefault();
-      const el = document.querySelector("#contact");
+      const el = document.querySelector("#contact-form");
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   };

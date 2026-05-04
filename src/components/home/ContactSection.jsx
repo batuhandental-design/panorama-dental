@@ -170,7 +170,7 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <div className="text-center mb-14">
+        <div id="contact-form" className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.contactLabel}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.contactTitle}</h2>
           <p className="text-[#6b5e52]">{t.contactDesc}</p>
