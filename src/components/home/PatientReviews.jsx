@@ -32,10 +32,10 @@ const sectionTitles = {
   tr: { badge: "Hasta Yorumları", title: "Hastalarımız Ne Diyor?", sub: "244 değerlendirme · 5.0 ★", source: "doktorsitesi.com'dan gerçek yorumlar" },
   en: { badge: "Patient Reviews", title: "What Our Patients Say?", sub: "244 reviews · 5.0 ★", source: "Real reviews from doktorsitesi.com" },
   de: { badge: "Patientenbewertungen", title: "Was sagen unsere Patienten?", sub: "244 Bewertungen · 5.0 ★", source: "Echte Bewertungen von doktorsitesi.com" },
-  ar: { badge: "تقييمات المرضى", title: "ماذا يقول مرضانا؟", sub: "244 تقييم · 5.0 ★", source: "تقييمات حقيقية من doktorsitesi.com" },
+  ar: { badge: "تقييمات المرضى", title: "ماذا يقول مرضانا؟", sub: "٢٤٤ تقييم · ٥.٠ ★", source: "تقييمات حقيقية من doktorsitesi.com" },
   es: { badge: "Opiniones de Pacientes", title: "¿Qué dicen nuestros pacientes?", sub: "244 reseñas · 5.0 ★", source: "Reseñas reales de doktorsitesi.com" },
   it: { badge: "Recensioni Pazienti", title: "Cosa dicono i nostri pazienti?", sub: "244 recensioni · 5.0 ★", source: "Recensioni reali da doktorsitesi.com" },
-  fr: { badge: "Avis Patients", title: "Que disent nos patients?", sub: "244 avis · 5.0 ★", source: "Avis réels de doktorsitesi.com" },
+  fr: { badge: "Avis Patients", title: "Que disent nos patients ?", sub: "244 avis · 5.0 ★", source: "Avis réels de doktorsitesi.com" },
   ru: { badge: "Отзывы пациентов", title: "Что говорят наши пациенты?", sub: "244 отзыва · 5.0 ★", source: "Реальные отзывы с doktorsitesi.com" },
 };
 
