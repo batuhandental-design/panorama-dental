@@ -194,8 +194,9 @@ function TiltImage({ src, alt, delay }) {
         transition={{ delay }}
         className="w-28 h-28 object-contain"
         style={{
+          mixBlendMode: "multiply",
           transition: "transform 0.15s ease, filter 0.15s ease",
-          filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.35))",
+          filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.15))",
           willChange: "transform",
         }}
       />
