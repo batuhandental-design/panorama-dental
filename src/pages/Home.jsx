@@ -8,6 +8,7 @@ import ServicesGrid from "../components/home/ServicesGrid";
 import StatsSection from "../components/home/StatsSection.jsx";
 import LabVideoSection from "../components/home/LabVideoSection";
 import DoctorSection from "../components/home/DoctorSection.jsx";
+import PatientReviews from "../components/home/PatientReviews.jsx";
 import WhyUsSection from "../components/home/WhyUsSection.jsx";
 import PackageServices from "../components/home/PackageServices.jsx";
 import DepartmentsSection from "../components/home/DepartmentsSection.jsx";
@@ -50,6 +51,7 @@ export default function Home() {
       <StatsSection />
       <BeforeAfterSection />
       <DoctorSection />
+      <PatientReviews />
       <WhyUsSection />
       <PackageServices />
       <DepartmentsSection />
