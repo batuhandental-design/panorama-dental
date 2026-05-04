@@ -68,12 +68,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <a href="/" className="flex items-center gap-1 text-2xl font-bold tracking-tight">
-          <img
-            src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
-            alt="dental logo"
-            className="w-14 h-14 object-contain flex-shrink-0"
-            style={{ backgroundColor: "#8a8780", borderRadius: "4px" }}
-          />
+          <div style={{ backgroundColor: "#8a8780", borderRadius: "6px", width: 56, height: 56, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <img
+              src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
+              alt="dental logo"
+              style={{ width: 52, height: 52, objectFit: "contain" }}
+            />
+          </div>
           <div className="flex flex-col leading-tight">
             <span className="text-primary">PANORAMA</span>
             <span className="text-white text-xl">DENTAL</span>
