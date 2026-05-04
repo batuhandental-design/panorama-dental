@@ -61,7 +61,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="text-white z-50 font-inter fixed top-0 left-0 right-0 transition-all duration-300"
+      className="text-white z-40 font-inter fixed left-0 right-0 transition-all duration-300 top-0 md:top-[36px]"
       style={{
         background: scrolled ? "rgba(44, 36, 25, 0.75)" : "#2c2419",
         backdropFilter: scrolled ? "blur(12px)" : "none",

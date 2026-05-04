@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
       <TopBar />
-      <div className="h-16" /> {/* Navbar fixed offset */}
+      <div className="h-16 md:h-[52px]" /> {/* TopBar + Navbar fixed offset */}
       <Navbar />
       <HeroSection />
       <LanguageSwitcher />
