@@ -61,12 +61,18 @@ export default function OperationDetail() {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  const fixedHeader = (
+    <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
+      <TopBar />
+      <Navbar />
+    </div>
+  );
+
   if (!operation) {
     return (
       <div className="min-h-screen bg-[#f7f3ef] flex flex-col">
-        <TopBar />
-        <Navbar />
-        <div className="flex-1 flex items-center justify-center">
+        {fixedHeader}
+        <div className="flex-1 flex items-center justify-center pt-20">
           <div className="text-center">
             <p className="text-6xl mb-4">🏥</p>
             <h2 className="text-2xl font-bold text-[#2d2419] mb-4">{getTranslationKey("Operasyon bulunamadı", lang)}</h2>
@@ -80,12 +86,10 @@ export default function OperationDetail() {
 
   return (
     <div className="min-h-screen bg-[#f7f3ef] font-inter">
-      <TopBar />
-      <Navbar />
-
+      {fixedHeader}
       {/* Hero */}
       <div
-        className="relative py-24 flex flex-col items-center justify-center text-center px-4"
+        className="relative pt-40 pb-20 flex flex-col items-center justify-center text-center px-4"
         style={{ background: "linear-gradient(135deg, #2c2419 0%, #4a3728 50%, #3d3028 100%)" }}
       >
         <motion.p

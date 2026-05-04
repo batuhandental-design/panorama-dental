@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import Navbar from "../components/home/Navbar";
+import TopBar from "../components/home/TopBar";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -81,8 +82,11 @@ export default function TreatmentDetail() {
   if (!treatment) {
     return (
       <div className="min-h-screen bg-[#f7f3ef] flex flex-col">
-        <Navbar />
-        <div className="flex-1 flex items-center justify-center">
+        <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
+          <TopBar />
+          <Navbar />
+        </div>
+        <div className="flex-1 flex items-center justify-center pt-20">
           <div className="text-center">
             <p className="text-6xl mb-4">🦷</p>
             <h2 className="text-2xl font-bold text-[#2d2419] mb-4">{t.notFound}</h2>
@@ -96,10 +100,13 @@ export default function TreatmentDetail() {
 
   return (
     <div className="min-h-screen bg-[#f7f3ef] font-inter">
-      <Navbar />
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
+        <TopBar />
+        <Navbar />
+      </div>
 
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: (slug === "dis-implanti" || slug === "zirkonyum-kaplama") ? 600 : 600 }}>
+      <div className="relative overflow-hidden" style={{ minHeight: 600 }}>
         <TreatmentHeroMedia slug={slug} treatment={treatment} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
