@@ -72,19 +72,19 @@ export default function Navbar() {
           </div>
         </a>
 
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1">
           {t.nav.map((label, i) => (
             <a
               key={i}
               href={getHref(hashes[i])}
-              className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
+              className="mx-1 px-2 md:px-3 lg:px-5 py-2 text-xs md:text-xs lg:text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
             >
               {label}
             </a>
           ))}
           <a
             href={getHref("#contact")}
-            className="ml-4 relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300 group"
+            className="ml-1 relative flex items-center gap-1 px-3 md:px-4 lg:px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 group"
             style={{ background: "#c9a87c", color: "#2c2419" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#e2c48e";
@@ -130,13 +130,13 @@ export default function Navbar() {
           </div>
         </div>
 
-        <button className="lg:hidden p-2" onClick={() => setOpen(!open)}>
+        <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden bg-[#2c2419] border-t border-white/10">
+        <div className="md:hidden bg-[#2c2419] border-t border-white/10">
           <div className="px-4 pb-4">
             {t.nav.map((label, i) => (
               <a
