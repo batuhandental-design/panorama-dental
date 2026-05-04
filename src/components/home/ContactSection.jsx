@@ -237,11 +237,12 @@ export default function ContactSection() {
                 <select
                   value={form.branch}
                   onChange={(e) => setForm({ ...form, branch: e.target.value })}
-                  className="w-full h-12 px-3 rounded-md border border-[#c9bfb4] bg-[#f7f3ef] text-[#2d2419] text-sm focus:outline-none focus:ring-2 focus:ring-[#8B6840]"
+                  className="w-full h-12 px-3 rounded-md border border-[#c9bfb4] bg-[#f7f3ef] text-[#9c8e84] text-sm focus:outline-none focus:ring-2 focus:ring-[#8B6840]"
+                  style={{ color: form.branch ? "#2d2419" : undefined }}
                 >
-                  <option value="">Şubenizi seçin</option>
-                  <option value="halic">Haliç Şubesi</option>
-                  <option value="pendik">Pendik Şubesi</option>
+                  <option value="">{t.branchPlaceholder || "Şubenizi seçin"}</option>
+                  <option value="halic">{t.branchHalic || "Haliç Şubesi"}</option>
+                  <option value="pendik">{t.branchPendik || "Pendik Şubesi"}</option>
                 </select>
                 <Textarea placeholder={t.messagePlaceholder} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] min-h-[120px]" />
 
