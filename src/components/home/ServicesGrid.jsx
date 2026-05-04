@@ -184,7 +184,7 @@ function TiltImage({ src, alt, delay }) {
   };
 
   return (
-    <div className="flex items-center justify-center mb-5 h-24 overflow-visible" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <div className="flex items-center justify-center mb-5 h-32 overflow-visible" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <motion.img
         ref={ref}
         src={src}
@@ -192,11 +192,10 @@ function TiltImage({ src, alt, delay }) {
         variants={floatVariants}
         animate="animate"
         transition={{ delay }}
-        className="w-20 h-20 object-contain"
+        className="w-28 h-28 object-contain"
         style={{
-          mixBlendMode: "multiply",
           transition: "transform 0.15s ease, filter 0.15s ease",
-          filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.15))",
+          filter: "drop-shadow(0 6px 16px rgba(0,0,0,0.35))",
           willChange: "transform",
         }}
       />
