@@ -184,7 +184,7 @@ function TiltImage({ src, alt, delay }) {
   };
 
   return (
-    <div className="flex items-center justify-center mb-5 h-32 overflow-visible" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <div className="flex items-center justify-center mb-5 h-24 overflow-visible" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <motion.img
         ref={ref}
         src={src}
@@ -199,6 +199,7 @@ function TiltImage({ src, alt, delay }) {
           filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.15))",
           willChange: "transform",
         }}
+
       />
     </div>
   );
