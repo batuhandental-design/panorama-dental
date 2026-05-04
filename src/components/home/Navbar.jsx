@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
+
 const languages = [
   { code: "tr", img: "https://flagcdn.com/w160/tr.png", label: "Türkçe" },
   { code: "en", img: "https://flagcdn.com/w160/gb.png", label: "English" },
@@ -21,11 +22,18 @@ const hashes = ["#hero", "#about", "#services", "#departments", "#contact"];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
   const isHome = location.pathname === "/";
   const { t, lang, setLang } = useLanguage();
   const currentLang = languages.find((l) => l.code === lang) || languages[0];
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -45,10 +53,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className="text-white z-50 font-inter sticky top-0"
+      className="text-white z-50 font-inter sticky top-0 transition-all duration-300"
       style={{
-        background: "#2c2419",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
+        background: scrolled ? "rgba(44,36,25,0.97)" : "#2c2419",
+        boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.5)" : "0 2px 12px rgba(0,0,0,0.3)",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">

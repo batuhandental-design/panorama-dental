@@ -1,12 +1,20 @@
 import { Clock, Phone, MapPin } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
+import { useState, useEffect } from "react";
 
 export default function TopBar() {
   const { t } = useLanguage();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div
-      className="text-white font-inter hidden md:block z-40"
+      className={`text-white font-inter hidden md:block z-40 transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 opacity-0" : "max-h-20 opacity-100"}`}
       style={{ background: "#3d3028" }}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm">
