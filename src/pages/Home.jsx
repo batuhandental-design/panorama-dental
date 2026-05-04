@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
-      <div style={{ position: "sticky", top: 0, zIndex: 60 }}>
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
         <TopBar />
         <Navbar />
       </div>

@@ -16,9 +16,10 @@ export default function TopBar() {
     <div
       style={{
         background: "#3d3028",
-        transition: "transform 0.3s ease, opacity 0.3s ease",
-        transform: scrolled ? "translateY(-100%)" : "translateY(0)",
+        transition: "max-height 0.35s ease, opacity 0.35s ease",
+        maxHeight: scrolled ? "0px" : "60px",
         opacity: scrolled ? 0 : 1,
+        overflow: "hidden",
         zIndex: 50,
       }}
       className="text-white font-inter hidden md:block"

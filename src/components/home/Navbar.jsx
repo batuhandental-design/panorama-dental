@@ -51,10 +51,11 @@ export default function Navbar() {
       className="text-white font-inter"
       style={{
         zIndex: 60,
-        background: scrolled ? "rgba(44,36,25,0.97)" : "#2c2419",
-        boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.5)" : "0 2px 12px rgba(0,0,0,0.3)",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        transition: "background 0.3s ease, box-shadow 0.3s ease",
+        background: scrolled ? "rgba(20,15,10,0.55)" : "#2c2419",
+        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.35)" : "0 2px 12px rgba(0,0,0,0.3)",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+        transition: "background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
