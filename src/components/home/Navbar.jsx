@@ -46,6 +46,14 @@ export default function Navbar() {
   const handleLangToggle = () => setLangOpen((v) => !v);
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
+  const handleContactClick = (e) => {
+    if (isHome) {
+      e.preventDefault();
+      const el = document.querySelector("#contact");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav
       className="text-white font-inter"
@@ -84,6 +92,7 @@ export default function Navbar() {
           ))}
           <a
             href={getHref("#contact")}
+            onClick={handleContactClick}
             className="ml-1 relative flex items-center gap-1 px-3 md:px-4 lg:px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 group"
             style={{ background: "#c9a87c", color: "#2c2419" }}
             onMouseEnter={(e) => {
