@@ -8,7 +8,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 import { base44 } from "@/api/base44Client";
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", branch: "" });
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [sending, setSending] = useState(false);
@@ -52,6 +52,7 @@ export default function ContactSection() {
       email: form.email,
       phone: form.phone,
       message: form.message,
+      branch: form.branch,
       fileUrls,
     });
 
@@ -70,7 +71,7 @@ export default function ContactSection() {
 
     setSending(false);
     setSent(true);
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setForm({ name: "", email: "", phone: "", message: "", branch: "" });
     setFiles([]);
   };
 
@@ -233,6 +234,15 @@ export default function ContactSection() {
                 <Input placeholder={t.namePlaceholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
                 <Input placeholder={t.emailPlaceholder} type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
                 <Input placeholder={t.phonePlaceholder} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
+                <select
+                  value={form.branch}
+                  onChange={(e) => setForm({ ...form, branch: e.target.value })}
+                  className="w-full h-12 px-3 rounded-md border border-[#c9bfb4] bg-[#f7f3ef] text-[#2d2419] text-sm focus:outline-none focus:ring-2 focus:ring-[#8B6840]"
+                >
+                  <option value="">Şubenizi seçin</option>
+                  <option value="halic">Haliç Şubesi</option>
+                  <option value="pendik">Pendik Şubesi</option>
+                </select>
                 <Textarea placeholder={t.messagePlaceholder} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] min-h-[120px]" />
 
                 {/* File Upload */}

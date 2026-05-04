@@ -4,7 +4,8 @@ Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
     const body = await req.json();
-    const { name, email, phone, message, fileUrls } = body;
+    const { name, email, phone, message, fileUrls, branch } = body;
+    const isPendik = branch === "pendik";
 
     // Tüm işlemleri paralel çalıştır
     const tasks = [];
@@ -39,24 +40,28 @@ ${filesText ? `\nDosyalar:\n${filesText}` : ""}
 Web sitesi iletişim formundan otomatik gönderilmiştir.
     `.trim();
 
+    const branchLabel = isPendik ? "Pendik Şubesi" : "Haliç Şubesi";
+    const toEmail = isPendik ? "pendikpanorama0@gmail.com" : "halicpanoramadental@gmail.com";
+
     tasks.push(
       base44.asServiceRole.integrations.Core.SendEmail({
-        to: "halicpanoramadental@gmail.com",
-        subject: `🦷 Yeni Başvuru — ${name || "İsimsiz"} | ${phone || ""}`,
+        to: toEmail,
+        subject: `🦷 Yeni Başvuru [${branchLabel}] — ${name || "İsimsiz"} | ${phone || ""}`,
         body: emailBody,
         from_name: "Pendik ve Haliç Panorama Dental",
       }).catch(err => console.error("E-posta hatası:", err.message))
     );
 
     // 3. CallMeBot WhatsApp bildirimi
-    const apiKey = Deno.env.get("CALLMEBOT_API_KEY");
-    let waMsg = `🦷 Yeni Başvuru - Pendik ve Haliç Panorama Dental\n\n👤 Ad: ${name || "-"}\n📞 Tel: ${phone || "-"}`;
+    const waPhone = isPendik ? "905321592703" : "905551896062";
+    const waApiKey = isPendik ? "6351420" : Deno.env.get("CALLMEBOT_API_KEY");
+    let waMsg = `🦷 Yeni Başvuru [${branchLabel}] - Panorama Dental\n\n👤 Ad: ${name || "-"}\n📞 Tel: ${phone || "-"}`;
     if (email) waMsg += `\n📧 Email: ${email}`;
     if (message) waMsg += `\n💬 Mesaj: ${message}`;
     if (fileUrls && fileUrls.length > 0) waMsg += `\n📎 Dosya: ${fileUrls.length} adet`;
 
     tasks.push(
-      fetch(`https://api.callmebot.com/whatsapp.php?phone=905551896062&text=${encodeURIComponent(waMsg)}&apikey=${apiKey}`)
+      fetch(`https://api.callmebot.com/whatsapp.php?phone=${waPhone}&text=${encodeURIComponent(waMsg)}&apikey=${waApiKey}`)
         .catch(err => console.error("WhatsApp hatası:", err.message))
     );
 
