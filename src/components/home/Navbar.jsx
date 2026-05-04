@@ -1,10 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/lib/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
-
 
 const languages = [
   { code: "tr", img: "https://flagcdn.com/w160/tr.png", label: "Türkçe" },
@@ -30,7 +28,7 @@ export default function Navbar() {
   const currentLang = languages.find((l) => l.code === lang) || languages[0];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -45,19 +43,18 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const handleLangToggle = () => {
-    setLangOpen((v) => !v);
-  };
-
+  const handleLangToggle = () => setLangOpen((v) => !v);
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
   return (
     <nav
-      className="text-white z-50 font-inter sticky top-0 transition-all duration-300"
+      className="text-white font-inter"
       style={{
+        zIndex: 60,
         background: scrolled ? "rgba(44,36,25,0.97)" : "#2c2419",
         boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.5)" : "0 2px 12px rgba(0,0,0,0.3)",
         backdropFilter: scrolled ? "blur(10px)" : "none",
+        transition: "background 0.3s ease, box-shadow 0.3s ease",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
@@ -66,7 +63,7 @@ export default function Navbar() {
             src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
             alt="dental logo"
             className="w-14 h-14 object-contain flex-shrink-0"
-            style={{ mixBlendMode: 'screen' }}
+            style={{ mixBlendMode: "screen" }}
           />
           <div className="flex flex-col leading-tight">
             <span className="text-primary">PANORAMA</span>
@@ -74,25 +71,33 @@ export default function Navbar() {
           </div>
         </a>
 
-        <div
-          className="hidden md:flex items-center gap-1"
-        >
-          {t.nav.map((label, i) =>
+        <div className="hidden md:flex items-center gap-1">
+          {t.nav.map((label, i) => (
             <a
               key={i}
               href={getHref(hashes[i])}
-              className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
+              className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
+            >
               {label}
             </a>
-          )}
+          ))}
           <a
             href={getHref("#contact")}
             className="ml-4 relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300 group"
-            style={{ background: '#c9a87c', color: '#2c2419', boxShadow: '0 0 0 0 rgba(201,168,124,0.7)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = '#e2c48e'; e.currentTarget.style.boxShadow = '0 0 24px rgba(201,168,124,0.8), 0 4px 16px rgba(0,0,0,0.3)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = '#c9a87c'; e.currentTarget.style.boxShadow = '0 0 0 0 rgba(201,168,124,0.7)'; }}>
-            {/* Sürekli pulse ring — WhatsApp butonu gibi */}
-            <span className="absolute inset-0 rounded-full bg-[#c9a87c] opacity-50 animate-ping pointer-events-none" style={{ animationDuration: '2s' }} />
+            style={{ background: "#c9a87c", color: "#2c2419" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#e2c48e";
+              e.currentTarget.style.boxShadow = "0 0 24px rgba(201,168,124,0.8), 0 4px 16px rgba(0,0,0,0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#c9a87c";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            <span
+              className="absolute inset-0 rounded-full bg-[#c9a87c] opacity-50 animate-ping pointer-events-none"
+              style={{ animationDuration: "2s" }}
+            />
             <Phone className="w-4 h-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
             <span className="relative z-10">{t.freeConsult}</span>
           </a>
@@ -124,32 +129,30 @@ export default function Navbar() {
           </div>
         </div>
 
-        <button
-          className="md:hidden p-2"
-          onClick={() => setOpen(!open)}
-        >
+        <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {open &&
+      {open && (
         <div className="md:hidden bg-[#2c2419] border-t border-white/10">
           <div className="px-4 pb-4">
-            {t.nav.map((label, i) =>
+            {t.nav.map((label, i) => (
               <a
                 key={i}
                 href={getHref(hashes[i])}
                 className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
-                onClick={() => setOpen(false)}>
+                onClick={() => setOpen(false)}
+              >
                 {label}
               </a>
-            )}
+            ))}
           </div>
           <div className="border-t border-white/10 py-4">
             <LanguageSwitcher />
           </div>
         </div>
-      }
+      )}
     </nav>
   );
 }

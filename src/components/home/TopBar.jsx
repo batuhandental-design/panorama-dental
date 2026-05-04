@@ -7,15 +7,21 @@ export default function TopBar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <div
-      className={`text-white font-inter hidden md:block z-40 transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 opacity-0" : "max-h-20 opacity-100"}`}
-      style={{ background: "#3d3028" }}
+      style={{
+        background: "#3d3028",
+        transition: "transform 0.3s ease, opacity 0.3s ease",
+        transform: scrolled ? "translateY(-100%)" : "translateY(0)",
+        opacity: scrolled ? 0 : 1,
+        zIndex: 50,
+      }}
+      className="text-white font-inter hidden md:block"
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between py-2 text-sm">
         <div className="flex items-center gap-6">

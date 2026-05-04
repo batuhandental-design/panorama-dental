@@ -42,8 +42,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f7f3ef]">
-      <TopBar />
-      <Navbar />
+      <div style={{ position: "sticky", top: 0, zIndex: 60 }}>
+        <TopBar />
+        <Navbar />
+      </div>
       <HeroSection />
       <LanguageSwitcher />
       <ServicesGrid />
