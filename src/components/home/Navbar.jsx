@@ -50,9 +50,18 @@ export default function Navbar() {
 
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
+  const handleNavClick = (e, hash) => {
+    if (isHome) {
+      e.preventDefault();
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      setOpen(false);
+    }
+  };
+
   return (
     <nav
-      className="text-white z-50 font-inter sticky top-0 transition-all duration-300"
+      className="text-white z-50 font-inter fixed top-0 left-0 right-0 transition-all duration-300"
       style={{
         background: scrolled ? "rgba(44, 36, 25, 0.75)" : "#2c2419",
         backdropFilter: scrolled ? "blur(12px)" : "none",
@@ -81,12 +90,14 @@ export default function Navbar() {
             <a
               key={i}
               href={getHref(hashes[i])}
+              onClick={(e) => handleNavClick(e, hashes[i])}
               className="mx-2 px-5 py-2 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors">
               {label}
             </a>
           )}
           <a
             href={getHref("#contact")}
+            onClick={(e) => handleNavClick(e, "#contact")}
             className="ml-4 relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300 group"
             style={{ background: '#c9a87c', color: '#2c2419', boxShadow: '0 0 0 0 rgba(201,168,124,0.7)' }}
             onMouseEnter={(e) => { e.currentTarget.style.background = '#e2c48e'; e.currentTarget.style.boxShadow = '0 0 24px rgba(201,168,124,0.8), 0 4px 16px rgba(0,0,0,0.3)'; }}
@@ -140,7 +151,7 @@ export default function Navbar() {
                 key={i}
                 href={getHref(hashes[i])}
                 className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
-                onClick={() => setOpen(false)}>
+                onClick={(e) => handleNavClick(e, hashes[i])}>
                 {label}
               </a>
             )}
