@@ -72,7 +72,7 @@ export default function Navbar() {
             src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
             alt="dental logo"
             className="w-14 h-14 object-contain flex-shrink-0"
-            style={{ mixBlendMode: "screen" }}
+            style={{}}
           />
           <div className="flex flex-col leading-tight">
             <span className="text-primary">PANORAMA</span>
