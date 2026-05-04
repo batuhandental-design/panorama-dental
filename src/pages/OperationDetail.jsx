@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Phone } from "lucide-react";
+import { ArrowLeft, Phone, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import Navbar from "../components/home/Navbar";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
 import TopBar from "../components/home/TopBar";
 import { useLanguage } from "@/lib/LanguageContext";
 import { operationsTranslations } from "@/lib/operationsTranslations";
+import { operationDetails } from "@/lib/operationDetails";
 
 const getTranslationKey = (key, lang, defaultLang = 'tr') => {
   const translations = {
@@ -23,6 +25,26 @@ const getTranslationKey = (key, lang, defaultLang = 'tr') => {
   return (translations[key]?.[lang] || translations[key]?.[defaultLang] || key);
 };
 
+function FaqItem({ q, a }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-[#e0d8d0] rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-4 text-left bg-white hover:bg-[#f7f3ef] transition-colors"
+      >
+        <span className="text-[#2d2419] font-semibold text-sm">{q}</span>
+        {open ? <ChevronUp className="w-4 h-4 text-[#8B6840] flex-shrink-0" /> : <ChevronDown className="w-4 h-4 text-[#8B6840] flex-shrink-0" />}
+      </button>
+      {open && (
+        <div className="px-5 py-4 bg-[#faf7f4] border-t border-[#e0d8d0]">
+          <p className="text-[#6b5e52] text-sm leading-relaxed">{a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function OperationDetail() {
   const { slug } = useParams();
   const { lang } = useLanguage();
@@ -30,6 +52,10 @@ export default function OperationDetail() {
   // Get translations for current language
   const translations = operationsTranslations[lang] || operationsTranslations.tr;
   const operation = translations[slug];
+
+  // Get detailed content (preop, postop, faq, intro)
+  const detailLang = operationDetails[lang] || operationDetails.tr;
+  const detail = detailLang?.[slug] || null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -112,6 +138,95 @@ export default function OperationDetail() {
             ))}
           </div>
         </motion.div>
+
+        {/* Intro (detailed) */}
+        {detail?.intro && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="bg-[#2c2419] border border-[#3d3028] rounded-2xl p-8 shadow-sm mb-8"
+          >
+            <p className="text-[#c9bfb4] leading-relaxed text-[15px]">{detail.intro}</p>
+          </motion.div>
+        )}
+
+        {/* Pre-Op */}
+        {detail?.preop && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white border border-[#e0d8d0] rounded-2xl p-8 shadow-sm mb-8"
+          >
+            <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-6">
+              {detail.preop.title}
+            </h2>
+            <div className="space-y-4">
+              {detail.preop.items.map((item, i) => (
+                <div key={i} className="flex gap-4 p-4 bg-[#f7f3ef] rounded-xl">
+                  <div className="w-7 h-7 rounded-full bg-[#8B6840] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <p className="text-[#2d2419] font-semibold text-sm mb-1">{item.heading}</p>
+                    <p className="text-[#6b5e52] text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Post-Op */}
+        {detail?.postop && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="bg-white border border-[#e0d8d0] rounded-2xl p-8 shadow-sm mb-8"
+          >
+            <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-6">
+              {detail.postop.title}
+            </h2>
+            <div className="space-y-4">
+              {detail.postop.items.map((item, i) => (
+                <div key={i} className="flex gap-4 p-4 bg-[#f7f3ef] rounded-xl">
+                  <div className="w-7 h-7 rounded-full border-2 border-[#8B6840] text-[#8B6840] flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <p className="text-[#2d2419] font-semibold text-sm mb-1">{item.heading}</p>
+                    <p className="text-[#6b5e52] text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* FAQ */}
+        {detail?.faq && detail.faq.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-[#2d2419] font-playfair mb-6">
+              {lang === "tr" ? "Sık Sorulan Sorular" :
+               lang === "de" ? "Häufig gestellte Fragen" :
+               lang === "ar" ? "الأسئلة الشائعة" :
+               lang === "ru" ? "Часто задаваемые вопросы" :
+               "Frequently Asked Questions"}
+            </h2>
+            <div className="space-y-3">
+              {detail.faq.map((item, i) => (
+                <FaqItem key={i} q={item.q} a={item.a} />
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* CTA */}
         <motion.div
