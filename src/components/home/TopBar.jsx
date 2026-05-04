@@ -21,12 +21,19 @@ export default function TopBar() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center flex-shrink-0">
               <Phone className="w-4 h-4 text-primary" />
             </div>
             <div>
               <p className="text-xs text-gray-400">{t.topBarCall}</p>
-              <a href="tel:+905551896062" className="text-xs font-medium hover:text-primary transition-colors">+90 555 189 60 62</a>
+              <div className="flex flex-col gap-0.5">
+                <a href="tel:+905551896062" className="text-xs font-medium hover:text-primary transition-colors">
+                  <span className="text-gray-400">Haliç</span> — +90 555 189 60 62
+                </a>
+                <a href="tel:+905321592703" className="text-xs font-medium hover:text-primary transition-colors">
+                  <span className="text-gray-400">Pendik</span> — +90 532 159 27 03
+                </a>
+              </div>
             </div>
           </div>
           <a href="#contact" className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
