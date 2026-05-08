@@ -2,6 +2,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
+import InstagramSlider from "./InstagramSlider";
 
 const BASE = "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/";
 
@@ -244,9 +245,12 @@ export default function BeforeAfterSection() {
           )}
         </div>
 
-        <p className="text-center text-[#9c8e84] text-sm mb-12">
+        <p className="text-center text-[#9c8e84] text-sm mb-4">
           <span className="font-bold text-[#8B6840]">{current + 1}</span> / {total} {t.caseLabel}
         </p>
+
+        {/* Instagram Reels Slider */}
+        <InstagramSlider />
 
         {/* CTA */}
         <motion.div

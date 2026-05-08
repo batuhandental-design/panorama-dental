@@ -1,26 +1,17 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// panoramadentalinternational Instagram postları - embed URL'leri
-const POSTS = [
-  { id: "C8e1234abcd", url: "https://www.instagram.com/p/C8e1234abcd/embed", type: "post" },
-  { id: "C7x9876efgh", url: "https://www.instagram.com/p/C7x9876efgh/embed", type: "post" },
-];
-
-// Instagram'ın resmi embed'i CORS kısıtlaması nedeniyle çalışmaz.
-// Bu yüzden bilinen public post URL'lerini direkt embed ediyoruz.
-// Aşağıdaki postlar panoramadentalinternational hesabından alınmıştır.
-const INSTAGRAM_EMBEDS = [
-  "https://www.instagram.com/reel/DJBKExample1/embed/",
-  "https://www.instagram.com/reel/DJBKExample2/embed/",
-  "https://www.instagram.com/p/DJBKExample3/embed/",
+const REELS = [
+  "DKJsg5SKyOR",
+  "C-kgM-JqZAl",
+  "C-kfa-pq-ab",
 ];
 
 export default function InstagramSlider() {
   const scrollRef = useRef(null);
   const autoRef = useRef(null);
   const [current, setCurrent] = useState(0);
-  const total = INSTAGRAM_EMBEDS.length;
+  const total = REELS.length;
 
   const scrollToIndex = useCallback((idx) => {
     const container = scrollRef.current;
@@ -52,30 +43,26 @@ export default function InstagramSlider() {
   }, [go]);
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
     setTimeout(() => scrollToIndex(0), 100);
   }, [scrollToIndex]);
 
   return (
-    <div className="mt-12">
-      {/* Instagram başlık */}
+    <div className="mt-16">
+      {/* Başlık */}
       <div className="flex items-center justify-center gap-3 mb-8">
-        <div className="flex items-center gap-2">
-          <svg viewBox="0 0 24 24" className="w-6 h-6" fill="url(#igGrad)">
-            <defs>
-              <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#f09433" />
-                <stop offset="25%" stopColor="#e6683c" />
-                <stop offset="50%" stopColor="#dc2743" />
-                <stop offset="75%" stopColor="#cc2366" />
-                <stop offset="100%" stopColor="#bc1888" />
-              </linearGradient>
-            </defs>
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-          <span className="text-lg font-bold text-[#2d2419] font-playfair">@panoramadentalinternational</span>
-        </div>
+        <svg viewBox="0 0 24 24" className="w-6 h-6 flex-shrink-0" fill="url(#igGrad2)">
+          <defs>
+            <linearGradient id="igGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#f09433" />
+              <stop offset="25%" stopColor="#e6683c" />
+              <stop offset="50%" stopColor="#dc2743" />
+              <stop offset="75%" stopColor="#cc2366" />
+              <stop offset="100%" stopColor="#bc1888" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        <span className="text-lg font-bold text-[#2d2419] font-playfair">@panoramadentalinternational</span>
         <a
           href="https://www.instagram.com/panoramadentalinternational"
           target="_blank"
@@ -104,12 +91,31 @@ export default function InstagramSlider() {
             scrollSnapType: "x mandatory",
             cursor: "grab",
           }}
+          onMouseDown={(e) => {
+            const el = scrollRef.current;
+            if (!el) return;
+            el.style.cursor = "grabbing";
+            el.style.scrollBehavior = "auto";
+            const startX = e.pageX - el.offsetLeft;
+            const startScroll = el.scrollLeft;
+            clearInterval(autoRef.current);
+            const onMove = (ev) => { el.scrollLeft = startScroll - (ev.pageX - el.offsetLeft - startX); };
+            const onUp = () => {
+              el.style.cursor = "grab";
+              el.style.scrollBehavior = "smooth";
+              resetAuto();
+              window.removeEventListener("mousemove", onMove);
+              window.removeEventListener("mouseup", onUp);
+            };
+            window.addEventListener("mousemove", onMove);
+            window.addEventListener("mouseup", onUp);
+          }}
         >
-          {INSTAGRAM_EMBEDS.map((embedUrl, i) => (
+          {REELS.map((reelId, i) => (
             <div
-              key={i}
+              key={reelId}
               onClick={() => { setCurrent(i); scrollToIndex(i); resetAuto(); }}
-              className="flex-shrink-0 w-[85vw] sm:w-[60%] md:w-[31%] lg:w-[30%]"
+              className="flex-shrink-0 w-[75vw] sm:w-[50%] md:w-[28%] lg:w-[26%]"
               style={{ scrollSnapAlign: "center" }}
             >
               <div
@@ -121,9 +127,9 @@ export default function InstagramSlider() {
                 }}
               >
                 <iframe
-                  src={embedUrl}
+                  src={`https://www.instagram.com/reel/${reelId}/embed/`}
                   className="w-full"
-                  style={{ height: 480, border: "none" }}
+                  style={{ height: 560, border: "none" }}
                   allowFullScreen
                   scrolling="no"
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
@@ -142,8 +148,8 @@ export default function InstagramSlider() {
       </div>
 
       {/* Dots */}
-      <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
-        {INSTAGRAM_EMBEDS.map((_, i) => (
+      <div className="flex items-center justify-center gap-2 mt-4">
+        {REELS.map((_, i) => (
           <button
             key={i}
             onClick={() => { setCurrent(i); scrollToIndex(i); resetAuto(); }}
