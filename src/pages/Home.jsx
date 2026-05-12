@@ -7,6 +7,7 @@ import HeroSection from "../components/home/HeroSection.jsx";
 import ServicesGrid from "../components/home/ServicesGrid";
 import StatsSection from "../components/home/StatsSection.jsx";
 import LabVideoSection from "../components/home/LabVideoSection";
+import InstagramFeedSection from "../components/home/InstagramFeedSection";
 import DoctorSection from "../components/home/DoctorSection.jsx";
 import PatientReviews from "../components/home/PatientReviews.jsx";
 import WhyUsSection from "../components/home/WhyUsSection.jsx";
@@ -49,6 +50,7 @@ export default function Home() {
       <HeroSection />
       <LanguageSwitcher />
       <ServicesGrid />
+      <InstagramFeedSection />
       <LabVideoSection />
       <StatsSection />
       <BeforeAfterSection />
