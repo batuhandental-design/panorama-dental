@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
-import { useEffect } from "react";
 
 const labVideos = [
   "eU477VXDyas",  // ALAN A
@@ -35,14 +34,6 @@ export default function LabVideoSection() {
   const labels = labLabels[lang] || labLabels.tr;
   const txt = sectionTitles[lang] || sectionTitles.tr;
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://widgets.sociablekit.com/instagram-feed/widget.js";
-    script.defer = true;
-    document.body.appendChild(script);
-    return () => { document.body.removeChild(script); };
-  }, []);
-
   return (
     <section className="py-20 bg-[#2c2419] font-inter">
       <div className="max-w-6xl mx-auto px-4">
@@ -57,17 +48,6 @@ export default function LabVideoSection() {
           <p className="text-[#c9a87c] text-lg uppercase tracking-[0.3em] mb-3 font-semibold">{txt.badge}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4">{txt.title}</h2>
           <p className="text-[#b0a090] max-w-xl mx-auto text-sm leading-relaxed">{txt.desc}</p>
-        </motion.div>
-
-        {/* Instagram Feed */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <div className="sk-instagram-feed" data-embed-id="25681094"></div>
         </motion.div>
 
         {/* 3-column video grid */}
