@@ -94,12 +94,14 @@ export default function InstagramFeedSection() {
           </a>
         </div>
 
-        {/* 3-column auto-sliding grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {COLUMNS.map((images, i) => (
-            <AutoColumn key={i} images={images} delay={i * 600} />
-          ))}
-        </div>
+        {/* SociableKit Instagram Feed */}
+        <iframe
+          src="https://widgets.sociablekit.com/instagram-feed/iframe/25681094"
+          frameBorder="0"
+          width="100%"
+          height="1000px"
+          className="rounded-2xl"
+        />
       </div>
     </section>
   );
