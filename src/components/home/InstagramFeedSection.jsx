@@ -1,16 +1,67 @@
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Her sütun için görsel grupları — kendi Instagram görsel URL'lerinizle değiştirin
+const COLUMNS = [
+  [
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/ed946f566_1.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/0f68dc5f0_2.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/3165b21b7_3.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/a2631b18a_4.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/81e694748_5.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/5254cb7ca_6.png",
+  ],
+  [
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/598e6993d_7.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/bac2fca14_8.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/985a49a67_9.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/59a94a24f_10.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/732eb19d1_11.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/cdeedde90_12.png",
+  ],
+  [
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/19d222a60_13.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/3cdb29ca5_14.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/554eaa8e7_15.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/beca0a937_16.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/375c2e708_17.png",
+    "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/6bb7d8582_18.png",
+  ],
+];
+
+function AutoColumn({ images, delay = 0 }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setIndex((i) => (i + 1) % images.length);
+      }, 2000);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [images.length, delay]);
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-2xl shadow-lg bg-[#e8e0d5]" style={{ aspectRatio: "1/1" }}>
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={index}
+          src={images[index]}
+          alt=""
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.96 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ mixBlendMode: "multiply" }}
+        />
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function InstagramFeedSection() {
-  useEffect(() => {
-    // Script zaten yüklenmediyse ekle
-    if (!document.querySelector('script[src="https://widgets.sociablekit.com/instagram-feed/widget.js"]')) {
-      const script = document.createElement("script");
-      script.src = "https://widgets.sociablekit.com/instagram-feed/widget.js";
-      script.defer = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
     <section className="py-20 bg-[#f7f3ef] font-inter">
       <div className="max-w-6xl mx-auto px-4">
@@ -43,8 +94,12 @@ export default function InstagramFeedSection() {
           </a>
         </div>
 
-        {/* SociableKit Instagram Feed Widget */}
-        <div className="sk-instagram-feed" data-embed-id="25681094"></div>
+        {/* 3-column auto-sliding grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {COLUMNS.map((images, i) => (
+            <AutoColumn key={i} images={images} delay={i * 600} />
+          ))}
+        </div>
       </div>
     </section>
   );
