@@ -397,6 +397,25 @@ export default function DepartmentsSection() {
           box-shadow: 0 0 20px rgba(201,168,124,0.7), 0 0 40px rgba(201,168,124,0.35) !important;
           transform: scale(1.08);
         }
+        .operation-card > div:first-child {
+          position: relative;
+          overflow: hidden;
+        }
+        .operation-card > div:first-child::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 9999px;
+          background: radial-gradient(circle at center, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0) 70%);
+          opacity: 0;
+          transform: scale(0.2);
+          transition: opacity 0.4s ease, transform 0.4s ease;
+          pointer-events: none;
+        }
+        .operation-card:hover > div:first-child::after {
+          opacity: 1;
+          transform: scale(1);
+        }
         .operation-card {
           position: relative;
           border-radius: 12px;
