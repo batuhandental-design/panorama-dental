@@ -45,6 +45,7 @@ export default function InstagramFeedSection() {
         </div>
 
         {/* SociableKit Instagram Feed */}
+        <style>{`.sk-instagram-feed .sk-header { display: none !important; }`}</style>
         <div className="sk-instagram-feed" data-embed-id="25681094"></div>
       </div>
     </section>
