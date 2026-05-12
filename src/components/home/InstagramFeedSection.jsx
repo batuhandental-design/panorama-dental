@@ -94,15 +94,23 @@ export default function InstagramFeedSection() {
           </a>
         </div>
 
-        {/* SociableKit Instagram Feed */}
-        <div className="overflow-hidden rounded-2xl" style={{ height: "1000px" }}>
-          <iframe
-            src="https://widgets.sociablekit.com/instagram-feed/iframe/25681094"
-            frameBorder="0"
-            width="100%"
-            height="1060px"
-            style={{ marginTop: 0, display: "block" }}
-          />
+        {/* 3 görsel grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {COLUMNS.map((images, i) => (
+            <AutoColumn key={i} images={images} delay={i * 600} />
+          ))}
+        </div>
+
+        {/* Load more butonu */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="https://www.instagram.com/panoramadentalinternational"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 bg-[#1e1e1e] text-white text-sm font-semibold rounded-xl hover:bg-[#333] transition-colors"
+          >
+            Load more posts
+          </a>
         </div>
       </div>
     </section>
