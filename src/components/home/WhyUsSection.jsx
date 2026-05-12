@@ -12,8 +12,8 @@ export default function WhyUsSection() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.whyLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.whyTitle}</h2>
-          <p className="text-[#6b5e52] max-w-2xl mx-auto leading-relaxed">{t.whyDesc}</p>
+          <h2 className="text-2xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.whyTitle}</h2>
+          <p className="text-[#6b5e52] max-w-2xl mx-auto leading-relaxed text-sm md:text-base">{t.whyDesc}</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

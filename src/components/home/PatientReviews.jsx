@@ -77,7 +77,7 @@ export default function PatientReviews() {
         <div className="text-center mb-12">
           <div className="w-10 h-0.5 bg-[#c9a87c] mx-auto mb-5" />
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{txt.badge}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-3">{txt.title}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-3">{txt.title}</h2>
           <div className="flex items-center justify-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />

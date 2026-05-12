@@ -12,7 +12,7 @@ export default function PackageServices() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3">{t.packagesLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2419] font-playfair">{t.packagesTitle}</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-[#2d2419] font-playfair">{t.packagesTitle}</h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

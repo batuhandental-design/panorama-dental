@@ -33,7 +33,7 @@ export default function HeroSection() {
       </section>
 
       {/* Text Section with video background */}
-      <section className="relative py-24 px-4 text-center text-white overflow-hidden" style={{ minHeight: "60vw" }}>
+      <section className="relative py-16 md:py-24 px-4 text-center text-white overflow-hidden" style={{ minHeight: "60vw" }}>
         {/* Video background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <iframe
@@ -71,7 +71,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-playfair leading-tight mb-6"
           >
             {t.heroTitle1}{" "}
             <span className="text-[#c9a87c]">{t.heroTitleHighlight}</span>{" "}
@@ -81,7 +81,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed px-2"
           >
             {t.heroDesc}
           </motion.p>

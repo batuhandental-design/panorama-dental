@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-[#e8dfd5] mb-4">
+            <h3 className="text-xl md:text-2xl font-bold text-[#e8dfd5] mb-4">
               <span className="text-[#c9a87c]">Pendik ve Haliç Panorama</span> Dental
             </h3>
             <p className="text-sm leading-relaxed mb-6">
