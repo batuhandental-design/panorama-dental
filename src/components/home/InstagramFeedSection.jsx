@@ -2,12 +2,14 @@ import { useEffect } from "react";
 
 export default function InstagramFeedSection() {
   useEffect(() => {
-    // Script zaten yüklüyse tekrar yükleme
-    if (document.querySelector('script[src*="sociablekit.com/instagram-feed/widget.js"]')) return;
+    // Varsa eski script'i kaldır
+    const old = document.querySelector('script[src*="sociablekit.com/instagram-feed/widget.js"]');
+    if (old) old.remove();
     const script = document.createElement("script");
     script.src = "https://widgets.sociablekit.com/instagram-feed/widget.js";
     script.defer = true;
     document.body.appendChild(script);
+    return () => script.remove();
   }, []);
 
   return (
