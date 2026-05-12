@@ -95,13 +95,15 @@ export default function InstagramFeedSection() {
         </div>
 
         {/* SociableKit Instagram Feed */}
-        <iframe
-          src="https://widgets.sociablekit.com/instagram-feed/iframe/25681094"
-          frameBorder="0"
-          width="100%"
-          height="1000px"
-          className="rounded-2xl"
-        />
+        <div className="overflow-hidden rounded-2xl" style={{ height: "1000px" }}>
+          <iframe
+            src="https://widgets.sociablekit.com/instagram-feed/iframe/25681094"
+            frameBorder="0"
+            width="100%"
+            height="1060px"
+            style={{ marginTop: 0, display: "block" }}
+          />
+        </div>
       </div>
     </section>
   );
