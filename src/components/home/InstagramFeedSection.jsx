@@ -100,8 +100,8 @@ export default function InstagramFeedSection() {
             src="https://widgets.sociablekit.com/instagram-feed/iframe/25681094"
             frameBorder="0"
             width="100%"
-            height="1060px"
-            style={{ marginTop: 0, display: "block" }}
+            height="1000px"
+            style={{ display: "block" }}
           />
         </div>
       </div>
