@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
@@ -28,9 +28,8 @@ function DoctorCard({ doc, name, bio, appointmentBtn, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 5) * 0.08 }}
-      className="flex flex-col"
     >
-      <div className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] border border-[#d4c9bc] rounded-2xl p-5 text-center hover:border-[#8B6840]/30 transition-all flex flex-col h-full">
+      <div className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] border border-[#d4c9bc] rounded-2xl p-5 text-center hover:border-[#8B6840]/30 transition-all flex flex-col">
         <div className="w-16 h-16 mx-auto bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-3 text-2xl">🦷</div>
         <h3 className="text-sm font-bold text-[#2d2419] mb-1 leading-tight">{name}</h3>
         <p className="text-[#8B6840] text-xs font-medium mb-1 leading-tight">{doc.specialty}</p>
@@ -48,29 +47,19 @@ function DoctorCard({ doc, name, bio, appointmentBtn, index }) {
         </a>
 
         <button
-          onClick={() => setOpen((prev) => !prev)}
-          className="flex items-center justify-center gap-1 text-xs text-[#8B6840] hover:text-[#7a5c38] transition-colors mx-auto mt-auto"
+          type="button"
+          onClick={() => setOpen(!open)}
+          className="flex items-center justify-center gap-1 text-xs text-[#8B6840] hover:text-[#7a5c38] transition-colors mx-auto"
         >
           <span>{open ? "Biyografiyi Gizle" : "Biyografiyi Göster"}</span>
           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
         </button>
 
-        <AnimatePresence initial={false}>
-          {open && (
-            <motion.div
-              key="bio"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-3 pt-3 border-t border-[#d4c9bc]">
-                <p className="text-[#4a3728] text-xs leading-relaxed text-left">{bio}</p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {open && (
+          <div className="mt-3 pt-3 border-t border-[#d4c9bc]">
+            <p className="text-[#4a3728] text-xs leading-relaxed text-left">{bio}</p>
+          </div>
+        )}
       </div>
     </motion.div>
   );
