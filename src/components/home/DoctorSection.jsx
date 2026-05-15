@@ -26,7 +26,9 @@ export default function DoctorSection() {
   const extraDoctor = { specialty: t.extraDoctorSpecialty, exp: t.extraDoctorExp };
   const allDoctors = [extraDoctor, ...t.doctors].slice(0, names.length);
 
-  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
+  const toggle = (i) => {
+    setOpenIndex((prev) => (prev === i ? null : i));
+  };
 
   return (
     <section className="py-20 bg-[#ede8e0] font-inter">
@@ -76,7 +78,7 @@ export default function DoctorSection() {
                 </button>
 
                 {/* Bio Dropdown */}
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {openIndex === i && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
