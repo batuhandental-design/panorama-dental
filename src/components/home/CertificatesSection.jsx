@@ -16,6 +16,10 @@ export default function CertificatesSection() {
       src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/872a2a570_8.png",
       alt: "Türk Patent ve Marka Kurumu Marka Tescil Belgesi",
     },
+    {
+      src: "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/19388de92_3.png",
+      alt: "IQR ISO 9001:2015 Kalite Yönetim Sistemi Sertifikası",
+    },
   ];
 
   return (
@@ -25,7 +29,7 @@ export default function CertificatesSection() {
           <p className="text-[#8B6840] text-xs uppercase tracking-[0.3em] font-medium mb-2">Belgelerimiz</p>
           <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair">Lisans &amp; Sertifikalar</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
           {certs.map((cert, i) => (
             <div key={i} className="flex items-center justify-center">
               <img
