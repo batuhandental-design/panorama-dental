@@ -14,6 +14,7 @@ import WhyUsSection from "../components/home/WhyUsSection.jsx";
 import PackageServices from "../components/home/PackageServices.jsx";
 import DepartmentsSection from "../components/home/DepartmentsSection.jsx";
 import BeforeAfterSection from "../components/home/BeforeAfterSection.jsx";
+import CertificatesSection from "../components/home/CertificatesSection.jsx";
 import ContactSection from "../components/home/ContactSection.jsx";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
@@ -53,6 +54,7 @@ export default function Home() {
       <InstagramFeedSection />
       <LabVideoSection />
       <StatsSection />
+      <CertificatesSection />
       <BeforeAfterSection />
       <DoctorSection />
       <PatientReviews />
