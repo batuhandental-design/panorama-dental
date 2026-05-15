@@ -27,14 +27,11 @@ export default function CertificatesSection() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {certs.map((cert, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl overflow-hidden border border-[#e0d8d0] shadow-sm hover:shadow-md transition-shadow"
-            >
+            <div key={i} className="flex items-center justify-center">
               <img
                 src={cert.src}
                 alt={cert.alt}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain drop-shadow-md"
                 loading="lazy"
               />
             </div>
