@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function InstagramFeedSection() {
+  const [showAll, setShowAll] = useState(false);
+
   useEffect(() => {
     // Varsa eski script'i kaldır
     const old = document.querySelector('script[src*="sociablekit.com/instagram-feed/widget.js"]');
@@ -57,8 +59,19 @@ export default function InstagramFeedSection() {
           .sk-instagram-feed .sk-feed-container,
           .sk-instagram-feed [class*="container"],
           .sk-instagram-feed [class*="wrapper"] { background: transparent !important; background-color: transparent !important; box-shadow: none !important; }
+          .limit-posts .sk-item:nth-child(n+4) { display: none !important; }
         `}</style>
-        <div className="sk-instagram-feed" data-embed-id="25681094"></div>
+        <div className={showAll ? "sk-instagram-feed" : "sk-instagram-feed limit-posts"} data-embed-id="25681094"></div>
+        {!showAll && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAll(true)}
+              className="px-6 py-2.5 border border-[#8B6840] text-[#8B6840] rounded-full text-sm font-semibold hover:bg-[#8B6840] hover:text-white transition-colors"
+            >
+              Load more posts
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
