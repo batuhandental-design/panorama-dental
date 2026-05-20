@@ -52,12 +52,9 @@ export default function InstagramFeedSection() {
           .sk-instagram-feed [class*="profile"],
           .sk-instagram-feed [class*="branding"] { display: none !important; }
           .sk-instagram-feed,
-          .sk-instagram-feed *,
           .sk-ww-instagram-feed,
           .sk-ww-instagram-feed > div,
           .sk-instagram-feed .sk-feed-container,
-          .sk-instagram-feed .sk-item,
-          .sk-instagram-feed .sk-item-inner,
           .sk-instagram-feed [class*="container"],
           .sk-instagram-feed [class*="wrapper"] { background: transparent !important; background-color: transparent !important; box-shadow: none !important; }
         `}</style>
