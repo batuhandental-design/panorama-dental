@@ -1,45 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function InstagramFeedSection() {
   const [showAll, setShowAll] = useState(false);
-  const showAllRef = useRef(false);
-  const containerRef = useRef(null);
-
-  const limitPosts = () => {
-    if (showAllRef.current) return;
-    const container = containerRef.current;
-    if (!container) return;
-    // Try common selectors used by SociableKit
-    const selectors = [".sk-item", ".sk-post", ".sked-item", "[class*='item']", "[class*='post']"];
-    let items = [];
-    for (const sel of selectors) {
-      items = Array.from(container.querySelectorAll(sel));
-      if (items.length > 0) break;
-    }
-    // Fallback: direct children of the grid/ul container
-    if (items.length === 0) {
-      const grid = container.querySelector("ul, ol, [class*='grid'], [class*='feed']");
-      if (grid) items = Array.from(grid.children);
-    }
-    items.forEach((el, i) => {
-      el.style.display = i < 3 ? "" : "none";
-    });
-  };
-
-  useEffect(() => {
-    showAllRef.current = showAll;
-    if (showAll) {
-      // Show all hidden posts
-      const container = containerRef.current;
-      if (container) {
-        container.querySelectorAll("*").forEach((el) => {
-          if (el.style.display === "none") el.style.display = "";
-        });
-      }
-    } else {
-      limitPosts();
-    }
-  }, [showAll]);
 
   useEffect(() => {
     const old = document.querySelector('script[src*="sociablekit.com/instagram-feed/widget.js"]');
@@ -48,17 +10,7 @@ export default function InstagramFeedSection() {
     script.src = "https://widgets.sociablekit.com/instagram-feed/widget.js";
     script.defer = true;
     document.body.appendChild(script);
-
-    // Watch for widget rendering
-    const observer = new MutationObserver(() => limitPosts());
-    if (containerRef.current) {
-      observer.observe(containerRef.current, { childList: true, subtree: true });
-    }
-
-    return () => {
-      script.remove();
-      observer.disconnect();
-    };
+    return () => script.remove();
   }, []);
 
   return (
@@ -108,7 +60,11 @@ export default function InstagramFeedSection() {
           .sk-instagram-feed [class*="wrapper"] { background: transparent !important; background-color: transparent !important; box-shadow: none !important; }
           .limit-posts .sk-item:nth-child(n+4) { display: none !important; }
         `}</style>
-        <div ref={containerRef} className="sk-instagram-feed" data-embed-id="25681094"></div>
+        <div
+          style={!showAll ? { maxHeight: "380px", overflow: "hidden" } : {}}
+        >
+          <div className="sk-instagram-feed" data-embed-id="25681094"></div>
+        </div>
         {!showAll && (
           <div className="text-center mt-8">
             <button
