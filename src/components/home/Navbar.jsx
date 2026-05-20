@@ -46,6 +46,14 @@ export default function Navbar() {
   const handleLangToggle = () => setLangOpen((v) => !v);
   const getHref = (hash) => isHome ? hash : `/${hash}`;
 
+  const handleDoctorsClick = (e) => {
+    if (isHome) {
+      e.preventDefault();
+      const el = document.querySelector("#doctors");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const handleContactClick = (e) => {
     if (isHome) {
       e.preventDefault();
@@ -90,6 +98,13 @@ export default function Navbar() {
               {label}
             </a>
           ))}
+          <a
+            href={getHref("#doctors")}
+            onClick={handleDoctorsClick}
+            className="mx-1 px-2 md:px-3 lg:px-5 py-2 text-xs md:text-xs lg:text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
+          >
+            Doktorlarımız
+          </a>
           <a
             href={getHref("#contact")}
             onClick={handleContactClick}
@@ -157,6 +172,13 @@ export default function Navbar() {
                 {label}
               </a>
             ))}
+            <a
+              href={getHref("#doctors")}
+              onClick={(e) => { handleDoctorsClick(e); setOpen(false); }}
+              className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
+            >
+              Doktorlarımız
+            </a>
           </div>
           <div className="border-t border-white/10 py-4">
             <LanguageSwitcher />
