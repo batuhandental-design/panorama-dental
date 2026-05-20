@@ -61,7 +61,7 @@ export default function InstagramFeedSection() {
           .limit-posts .sk-item:nth-child(n+4) { display: none !important; }
         `}</style>
         <div
-          style={!showAll ? { maxHeight: "620px", overflow: "hidden" } : {}}
+          style={!showAll ? { maxHeight: "430px", overflow: "hidden" } : {}}
         >
           <div className="sk-instagram-feed" data-embed-id="25681094"></div>
         </div>
