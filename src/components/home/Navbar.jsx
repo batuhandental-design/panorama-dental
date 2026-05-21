@@ -89,7 +89,7 @@ export default function Navbar() {
         </a>
 
         <div className="hidden md:flex items-center gap-1">
-          {t.nav.slice(0, 2).map((label, i) => (
+          {t.nav.map((label, i) => (
             <a
               key={i}
               href={getHref(hashes[i])}
@@ -105,15 +105,6 @@ export default function Navbar() {
           >
             Doktorlarımız
           </a>
-          {t.nav.slice(2, 4).map((label, i) => (
-            <a
-              key={i + 2}
-              href={getHref(hashes[i + 2])}
-              className="mx-1 px-2 md:px-3 lg:px-5 py-2 text-xs md:text-xs lg:text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
-            >
-              {label}
-            </a>
-          ))}
           <a
             href={getHref("#contact")}
             onClick={handleContactClick}
@@ -171,7 +162,7 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-[#2c2419] border-t border-white/10">
           <div className="px-4 pb-4">
-            {t.nav.slice(0, 2).map((label, i) => (
+            {t.nav.map((label, i) => (
               <a
                 key={i}
                 href={getHref(hashes[i])}
@@ -188,16 +179,6 @@ export default function Navbar() {
             >
               Doktorlarımız
             </a>
-            {t.nav.slice(2, 4).map((label, i) => (
-              <a
-                key={i + 2}
-                href={getHref(hashes[i + 2])}
-                className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </a>
-            ))}
           </div>
           <div className="border-t border-white/10 py-4">
             <LanguageSwitcher />
