@@ -105,7 +105,7 @@ export default function Navbar() {
           >
             Doktorlarımız
           </a>
-          {t.nav.slice(2).map((label, i) => (
+          {t.nav.slice(2, 4).map((label, i) => (
             <a
               key={i + 2}
               href={getHref(hashes[i + 2])}
@@ -188,7 +188,7 @@ export default function Navbar() {
             >
               Doktorlarımız
             </a>
-            {t.nav.slice(2).map((label, i) => (
+            {t.nav.slice(2, 4).map((label, i) => (
               <a
                 key={i + 2}
                 href={getHref(hashes[i + 2])}
