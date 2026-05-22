@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function InstagramFeedSection() {
   const [showAll, setShowAll] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const old = document.querySelector('script[src*="sociablekit.com/instagram-feed/widget.js"]');
@@ -47,8 +49,8 @@ export default function InstagramFeedSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-sm font-semibold text-[#8B6840] border border-[#8B6840]/30 px-5 py-1.5 rounded-full hover:bg-[#8B6840] hover:text-white transition-colors"
-          >
-            Takip Et
+            >
+            {t.instagramFollow}
           </a>
         </div>
 
@@ -78,7 +80,7 @@ export default function InstagramFeedSection() {
               onClick={() => setShowAll(true)}
               className="px-6 py-2.5 border border-[#8B6840] text-[#8B6840] rounded-full text-sm font-semibold hover:bg-[#8B6840] hover:text-white transition-colors"
             >
-              Load more posts
+              {t.loadMorePosts}
             </button>
           </div>
         )}

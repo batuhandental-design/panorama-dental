@@ -19,7 +19,7 @@ const bios = [
   "Dr. Arzu Dilan Yıldırım, İstanbul Üniversitesi-Cerrahpaşa Protetik Diş Hekimliği bölümü mezunudur. All-on-4, All-on-6 sistemleri ve tam protez uygulamalarında 7 yıllık deneyime sahip olan Dr. Yıldırım, her hastaya özel dijital gülüş tasarımı sunmaktadır.",
 ];
 
-function DoctorCard({ doc, name, bio, appointmentBtn, index }) {
+function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -51,7 +51,7 @@ function DoctorCard({ doc, name, bio, appointmentBtn, index }) {
           onClick={() => setOpen(!open)}
           className="flex items-center justify-center gap-1 text-xs text-[#8B6840] hover:text-[#7a5c38] transition-colors mx-auto"
         >
-          <span>{open ? "Biyografiyi Gizle" : "Biyografiyi Göster"}</span>
+          <span>{open ? hideBio : showBio}</span>
           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
         </button>
 
@@ -88,6 +88,8 @@ export default function DoctorSection() {
               name={names[i]}
               bio={bios[i]}
               appointmentBtn={t.appointmentBtn}
+              showBio={t.showBio}
+              hideBio={t.hideBio}
             />
           ))}
         </div>

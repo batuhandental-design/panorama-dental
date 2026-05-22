@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 import { X } from "lucide-react";
 
 export default function CertificatesSection() {
   const [selected, setSelected] = useState(null);
+  const { t } = useLanguage();
 
   // 4. sertifika (index 3) ortaya alındı: sıra 0,1,3,2,4
   const certs = [
@@ -32,8 +34,8 @@ export default function CertificatesSection() {
     <section className="py-16 bg-[#f7f3ef] font-inter">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-10">
-          <p className="text-[#8B6840] text-xs uppercase tracking-[0.3em] font-medium mb-2">Belgelerimiz</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair">Lisans &amp; Sertifikalar</h2>
+          <p className="text-[#8B6840] text-xs uppercase tracking-[0.3em] font-medium mb-2">{t.certsLabel}</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#2d2419] font-playfair">{t.certsTitle}</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
           {certs.map((cert, i) => (

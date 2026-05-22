@@ -103,7 +103,7 @@ export default function Navbar() {
             onClick={handleDoctorsClick}
             className="mx-1 px-2 md:px-3 lg:px-5 py-2 text-xs md:text-xs lg:text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
           >
-            Doktorlarımız
+            {t.doctorsNav}
           </a>
           <a
             href={getHref("#contact")}
@@ -177,7 +177,7 @@ export default function Navbar() {
               onClick={(e) => { handleDoctorsClick(e); setOpen(false); }}
               className="block py-3 text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors border-b border-white/5"
             >
-              Doktorlarımız
+              {t.doctorsNav}
             </a>
           </div>
           <div className="border-t border-white/10 py-4">
