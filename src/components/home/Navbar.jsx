@@ -93,7 +93,7 @@ export default function Navbar() {
             <a
               key={i}
               href={getHref(hashes[i])}
-              className="mx-1 px-2 md:px-3 lg:px-5 py-2 text-xs md:text-xs lg:text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
+              className="mx-0.5 px-1.5 py-2 text-xs font-medium uppercase tracking-wide hover:text-primary transition-colors"
             >
               {label}
             </a>
@@ -101,14 +101,14 @@ export default function Navbar() {
           <a
             href={getHref("#doctors")}
             onClick={handleDoctorsClick}
-            className="mx-1 px-2 md:px-3 lg:px-5 py-2 text-xs md:text-xs lg:text-sm font-medium uppercase tracking-wide hover:text-primary transition-colors"
+            className="mx-0.5 px-1.5 py-2 text-xs font-medium uppercase tracking-wide hover:text-primary transition-colors"
           >
             {t.doctorsNav}
           </a>
           <a
             href={getHref("#contact")}
             onClick={handleContactClick}
-            className="ml-1 relative flex items-center gap-1 px-3 md:px-4 lg:px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 group"
+            className="ml-1 relative flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 group"
             style={{ background: "#c9a87c", color: "#2c2419" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#e2c48e";
