@@ -74,8 +74,8 @@ export default function Navbar() {
         transition: "background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" className="flex items-center gap-1 text-2xl font-bold tracking-tight">
+      <div className="max-w-7xl mx-auto px-4 flex items-center h-16 gap-2">
+        <a href="/" className="flex items-center gap-1 text-2xl font-bold tracking-tight flex-shrink-0">
           <img
             src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
             alt="dental logo"
@@ -88,12 +88,12 @@ export default function Navbar() {
           </div>
         </a>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center flex-1 justify-center gap-0.5">
           {t.nav.map((label, i) => (
             <a
               key={i}
               href={getHref(hashes[i])}
-              className="mx-0.5 px-1.5 py-2 text-xs font-medium uppercase tracking-wide hover:text-primary transition-colors"
+              className="px-1.5 py-2 text-xs font-medium uppercase tracking-wide hover:text-primary transition-colors whitespace-nowrap"
             >
               {label}
             </a>
@@ -101,14 +101,14 @@ export default function Navbar() {
           <a
             href={getHref("#doctors")}
             onClick={handleDoctorsClick}
-            className="mx-0.5 px-1.5 py-2 text-xs font-medium uppercase tracking-wide hover:text-primary transition-colors"
+            className="px-1.5 py-2 text-xs font-medium uppercase tracking-wide hover:text-primary transition-colors whitespace-nowrap"
           >
             {t.doctorsNav}
           </a>
           <a
             href={getHref("#contact")}
             onClick={handleContactClick}
-            className="ml-1 relative flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 group"
+            className="relative flex-shrink-0 flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 group"
             style={{ background: "#c9a87c", color: "#2c2419" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#e2c48e";
@@ -128,7 +128,7 @@ export default function Navbar() {
           </a>
 
           {/* Dil Seçici */}
-          <div className="relative ml-2" ref={dropdownRef}>
+          <div className="relative flex-shrink-0" ref={dropdownRef}>
             <button
               onClick={handleLangToggle}
               className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-xs font-medium"
