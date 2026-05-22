@@ -74,7 +74,7 @@ export default function Navbar() {
         transition: "background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 flex items-center h-16 gap-2">
+      <div className="w-full px-6 flex items-center h-16 gap-2">
         <a href="/" className="flex items-center gap-1 text-2xl font-bold tracking-tight flex-shrink-0">
           <img
             src="https://media.base44.com/images/public/69d79ff6631966558dbdfca2/861dea12d_image.png"
