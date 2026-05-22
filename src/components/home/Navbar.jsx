@@ -134,7 +134,6 @@ export default function Navbar() {
               className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-xs font-medium"
             >
               <img src={currentLang.img} alt={currentLang.label} className="w-5 h-3.5 object-cover rounded-sm" />
-              <span className="hidden lg:inline">{currentLang.label}</span>
               <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
             {langOpen && (
