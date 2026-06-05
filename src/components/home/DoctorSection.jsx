@@ -9,6 +9,7 @@ const names = [
   "Dr. Elif Gizem Boyalı",
   "Dr. Süleyman Karataş",
   "Dr. Arzu Dilan Yıldırım",
+  "Danışman Uğur Umur",
 ];
 
 const photos = [
@@ -16,6 +17,7 @@ const photos = [
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/be39d9a74_3.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/7c6ef9e67_1.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/91f5cd8c1_2.png",
+  null,
   null,
 ];
 
@@ -25,6 +27,7 @@ const bios = [
   "Dr. Elif Gizem Boyalı, Girne Üniversitesi Diş Hekimliği Fakültesi'nden mezun olmuştur. 8 yıldır aktif olarak diş hekimi olarak çalışmakta olup; kanal tedavisi, dolgu uygulamaları, protez tedavileri ve diş eti hastalıklarının teşhis ve tedavisi alanlarında hizmet vermektedir. Hastalarına konforlu, güvenilir ve güncel tedavi yaklaşımları sunmayı hedeflemektedir.",
   "Dr. Süleyman Karataş, Ankara Üniversitesi Ağız, Diş ve Çene Cerrahisi uzmanıdır. İmplant cerrahisi, sinüs lifting ve karmaşık çene cerrahisi operasyonlarında 9 yılı aşkın deneyimiyle tanınan Dr. Karataş, 3D tomografi rehberliğinde hassas cerrahi protokoller uygulamaktadır.",
   "Dr. Arzu Dilan Yıldırım, İstanbul Üniversitesi-Cerrahpaşa Protetik Diş Hekimliği bölümü mezunudur. All-on-4, All-on-6 sistemleri ve tam protez uygulamalarında 7 yıllık deneyime sahip olan Dr. Yıldırım, her hastaya özel dijital gülüş tasarımı sunmaktadır.",
+  "Danışman Uğur Umur, uluslararası hasta koordinasyonu ve medikal turizm alanında uzmanlaşmıştır. Yurt dışından gelen hastalar için kişiselleştirilmiş hizmet, transfer ve konaklama süreçlerini yönetmektedir.",
 ];
 
 function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, photo }) {
@@ -98,7 +101,8 @@ export default function DoctorSection() {
   const { t } = useLanguage();
 
   const extraDoctor = { specialty: t.extraDoctorSpecialty, exp: t.extraDoctorExp };
-  const allDoctors = [extraDoctor, ...t.doctors].slice(0, names.length);
+  const consultantDoctor = { specialty: "Hasta Koordinatörü", exp: "Medikal Turizm Danışmanı" };
+  const allDoctors = [extraDoctor, ...t.doctors, consultantDoctor].slice(0, names.length);
 
   return (
     <section className="py-20 bg-[#ede8e0] font-inter" id="doctors">
@@ -108,7 +112,7 @@ export default function DoctorSection() {
           <h2 className="text-2xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.doctorsTitle}</h2>
           <p className="text-[#6b5e52] max-w-lg mx-auto">{t.doctorsDesc}</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
           {allDoctors.map((doc, i) => (
             <DoctorCard
               key={i}
