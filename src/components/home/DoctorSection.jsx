@@ -8,10 +8,7 @@ const topPhotos = [
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/bc7b56a22_4.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/7c6ef9e67_1.png",
 ];
-const topBios = [
-  "Dr. Zeynep Umur, İstanbul Üniversitesi Diş Hekimliği Fakültesi mezunudur. 10 yılı aşkın klinik deneyimiyle estetik diş hekimliği ve implantoloji alanında uzmanlaşmış olup Hollywood Gülüşü ve zirkonyum kaplama tedavilerinde binlerce başarılı vakaya imza atmıştır. Uluslararası konferanslarda sunum yapan Dr. Umur, hasta odaklı yaklaşımıyla tanınmaktadır.",
-  "Dr. Elif Gizem Boyalı, Girne Üniversitesi Diş Hekimliği Fakültesi'nden mezun olmuştur. 8 yıldır aktif olarak diş hekimi olarak çalışmakta olup; kanal tedavisi, dolgu uygulamaları, protez tedavileri ve diş eti hastalıklarının teşhis ve tedavisi alanlarında hizmet vermektedir. Hastalarına konforlu, güvenilir ve güncel tedavi yaklaşımları sunmayı hedeflemektedir.",
-];
+
 
 const names = [
   "Dr. Ömer Karayakalı",
@@ -27,12 +24,7 @@ const photos = [
   null,
 ];
 
-const bios = [
-  "Dr. Ömer Karayakalı, Hacettepe Üniversitesi'nde ortodonti uzmanlık eğitimini tamamlamıştır. Şeffaf plak (clear aligner) tedavileri ve metal/seramik tel uygulamalarında 8 yılı aşkın deneyime sahiptir. Yurt dışından gelen hastalara online konsültasyon sağlayarak kişiselleştirilmiş tedavi planları hazırlamaktadır.",
-  "Danışman Uğur Umur, uluslararası hasta koordinasyonu ve medikal turizm alanında uzmanlaşmıştır. Yurt dışından gelen hastalar için kişiselleştirilmiş hizmet, transfer ve konaklama süreçlerini yönetmektedir.",
-  "Dr. Süleyman Karataş, Ankara Üniversitesi Ağız, Diş ve Çene Cerrahisi uzmanıdır. İmplant cerrahisi, sinüs lifting ve karmaşık çene cerrahisi operasyonlarında 9 yılı aşkın deneyimiyle tanınan Dr. Karataş, 3D tomografi rehberliğinde hassas cerrahi protokoller uygulamaktadır.",
-  "Dr. Arzu Dilan Yıldırım, İstanbul Üniversitesi-Cerrahpaşa Protetik Diş Hekimliği bölümü mezunudur. All-on-4, All-on-6 sistemleri ve tam protez uygulamalarında 7 yıllık deneyime sahip olan Dr. Yıldırım, her hastaya özel dijital gülüş tasarımı sunmaktadır.",
-];
+
 
 function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, photo }) {
   const [open, setOpen] = useState(false);
@@ -108,7 +100,7 @@ export default function DoctorSection() {
   const extraDoctor = { specialty: t.extraDoctorSpecialty, exp: t.extraDoctorExp };
   const secondDoctor = { specialty: t.doctors[1]?.specialty, exp: t.doctors[1]?.exp };
   const topDocs = [extraDoctor, secondDoctor];
-  const bottomDocs = [t.doctors[0], { specialty: "Hasta Koordinatörü", exp: "Medikal Turizm Danışmanı" }, t.doctors[2], t.doctors[3]];
+  const bottomDocs = [t.doctors[0], { specialty: t.consultantSpecialty, exp: t.consultantExp }, t.doctors[2], t.doctors[3]];
 
   return (
     <section className="py-20 bg-[#ede8e0] font-inter" id="doctors">
@@ -127,7 +119,7 @@ export default function DoctorSection() {
                 index={i}
                 doc={doc}
                 name={topNames[i]}
-                bio={topBios[i]}
+                bio={(t.topDoctorBios || [])[i]}
                 appointmentBtn={t.appointmentBtn}
                 showBio={t.showBio}
                 hideBio={t.hideBio}
@@ -145,7 +137,7 @@ export default function DoctorSection() {
               index={i + 2}
               doc={doc}
               name={names[i]}
-              bio={bios[i]}
+              bio={(t.doctorBios || [])[i]}
               appointmentBtn={t.appointmentBtn}
               showBio={t.showBio}
               hideBio={t.hideBio}
