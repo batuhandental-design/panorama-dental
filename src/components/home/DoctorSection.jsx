@@ -3,18 +3,9 @@ import { motion } from "framer-motion";
 import { Star, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const topNames = ["Dr. Zeynep Umur", "Dr. Elif Gizem Boyalı"];
 const topPhotos = [
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/bc7b56a22_4.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/7c6ef9e67_1.png",
-];
-
-
-const names = [
-  "Dr. Ömer Karayakalı",
-  "Danışman Uğur Umur",
-  "Dr. Süleyman Karataş",
-  "Dr. Arzu Dilan Yıldırım",
 ];
 
 const photos = [
@@ -111,14 +102,14 @@ export default function DoctorSection() {
           <p className="text-[#6b5e52] max-w-lg mx-auto">{t.doctorsDesc}</p>
         </div>
 
-        {/* Üst sıra: Dr. Zeynep Umur & Danışman Uğur Umur */}
+        {/* Üst sıra: Dr. Zeynep Umur & Dr. Elif Gizem Boyalı */}
         <div className="flex justify-center gap-5 mb-5">
           {topDocs.map((doc, i) => (
             <div key={i} className="w-full max-w-[280px]">
               <DoctorCard
                 index={i}
                 doc={doc}
-                name={topNames[i]}
+                name={(t.doctorNames?.top || [])[i]}
                 bio={(t.topDoctorBios || [])[i]}
                 appointmentBtn={t.appointmentBtn}
                 showBio={t.showBio}
@@ -136,7 +127,7 @@ export default function DoctorSection() {
               key={i}
               index={i + 2}
               doc={doc}
-              name={names[i]}
+              name={(t.doctorNames?.bottom || [])[i]}
               bio={(t.doctorBios || [])[i]}
               appointmentBtn={t.appointmentBtn}
               showBio={t.showBio}
