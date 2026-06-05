@@ -75,12 +75,13 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
                 <Star key={j} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="inline-block w-full text-center px-4 py-2 bg-[#8B6840] text-white rounded-lg font-semibold text-xs uppercase tracking-wider hover:bg-[#c9a87c] transition-all mb-2"
             >
               {appointmentBtn}
-            </a>
+            </button>
             <button
               type="button"
               onClick={() => setOpen(!open)}
