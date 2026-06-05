@@ -37,9 +37,9 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 5) * 0.08 }}
     >
-      <div className="border border-[#d4c9bc] rounded-2xl overflow-hidden hover:border-[#8B6840]/30 transition-all flex flex-col h-full">
+      <div className="border border-[#d4c9bc] rounded-2xl overflow-hidden hover:border-[#8B6840]/30 transition-all flex flex-col h-full bg-[#ede8e0]">
         {photo && (
-          <div className="h-48 overflow-hidden">
+          <div className="h-56 overflow-hidden flex-shrink-0">
             <img src={photo} alt={name} className="w-full h-full object-cover" />
           </div>
         )}
