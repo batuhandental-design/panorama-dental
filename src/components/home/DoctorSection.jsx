@@ -36,44 +36,58 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 5) * 0.08 }}
+      className="group"
     >
-      <div className="border border-[#d4c9bc] rounded-2xl overflow-hidden hover:border-[#8B6840]/30 transition-all flex flex-col h-full bg-[#ede8e0]">
-        {photo && (
-          <div className="overflow-hidden flex-shrink-0 bg-[#ede8e0] flex items-center justify-center" style={{ minHeight: "220px" }}>
-            <img src={photo} alt={name} className="w-full h-full object-contain" style={{ maxHeight: "260px" }} />
+      <div className="relative rounded-2xl overflow-hidden cursor-pointer" style={{ aspectRatio: "3/4" }}>
+        {/* Fotoğraf veya placeholder */}
+        {photo ? (
+          <img
+            src={photo}
+            alt={name}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="w-full h-full bg-[#ede8e0] flex flex-col items-center justify-center">
+            <div className="w-20 h-20 bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-3 text-4xl">🦷</div>
           </div>
         )}
-        <div className="p-5 text-center flex flex-col flex-1 bg-[#ede8e0]">
-          {!photo && <div className="w-16 h-16 mx-auto bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-3 text-2xl">🦷</div>}
-        <h3 className="text-sm font-bold text-[#2d2419] mb-1 leading-tight">{name}</h3>
-        <p className="text-[#8B6840] text-xs font-medium mb-1 leading-tight">{doc.specialty}</p>
-        <p className="text-[#9c8e84] text-xs mb-3">{doc.exp}</p>
-        <div className="flex items-center justify-center gap-0.5 mb-4">
-          {[...Array(5)].map((_, j) => (
-            <Star key={j} className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-          ))}
-        </div>
-        <a
-          href="#contact"
-          className="inline-block px-4 py-2 bg-[#8B6840] text-white rounded-lg font-semibold text-xs uppercase tracking-wider hover:bg-[#7a5c38] transition-all mb-3"
-        >
-          {appointmentBtn}
-        </a>
 
-          <button
-            type="button"
-            onClick={() => setOpen(!open)}
-            className="flex items-center justify-center gap-1 text-xs text-[#8B6840] hover:text-[#7a5c38] transition-colors mx-auto"
-          >
-            <span>{open ? hideBio : showBio}</span>
-            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
-          </button>
+        {/* Karanlık overlay — her zaman hafif, hover'da daha koyu */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300" />
 
-          {open && (
-            <div className="mt-3 pt-3 border-t border-[#d4c9bc]">
-              <p className="text-[#4a3728] text-xs leading-relaxed text-left">{bio}</p>
+        {/* Alt bilgi — her zaman görünür ama hover'da yukarı kayar */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-[30%] group-hover:translate-y-0 transition-transform duration-400">
+          <h3 className="text-white font-bold text-sm leading-tight mb-1">{name}</h3>
+          <p className="text-[#c9a87c] text-xs font-medium leading-tight mb-1">{doc.specialty}</p>
+          <p className="text-white/60 text-xs mb-3">{doc.exp}</p>
+
+          {/* Hover'da görünen ekstra içerik */}
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+            <div className="flex items-center gap-0.5 mb-3">
+              {[...Array(5)].map((_, j) => (
+                <Star key={j} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+              ))}
             </div>
-          )}
+            <a
+              href="#contact"
+              className="inline-block w-full text-center px-4 py-2 bg-[#8B6840] text-white rounded-lg font-semibold text-xs uppercase tracking-wider hover:bg-[#c9a87c] transition-all mb-2"
+            >
+              {appointmentBtn}
+            </a>
+            <button
+              type="button"
+              onClick={() => setOpen(!open)}
+              className="flex items-center justify-center gap-1 text-xs text-white/70 hover:text-white transition-colors w-full"
+            >
+              <span>{open ? hideBio : showBio}</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+            </button>
+            {open && (
+              <div className="mt-2 pt-2 border-t border-white/20">
+                <p className="text-white/80 text-xs leading-relaxed text-left">{bio}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>
