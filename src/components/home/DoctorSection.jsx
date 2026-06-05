@@ -40,7 +40,7 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
       <div className="border border-[#d4c9bc] rounded-2xl overflow-hidden hover:border-[#8B6840]/30 transition-all flex flex-col h-full bg-[#ede8e0]">
         {photo && (
           <div className="h-56 overflow-hidden flex-shrink-0">
-            <img src={photo} alt={name} className="w-full h-full object-cover" />
+            <img src={photo} alt={name} className="w-full h-full object-cover object-top" />
           </div>
         )}
         <div className="p-5 text-center flex flex-col flex-1 bg-[#ede8e0]">
