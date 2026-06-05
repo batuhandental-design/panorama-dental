@@ -11,6 +11,14 @@ const names = [
   "Dr. Arzu Dilan Yıldırım",
 ];
 
+const photos = [
+  null,
+  null,
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/7c6ef9e67_1.png",
+  null,
+  null,
+];
+
 const bios = [
   "Dr. Zeynep Umur, İstanbul Üniversitesi Diş Hekimliği Fakültesi mezunudur. 10 yılı aşkın klinik deneyimiyle estetik diş hekimliği ve implantoloji alanında uzmanlaşmış olup Hollywood Gülüşü ve zirkonyum kaplama tedavilerinde binlerce başarılı vakaya imza atmıştır. Uluslararası konferanslarda sunum yapan Dr. Umur, hasta odaklı yaklaşımıyla tanınmaktadır.",
   "Dr. Ömer Karayakalı, Hacettepe Üniversitesi'nde ortodonti uzmanlık eğitimini tamamlamıştır. Şeffaf plak (clear aligner) tedavileri ve metal/seramik tel uygulamalarında 8 yılı aşkın deneyime sahiptir. Yurt dışından gelen hastalara online konsültasyon sağlayarak kişiselleştirilmiş tedavi planları hazırlamaktadır.",
@@ -19,7 +27,7 @@ const bios = [
   "Dr. Arzu Dilan Yıldırım, İstanbul Üniversitesi-Cerrahpaşa Protetik Diş Hekimliği bölümü mezunudur. All-on-4, All-on-6 sistemleri ve tam protez uygulamalarında 7 yıllık deneyime sahip olan Dr. Yıldırım, her hastaya özel dijital gülüş tasarımı sunmaktadır.",
 ];
 
-function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index }) {
+function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, photo }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -29,7 +37,16 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index })
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 5) * 0.08 }}
     >
-      <div className="bg-gradient-to-br from-[#f7f3ef] to-[#e4dcd2] border border-[#d4c9bc] rounded-2xl p-5 text-center hover:border-[#8B6840]/30 transition-all flex flex-col">
+      <div 
+        className="border border-[#d4c9bc] rounded-2xl p-5 text-center hover:border-[#8B6840]/30 transition-all flex flex-col"
+        style={{
+          backgroundImage: photo ? `url(${photo})` : 'none',
+          backgroundColor: '#ede8e0',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="w-16 h-16 mx-auto bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-3 text-2xl">🦷</div>
         <h3 className="text-sm font-bold text-[#2d2419] mb-1 leading-tight">{name}</h3>
         <p className="text-[#8B6840] text-xs font-medium mb-1 leading-tight">{doc.specialty}</p>
@@ -90,6 +107,7 @@ export default function DoctorSection() {
               appointmentBtn={t.appointmentBtn}
               showBio={t.showBio}
               hideBio={t.hideBio}
+              photo={photos[i]}
             />
           ))}
         </div>
