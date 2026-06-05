@@ -42,7 +42,7 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
         style={{
           backgroundImage: photo ? `url(${photo})` : 'none',
           backgroundColor: '#ede8e0',
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
