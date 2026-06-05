@@ -3,31 +3,35 @@ import { motion } from "framer-motion";
 import { Star, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
+const topNames = ["Dr. Zeynep Umur", "Danışman Uğur Umur"];
+const topPhotos = [
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/bc7b56a22_4.png",
+  null,
+];
+const topBios = [
+  "Dr. Zeynep Umur, İstanbul Üniversitesi Diş Hekimliği Fakültesi mezunudur. 10 yılı aşkın klinik deneyimiyle estetik diş hekimliği ve implantoloji alanında uzmanlaşmış olup Hollywood Gülüşü ve zirkonyum kaplama tedavilerinde binlerce başarılı vakaya imza atmıştır. Uluslararası konferanslarda sunum yapan Dr. Umur, hasta odaklı yaklaşımıyla tanınmaktadır.",
+  "Danışman Uğur Umur, uluslararası hasta koordinasyonu ve medikal turizm alanında uzmanlaşmıştır. Yurt dışından gelen hastalar için kişiselleştirilmiş hizmet, transfer ve konaklama süreçlerini yönetmektedir.",
+];
+
 const names = [
-  "Dr. Zeynep Umur",
   "Dr. Ömer Karayakalı",
   "Dr. Elif Gizem Boyalı",
   "Dr. Süleyman Karataş",
   "Dr. Arzu Dilan Yıldırım",
-  "Danışman Uğur Umur",
 ];
 
 const photos = [
-  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/bc7b56a22_4.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/be39d9a74_3.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/7c6ef9e67_1.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/91f5cd8c1_2.png",
   null,
-  null,
 ];
 
 const bios = [
-  "Dr. Zeynep Umur, İstanbul Üniversitesi Diş Hekimliği Fakültesi mezunudur. 10 yılı aşkın klinik deneyimiyle estetik diş hekimliği ve implantoloji alanında uzmanlaşmış olup Hollywood Gülüşü ve zirkonyum kaplama tedavilerinde binlerce başarılı vakaya imza atmıştır. Uluslararası konferanslarda sunum yapan Dr. Umur, hasta odaklı yaklaşımıyla tanınmaktadır.",
   "Dr. Ömer Karayakalı, Hacettepe Üniversitesi'nde ortodonti uzmanlık eğitimini tamamlamıştır. Şeffaf plak (clear aligner) tedavileri ve metal/seramik tel uygulamalarında 8 yılı aşkın deneyime sahiptir. Yurt dışından gelen hastalara online konsültasyon sağlayarak kişiselleştirilmiş tedavi planları hazırlamaktadır.",
   "Dr. Elif Gizem Boyalı, Girne Üniversitesi Diş Hekimliği Fakültesi'nden mezun olmuştur. 8 yıldır aktif olarak diş hekimi olarak çalışmakta olup; kanal tedavisi, dolgu uygulamaları, protez tedavileri ve diş eti hastalıklarının teşhis ve tedavisi alanlarında hizmet vermektedir. Hastalarına konforlu, güvenilir ve güncel tedavi yaklaşımları sunmayı hedeflemektedir.",
   "Dr. Süleyman Karataş, Ankara Üniversitesi Ağız, Diş ve Çene Cerrahisi uzmanıdır. İmplant cerrahisi, sinüs lifting ve karmaşık çene cerrahisi operasyonlarında 9 yılı aşkın deneyimiyle tanınan Dr. Karataş, 3D tomografi rehberliğinde hassas cerrahi protokoller uygulamaktadır.",
   "Dr. Arzu Dilan Yıldırım, İstanbul Üniversitesi-Cerrahpaşa Protetik Diş Hekimliği bölümü mezunudur. All-on-4, All-on-6 sistemleri ve tam protez uygulamalarında 7 yıllık deneyime sahip olan Dr. Yıldırım, her hastaya özel dijital gülüş tasarımı sunmaktadır.",
-  "Danışman Uğur Umur, uluslararası hasta koordinasyonu ve medikal turizm alanında uzmanlaşmıştır. Yurt dışından gelen hastalar için kişiselleştirilmiş hizmet, transfer ve konaklama süreçlerini yönetmektedir.",
 ];
 
 function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, photo }) {
@@ -102,7 +106,8 @@ export default function DoctorSection() {
 
   const extraDoctor = { specialty: t.extraDoctorSpecialty, exp: t.extraDoctorExp };
   const consultantDoctor = { specialty: "Hasta Koordinatörü", exp: "Medikal Turizm Danışmanı" };
-  const allDoctors = [extraDoctor, ...t.doctors, consultantDoctor].slice(0, names.length);
+  const topDocs = [extraDoctor, consultantDoctor];
+  const bottomDocs = t.doctors.slice(0, names.length);
 
   return (
     <section className="py-20 bg-[#ede8e0] font-inter" id="doctors">
@@ -112,11 +117,31 @@ export default function DoctorSection() {
           <h2 className="text-2xl md:text-4xl font-bold text-[#2d2419] font-playfair mb-4">{t.doctorsTitle}</h2>
           <p className="text-[#6b5e52] max-w-lg mx-auto">{t.doctorsDesc}</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
-          {allDoctors.map((doc, i) => (
+
+        {/* Üst sıra: Dr. Zeynep Umur & Danışman Uğur Umur */}
+        <div className="flex justify-center gap-5 mb-5">
+          {topDocs.map((doc, i) => (
+            <div key={i} className="w-full max-w-[280px]">
+              <DoctorCard
+                index={i}
+                doc={doc}
+                name={topNames[i]}
+                bio={topBios[i]}
+                appointmentBtn={t.appointmentBtn}
+                showBio={t.showBio}
+                hideBio={t.hideBio}
+                photo={topPhotos[i]}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Alt sıra: diğer doktorlar */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {bottomDocs.map((doc, i) => (
             <DoctorCard
               key={i}
-              index={i}
+              index={i + 2}
               doc={doc}
               name={names[i]}
               bio={bios[i]}
