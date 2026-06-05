@@ -13,7 +13,7 @@ const names = [
 
 const photos = [
   null,
-  null,
+  "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/be39d9a74_3.png",
   "https://media.base44.com/images/public/69d79ff6631966558dbdfca2/7c6ef9e67_1.png",
   null,
   null,
