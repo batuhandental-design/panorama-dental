@@ -37,17 +37,14 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 5) * 0.08 }}
     >
-      <div 
-        className="border border-[#d4c9bc] rounded-2xl p-5 text-center hover:border-[#8B6840]/30 transition-all flex flex-col"
-        style={{
-          backgroundImage: photo ? `url(${photo})` : 'none',
-          backgroundColor: '#ede8e0',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className="w-16 h-16 mx-auto bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-3 text-2xl">🦷</div>
+      <div className="border border-[#d4c9bc] rounded-2xl overflow-hidden hover:border-[#8B6840]/30 transition-all flex flex-col h-full">
+        {photo && (
+          <div className="h-48 overflow-hidden">
+            <img src={photo} alt={name} className="w-full h-full object-cover" />
+          </div>
+        )}
+        <div className="p-5 text-center flex flex-col flex-1 bg-[#ede8e0]">
+          {!photo && <div className="w-16 h-16 mx-auto bg-[#8B6840]/10 rounded-full flex items-center justify-center mb-3 text-2xl">🦷</div>}
         <h3 className="text-sm font-bold text-[#2d2419] mb-1 leading-tight">{name}</h3>
         <p className="text-[#8B6840] text-xs font-medium mb-1 leading-tight">{doc.specialty}</p>
         <p className="text-[#9c8e84] text-xs mb-3">{doc.exp}</p>
@@ -63,20 +60,21 @@ function DoctorCard({ doc, name, bio, appointmentBtn, showBio, hideBio, index, p
           {appointmentBtn}
         </a>
 
-        <button
-          type="button"
-          onClick={() => setOpen(!open)}
-          className="flex items-center justify-center gap-1 text-xs text-[#8B6840] hover:text-[#7a5c38] transition-colors mx-auto"
-        >
-          <span>{open ? hideBio : showBio}</span>
-          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            className="flex items-center justify-center gap-1 text-xs text-[#8B6840] hover:text-[#7a5c38] transition-colors mx-auto"
+          >
+            <span>{open ? hideBio : showBio}</span>
+            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+          </button>
 
-        {open && (
-          <div className="mt-3 pt-3 border-t border-[#d4c9bc]">
-            <p className="text-[#4a3728] text-xs leading-relaxed text-left">{bio}</p>
-          </div>
-        )}
+          {open && (
+            <div className="mt-3 pt-3 border-t border-[#d4c9bc]">
+              <p className="text-[#4a3728] text-xs leading-relaxed text-left">{bio}</p>
+            </div>
+          )}
+        </div>
       </div>
     </motion.div>
   );
