@@ -9,10 +9,27 @@ import { base44 } from "@/api/base44Client";
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", branch: "" });
+  const [errors, setErrors] = useState({});
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+
+  // Telefon: + ile başlayan alan kodu + sadece rakam ve boşluk/tire
+  const phoneRegex = /^\+\d[\d\s-]{6,}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateEmail = (value) => {
+    if (!value) return t.emailRequired || "E-posta zorunludur";
+    if (!emailRegex.test(value)) return t.emailInvalid || "Geçerli bir e-posta adresi giriniz (örn: ad@ornek.com)";
+    return "";
+  };
+
+  const validatePhone = (value) => {
+    if (!value) return t.phoneRequired || "Telefon zorunludur";
+    if (!phoneRegex.test(value)) return t.phoneInvalid || "Telefonu alan kodu ile giriniz (örn: +90 555 189 60 62)";
+    return "";
+  };
   const fileInputRef = useRef(null);
   const { t } = useLanguage();
 
@@ -28,11 +45,14 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!form.name.trim() || !form.phone.trim() || !form.email.trim() || !form.message.trim()) {
-      alert(t.requiredFields || "Lütfen tüm alanları doldurunuz");
-      return;
-    }
+
+    const newErrors = {};
+    if (!form.name.trim() || !form.message.trim()) newErrors.name = t.requiredFields || "Lütfen tüm alanları doldurunuz";
+    newErrors.email = validateEmail(form.email);
+    newErrors.phone = validatePhone(form.phone);
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).some((v) => v)) return;
 
     setSending(true);
     let fileUrls = [];
@@ -231,9 +251,32 @@ export default function ContactSection() {
               </div>
             ) : (
               <>
-                <Input placeholder={t.namePlaceholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
-                <Input placeholder={t.emailPlaceholder} type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
-                <Input placeholder={t.phonePlaceholder} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
+                <div>
+                  <Input placeholder={t.namePlaceholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12" />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                </div>
+                <div>
+                  <Input
+                    placeholder={t.emailPlaceholder}
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors((p) => ({ ...p, email: "" })); }}
+                    onBlur={(e) => setErrors((p) => ({ ...p, email: validateEmail(e.target.value) }))}
+                    className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12"
+                  />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                </div>
+                <div>
+                  <Input
+                    placeholder={t.phonePlaceholder}
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => { setForm({ ...form, phone: e.target.value }); setErrors((p) => ({ ...p, phone: "" })); }}
+                    onBlur={(e) => setErrors((p) => ({ ...p, phone: validatePhone(e.target.value) }))}
+                    className="bg-[#f7f3ef] border-[#c9bfb4] text-[#2d2419] placeholder:text-[#9c8e84] h-12"
+                  />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                </div>
                 <select
                   value={form.branch}
                   onChange={(e) => setForm({ ...form, branch: e.target.value })}
