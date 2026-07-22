@@ -81,7 +81,7 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#c9a87c] flex-shrink-0" />
-                <span className="text-sm">info@panoramadental.com</span>
+                <span className="text-sm">halicpanoramadental@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-[#c9a87c] flex-shrink-0" />
