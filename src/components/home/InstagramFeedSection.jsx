@@ -16,7 +16,7 @@ export default function InstagramFeedSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-[#ede8e0] font-inter">
+    <section className="py-20 bg-[#ede8e0]/80 backdrop-blur-sm font-inter">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">

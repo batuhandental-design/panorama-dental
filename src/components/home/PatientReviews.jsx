@@ -230,7 +230,7 @@ export default function PatientReviews() {
   };
 
   return (
-    <section className="py-20 font-inter overflow-hidden" style={{ background: "#f7f3ef" }}>
+    <section className="py-20 font-inter overflow-hidden backdrop-blur-sm" style={{ background: "rgba(247,243,239,0.8)" }}>
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">

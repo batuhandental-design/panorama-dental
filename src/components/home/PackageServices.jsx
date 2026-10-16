@@ -8,7 +8,7 @@ export default function PackageServices() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-[#ede8e0] font-inter">
+    <section className="py-20 bg-[#ede8e0]/80 backdrop-blur-sm font-inter">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3">{t.packagesLabel}</p>

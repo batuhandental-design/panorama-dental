@@ -18,6 +18,7 @@ import CertificatesSection from "../components/home/CertificatesSection.jsx";
 import ContactSection from "../components/home/ContactSection.jsx";
 import Footer from "../components/home/Footer";
 import WhatsAppButton from "../components/home/WhatsAppButton";
+import ScrollBackground from "../components/home/ScrollBackground";
 
 export default function Home() {
   const location = useLocation();
@@ -43,7 +44,8 @@ export default function Home() {
   }, [location.hash]);
 
   return (
-    <div className="min-h-screen bg-[#f7f3ef]">
+    <div className="min-h-screen">
+        <ScrollBackground />
       <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
         <TopBar />
         <Navbar />

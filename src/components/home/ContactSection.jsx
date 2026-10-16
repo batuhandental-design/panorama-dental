@@ -96,7 +96,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 bg-[#ede8e0] font-inter" id="contact">
+    <section className="py-20 bg-[#ede8e0]/80 backdrop-blur-sm font-inter" id="contact">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* İki Klinik Harita + Bilgileri */}

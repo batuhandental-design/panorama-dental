@@ -7,7 +7,7 @@ const logos = [
 
 export default function StatsSection() {
   return (
-    <section className="py-16 font-inter overflow-hidden" style={{ backgroundColor: "#f0ece6" }}>
+    <section className="py-16 font-inter overflow-hidden backdrop-blur-sm" style={{ backgroundColor: "rgba(240,236,230,0.8)" }}>
       <div className="max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-items-center">
           {logos.map((logo, i) => (

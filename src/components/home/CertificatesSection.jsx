@@ -31,7 +31,7 @@ export default function CertificatesSection() {
   ];
 
   return (
-    <section className="py-16 bg-[#f7f3ef] font-inter">
+    <section className="py-16 bg-[#f7f3ef]/80 backdrop-blur-sm font-inter">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-10">
           <p className="text-[#8B6840] text-xs uppercase tracking-[0.3em] font-medium mb-2">{t.certsLabel}</p>

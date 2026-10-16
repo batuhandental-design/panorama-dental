@@ -389,7 +389,7 @@ export default function DepartmentsSection() {
     <section
       className="py-20 font-inter"
       id="departments"
-      style={{ background: "#f7f3ef" }}
+      style={{ background: "rgba(247,243,239,0.8)", backdropFilter: "blur(4px)" }}
     >
       <style>{`
         .operation-card:hover h4 { color: #8B6840; }
