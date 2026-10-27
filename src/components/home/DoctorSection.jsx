@@ -94,7 +94,7 @@ export default function DoctorSection() {
   const bottomDocs = [t.doctors[0], { specialty: t.consultantSpecialty, exp: t.consultantExp }, t.doctors[2], t.doctors[3]];
 
   return (
-    <section className="py-20 bg-[#ede8e0]/80 backdrop-blur-sm font-inter" id="doctors">
+    <section className="py-20 bg-[#ede8e0] font-inter" id="doctors">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.doctorsLabel}</p>

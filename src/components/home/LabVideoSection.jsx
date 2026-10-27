@@ -35,7 +35,7 @@ export default function LabVideoSection() {
   const txt = sectionTitles[lang] || sectionTitles.tr;
 
   return (
-    <section className="py-20 bg-[#2c2419]/85 backdrop-blur-sm font-inter">
+    <section className="py-20 bg-[#2c2419] font-inter">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div

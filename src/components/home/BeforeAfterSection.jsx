@@ -107,7 +107,7 @@ export default function BeforeAfterSection() {
   }, [handleScroll, scrollToIndex]);
 
   return (
-    <section className="py-24 bg-[#f0ece5]/80 backdrop-blur-sm font-inter overflow-hidden" id="before-after">
+    <section className="py-24 bg-gradient-to-b from-[#f0ece5] to-[#e8e0d5] font-inter overflow-hidden" id="before-after">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div

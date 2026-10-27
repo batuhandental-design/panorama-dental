@@ -79,7 +79,7 @@ export default function ServicesGrid() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-[#f7f3ef]/80 backdrop-blur-sm font-inter" id="services">
+    <section className="py-20 bg-[#f7f3ef] font-inter" id="services">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-[#8B6840] text-sm uppercase tracking-[0.3em] mb-3 font-medium">{t.servicesLabel}</p>
